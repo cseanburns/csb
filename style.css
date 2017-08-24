@@ -60,7 +60,7 @@ aside, footer {
 
 aside > ul, footer > ul {
 	list-style-type: none;
-	padding: 0;
+	padding-left: 10px;
 }
 
 /* Text */
