@@ -1,79 +1,73 @@
 /* Main Body */
 
-html, body {
-	background-color: #FFFFFF;
-	font-size: 1rem;
+#container {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media screen and (max-width: 600px) {
-	ul.topnav li.right,
-	ul.topnav li {float: none;}
+#top_nav {
+  width: 50%;
+  border: 2px solid #0033A0;
+  border-radius: 5px;
+  }
+
+#top_nav > ul {
+  display: flex;
+  flex-direction: row;
 }
 
-/* Navigation */
+#top_nav > ul > li {
+  list-style-type: none;
+  padding-right: 10px;
+  }
 
-nav {
-	max-width: 600px;
-	margin: auto;
-	text-align: left;
+header {
+  width: 50%;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
-ul.topnav {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #FFFFFF;
-	border-width: 0.5px;
-	border-style: solid;
-	border-color: #CCCCCC;
-	border-radius: 10px;
+article {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-ul.topnav li {
-	float: left;
+#research {
+  width: 50%;
+  border: 2px solid #0033A0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
-ul.topnav li a {
-	display: block;
-	color: #000000;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
+#teaching {
+  width: 50%;
+  border: 2px solid #0033A0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
-ul.topnav li.right {
-	float: right;
+#old_sites {
+  width: 50%;
+  border: 2px solid #0033A0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
-/* Sections */
-
-section, aside, footer {
-	max-width: 600px;
-	margin: auto;
-	text-align: left;
+footer {
+  width: 50%;
+  border: 2px solid #0033A0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
-aside, footer {
-	font-size: 0.9rem;
-}
+address {
 
-aside > ul, footer > ul {
-	list-style-type: none;
-	padding-left: 10px;
-}
-
-/* Text */
-
-h1 {
-	color: #0033A0;
-	font-size: 1.5rem;
-}
-
-#gpg {
-  font-style: italic;
-}
-
-#time {
-	font-style: oblique;
 }
