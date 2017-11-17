@@ -1,73 +1,101 @@
+/* Small Media */
+
+@media screen and (max-width: 600px) {
+	ul.topnav li {float: none;}
+}
+
 /* Main Body */
 
-#container {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+body {
+	font-size: 1em;
 }
 
-#top_nav {
-  width: 50%;
-  border: 2px solid #0033A0;
-  border-radius: 5px;
-  }
+/* Navigation */
 
-#top_nav > ul {
-  display: flex;
-  flex-direction: row;
+nav {
+	max-width: 700px;
+	margin: auto;
+	margin-bottom: 10px;
+	padding-bottom: 0;
 }
 
-#top_nav > ul > li {
-  list-style-type: none;
-  padding-right: 10px;
-  }
+ul.topnav {
+	display: block;
+	list-style-type: none;
+	overflow: hidden;
+	border-bottom: 2.5px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-radius: 10px;
+	box-shadow: 1px 1px 1px #888888;
+	}
 
-header {
-  width: 50%;
-  margin-bottom: 10px;
-  padding: 10px;
+ul.topnav li {
+	float: left;
+	padding: 10px 10px;
 }
 
-article {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+ul.topnav li a {
+	color: #000000;
+	text-decoration: none;
 }
 
-#research {
-  width: 50%;
-  border: 2px solid #0033A0;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  padding: 10px;
+/* Sections */
+
+section, aside, footer {
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5px;
+	padding: 5px;
+	}
+
+aside, footer {
+	font-size: 0.9em;
+	border-bottom: 1.5px solid #CCCCCC;
+	border-radius: 10px;
 }
 
-#teaching {
-  width: 50%;
-  border: 2px solid #0033A0;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-#old_sites {
-  width: 50%;
-  border: 2px solid #0033A0;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  padding: 10px;
+aside > ul, footer > ul {
+	list-style-type: none;
 }
 
 footer {
-  width: 50%;
-  border: 2px solid #0033A0;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  padding: 10px;
+	display: flex;
 }
 
-address {
+/* Text */
 
+h1 {
+	color: #0033A0;
+	font-variant: small-caps;
+}
+
+section > p {
+	line-height: 1.5em;
+	text-indent: 1em;
+	text-align: left;
+}
+
+footer > p {
+	font-size: 0.8em;
+	padding-right: 20px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.indent {
+	text-indent: 1em;
+}
+
+#gpg {
+	font-style: italic;
+}
+
+#time {
+	font-style: italic;
+	font-size: 0.8em;
+	text-align: center;
 }
