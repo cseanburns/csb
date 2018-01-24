@@ -7,61 +7,59 @@
 /* Main Body */
 
 body {
-	font-size: 1em;
+  max-width: 700px;
 }
 
 /* Navigation */
 
-nav {
-	max-width: 700px;
-	margin: auto;
-	margin-bottom: 10px;
-	padding-bottom: 0;
-}
-
 ul.topnav {
-	display: block;
+	display: flex;
+	flex-flow: row wrap;
 	list-style-type: none;
 	overflow: hidden;
-	border-bottom: 2.5px solid #CCCCCC;
-	border-right: 1px solid #CCCCCC;
-	border-left: 1px solid #CCCCCC;
-	border-radius: 10px;
-	box-shadow: 1px 1px 1px #888888;
-	}
+	border-top: 1.5px solid #CCCCCC;
+	border-bottom: 1.5px solid #CCCCCC;
+}
 
 ul.topnav li {
-	float: left;
 	padding: 10px 10px;
+	font-weight: bold;
 }
 
 ul.topnav li a {
-	color: #000000;
 	text-decoration: none;
+}
+
+#title {
+	line-height: 0.25em;
+	font-size: 1.5em;
 }
 
 /* Sections */
 
-section, aside, footer {
-	max-width: 700px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 5px;
-	padding: 5px;
-	}
-
-aside, footer {
-	font-size: 0.9em;
-	border-bottom: 1.5px solid #CCCCCC;
-	border-radius: 10px;
+.flexcontainer {
+	display: flex;
+	flex-flow: column wrap;
 }
 
-aside > ul, footer > ul {
+#research, #teaching {
+	padding: 5px;
+}
+
+footer {
+  font-size: 0.8em;
+	border-top: 1.5px solid #CCCCCC;
+	border-bottom: 1.5px solid #CCCCCC;
+	}
+
+footer > ul {
 	list-style-type: none;
 }
 
 footer {
 	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 /* Text */
@@ -99,3 +97,4 @@ a {
 	font-size: 0.8em;
 	text-align: center;
 }
+
