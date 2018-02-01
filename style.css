@@ -4,10 +4,26 @@
 	ul.topnav li {float: none;}
 }
 
-/* Main Body */
+/* Layout */
 
-body {
-  max-width: 700px;
+.flexcontainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#research, #teaching {
+	max-width: 700px;
+	margin: 5px;
+	padding: 2px;
+}
+
+footer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Navigation */
@@ -15,6 +31,7 @@ body {
 ul.topnav {
 	display: flex;
 	flex-flow: row wrap;
+  justify-content: center;
 	list-style-type: none;
 	overflow: hidden;
 	border-top: 1.5px solid #CCCCCC;
@@ -30,39 +47,13 @@ ul.topnav li a {
 	text-decoration: none;
 }
 
+/* Text */
+
 #title {
 	line-height: 0.25em;
 	font-size: 1.5em;
+  text-align: center;
 }
-
-/* Sections */
-
-.flexcontainer {
-	display: flex;
-	flex-flow: column wrap;
-}
-
-#research, #teaching {
-	padding: 5px;
-}
-
-footer {
-  font-size: 0.8em;
-	border-top: 1.5px solid #CCCCCC;
-	border-bottom: 1.5px solid #CCCCCC;
-	}
-
-footer > ul {
-	list-style-type: none;
-}
-
-footer {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
-
-/* Text */
 
 h1 {
 	color: #0033A0;
@@ -75,9 +66,19 @@ section > p {
 	text-align: left;
 }
 
+footer {
+  font-size: 0.8em;
+	border-top: 1.5px solid #CCCCCC;
+	border-bottom: 1.5px solid #CCCCCC;
+	}
+
 footer > p {
 	font-size: 0.8em;
 	padding-right: 20px;
+}
+
+footer > ul {
+	list-style-type: none;
 }
 
 a {
