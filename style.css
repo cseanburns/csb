@@ -33,6 +33,7 @@ ul.topnav {
 	flex-flow: row wrap;
   justify-content: center;
 	list-style-type: none;
+	background-color: #F5F5F5;
 	overflow: hidden;
 	border-top: 1.5px solid #CCCCCC;
 	border-bottom: 1.5px solid #CCCCCC;
@@ -68,6 +69,7 @@ section > p {
 
 footer {
   font-size: 0.8em;
+	background-color: #F5F5F5;
 	border-top: 1.5px solid #CCCCCC;
 	border-bottom: 1.5px solid #CCCCCC;
 	}
