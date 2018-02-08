@@ -7,7 +7,7 @@ body {
 	flex-direction: column;
 	min-height: 100%;
 	width: 100%;
-	margin: 0px;
+	margin: 0;
 }
 
 nav {
@@ -34,6 +34,7 @@ nav > ul a {
 
 .content {
 	flex: 1 0 auto; /* flex-grow flex-shrink flex-basis */
+	padding: 0 10px 0 10px;
 }
 
 footer {
