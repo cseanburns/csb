@@ -1,3 +1,13 @@
+p {
+  color: #50394c;
+  font-family: "Courier New", sans-serif;
+}
+
+ul {
+  color: #4040a1;
+  font-family: "Courier New", sans-serif;
+}
+
 .smalltext {
   font-size: medium;
 }
@@ -6,6 +16,7 @@ table {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   border-collapse: collapse;
+  color: #674d3c;
 }
 
 th {
