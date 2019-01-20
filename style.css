@@ -1,23 +1,120 @@
-img { 
+/* CSS Variables */
+:root {
+  --main: #ffffff;
+  --dark: #333333;
+  --lessdark: rgba(51, 51, 51, 0.85);
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+/* Main Sections */
+
+body {
+  margin: 0.5em 2em;
+}
+
+nav ul {
+	display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  grid-gap: 20px;
+  list-style-type: none;
+  padding: 2em;
+}
+
+nav li a {
+  display: block;
+  border: 1px solid black;
+  padding: 1em 2em;
+  background-color: var(--dark);
+  color: var(--main);
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.2em;
+  box-shadow: var(--shadow);
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+nav li a:hover {
+  background: var(--main);
+  color: var(--dark);
+  border: 1px solid white;
+}
+
+img {
   float: left;
   border: 1px solid black;
   margin: 10px;
+  box-shadow: var(--shadow);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+  grid-gap: 30px;
+}
+
+.wrapper a {
+  text-decoration: none;
+  color: #2f4f4f;
+  background-color: #f0f8ff;
+}
+
+.wrapper a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  width: 300px;
+}
+
+/* Text styles */
+
+h2 {
+  border: 1px solid var(--lessdark);
+  padding: 0 2em 0 2em;
+  background-color: var(--lessdark);
+  color: var(--main);
+  box-shadow: var(--shadow);
+  font-family: "Open Sans", sans-serif;
 }
 
 p {
-  color: #50394c;
-  font-family: "Courier New", sans-serif;
+  line-height: 1.5em;
 }
 
-.smalltext {
-  font-size: medium;
+.about p::first-letter {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.about ul {
+  text-align: right;
+}
+
+.research ul {
+  text-align: justify;
+  line-height: 1.5em;
+}
+
+.research p:first-letter {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.teaching p::first-letter {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+p, td {
+  color: #50394c;
+  font-family: "Lora", serif;
 }
 
 table {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   border-collapse: collapse;
-  color: #674d3c;
 }
 
 th {
@@ -30,12 +127,4 @@ th {
 
 td {
   padding: 10px;
-}
-
-.emphasize {
-  background-color: #FFF;
-  border-radius: 7px;
-  border-top: solid 1px black;
-  border-bottom: solid 1px black;
-  padding: 5px;
 }
