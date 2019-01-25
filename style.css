@@ -108,7 +108,7 @@ p {
 
 p, td {
   color: #50394c;
-  font-family: "Lora", serif;
+  font-family: "Zilla Slab", serif; /* Lora is a good font, too */
 }
 
 table {
