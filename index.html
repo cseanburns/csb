@@ -13,39 +13,51 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
-  "@type": "Person",
-  "givenName": "C Sean",
-  "familyName": "Burns",
-  "honorificSuffix": "PhD",
-  "jobTitle": "Assistant Professor",
-  "telephone": "+18592182297",
-  "url": "https://cseanburns.net/",
-  "email":
+  "@id": "https://cseanburns.net/",
+  "@type": "WebPage",
+  "creator": {
+    "@id": "https://me.cseanburns.net",
+    "@type": "Person",
+    "name": "C. Sean Burns",
+    "honorificPrefix": "Dr.",
+    "image": {
+      "@id": "https://cseanburns.net/images/sean_burns.jpeg",
+      "@type": "ImageObject",
+      "caption": "C. Sean Burns"
+    },
+    "url": "https://cseanburns.net/",
+    "nationality": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "jobTitle": "Assistant Professor",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "University of Kentucky",
+      "url": "https://www.uky.edu/"
+    },
+    "email":
+      [
+      "sean.burns@uky.edu",
+      "sean.csb@gmail.com"
+      ],
+    "telephone": "+18592182297",
+    "alumniOf":
+      [
+      "http://ou.monmouthcollege.edu",
+      "http://sislt.missouri.edu"
+      ],
+    "sameAs":
     [
-    "sean.burns@uky.edu",
-    "sean.csb@gmail.com"
-    ],
-  "worksFor":
-    [
-    "https://ci.uky.edu/sis/",
-    "http://www.uky.edu/"
-    ],
-  "workLocation": "Lexington, Kentucky",
-  "alumniOf":
-    [
-    "http://ou.monmouthcollege.edu",
-    "http://sislt.missouri.edu"
-    ],
-  "sameAs":
-    [
-    "https://ci.uky.edu/sis/users/sean-burns",
-    "https://github.com/cseanburns/",
-    "https://works.bepress.com/cseanburns/",
-    "https://en.wikipedia.org/wiki/User:Cseanburns",
-    "https://orcid.org/0000-0001-8695-3643",
-    "http://www.researcherid.com/rid/F-9237-2013",
-    "https://www.youtube.com/user/seancsb"
+      "https://ci.uky.edu/sis/users/sean-burns",
+      "https://github.com/cseanburns/",
+      "https://works.bepress.com/cseanburns/",
+      "https://en.wikipedia.org/wiki/User:Cseanburns",
+      "https://orcid.org/0000-0001-8695-3643",
+      "http://www.researcherid.com/rid/F-9237-2013",
+      "https://www.youtube.com/user/seancsb"
     ]
+             }
 }
 </script>
 
@@ -64,7 +76,9 @@
     <div class="wrapper">
       <section class="about">
         <h2>About</h2>
-        <img src="../images/sean_burns.jpeg" alt="Sean Burns Photo" />
+        <figure>
+        <img src="../images/sean_burns.jpeg" alt="Headshot of Sean Burns" />
+        </figure>
         <p>
           I am an assistant professor of information science at the University
           of Kentucky.
