@@ -2,7 +2,8 @@
 :root {
   --main: #ffffff;
   --dark: #333333;
-  --lessdark: rgba(51, 51, 51, 0.85);
+  --lessdark: #4b749b;
+  /* --lessdark: rgba(51, 51, 51, 0.85); */
   --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 }
 
@@ -80,6 +81,10 @@ h2 {
 
 p {
   line-height: 1.5em;
+}
+
+section {
+  width: 90%;
 }
 
 .about p::first-letter {
