@@ -1,16 +1,16 @@
 /* CSS Variables */
 :root {
   --main: #ffffff;
-  --dark: #333333;
-  --lessdark: #4b749b;
-  /* --lessdark: rgba(51, 51, 51, 0.85); */
+  --dark: #6c648b;
+  --lessdark: #6bbaa7;
+/*  --dark: #333333;
+  --lessdark: #4b749b; */
   --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 }
 
-/* Main Sections */
-
 body {
-  margin: 0.5em 2em;
+  margin-top: 2em;
+  background-color: #f5f5f5;
 }
 
 nav ul {
@@ -23,7 +23,7 @@ nav ul {
 
 nav li a {
   display: block;
-  border: 1px solid black;
+  border: 1px solid var(--dark);
   padding: 1em 2em;
   background-color: var(--dark);
   color: var(--main);
@@ -49,42 +49,40 @@ img {
 }
 
 .wrapper {
+  margin-left: 2em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
   grid-gap: 30px;
+  grid-auto-rows: minmax(400px, auto);
 }
 
 .wrapper a {
   text-decoration: none;
-  color: #2f4f4f;
-  background-color: #f0f8ff;
-}
-
-.wrapper a:hover {
+  color: #0f1626;
   text-decoration: underline;
 }
 
-footer p {
-  width: 300px;
+.wrapper a:hover {
+  text-decoration: none;
 }
 
-/* Text styles */
+section {
+  width: 90%;
+}
 
 h2 {
   border: 1px solid var(--lessdark);
   padding: 0 2em 0 2em;
   background-color: var(--lessdark);
-  color: var(--main);
+  color: #f5f5f5;
   box-shadow: var(--shadow);
   font-family: "Open Sans", sans-serif;
 }
 
 p {
+  color: #50394c;
+  font-family: "Zilla Slab", serif; /* Lora is a good font, too */
   line-height: 1.5em;
-}
-
-section {
-  width: 90%;
 }
 
 .about p::first-letter {
@@ -92,16 +90,7 @@ section {
   font-size: 1.1em;
 }
 
-.about ul {
-  text-align: right;
-}
-
-.research ul {
-  text-align: justify;
-  line-height: 1.5em;
-}
-
-.research p:first-letter {
+.research p::first-letter {
   font-weight: bold;
   font-size: 1.1em;
 }
@@ -111,25 +100,20 @@ section {
   font-size: 1.1em;
 }
 
-p, td {
+.links p::first-letter {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.links ul {
   color: #50394c;
   font-family: "Zilla Slab", serif; /* Lora is a good font, too */
+  line-height: 1.5em;
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0 0 10px;
 }
 
-table {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  border-collapse: collapse;
-}
-
-th {
-  border-bottom: 1px solid black;
-  border-collapse: collapse;
+footer p {
   text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-td {
-  padding: 10px;
 }
