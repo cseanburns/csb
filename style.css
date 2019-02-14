@@ -117,3 +117,7 @@ p {
 footer p {
   text-align: center;
 }
+
+footer a {
+  color: #50394c;
+}
