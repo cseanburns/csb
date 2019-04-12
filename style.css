@@ -35,7 +35,7 @@ nav li a {
   text-align: center;
   font-size: 1.2em;
   box-shadow: var(--shadow);
-  font-family: "Lato", sans-serif;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
 }
 
 nav li a:hover {
@@ -79,13 +79,13 @@ h2 {
   background-color: var(--reddish);
   color: #eee8d5;
   box-shadow: var(--shadow);
-  font-family: "Lato", sans-serif;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
   font-weight: normal;
 }
 
 p {
   color: var(--dark);
-  font-family: "Zilla Slab", serif; /* Lora is a good font, too */
+  font-family: Georgia, Times, Times New Roman, serif;
   line-height: 1.5em;
   font-size: 1.2em;
 }
@@ -97,21 +97,21 @@ p {
 
 #research p::first-letter {
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.3em;
 }
 
 #teaching p::first-letter {
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.3em;
 }
 
 #links p::first-letter {
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.3em;
 }
 
 #links ul {
-  font-family: "Zilla Slab", serif; /* Lora is a good font, too */
+  font-family: Georgia, Times, Times New Roman, serif;
   line-height: 1.5em;
   list-style-type: none;
   margin: 0;
