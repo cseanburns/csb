@@ -51,18 +51,6 @@ img {
   box-shadow: var(--shadow);
 }
 
-#subtitle1 {
-  text-align: center;
-  font-family: Helvetica, Verdana, Arial, sans-serif;
-  font-weight: normal;
-}
-
-#subtitle2 {
-  text-align: center;
-  font-family: Helvetica, Verdana, Arial, sans-serif;
-  font-weight: normal;
-}
-
 .wrapper {
   margin-left: 2em;
   display: grid;
