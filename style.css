@@ -1,20 +1,26 @@
 /* CSS Variables */
 
-/* Some colors based on Solarized
- * https://ethanschoonover.com/solarized/ */
-
-/* Todo: need to fix color var names ; make names more meaningful */
-
 :root {
-  --main: #ffffff;
-  --dark: #002a15;
-  --reddish: #aa2e00;
+  --main: #fcfcfc;
+  --dark: #252f3e;
+  --headers: #005ea2;
   --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 }
 
 body {
   margin-top: 2em;
-  background-color: #eee8d5;
+  background-color: var(--main);
+}
+
+#mainHeader {
+  border: 1px solid var(--headers);
+  padding: 0 2em 0 2em;
+  background-color: var(--headers);
+  color: var(--main);
+  box-shadow: var(--shadow);
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.4em;
 }
 
 nav ul {
@@ -30,7 +36,7 @@ nav li a {
   border: 1px solid var(--dark);
   padding: 1em 2em;
   background-color: var(--dark);
-  color: #eee8d5;
+  color: var(--main);
   text-decoration: none;
   text-align: center;
   font-size: 1.2em;
@@ -39,8 +45,8 @@ nav li a {
 }
 
 nav li a:hover {
-  background: #eee8d5;
-  color: var(--dark);
+  background: var(--headers); 
+  color: var(--main);
   border: 1px solid white;
 }
 
@@ -61,7 +67,7 @@ img {
 
 .wrapper a {
   text-decoration: none;
-  color: var(--reddish);
+  color: var(--headers);
   text-decoration: underline;
 }
 
@@ -69,15 +75,19 @@ img {
   text-decoration: none;
 }
 
+.wrapper a:visited {
+  color: var(--dark);
+}
+
 section {
   width: 90%;
 }
 
 section h2 {
-  border: 1px solid var(--reddish);
+  border: 1px solid var(--headers);
   padding: 0 2em 0 2em;
-  background-color: var(--reddish);
-  color: #eee8d5;
+  background-color: var(--headers);
+  color: var(--main);
   box-shadow: var(--shadow);
   font-family: Helvetica, Verdana, Arial, sans-serif;
   font-weight: normal;
@@ -123,7 +133,7 @@ footer p {
 }
 
 footer a {
-  color: var(--reddish);
+  color: var(--headers);
 }
 
 footer a:hover {
