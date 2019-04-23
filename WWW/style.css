@@ -1,5 +1,5 @@
 /* CSS Variables */
-/* Main */
+/* Blog */
 
 :root {
   --main: #fcfcfc;
@@ -62,25 +62,13 @@ nav li a:hover {
   grid-auto-rows: minmax(400px, auto);
 }
 
-.wrapper img {
-  float: left;
-  border: 1px solid black;
-  margin: 10px;
+h1 {
+  border: 1px solid var(--headers);
+  background-color: var(--headers);
+  color: var(--main);
   box-shadow: var(--shadow);
-}
-
-.wrapper a {
-  text-decoration: none;
-  color: var(--headers);
-  text-decoration: underline;
-}
-
-.wrapper a:hover {
-  text-decoration: none;
-}
-
-.wrapper a:visited {
-  color: var(--dark);
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  font-weight: normal;
 }
 
 section h2 {
@@ -93,6 +81,11 @@ section h2 {
   font-weight: normal;
 }
 
+section h3 {
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  font-weight: bold;
+}
+
 p {
   color: var(--dark);
   font-family: Georgia, Times, Times New Roman, serif;
@@ -100,17 +93,35 @@ p {
   font-size: 1.2em;
 }
 
-section p::first-letter {
-  font-weight: bold;
-  font-size: 1.3em;
+a {
+  color: var(--headers);
 }
 
-#links ul {
-  font-family: Georgia, Times, Times New Roman, serif;
-  line-height: 1.5em;
-  list-style-type: none;
-  margin: 0;
-  padding: 0 0 0 10px;
+a:hover {
+  text-decoration: none;
+}
+
+pre {
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--main);
+  background-color: var(--dark);
+}
+
+table {
+  border-collapse: collapse;
+  border-bottom: 1px solid black;
+}
+
+th {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  font-weight: bold;
+}
+
+td {
+  padding: 2px 10px 2px 10px;
 }
 
 footer p {
