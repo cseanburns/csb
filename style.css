@@ -116,3 +116,13 @@ section p::first-letter {
 footer p {
   text-align: center;
 }
+
+footer a {
+  color: var(--headers);
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+
+
