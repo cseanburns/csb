@@ -2,9 +2,9 @@
 /* Blog */
 
 :root {
-  --main: #fcfcfc;
-  --dark: #252f3e;
-  --headers: #005ea2;
+  --main: #fff;
+  --dark: #000;
+  --headers: #0d3d56;
   --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 }
 

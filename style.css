@@ -2,9 +2,9 @@
 /* Main */
 
 :root {
-  --main: #fcfcfc;
-  --dark: #252f3e;
-  --headers: #005ea2;
+  --main: #fff;
+  --dark: #000;
+  --headers: #0d3d56;
   --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 }
 
@@ -52,7 +52,7 @@ nav li a {
 nav li a:hover {
   background: var(--headers); 
   color: var(--main);
-  border: 1px solid white;
+  border: 1px solid *var(--headers);
 }
 
 .wrapper {
@@ -64,7 +64,7 @@ nav li a:hover {
 
 .wrapper img {
   float: left;
-  border: 1px solid black;
+  border: 1px solid var(--dark);
   margin: 10px;
   box-shadow: var(--shadow);
 }
@@ -124,5 +124,3 @@ footer a {
 footer a:hover {
   text-decoration: none;
 }
-
-
