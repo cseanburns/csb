@@ -3,10 +3,10 @@
 
 // Mutable variables
 let user = "Sean";
-let age = 46;
+let age = 66;
 let message = "Howdy, Sean!";
 // Immutable variables
-const myBirthday = "23.10.1972";
+const myBirthday = "19.04.1952";
 
 // Embedding variables using backticks
 let phrase = `can embed ${user}`;
