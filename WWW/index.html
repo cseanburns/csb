@@ -37,6 +37,26 @@
 
         <p>The following are short thoughts on topics related to academia, writing, science, general observations, and like. Longer essays are on my <a href="wiki/blog/blog-entries">wiki</a>.</p>
 
+<article id="20190725">
+
+<h2 id="make-email-fun">Make email fun</h2>
+<h3 id="july-25-2019">25 July 2019</h3>
+<p>Make email fun using a <a href="https://en.wikipedia.org/wiki/Here_document">here document</a>:</p>
+<pre><code>mutt -s &quot;Subject Line&quot; person@example.org &lt;&lt;EOF
+&gt; message line
+&gt; message line (cont)
+&gt; message line (cont)
+&gt; EOF</code></pre>
+<p>Wrap an <code>at</code> command around this to schedule the email to be sent later:</p>
+<pre><code>at 15:00 today
+at&gt; mutt -s &quot;Subject Line&quot; person@example.org &lt;&lt;EOF
+at&gt; message line
+at&gt; message line (cont)
+at&gt; message line (cont)
+&gt; EOF</code></pre>
+
+</article>
+
 <article id="20190610">
 
 <h2 id="some-routines-i-find-calming">Some routines I find calming</h2>
