@@ -37,6 +37,24 @@
 
         <p>The following are short thoughts on topics related to academia, writing, science, general observations, and like. Longer essays are on my <a href="wiki/blog/blog-entries">wiki</a>.</p>
 
+<article id="20190913">
+
+<h2 id="a-quick-bash-one-liner-and-children">A Quick Bash One-Liner and Children</h2>
+<h3 id="september-13-2019">13 September 2019</h3>
+<p>I wrote a little Bash one-liner script today that was fun to write. I have a CSV file that looks something like this:</p>
+<pre><code>&quot;last name, first name&quot;,&quot;username&quot;,&quot;email address&quot;</code></pre>
+<p>My goal was to grep and yank a username out of the file and then insert that into a <code>s-nail</code> command in order to send local email. Took less than a minute to write, which is probably why it was fun:</p>
+<pre><code>grep -i username email.csv | awk -F, &#39;{ print $3 }&#39; | sed &#39;s/&quot;//g&#39;</code></pre>
+<p>Then I put that one-liner into a text file and made it executable and generalizable with a positional parameter:</p>
+<pre><code>grep -i &quot;$1&quot; email.csv | awk -F, &#39;{ print $3 }&#39; | sed &#39;s/&quot;//g&#39;</code></pre>
+<p>I named the file <code>emailwho.sh</code> and called it from <code>s-nail</code>:</p>
+<pre><code>s-nail -s &quot;subject line&quot; $(emailwho.sh) [grep string]</code></pre>
+<p>A quick and dirty address book.</p>
+<hr />
+<p>Came home today. Landslide was playing. The children ran and jumped in my arms. It made me happy cry.</p>
+
+</article>
+
 <article id="20190815">
 
 <h2 id="tidyverse-skeptic-too">Tidyverse skeptic too</h2>
