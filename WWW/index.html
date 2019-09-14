@@ -46,9 +46,11 @@
 <p>My goal was to grep and yank a username out of the file and then insert that into a <code>s-nail</code> command in order to send local email. Took less than a minute to write, which is probably why it was fun:</p>
 <pre><code>grep -i username email.csv | awk -F, &#39;{ print $3 }&#39; | sed &#39;s/&quot;//g&#39;</code></pre>
 <p>Then I put that one-liner into a text file and made it executable and generalizable with a positional parameter:</p>
-<pre><code>grep -i &quot;$1&quot; email.csv | awk -F, &#39;{ print $3 }&#39; | sed &#39;s/&quot;//g&#39;</code></pre>
+<pre><code>#!/bin/bash
+
+grep -i &quot;$1&quot; email.csv | awk -F, &#39;{ print $3 }&#39; | sed &#39;s/&quot;//g&#39;</code></pre>
 <p>I named the file <code>emailwho.sh</code> and called it from <code>s-nail</code>:</p>
-<pre><code>s-nail -s &quot;subject line&quot; $(emailwho.sh) [grep string]</code></pre>
+<pre><code>s-nail -s &quot;subject line&quot; $(emailwho.sh [grep string])</code></pre>
 <p>A quick and dirty address book.</p>
 <hr />
 <p>Came home today. Landslide was playing. The children ran and jumped in my arms. It made me happy cry.</p>
