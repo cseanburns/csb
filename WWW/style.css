@@ -101,6 +101,17 @@ pre {
   background-color: var(--dark);
 }
 
+p > code {
+  padding: 5px;
+  border-radius: 5px;
+  color: red;
+  background-color: lightgray;
+  font-family: sans-serif;
+  font-size: 0.8em;
+/*  color: var(--main);
+  background-color: var(--dark); */
+}
+
 table {
   border-collapse: collapse;
   border-bottom: 1px solid black;
