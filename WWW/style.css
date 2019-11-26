@@ -1,15 +1,6 @@
-/* CSS Variables */
-/* Blog */
-
-:root {
-  --navfont: #fff;
-  --navbg: #000;
-  --regfont: #fff;
-  --headers: #b98000;
-  --codefont: #fff;
-  --codebg: #000;
-  --sitebg: #111111;
-  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+h1 {
+  font-family: Georgia, Times, Times New Roman, serif;
+  font-size: 1.5em;
 }
 
 p {
@@ -18,19 +9,26 @@ p {
   font-size: 1.2em;
 }
 
+nav {
+  border-bottom: 1px solid black;
+}
+
+article {
+  border-top: 1px solid black;
+}
+
 pre {
   padding: 10px;
-  border-radius: 10px;
-  color: var(--codefont);
-  background-color: var(--codebg);
-  font-size: 1.1em;
+  border-radius: 5px; 
+  color: #fff;
+  background-color: #000;
 }
 
 p > code {
   padding: 5px;
   border-radius: 5px;
-  color: var(--codefont);
-  background-color: var(--sitebg);
+  color: #fff;
+  background-color: #000;
   font-family: sans-serif;
   font-size: 0.8em;
 }
