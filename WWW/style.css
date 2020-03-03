@@ -8,11 +8,6 @@ h1 {
   font-size: 1.1em;
 }
 
-.mainheading a {
-  text-decoration: none;
-  color: #B98000;
-}
-
 p {
   font-family: Georgia, Times, "Times New Roman", serif;
   line-height: 1.5em;
@@ -24,6 +19,11 @@ a {
   color: #B98000;
   text-transform: underline;
   text-decoration-color: #ffffff;
+}
+
+.mainheading a {
+  text-decoration: none;
+  color: #B98000;
 }
 
 nav {
