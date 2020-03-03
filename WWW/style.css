@@ -1,3 +1,8 @@
+body {
+  background-color: #272523;
+  color: #B98000;
+}
+
 h1 {
   font-family: Georgia, Times, "Times New Roman", serif;
   font-size: 1.1em;
@@ -5,13 +10,20 @@ h1 {
 
 .mainheading a {
   text-decoration: none;
-  color: black;
+  color: #B98000;
 }
 
 p {
   font-family: Georgia, Times, "Times New Roman", serif;
   line-height: 1.5em;
   font-size: 1.2em;
+}
+
+a {
+  background-color: #272523;
+  color: #B98000;
+  text-transform: underline;
+  text-decoration-color: #ffffff;
 }
 
 nav {
