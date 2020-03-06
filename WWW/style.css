@@ -1,6 +1,6 @@
 body {
   background-color: #272523;
-  color: #B98000;
+  color: #FF8000;
 }
 
 h1 {
@@ -16,14 +16,14 @@ p {
 
 a {
   background-color: #272523;
-  color: #B98000;
+  color: #FF8000;
   text-transform: underline;
   text-decoration-color: #ffffff;
 }
 
 .mainheading a {
   text-decoration: none;
-  color: #B98000;
+  color: #FF8000;
 }
 
 nav {
