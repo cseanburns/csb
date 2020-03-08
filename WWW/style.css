@@ -1,11 +1,12 @@
 body {
   background-color: #272523;
   color: #FF8000;
+  font-size: 1.5em;
 }
 
 h1 {
   font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 p {
