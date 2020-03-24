@@ -2,6 +2,8 @@ body {
   background-color: #ffffff;
   color: #121212;
   font-size: 1em;
+  max-width: 80%;
+  margin: auto;
 }
 
 h1 {
