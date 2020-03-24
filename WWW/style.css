@@ -29,13 +29,24 @@ a {
 }
 
 .mainheading a {
-  text-decoration: none;
+  background-color: #ffffff;
   color: #121212;
+  text-decoration: none;
 }
 
 a:hover {
   background-color: #ffffff;
   color: #666666;
+}
+
+section a {
+  background-color: #ffffff;
+  color: #666666;
+}
+
+section a:hover {
+  background-color: #ffffff;
+  color: #121212;
 }
 
 nav {
