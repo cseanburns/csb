@@ -24,13 +24,13 @@ p {
 
 a {
   background-color: #eee8d5;
-  color: #121212;
+  color: #2aa198;
   text-decoration: none;
 }
 
 .mainheading a {
   background-color: #eee8d5;
-  color: #121212;
+  color: #cb4b16;
   text-decoration: none;
 }
 
@@ -41,7 +41,7 @@ a:hover {
 
 section a {
   background-color: #eee8d5;
-  color: #666666;
+  color: #859900;
 }
 
 section a:hover {
