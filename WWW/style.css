@@ -11,8 +11,12 @@ h1 {
   font-size: 1.2em;
   text-align: center;
   padding: 5px 0 15px 0;
-  border-top: 1px solid #ebebeb;
+  border-top: 1px solid #586e75;
   border-bottom: 3px double #121212;
+}
+
+h3 {
+  color: #b58900;
 }
 
 p {
@@ -50,7 +54,7 @@ section a:hover {
 }
 
 nav {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #121212;
 }
 
 nav ul {
@@ -70,7 +74,7 @@ nav a {
 }
 
 article {
-  border-top: 1px solid black;
+  border-top: 1px solid #121212;
 }
 
 pre {
@@ -91,12 +95,12 @@ p > code {
 
 table {
   border-collapse: collapse;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #121212;
 }
 
 th {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid #121212;
+  border-bottom: 1px solid #121212;
   padding: 10px;
   font-weight: bold;
 }
@@ -106,8 +110,8 @@ td {
 }
 
 tr:hover {
-  background-color: #eee8d5;
-  color: #121212;
+  background-color: #121212;
+  color: #eee8d5;
 }
 
 footer {
