@@ -1,5 +1,5 @@
 body {
-  background-color: #ffffff;
+  background-color: #eee8d5;
   color: #121212;
   font-size: 1em;
   max-width: 80%;
@@ -23,29 +23,29 @@ p {
 
 
 a {
-  background-color: #ffffff;
+  background-color: #eee8d5;
   color: #121212;
   text-decoration: none;
 }
 
 .mainheading a {
-  background-color: #ffffff;
+  background-color: #eee8d5;
   color: #121212;
   text-decoration: none;
 }
 
 a:hover {
-  background-color: #ffffff;
+  background-color: #eee8d5;
   color: #666666;
 }
 
 section a {
-  background-color: #ffffff;
+  background-color: #eee8d5;
   color: #666666;
 }
 
 section a:hover {
-  background-color: #ffffff;
+  background-color: #eee8d5;
   color: #121212;
 }
 
@@ -106,7 +106,7 @@ td {
 }
 
 tr:hover {
-  background-color: #ffffff;
+  background-color: #eee8d5;
   color: #121212;
 }
 
