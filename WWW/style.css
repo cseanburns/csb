@@ -24,6 +24,10 @@ p {
   font-size: 1em;
 }
 
+ul {
+  list-style-type: '--- ';
+}
+
 li {
   font-size: 0.9em;
 }
