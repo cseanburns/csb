@@ -1,3 +1,8 @@
+html {
+  border-left: 2px solid #2aa198;
+  border-right: 2px solid #2aa198;
+}
+
 body {
   background-color: #eee8d5;
   color: #121212;
@@ -88,18 +93,19 @@ article {
   border-top: 1px solid #121212;
 }
 
+
 pre {
   padding: 10px;
-  border-radius: 5px; 
+  border-radius: 5px;
   color: #fff;
-  background-color: #000;
+  background-color: #121212;
 }
 
 p > code {
   padding: 5px;
   border-radius: 5px;
   color: #fff;
-  background-color: #000;
+  background-color: #121212;
   font-family: sans-serif;
   font-size: 0.8em;
 }
