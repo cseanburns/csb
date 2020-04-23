@@ -12,14 +12,20 @@ body {
 
 h1 {
   font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  font-weight: 400;
   text-align: center;
   padding: 5px 0 15px 0;
   border-top: 1px solid #586e75;
   border-bottom: 3px double #121212;
 }
 
+h2 {
+  font-family: Helvetica, sans-serif;
+}
+
 h3 {
+  font-family: Helvetica, sans-serif;
   color: #b58900;
 }
 
@@ -34,9 +40,9 @@ ul {
 }
 
 li {
+  font-family: Georgia, Times, "Times New Roman", serif;
   font-size: 0.9em;
 }
-
 
 a {
   background-color: #eee8d5;
@@ -83,16 +89,18 @@ nav ul {
 nav li {
   display: inline;
   padding-right: 100px;
+  font-family: Helvetica, sans-serif;
 }
 
-nav a {
-  font-family: sans-serif;
+nav li a {
+  font-family: Helvetica, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.1em;
 }
 
 article {
   border-top: 1px solid #121212;
 }
-
 
 pre {
   padding: 10px;
