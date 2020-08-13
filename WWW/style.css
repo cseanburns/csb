@@ -31,8 +31,10 @@ h3 {
 
 p {
   font-family: Georgia, Times, "Times New Roman", serif;
-  line-height: 1.5em;
+  line-height: 1.75em;
   font-size: 1em;
+  max-width: 600px;
+  text-indent: 2em;
 }
 
 ul {
@@ -42,6 +44,7 @@ ul {
 li {
   font-family: Georgia, Times, "Times New Roman", serif;
   font-size: 0.9em;
+  line-height: 1.5em;
 }
 
 a {
@@ -98,8 +101,14 @@ nav li a {
   letter-spacing: 0.1em;
 }
 
+section {
+  max-width: 600px;
+  margin: auto;
+}
+
 article {
   border-top: 1px solid #000;
+  max-width: 600px;
 }
 
 pre {
@@ -145,5 +154,11 @@ tr:hover {
 
 footer {
   border-top: 1px solid black;
+  padding: 10px 0 10px 0;
   text-align: center;
+}
+
+footer a, p {
+  max-width: 600px;
+  margin: auto;
 }
