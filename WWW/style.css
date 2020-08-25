@@ -33,7 +33,7 @@ p {
   font-family: Georgia, Times, "Times New Roman", serif;
   line-height: 1.75em;
   font-size: 1em;
-  max-width: 600px;
+  max-width: 800px;
   text-indent: 2em;
 }
 
@@ -102,13 +102,13 @@ nav li a {
 }
 
 section {
-  max-width: 600px;
+  max-width: 800px;
   margin: auto;
 }
 
 article {
   border-top: 1px solid #000;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 pre {
@@ -159,6 +159,6 @@ footer {
 }
 
 footer a, p {
-  max-width: 600px;
+  max-width: 800px;
   margin: auto;
 }
