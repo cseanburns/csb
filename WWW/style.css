@@ -1,6 +1,7 @@
 html {
   border-left: 2px solid #000;
   border-right: 2px solid #000;
+  font-size: 62.5%;
 }
 
 body {
@@ -12,8 +13,8 @@ body {
 
 h1 {
   font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 1.5em;
   font-weight: 400;
+  font-size: 2.25em;
   text-align: center;
   padding: 5px 0 15px 0;
   border-top: 1px solid #000;
@@ -22,17 +23,19 @@ h1 {
 
 h2 {
   font-family: Helvetica, sans-serif;
+  font-size: 2.25em;
 }
 
 h3 {
   font-family: Helvetica, sans-serif;
+  font-size: 2.25em;
   color: #6c6b6b;
 }
 
 p {
   font-family: Georgia, Times, "Times New Roman", serif;
-  line-height: 1.75em;
-  font-size: 1em;
+  font-size: 1.75em;
+  line-height: 1.5em;
   max-width: 800px;
   text-indent: 2em;
 }
@@ -43,7 +46,7 @@ ul {
 
 li {
   font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 0.9em;
+  font-size: 1.75em;
   line-height: 1.5em;
 }
 
@@ -60,7 +63,7 @@ a {
 }
 
 .bigger {
-  font-size: 1.75em;
+  font-size: 2.75em;
 }
 
 a:hover {
@@ -93,6 +96,7 @@ nav li {
   display: inline;
   padding-right: 100px;
   font-family: Helvetica, sans-serif;
+  font-size: 1.8em;
 }
 
 nav li a {
@@ -116,6 +120,7 @@ pre {
   border-radius: 5px;
   color: #fff;
   background-color: #6c6b6b;
+  font-size: 2em;
 }
 
 p > code {
@@ -124,7 +129,6 @@ p > code {
   color: #fff;
   background-color: #6c6b6b;
   font-family: sans-serif;
-  font-size: 0.8em;
 }
 
 .bold {
