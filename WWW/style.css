@@ -112,6 +112,7 @@ section {
 
 article {
   border-top: 1px solid #000;
+  padding: 20px 0 30px 0;
   max-width: 800px;
 }
 
