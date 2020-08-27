@@ -66,16 +66,16 @@
 <h2 id="on-distractions">On Distractions</h2>
 <h3 id="august-26-2020"><time datetime="2020-08-26">August 26, 2020</time></h3>
 <p>It was a fairly productive day, but I’m not sure how I got anything done. Lots of distractions.</p>
-<p>My first distraction of the day was all my fault. I use <code>mbsync</code> to retrieve email and I have a <code>systemd</code> timer (instead of a <code>cron</code> job) set to retrieve email every five minutes. This is the first time I’ve used <code>systemd</code> instead of <code>cron</code>. It’s fine, but even though I have no skin in the <code>systemd</code> controversy, some of the commands are annoying to type out. For instance, to see when <code>mbsync</code> would next sync my email to my desktop, I’d type this out:</p>
+<p>My first distraction of the day was all my fault. I use <code>mbsync</code> to retrieve email and I have a <code>systemd</code> timer (instead of a <code>cron</code> job) set to retrieve email every five minutes. This is the first time I’ve used <code>systemd</code> instead of <code>cron</code>. It’s fine, but even though I have no skin in the <code>systemd</code> controversy, I'm often annoyed by the length of some of the commands. For instance, to see when <code>mbsync</code> would next sync my email to my desktop, I’d type this out:</p>
 <pre><code>systemctl status --user mbsync.timer</code></pre>
-<p>I wanted to fix that, and this morning I decided to write a small function to replace that whole line, and I also thought that I’d write it so it would simply return the time left until the next sync. So I wrote this:</p>
+<p>I wanted to fix that. I could have taken better advantage of Bash history, but I thought I could make it a bit more entertaining, and this morning I decided to write a small function to replace that whole line, and I also thought that I’d write it so it would simply return the time left until the next sync. So I wrote this:</p>
 <pre><code>systemctl status --user mbsync.timer |\
   grep -F &quot;Trigger:&quot; |\
   awk -F&quot;;&quot; &#39;{ print &quot;Time left to sync: &quot; $2 }&#39;</code></pre>
 <p>And that worked fine. It would output something like:</p>
-<pre><code>Time left to sync: 4min 17s left**</code></pre>
-<p>That’s pretty much what I wanted, and all was rosy until I ran the function and got something meaningless in return. Then I realized that <code>mbsync</code> was syncing at the moment that I ran the function. Enter distraction, and I said to myself, “what was the syntax for an <code>awk</code> <strong>if-else</strong> statement.” I’m only beginner level <code>awk</code> writer, and it had been a long time since I played around with <code>awk</code> conditionals.</p>
-<p>But I worked at it and kept boinking the <strong>if</strong> statement up, and there were many other distractions that had nothing to do with any of this, but eventually, I got rid of the bugs, and now when <code>mbsync</code> is syncing, my little script tells me:</p>
+<pre><code>Time left to sync: 4min 17s left</code></pre>
+<p>That’s pretty much what I wanted, and all was rosy until I ran the function and got something meaningless in return. Then I realized that <code>mbsync</code> was syncing at the moment that I ran the function and so there was no time info to return. Enter distraction, and I said to myself, “what was the syntax for an <code>awk</code> <strong>if-else</strong> statement.” I’m only beginner level <code>awk</code> writer, and it had been a long time since I played around with <code>awk</code> conditionals.</p>
+<p>But I worked at it and kept boinking the <strong>if</strong> statement up, and there were many other distractions that had nothing to do with any of this, but eventually, I got rid of the bugs, and now when <code>mbsync</code> is syncing, my little script checks if field two is null, then return "Syncing ...", else print time left to sync, per the <code>systemd</code> status message:</p>
 <pre><code>#!/bin/bash
 
 # Check how much time left to sync email
@@ -92,9 +92,9 @@ gettime () {
 }
 
 systemctl status --user mbsync.timer | grep -F &quot;Trigger:&quot; | gettime</code></pre>
-<p>Now in the off chance that I run the script when <code>mbsync</code> is syncing, it tells me:</p>
+<p>Specifically, when <code>mbsync</code> is syncing, it tells me:</p>
 <pre><code>Syncing ...</code></pre>
-<p>If you can't see me, I'm patting myself on the back ;). Seriously, it's things like this that make primarily working at the command line fun.</p>
+<p>It's things like this that make primarily working at the command line fun in the same way that playing and solving a hard Sudoku puzzle is fun. And I learned something, too, which I'm happy about because I think <code>awk</code> is a neat programming language.</p>
 </article>
 
 <article id="20200809">
