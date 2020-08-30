@@ -93,7 +93,7 @@ gettime () {
 
 # Replaced grep with awk (8/29/2020):
 #systemctl status --user mbsync.timer | grep -F &quot;Trigger:&quot; | gettime
-systemctl status --user mbsync.timer | awk &#39;/Trigger/&#39; | gettime
+systemctl status --user mbsync.timer | awk &#39;/Trigger:/&#39; | gettime
 </code></pre>
 
 <p>Specifically, when <code>mbsync</code> is syncing, it tells me:</p>
