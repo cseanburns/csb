@@ -91,10 +91,15 @@ gettime () {
     }&#39; 
 }
 
-systemctl status --user mbsync.timer | grep -F &quot;Trigger:&quot; | gettime</code></pre>
+# Replaced grep with awk (8/29/2020):
+#systemctl status --user mbsync.timer | grep -F &quot;Trigger:&quot; | gettime
+systemctl status --user mbsync.timer | awk &#39;/Trigger/&#39; | gettime
+</code></pre>
+
 <p>Specifically, when <code>mbsync</code> is syncing, it tells me:</p>
 <pre><code>Syncing ...</code></pre>
 <p>It's things like this that make primarily working at the command line fun in the same way that playing and solving a hard Sudoku puzzle is fun. And I learned something, too, which I'm happy about because I think <code>awk</code> is a neat programming language.</p>
+
 </article>
 
 <article id="20200809">
