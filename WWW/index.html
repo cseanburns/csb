@@ -61,8 +61,27 @@
 
       <p>The following are short, personal thoughts on topics related to academia, writing, science, general observations, and like. Longer essays may be found on my <a href="wiki/blog/blog-entries">wiki</a>.</p>
 
-<article id="20200826">
+<article="20200830">
+<h2 id="on-revising">On Revising</h2>
+<h3 id="august-30-2020"><time datetime="2020-08-30">August 30, 2020</time></h3>
+<p>I couldn’t let go the last Bash script <a href=WWW/index.html#on-distractions>On Distractions</a>. As I read more about <code>awk</code>, I learned that it was possible to write <a href="https://blog.jpalardy.com/posts/awk-tutorial-part-2/">multiple condition-block</a> statements. It then occurred to me I could write a (long) <em>one-liner</em> using this technique and that the Bash function and the <code>awk</code> <strong>if-else</strong> statement were unnecessary:</p>
+<pre><code>#!/bin/bash
+systemctl status --user mbsync.timer |\
+         awk -F&quot;;&quot;\
+         &#39;/Trigger:/ &amp;&amp; $2 == &quot;&quot; { print &quot;Syncing...&quot;}\
+         /Trigger:/ &amp;&amp; $2 != &quot;&quot; { print &quot;Time left to sync: &quot; $2}&#39;</code></pre>
+<p>The code instructions:</p>
+<ol type="1">
+<li>Run the <code>systemctl</code> command</li>
+<li>Pipe output to <code>awk</code></li>
+<li>Do a regex search for <strong>Trigger:</strong></li>
+<li>If the output is <strong>NULL</strong>, then the systemd timer is syncing and print that.</li>
+<li>Do a regex search for <strong>Trigger:</strong></li>
+<li>If the output is <strong>not NULL</strong>, then the systemd timer is counting and print the count</li>
+</ol>
+</article>
 
+<article id="20200826">
 <h2 id="on-distractions">On Distractions</h2>
 <h3 id="august-26-2020"><time datetime="2020-08-26">August 26, 2020</time></h3>
 <p>It was a fairly productive day, but I’m not sure how I got anything done. Lots of distractions.</p>
