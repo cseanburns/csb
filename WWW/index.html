@@ -74,7 +74,7 @@
 <pre><code>#!/bin/bash
 systemctl status --user mbsync.timer |\
          awk -F&quot;;&quot;\
-         &#39;/Trigger:/ &amp;&amp; $2 == &quot;&quot; { print &quot;Syncing...&quot;}\
+         &#39;/Trigger:/ &amp;&amp; $2 == &quot;&quot; { print &quot;Syncing...&quot;}
          /Trigger:/ &amp;&amp; $2 != &quot;&quot; { print &quot;Time left to sync: &quot; $2}&#39;</code></pre>
 <p>The code instructions:</p>
 <ol type="1">
