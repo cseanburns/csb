@@ -62,6 +62,23 @@
       <p>The following are short, personal thoughts on topics related to whatever comes to mind. Longer, more serious essays may be found on my <a href="wiki/blog/blog-entries">wiki</a>.</p>
       <p>Use my <a href="https://cseanburns.net/WWW/index.xml">RSS</a>, if you'd like.</p>
 
+<article id="20200923">
+<h2 id="sedawk">s/sed/awk/</h2>
+<h3 id="september-23-2020"><time datetime="2020-09-23">September 23, 2020</time></h3>
+<p>How did I not know that <code>sed</code> could work on a specific field or occurrence in a line? Instead of:</p>
+<pre><code>cat test.csv
+apple apple apple apple
+awk &#39;gsub(&quot;apple&quot;, &quot;orange&quot;, $2)&#39; test.csv
+apple orange apple apple</code></pre>
+<p>We can do:</p>
+<pre><code>sed &#39;s/apple/orange/2&#39; test.csv
+apple orange apple apple</code></pre>
+<p>Or specify a line:</p>
+<pre><code>sed &#39;1 s/apple/orange/2&#39; test.csv
+apple orange apple apple</code></pre>
+<p>How nice.</p>
+</article>
+
 <article id="20200913">
 <h2 id="on-marriage">On Marriage</h2>
 <h3 id="september-13-2020"><time datetime="2020-09-13">September 13, 2020</time></h3>
