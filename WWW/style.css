@@ -41,7 +41,9 @@ p {
 }
 
 ul {
-  list-style-type: '--- ';
+  /* https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references */
+  /*list-style-type: '\021AA';*/
+  list-style-type: '\203A\2004';
 }
 
 li {
