@@ -5,7 +5,7 @@
 # creates an HTML list of them for entry into ~/index.html
 #
 # To generate the toc:
-# Usage: ./WWW-toc-generator.sh ../WWW/index.html > tmp.html 
+# Usage: ./WWW-toc-generator ../WWW/index.html > tmp.html 
    
 # Create list item from other HTML tags
 grep "h2 id=" $1 | sed -e 's/h2 id/a href/' -e\
