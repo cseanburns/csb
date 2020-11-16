@@ -7,25 +7,25 @@
 
 ## Part 1: Get values
 
-# Insert lastBuildDate
+# Create a date for lastBuildDate
 date -u | \
   sed 's/ /, /' | \
   sed 's/.M UTC/GMT/' > tmp.xml
 
-# Extract and Insert Title
+# Extract and Insert Title from the index.html file
 grep 'h2 id=' ../WWW/index.html | \
   head -n1 | \
-  xmlstarlet sel -t -v '/h2' >> tmp.xml 
+  xmlstarlet sel -t -v '/h2' >> tmp.xml
 
 echo -e "\n" >> tmp.xml
 
-# Create Link, Append Title Attribute
+# Create a link using base URL and h2 element from index.hml
 printf 'https://cseanburns.net/WWW/index.html#' >> tmp.xml
 grep 'h2 id=' ../WWW/index.html | \
   head -n1 | \
   xmlstarlet sel -T -t -v '/h2/@id' >> tmp.xml
 
-# Copy lastBuildDate to pubDate 
+# Copy date to a new line for the pubDate element
 printf '1t4\nw\n' | \
   ed -s tmp.xml
 
@@ -33,7 +33,7 @@ printf '1t4\nw\n' | \
 printf '3d\nw\n' | \
   ed -s tmp.xml
 
-# Copy Link to Guid
+# Copy link here to use with the <guid> element
 printf '3t4\nw\n' | \
   ed -s tmp.xml
 
@@ -44,7 +44,7 @@ sed -i '1 s/$/<\/lastBuildDate>/' tmp.xml
 
 sed -i '2 s/^/<title>/' tmp.xml
 sed -i '2 s/$/<\/title>/' tmp.xml
- 
+
 sed -i '3 s/^/<link>/' tmp.xml
 sed -i '3 s/$/<\/link>/' tmp.xml
 
