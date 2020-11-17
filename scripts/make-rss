@@ -7,33 +7,33 @@
 
 ## Part 1: Get values
 
-# Create a date for lastBuildDate
+# Create a date for the <lastBuildDate> xml element.
 date -u | \
   sed 's/ /, /' | \
   sed 's/.M UTC/GMT/' > tmp.xml
 
-# Extract and Insert Title from the index.html file
+# Extract and Insert Title value from the index.html file.
 grep 'h2 id=' ../WWW/index.html | \
   head -n1 | \
   xmlstarlet sel -t -v '/h2' >> tmp.xml
 
 echo -e "\n" >> tmp.xml
 
-# Create a link using base URL and h2 element from index.hml
+# Create a link using base URL and the <h2> element from index.hml.
 printf 'https://cseanburns.net/WWW/index.html#' >> tmp.xml
 grep 'h2 id=' ../WWW/index.html | \
   head -n1 | \
   xmlstarlet sel -T -t -v '/h2/@id' >> tmp.xml
 
-# Copy date to a new line for the pubDate element
+# Copy the date from <lastBuildDate> to a new line for the <pubDate> XML element.
 printf '1t4\nw\n' | \
   ed -s tmp.xml
 
-# Delete blank line
+# Delete the blank line. Need to investigate so that this isn't needed. 
 printf '3d\nw\n' | \
   ed -s tmp.xml
 
-# Copy link here to use with the <guid> element
+# Copy link from above to use with the <guid> element
 printf '3t4\nw\n' | \
   ed -s tmp.xml
 
