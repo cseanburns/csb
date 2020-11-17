@@ -8,9 +8,8 @@
 ## Part 1: Get values
 
 # Create a date for the <lastBuildDate> xml element.
-date -u | \
-  sed 's/ /, /' | \
-  sed 's/.M UTC/GMT/' > tmp.xml
+rss_date="$(date -R)"
+echo "$rss_date" > tmp.xml
 
 # Extract and Insert Title value from the index.html file.
 grep 'h2 id=' ../WWW/index.html | \
