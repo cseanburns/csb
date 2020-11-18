@@ -3,7 +3,7 @@
 ## Generates a RSS entry for the most recent blog post for ../WWW/index.xml
 ## Date: 10/11/2020
 ## Sean Burns
-## Usage: ./makerss.sh
+## Usage: ./make-rss
 
 ## Part 1: Get values
 
