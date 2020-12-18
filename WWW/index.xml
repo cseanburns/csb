@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Dec 2020 20:10:21 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 18 Dec 2020 15:09:36 -0500</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title>On Fezzik</title>
+            <link>https://cseanburns.net/WWW/index.html#on-fezzik</link>
+            <pubDate>Fri, 18 Dec 2020 15:09:36 -0500</pubDate>
+            <guid>https://cseanburns.net/WWW/index.html#on-fezzik</guid>
+        </item>
         <item>
             <title>On Ebooks</title>
             <link>https://cseanburns.net/WWW/index.html#on-ebooks</link>
