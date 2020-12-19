@@ -5,7 +5,7 @@
 # creates an HTML list of them for entry into ~/index.html
 #
 # To generate the toc:
-# Usage: ./WWW-toc-generator ../WWW/index.html > tmp.html 
+# Usage: ./WWW-toc-generator ../WWW/index.html
    
 # Create list item from other HTML tags
 grep "h2 id=" "$1" | sed -e 's/h2 id/a href/' -e\
@@ -17,9 +17,8 @@ grep "h2 id=" "$1" | sed -e 's/h2 id/a href/' -e\
 # Get the most recent entry only; comment out if want the entire list
 head -n1 tmp.html > tmp1.html
 
-# Cleanup
-trash tmp.html
+# Add to ../index.html
+sed -i "/ol type/ a $(cat tmp1.html)" ../index.html
 
-# Automatically add to ../index.html
-# example code to work out later
-#sed -e "s/Two/Two\nThree/" test1.txt 
+# Cleanup
+trash tmp.html tmp1.html
