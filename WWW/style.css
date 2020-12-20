@@ -58,6 +58,29 @@ a {
   text-decoration: underline;
 }
 
+/* blockquote code from: */
+/* https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ */
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+}
+
+blockquote:before {
+    color: #ccc;
+    font-size: 4em;
+    line-height: 1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+
+blockquote p {
+    display: inline;
+    line-height: 2em;
+}
+
 .mainheading a {
   background-color: #fff;
   color: #000;
