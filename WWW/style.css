@@ -70,7 +70,6 @@ blockquote {
 
 blockquote:before {
     color: #ccc;
-    font-size: 4em;
     line-height: 1em;
     margin-right: 0.25em;
     vertical-align: -0.4em;
@@ -79,6 +78,7 @@ blockquote:before {
 blockquote p {
     display: inline;
     line-height: 2em;
+    font-size: 1.75em;
 }
 
 .mainheading a {
