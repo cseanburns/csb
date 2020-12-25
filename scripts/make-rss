@@ -11,7 +11,7 @@
 rss_date="$(date -R)"
 echo "$rss_date" > tmp.xml
 
-# Extract and Insert Title value from the index.html file.
+# Extract title value for the most recent blog entry from the index.html file.
 grep 'h2 id=' ../WWW/index.html | \
   head -n1 | \
   xmlstarlet sel -t -v '/h2' >> tmp.xml
@@ -28,7 +28,7 @@ grep 'h2 id=' ../WWW/index.html | \
 printf '1t4\nw\n' | \
   ed -s tmp.xml
 
-# Delete the blank line. Need to investigate so that this isn't needed. 
+# Delete a blank line. Need to investigate so that this isn't needed. 
 printf '3d\nw\n' | \
   ed -s tmp.xml
 
