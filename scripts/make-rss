@@ -18,13 +18,13 @@ grep 'h2 id=' ../WWW/index.html | \
 
 echo -e "\n" >> tmp.xml
 
-# Create a link using base URL and the <h2> element from index.hml.
+# Create a link using the baseurl and the <h2> element from index.html.
 printf 'https://cseanburns.net/WWW/index.html#' >> tmp.xml
 grep 'h2 id=' ../WWW/index.html | \
   head -n1 | \
   xmlstarlet sel -T -t -v '/h2/@id' >> tmp.xml
 
-# Copy the date from <lastBuildDate> to a new line for the <pubDate> XML element.
+# Copy the date from <lastBuildDate> to a new line in order to create the <pubDate> XML element.
 printf '1t4\nw\n' | \
   ed -s tmp.xml
 
@@ -32,11 +32,11 @@ printf '1t4\nw\n' | \
 printf '3d\nw\n' | \
   ed -s tmp.xml
 
-# Copy link from above to use with the <guid> element
+# Copy link from above to use with the <guid> XML element
 printf '3t4\nw\n' | \
   ed -s tmp.xml
 
-## Part 2: Add XML tags
+## Part 2: Add all of the XML tags for all the values above
 
 sed -i '1 s/^/<lastBuildDate>/' tmp.xml
 sed -i '1 s/$/<\/lastBuildDate>/' tmp.xml
@@ -53,6 +53,7 @@ sed -i '4 s/$/<\/pubDate>/' tmp.xml
 sed -i '5 s/^/<guid>/' tmp.xml
 sed -i '5 s/$/<\/guid>/' tmp.xml
 
+# Add the opening and closing <item> XML elements for the new entry block
 ed -s tmp.xml << EOF
 2i
 <item>

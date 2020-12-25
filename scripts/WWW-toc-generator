@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Date: 2020-03-27
-# This script generates a list of entries from WWW/index.html (the blog) and
-# creates an HTML list of them for entry into ~/index.html
+# This script generates a list of entries from ../WWW/index.html (the blog),
+# saves and inserts the most recent item into the table of contents on
+# ../index.html.
 #
-# To generate the toc:
 # Usage: ./WWW-toc-generator ../WWW/index.html
    
 # Create list item from other HTML tags
@@ -17,7 +17,7 @@ grep "h2 id=" "$1" | sed -e 's/h2 id/a href/' -e\
 # Get the most recent entry only; comment out if want the entire list
 head -n1 tmp.html > tmp1.html
 
-# Add to ../index.html
+# Add the most recent entry to the top of the table of contents in ../index.html
 sed -i "/ol type/ a $(cat tmp1.html)" ../index.html
 
 # Cleanup
