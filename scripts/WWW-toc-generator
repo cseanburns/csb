@@ -5,10 +5,13 @@
 # saves and inserts the most recent item into the table of contents on
 # ../index.html.
 #
-# Usage: ./WWW-toc-generator ../WWW/index.html
+# Usage: ./WWW-toc-generator
    
+blogfile="../WWW/index.html"
+
 # Create list item from other HTML tags
-grep "h2 id=" "$1" | sed -e 's/h2 id/a href/' -e\
+#grep "h2 id=" "$1" | sed -e 's/h2 id/a href/' -e\
+grep "h2 id=" "$blogfile" | sed -e 's/h2 id/a href/' -e\
 's/h2/a/' -e\
 's/\"/\"WWW\/index.html\#/' -e\
 's/^/\<li\>/' -e\
