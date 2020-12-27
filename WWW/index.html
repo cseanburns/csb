@@ -36,6 +36,26 @@
       <p>Longer, more serious essays may be found on my <a href="wiki/blog/blog-entries">wiki</a>.</p>
       <p>Use my <a href="https://cseanburns.net/WWW/index.xml">RSS</a>, if you'd like.</p>
 
+<article id="20201227">
+<h2 id="somewhat-automated">Somewhat Automated</h2>
+<h3 id="december-27-2020"><datetime="2020-12-27">December 27, 2020</time></h3>
+<p>I have this blog somewhat automated with two Bash scripts. The first one <a href="https://github.com/cseanburns/personal_website/blob/master/scripts/WWW-toc-generator">./WWW-toc-generator</a> generates a new table of contents entry for the home page and inserts the entry on that page in the right place. The second script <a href="https://github.com/cseanburns/personal_website/blob/master/scripts/make-rss">./make-rss</a> generates the XML for the RSS feed. Both scripts are pretty ugly, but I’ll address that later.</p>
+<p>My workflow here is:</p>
+<ol type="1">
+<li>Write post in markdown (in <code>ed</code> or <code>vim</code> or both)</li>
+<li>Convert post to HTML using <a href="https://pandoc.org/">pandoc</a></li>
+<li>Manually insert HTML post in this page</li>
+<li>Manually add additional HTML tags and HTML IDs</li>
+<li>Run <code>./WWW-toc-generator</code></li>
+<li>Run <code>./make-rss</code></li>
+<li>Manually insert XML item block into index.xml</li>
+<li>Manually <code>scp</code> files to server</li>
+<li>Push changes to GitHub repo</li>
+</ol>
+<p>Once I’ve written a post, the other steps only take a minute to complete, but I’d like to automate it all. Thus, the next step is to automate inserting new blog posts into this page and automate inserting the new XML item block into the index.xml RSS page. Then clean up the scripts. I’ll rewrite them and try to make them a bit portable. Right now they are far from that.</p>
+<p>I’ve never been completely happy with other flat-file based web projects even though there are some nice ones out there. I’m happy that this project, as slow as it goes, is scratching an itch I had about that.</p>
+</article>
+
 <article id="20201223">
 <h2 id="the-dark-hard-days">The Dark, Hard Days</h2>
 <h3 id="december-23-2020"><time datetime="2020-12-23">December 23, 2020</time></h3>
