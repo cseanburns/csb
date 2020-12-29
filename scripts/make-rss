@@ -16,6 +16,13 @@ grep 'h2 id=' ../WWW/index.html | \
   head -n1 | \
   xmlstarlet sel -t -v '/h2' >> tmp.xml
 
+# Work this out instead of using xmlstarlet above
+# Right now it breaks something
+#grep 'h2 id=' ../WWW/index.html | \
+#    head -n1 | \
+#    sed -e 's/<h2 id\=\"[a-z]*\-[a-z]*\">//' | \
+#    sed -e 's/<\/h2>//' >> tmp.xml
+
 echo -e "\n" >> tmp.xml
 
 # Create a link using the baseurl and the <h2> element from index.html.
