@@ -5,10 +5,34 @@ html {
 }
 
 body {
-  background-color: #fff;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  background-color: #EAE7DC;
   color: #000;
-  max-width: 80%;
-  margin: auto;
+}
+
+@media (min-width: 500px) {
+  body {
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: 1;
+    grid-template-areas:
+      "header header"
+      "nav    main"
+      "nav    main"
+      "footer footer";
+    }
+  nav ul {
+    display: inline;
+  }
+}
+
+header {
+  grid-area: header;
 }
 
 h1 {
@@ -16,33 +40,70 @@ h1 {
   font-weight: 400;
   font-size: 2.25em;
   text-align: center;
-  padding: 5px 0 15px 0;
+  padding: 5px 0 5px 0;
   border-top: 1px solid #000;
   border-bottom: 3px double #000;
+}
+
+nav {
+  grid-area: nav;
+}
+
+nav ul {
+  text-align: left;
+  list-style: none;
+}
+
+nav li {
+  font-family: Helvetica, sans-serif;
+  font-size: 12pt; 
+}
+
+nav li a {
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+main {
+  grid-area: main;
+}
+
+section a {
+  background-color: #EAE7DC;
+  color: #000;
+}
+
+section a:hover {
+  background-color: #EAE7DC;
+  color: #6c6b6b;
+}
+
+footer {
+  grid-area: footer;
 }
 
 h2 {
   font-family: Helvetica, sans-serif;
   font-size: 2.25em;
+  color: #123C69;
 }
 
 h3 {
   font-family: Helvetica, sans-serif;
   font-size: 2em;
-  color: #6c6b6b;
+  color: #AC3B61;
 }
 
 p {
   font-family: Georgia, Times, "Times New Roman", serif;
   font-size: 1.75em;
   line-height: 1.5em;
-  max-width: 800px;
   text-indent: 2em;
 }
 
 ul {
   /* https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references */
-  /*list-style-type: '\021AA';*/
   list-style-type: '\203A\2004';
 }
 
@@ -53,7 +114,7 @@ li {
 }
 
 a {
-  background-color: #fff;
+  background-color: #EAE7DC;
   color: #000;
   text-decoration: underline;
 }
@@ -62,7 +123,7 @@ a {
 /* https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ */
 
 blockquote {
-    background: #f9f9f9;
+    background-color: #EAE7DC;
     border-left: 10px solid #ccc;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
@@ -82,7 +143,7 @@ blockquote p {
 }
 
 .mainheading a {
-  background-color: #fff;
+  background-color: #EAE7DC;
   color: #000;
   text-decoration: none;
 }
@@ -92,59 +153,19 @@ blockquote p {
 }
 
 a:hover {
-  background-color: #fff;
+  background-color: #EAE7DC;
   color: #6c6b6b;
-}
-
-section a {
-  background-color: #fff;
-  color: #000;
-}
-
-section a:hover {
-  background-color: #fff;
-  color: #6c6b6b;
-}
-
-nav {
-  border-bottom: 1px solid #000;
-}
-
-nav ul {
-  text-align: center;
-  list-style: none;
-  padding-bottom: 10px;
-  margin: 0;
-}
-
-nav li {
-  display: inline;
-  padding-right: 100px;
-  font-family: Helvetica, sans-serif;
-  font-size: 1.8em;
-}
-
-nav li a {
-  font-family: Helvetica, sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-}
-
-section {
-  max-width: 800px;
-  margin: auto;
 }
 
 article {
   border-top: 1px solid #000;
   padding: 20px 0 30px 0;
-  max-width: 800px;
 }
 
 pre {
   padding: 5px;
   border-radius: 10px;
-  color: #fff;
+  color: #EEE2DC;
   background-color: #6c6b6b;
   font-size: 1.9em;
   overflow: auto;
@@ -153,7 +174,7 @@ pre {
 p > code {
   padding: 1px 3px 1px 3px;
   border-radius: 5px;
-  color: #fff;
+  color: #EEE2DC;
   background-color: #6c6b6b;
   font-family: sans-serif;
   font-size: .9em;
@@ -191,6 +212,4 @@ footer {
 }
 
 footer a, p {
-  max-width: 800px;
-  margin: auto;
 }
