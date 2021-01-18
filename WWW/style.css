@@ -12,7 +12,8 @@ body {
     "footer footer";
   grid-template-rows: auto;
   grid-template-columns: 250px auto;
-  margin: 0;
+  max-width: 800px;
+  margin: auto;
   background-color: #d1d7e0;
   color: #000;
 }
@@ -25,16 +26,14 @@ body {
 
 header {
   grid-area: header;
+  border-bottom: 1px solid black;
 }
 
 h1 {
   font-family: Georgia, Times, "Times New Roman", serif;
   font-weight: 400;
   font-size: 2.25em;
-  text-align: center;
-  padding: 5px 0 5px 0;
-  border-top: 1px solid #000;
-  border-bottom: 3px double #000;
+  padding-top: 5px;
 }
 
 nav {
@@ -100,6 +99,7 @@ p {
   font-size: 1.75em;
   line-height: 1.5em;
   text-indent: 2em;
+  max-width: 600px;
 }
 
 ul {
@@ -111,6 +111,8 @@ li {
   font-family: Georgia, Times, "Times New Roman", serif;
   font-size: 1.75em;
   line-height: 1.5em;
+  max-width: 600px;
+
 }
 
 a {
