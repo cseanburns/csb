@@ -4,35 +4,15 @@ html {
 
 body {
   display: grid;
+  column-gap: 35px;
   grid-template-areas:
-    "header"
-    "nav"
-    "main"
-    "footer";
-  margin: 0 0px 0 0;
+    "nav    header"
+    "nav    main"
+    "nav    main"
+    "footer footer";
+  margin: 0;
   background-color: #EAE7DC;
   color: #000;
-}
-
-@media (min-width: 500px) {
-  body {
-    display: grid;
-    column-gap: 35px;
-    grid-template-areas:
-      "nav    header"
-      "nav    main"
-      "nav    main"
-      "footer footer";
-    }
-  nav {
-    width: 250px;
-  }
-  nav ul {
-    display: inline;
-  }
-  nav li {
-    padding-bottom: 10px;
-  }
 }
 
 header {
@@ -51,11 +31,13 @@ h1 {
 
 nav {
   grid-area: nav;
+  width: 250px;
   background-color: #E98074;
 }
 
 nav ul {
   text-align: center;
+  display: inline;
   list-style: none;
 }
 
@@ -63,6 +45,7 @@ nav li {
   font-family: Helvetica, sans-serif;
   font-size: 12pt; 
   font-weight: 600;
+  padding: 5px 0 5px 0;
 }
 
 nav li a {
