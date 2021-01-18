@@ -17,7 +17,7 @@ body {
   color: #000;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 810px) {
   body {
     display: block;
   } 
