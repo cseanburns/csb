@@ -9,7 +9,7 @@ body {
     "nav"
     "main"
     "footer";
-  margin: 0 35px 0 0;
+  margin: 0 0px 0 0;
   background-color: #EAE7DC;
   color: #000;
 }
@@ -18,9 +18,8 @@ body {
   body {
     display: grid;
     column-gap: 35px;
-    grid-template-columns: 1;
     grid-template-areas:
-      "nav header"
+      "nav    header"
       "nav    main"
       "nav    main"
       "footer footer";
@@ -80,6 +79,7 @@ nav li a:hover {
 
 main {
   grid-area: main;
+  margin: 10px;
 }
 
 section a {
