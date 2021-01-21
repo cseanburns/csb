@@ -14,7 +14,7 @@ body {
   grid-template-columns: 250px auto;
   max-width: 800px;
   margin: auto;
-  background-color: #d1d7e0;
+  background-color: #fff;
   color: #000;
 }
 
@@ -34,6 +34,12 @@ h1 {
   font-weight: 400;
   font-size: 2.25em;
   padding-top: 5px;
+}
+
+.mainheading a {
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
 }
 
 nav {
@@ -59,7 +65,6 @@ nav li a {
   text-decoration: none;
   background-color: #2d283e;
   color: #fff;
-
 }
 
 nav li a:hover {
@@ -73,13 +78,18 @@ main {
 }
 
 section a {
-  background-color: #d1d7e0;
+  background-color: #fff;
   color: #000;
 }
 
 section a:hover {
-  background-color: #d1d7e0;
+  background-color: #fff;
   color: #6c6b6b;
+}
+
+article {
+  border-top: 1px solid #000;
+  padding: 20px 0 30px 0;
 }
 
 h2 {
@@ -112,20 +122,24 @@ li {
   font-size: 1.75em;
   line-height: 1.5em;
   max-width: 600px;
-
 }
 
 a {
-  background-color: #d1d7e0;
+  background-color: #fff;
   color: #000;
   text-decoration: underline;
+}
+
+a:hover {
+  background-color: #fff;
+  color: #6c6b6b;
 }
 
 /* blockquote code from: */
 /* https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ */
 
 blockquote {
-    background-color: #d1d7e0;
+    background-color: #d1d7ed;
     border-left: 10px solid #802bb1;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
@@ -144,24 +158,8 @@ blockquote p {
     font-size: 1.75em;
 }
 
-.mainheading a {
-  background-color: #d1d7e0;
-  color: #000;
-  text-decoration: none;
-}
-
 .bigger {
   font-size: 2.75em;
-}
-
-a:hover {
-  background-color: #d1d7e0;
-  color: #6c6b6b;
-}
-
-article {
-  border-top: 1px solid #000;
-  padding: 20px 0 30px 0;
 }
 
 pre {
