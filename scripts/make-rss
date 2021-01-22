@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Generates a RSS entry for the most recent daybook post for ../WWW/index.xml
+## Generates a RSS entry for the most recent attempts post for ../WWW/index.xml
 ## Date: 10/11/2020
 ## Sean Burns
 ## Usage: ./make-rss
@@ -11,7 +11,7 @@
 rss_date="$(date -R)"
 echo "$rss_date" > tmp.xml
 
-# Extract title value for the most recent daybook entry from the index.html file.
+# Extract title value for the most recent attempts entry from the index.html file.
 grep 'h2 id=' ../WWW/index.html | \
   head -n1 | \
   xmlstarlet sel -t -v '/h2' >> tmp.xml
