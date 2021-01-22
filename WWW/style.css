@@ -14,7 +14,7 @@ body {
   grid-template-columns: 250px auto;
   max-width: 800px;
   margin: auto;
-  background-color: #fff;
+  background-color: #FDF6E3;
   color: #000;
 }
 
@@ -37,14 +37,14 @@ h1 {
 }
 
 .mainheading a {
-  background-color: #fff;
+  background-color: #FDF6E3;
   color: #000;
   text-decoration: none;
 }
 
 nav {
   grid-area: nav;
-  background-color: #2d283e;
+  background-color: #002B36;
 }
 
 nav ul {
@@ -63,13 +63,13 @@ nav li {
 nav li a {
   letter-spacing: 0.1em;
   text-decoration: none;
-  background-color: #2d283e;
-  color: #fff;
+  background-color: #002B36;
+  color: #FDF6E3;
 }
 
 nav li a:hover {
-  background-color: #2d283e;
-  color: #6c6b6b;
+  background-color: #002B36;
+  color: #DBC27C;
 }
 
 main {
@@ -78,13 +78,13 @@ main {
 }
 
 section a {
-  background-color: #fff;
+  background-color: #FDF6E3;
   color: #000;
 }
 
 section a:hover {
-  background-color: #fff;
-  color: #6c6b6b;
+  background-color: #FDF6E3;
+  color: #DBC27C;
 }
 
 article {
@@ -101,7 +101,7 @@ h2 {
 h3 {
   font-family: Helvetica, sans-serif;
   font-size: 2em;
-  color: #802bb1;
+  color: #000;
 }
 
 p {
@@ -114,7 +114,7 @@ p {
 
 ul {
   /* https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references */
-  list-style-type: '\203A\2004';
+  list-style-type: '\223C';
 }
 
 li {
@@ -125,22 +125,22 @@ li {
 }
 
 a {
-  background-color: #fff;
+  background-color: #FDF6E3;
   color: #000;
   text-decoration: underline;
 }
 
 a:hover {
-  background-color: #fff;
-  color: #6c6b6b;
+  background-color: #FDF6E3;
+  color: #DBC27C;
 }
 
 /* blockquote code from: */
 /* https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ */
 
 blockquote {
-    background-color: #d1d7ed;
-    border-left: 10px solid #802bb1;
+    background-color: #FDF6E3;
+    border-left: 10px solid #002B36;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
 }
@@ -165,8 +165,8 @@ blockquote p {
 pre {
   padding: 5px;
   border-radius: 10px;
-  color: #EEE2DC;
-  background-color: #2d2883;
+  color: #FDF6E3;
+  background-color: #002B36;
   font-size: 1.9em;
   overflow: auto;
 }
@@ -174,8 +174,8 @@ pre {
 p > code {
   padding: 1px 3px 1px 3px;
   border-radius: 5px;
-  color: #EEE2DC;
-  background-color: #2d2883;
+  color: #FDF6E3;
+  background-color: #002B36;
   font-family: sans-serif;
   font-size: .9em;
 }
