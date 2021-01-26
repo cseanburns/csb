@@ -42,18 +42,18 @@
 <h2 id="you-have-mail-too">You Have Mail, too</h2>
 <h3 id="january-25-2021"><time datetime="2021-01-25">January 25, 2021</time></h3>
 <p>My very simple <code>mailcheck</code> script that I wrote yesterday did not perform as expected this morning when I ran it. I should have realized this. The basic <em>if/elif</em> statements meant that the script would report on one mailbox at a time and that I would have to open <code>mutt</code> for each mailbox in order for the script to move on to the next mailbox. <strong>Subpar work, Burns!</strong></p>
-<p>So I modified it this morning. I assigned the mailboxes to a Bash array and then I surrounded a simpler <em>if</em> statement with a <em>for</em> loop that cycled through the array. I defined a function for this and then called the function at the end. This works as expected and the code is nicer to look at:</p>
+<p>So I modified it this morning. I assigned the mailboxes to a Bash array and then surrounded a simpler <em>if</em> statement with a <em>for</em> loop that cycled through the array. I defined a function for this and then called the function at the end. This works as desired and the code is nicer to look at:</p>
 <pre><code>#!/bin/bash
 
 checkmail() {
 
 base_dir=&quot;$HOME/Mail&quot;
 
-mdirs=(&quot;$base_dir/INBOX/&quot; &quot;$base_dir/association_lists&quot;
+mailboxes=(&quot;$base_dir/INBOX/&quot; &quot;$base_dir/association_lists&quot;
   &quot;$base_dir/university_lists/&quot; &quot;$base_dir/library_lists&quot;
   &quot;$base_dir/courses/&quot;)
 
-for mail in &quot;${mdirs[@]}&quot;; do
+for mail in &quot;${mailboxes[@]}&quot;; do
   if [ -s &quot;$mail&quot;new/ ] ; then
     echo &quot;You have mail in $mail.&quot;
   else
@@ -68,7 +68,7 @@ main() {
 }
 
 main</code></pre>
-<p>Maybe later on I’ll have it report email metadata. I took at look at the email headers last night, and it’s certainly doable, but as I was looking through the headers, I was thinking that I might not care that much. We’ll see.</p>
+<p>Maybe later on I’ll have it report email metadata. I took at look at the email headers last night, and it wouldn't be a hassle to do, but as I was looking through the headers, I was thinking that I might not care that much. We’ll see. Perhaps I'll just return a count of new emails.</p>
 </article>
 
 <article id="20210124">
