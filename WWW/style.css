@@ -42,6 +42,11 @@ h1 {
   text-decoration: none;
 }
 
+.mainheading a:hover {
+  background-color: #fff;
+  color: #566873;
+}
+
 nav {
   grid-area: nav;
   background-color: #512e5f;
@@ -130,14 +135,14 @@ li {
 }
 
 a {
-  background-color: #FDF6E3;
+  background-color: #fff;
   color: #000;
   text-decoration: underline;
 }
 
 a:hover {
-  background-color: #FDF6E3;
-  color: #DBC27C;
+  background-color: #fff;
+  color: #566873;
 }
 
 /* blockquote code from: */
@@ -213,7 +218,7 @@ tr:hover {
 footer {
   grid-area: footer;
   border-top: 1px solid black;
-  padding: 10px 0 10px 0;
+  padding: 10px 5px 10px 5px;
 }
 
 #footercontact {
