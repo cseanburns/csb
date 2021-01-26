@@ -66,6 +66,10 @@ nav li {
   border-top: 1px dotted white;
 }
 
+nav li:nth-child(1) {
+  border-top: none;
+}
+
 nav li:nth-child(5) {
   border-bottom: 1px dotted #fff;
 }
