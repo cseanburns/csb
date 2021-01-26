@@ -47,20 +47,19 @@
 
 checkmail() {
 
-base_dir=&quot;$HOME/Mail&quot;
+  base_dir=&quot;$HOME/Mail&quot;
 
-mailboxes=(&quot;$base_dir/INBOX/&quot; &quot;$base_dir/association_lists&quot;
-  &quot;$base_dir/university_lists/&quot; &quot;$base_dir/library_lists&quot;
-  &quot;$base_dir/courses/&quot;)
+  mailboxes=(&quot;$base_dir/INBOX/&quot; &quot;$base_dir/association_lists/&quot;
+    &quot;$base_dir/university_lists/&quot; &quot;$base_dir/library_lists/&quot;
+    &quot;$base_dir/courses/&quot;)
 
-for mail in &quot;${mailboxes[@]}&quot;; do
-  if [ -s &quot;$mail&quot;new/ ] ; then
-    echo &quot;You have mail in $mail.&quot;
-  else
-    echo &quot;No new mail in $mail.&quot;
-  fi
-done
-
+  for mail in &quot;${mailboxes[@]}&quot;; do
+    if [ -s &quot;$mail&quot;new/ ] ; then
+      echo &quot;You have mail in $mail.&quot;
+    else
+      echo &quot;No new mail in $mail.&quot;
+    fi
+  done
 }
 
 main() {
@@ -69,6 +68,9 @@ main() {
 
 main</code></pre>
 <p>Maybe later on I’ll have it report email metadata. I took at look at the email headers last night, and it wouldn't be a hassle to do, but as I was looking through the headers, I was thinking that I might not care that much. We’ll see. Perhaps I'll just return a count of new emails.</p>
+
+<p>Link to <a href="https://github.com/cseanburns/sysadmin/blob/master/usr/mailcheck">mailcheck</a>.</p>
+
 </article>
 
 <article id="20210124">
