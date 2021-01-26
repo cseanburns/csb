@@ -216,10 +216,6 @@ footer {
   padding: 10px 0 10px 0;
 }
 
-footer h2 {
-  font-size: 1.4em;
-}
-
 #footercontact {
   float: left;
 }
@@ -227,6 +223,10 @@ footer h2 {
 #footerinfo {
   text-align: right;
   clear: right;
+}
+
+footer h2 {
+  font-size: 1.4em;
 }
 
 footer a {
