@@ -14,7 +14,7 @@ body {
   grid-template-columns: 150px auto;
   max-width: 800px;
   margin: auto;
-  background-color: #FDF6E3;
+  background-color: #fff;
   color: #000;
 }
 
@@ -37,14 +37,14 @@ h1 {
 }
 
 .mainheading a {
-  background-color: #FDF6E3;
+  background-color: #fff;
   color: #000;
   text-decoration: none;
 }
 
 nav {
   grid-area: nav;
-  background-color: #002B36;
+  background-color: #512e5f;
 }
 
 nav ul {
@@ -62,19 +62,19 @@ nav li {
 }
 
 nav li:nth-child(5) {
-  border-bottom: 1px dotted #FDF6E3;
+  border-bottom: 1px dotted #fff;
 }
 
 nav li a {
   letter-spacing: 0.1em;
   text-decoration: none;
-  background-color: #002B36;
-  color: #FDF6E3;
+  background-color: #512e5f;
+  color: #fff;
 }
 
 nav li a:hover {
-  background-color: #002B36;
-  color: #DBC27C;
+  background-color: #512e5f;
+  color: #566873;
 }
 
 main {
@@ -83,13 +83,13 @@ main {
 }
 
 section a {
-  background-color: #FDF6E3;
+  background-color: #fff;
   color: #000;
 }
 
 section a:hover {
-  background-color: #FDF6E3;
-  color: #DBC27C;
+  background-color: #fff;
+  color: #566873;
 }
 
 article {
@@ -100,13 +100,13 @@ article {
 h2 {
   font-family: Helvetica, sans-serif;
   font-size: 2.25em;
-  color: #002B36;
+  color: #000;
 }
 
 h3 {
   font-family: Helvetica, sans-serif;
   font-size: 2em;
-  color: #000;
+  color: #512e5f;
 }
 
 p {
@@ -144,8 +144,8 @@ a:hover {
 /* https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ */
 
 blockquote {
-    background-color: #FDF6E3;
-    border-left: 10px solid #002B36;
+    background-color: #fff;
+    border-left: 10px solid #512e5f;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
 }
@@ -170,8 +170,8 @@ blockquote p {
 pre {
   padding: 5px;
   border-radius: 10px;
-  color: #FDF6E3;
-  background-color: #002B36;
+  color: #512e5f;
+  background-color: #fff;
   font-size: 1.9em;
   overflow: auto;
 }
@@ -179,8 +179,8 @@ pre {
 p > code {
   padding: 1px 3px 1px 3px;
   border-radius: 5px;
-  color: #FDF6E3;
-  background-color: #002B36;
+  color: #fff;
+  background-color: #566573;
   font-family: sans-serif;
   font-size: .9em;
 }
