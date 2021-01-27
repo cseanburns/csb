@@ -47,7 +47,7 @@
 <article id="20210125">
 <h2 id="you-have-mail-too">You Have Mail, too</h2>
 <h3 id="january-25-2021"><time datetime="2021-01-25">January 25, 2021</time></h3>
-<p>My very simple <code>mailcheck</code> script that I wrote yesterday did not perform as expected this morning when I ran it. I should have realized this. The basic <em>if/elif</em> statements meant that the script would report on one mailbox at a time and that I would have to open <code>mutt</code> for each mailbox in order for the script to move on to the next mailbox. <strong>Subpar work, Burns!</strong></p>
+<p>My very simple <code>email</code> script that I wrote yesterday did not perform as expected this morning when I ran it. I should have realized this. The basic <em>if/elif</em> statements meant that the script would report on one mailbox at a time and that I would have to open <code>mutt</code> for each mailbox in order for the script to move on to the next mailbox. <strong>Subpar work, Burns!</strong></p>
 <p>So I modified it this morning. I assigned the mailboxes to a Bash array and then surrounded a simpler <em>if</em> statement with a <em>for</em> loop that cycled through the array. I defined a function for this and then called the function at the end. This works as desired and the code is nicer to look at:</p>
 <pre><code>#!/bin/bash
 
@@ -75,21 +75,20 @@ main() {
 main</code></pre>
 <p>Maybe later on I’ll have it report email metadata. I took at look at the email headers last night, and it wouldn't be a hassle to do, but as I was looking through the headers, I was thinking that I might not care that much. We’ll see. Perhaps I'll just return a count of new emails.</p>
 
-<p>Link to <a href="https://github.com/cseanburns/sysadmin/blob/master/usr/mailcheck">mailcheck</a>.</p>
-
+<p>Link to <a href="https://github.com/cseanburns/sysadmin/blob/master/usr/email">email</a>.</p>
 </article>
 
 <article id="20210124">
 <h2 id="you-have-mail">You Have Mail</h2>
 <h3 id="january-24-2021"><time datetime="2021-01-24">January 24, 2021</time></h3>
-<p>A small command-line program called <code>mailcheck</code> that I used on Ubuntu does not seem to be available in the Fedora repositories. All the program did was tell me if I had new or unopened email in various Maildir directories (mailboxes), which contain subdirectories <em>new/</em>, <em>cur/</em>, and <em>tmp/</em>. I liked it because I could just type out the command to see if I had new email without having to open <code>mutt</code>, the email client that I use on the command line (I know, this is super lazy of me).</p>
-<p>I also used <code>mailcheck</code> in my <em>.bash_functions</em> file. Although I have a <em>systemd</em> timer setup to sync email every five minutes using <code>mbsync</code>, I have a function in <em>.bash_functions</em> to sync and list new emails on command:</p>
+<p>A small command-line program called <code>email</code> that I used on Ubuntu does not seem to be available in the Fedora repositories. All the program did was tell me if I had new or unopened email in various Maildir directories (mailboxes), which contain subdirectories <em>new/</em>, <em>cur/</em>, and <em>tmp/</em>. I liked it because I could just type out the command to see if I had new email without having to open <code>mutt</code>, the email client that I use on the command line (I know, this is super lazy of me).</p>
+<p>I also used <code>email</code> in my <em>.bash_functions</em> file. Although I have a <em>systemd</em> timer setup to sync email every five minutes using <code>mbsync</code>, I have a function in <em>.bash_functions</em> to sync and list new emails on command:</p>
 <pre><code>cmail () {
-  mbsync -aq ; printf &quot;\n&quot; ; mailcheck ; printf &quot;\n&quot; ; date
+  mbsync -aq ; printf &quot;\n&quot; ; email ; printf &quot;\n&quot; ; date
 }</code></pre>
 <p>I wanted to keep using that function, and so I hacked together a very simple little script to replace what I lost by switching to Fedora. It uses the Bash <code>[</code> (test) builtin with the <code>-s</code> option to check if the <em>new/</em> directory is greater than zero. If it is greater than zero, then that simply means there’s a file in that directory, and if there’s a file in <em>new/</em>, then it means there’s a new email, or more specifically, a file that hasn’t been seen by <code>mutt</code>. When <code>mutt</code> does see that file, it gets moved to <em>cur/</em>, even if I don’t open the email. If I don’t open the email but <code>mutt</code> sees it, then <code>mutt</code> labels it as unopened and not just new.</p>
-<p>Eventually I’d like to update the script to print out the <strong>From</strong> and <strong>Subject</strong> lines. That way I can decide if I want to open <code>mutt</code> at all and read my email or just ignore for a while. In the meantime, I can use <code>mutt -Z</code> to open a mailbox that has new email, if <code>mailcheck</code> says I have some.</p>
-<p>Here’s a smaller version of the script. The <a href="https://github.com/cseanburns/sysadmin/blob/master/usr/mailcheck">full one</a> checks several Maildir directories that new mail goes to based on some filters I use.</p>
+<p>Eventually I’d like to update the script to print out the <strong>From</strong> and <strong>Subject</strong> lines. That way I can decide if I want to open <code>mutt</code> at all and read my email or just ignore for a while. In the meantime, I can use <code>mutt -Z</code> to open a mailbox that has new email, if <code>email</code> says I have some.</p>
+<p>Here’s a smaller version of the script. The <a href="https://github.com/cseanburns/sysadmin/blob/master/usr/email">full one</a> checks several Maildir directories that new mail goes to based on some filters I use.</p>
 <pre><code>#!/bin/bash
 
 # Date: 1/24/2021
