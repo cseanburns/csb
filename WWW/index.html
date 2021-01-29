@@ -41,9 +41,45 @@
 <article id="20210128">
 <h2 id="on-file-systems">On File Systems</h2>
 <h3 id="january-28-2021"><time datetime="2021-01-28">January 28, 2021</time></h3>
-<p>File systems are a weak point with me and operating systems. This is because I’ve never really had to deal with lots of disks, with complicated storage needs, humongous amounts of data, etc., and therefore never really had to learn a lot of the intricacies. I remember, for example, in my early days of using Linux, having to edit <code>/etc/fstab</code> and feeling bewildered by the process and trying to figure out how to understand the relevant <code>man</code> pages. However, since I started to teach system administration with Linux, I’ve had to learn a lot more than I did, and now feel good working with partitions, volume management, and related tools.</p>
-<p>Now that Fedora has switched to the <a href="https://btrfs.wiki.kernel.org/index.php/Main_Page">Btrfs</a> file system, I’m starting from scratch again since I’ll need to teach Btrfs the next time I teach my sysadmin course. This file system is a bit confusing, and to make matters worse, I’ve been having issues with my hard drive (I think) since I installed Fedora the other day. Since I installed Fedora right after installing the new drive, however, I can’t be sure where the problem is without a lot more investigating. Are the problems I’m having due to the physical hard drive? Or the file system? Or something else, like Wayland? I’m completely not sure. Too many variables.</p>
-<p>This morning I used the Btrfs <code>scrub</code> utility, and it <em>felt</em> like the thrashing went away as a result and that the OS was running more smoothly. However, as I type this in <code>vim</code>, there’s sometimes a decent amount of lag after pressing keys. It’s pretty frustrating, and since I have a lot of non-Linux work to do this sabbatical, if I don’t get it resolved soon, I might switch back to Ubuntu. Perhaps Fedora is too cutting edge for my daily work needs.</p>
+
+<p>File systems are a weak point with me and operating systems. This is 
+because I’ve never really had to deal with lots of disks, with 
+complicated storage needs, humongous amounts of data, etc., and 
+therefore never really had to learn a lot of the intricacies. I 
+remember, for example, in my early days of using Linux, having to edit 
+<code>/etc/fstab</code> and feeling bewildered by the process and trying 
+to figure out how to understand the relevant <code>man</code> pages. 
+However, since I started to teach system administration with Linux, I’ve 
+had to learn a lot more than I did, and now feel good working with 
+partitions, volume management, and related tools.</p>
+
+<p>Now that Fedora has switched to the <a 
+href="https://btrfs.wiki.kernel.org/index.php/Main_Page">Btrfs</a> file 
+system, I’m starting from scratch again since I’ll need to teach Btrfs 
+the next time I teach my sysadmin course. This file system is a bit 
+confusing, and to make matters worse, I’ve been having issues with my 
+hard drive (I think) since I installed Fedora the other day. Since I 
+installed Fedora right after installing the new drive, however, I can’t 
+be sure where the problem is without a lot more investigating. Are the 
+problems I’m having due to the physical hard drive? Or the file system? 
+Or something else, like Wayland? I’m completely not sure. Too many 
+variables.</p>
+
+<p>This morning I used the Btrfs <code>scrub</code> utility, and it 
+<em>felt</em> like the thrashing went away as a result and that the OS 
+was running more smoothly. However, as I type this in <code>vim</code>, 
+there’s sometimes a decent amount of lag after pressing keys. It’s 
+pretty frustrating, and since I have a lot of non-Linux work to do this 
+sabbatical, if I don’t get it resolved soon, I might switch back to 
+Ubuntu. Perhaps Fedora is too cutting edge for my daily work needs.</p>
+
+<p>**Update:** The keyboard lag is a *libinput* issue, it seems, based 
+off of ``journalctl``. But then I ran ``sudo libinput debug-events``, 
+and everything seems dandy, i.e., no lag. Since I was having the problem 
+in ``vim``, I decided to try ``nano``, and I'm not getting any lag in 
+nano (I'm using ``nana`` now). Now I have to figure out what's going on 
+with ``vim``.</p>
+
 </article>
 
 <article id="20210127">
