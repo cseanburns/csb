@@ -21,7 +21,16 @@ body {
 @media (max-width: 810px) {
   body {
     display: block;
-  } 
+    padding: 0 5px 0 5px;
+  }
+}
+
+@media (min-width: 810px) {
+ nav {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
 }
 
 header {
@@ -50,9 +59,6 @@ h1 {
 nav {
   grid-area: nav;
   background-color: #512e5f;
-  position: sticky;
-  top: 0;
-  height: 100vh;
 }
 
 nav ul {
