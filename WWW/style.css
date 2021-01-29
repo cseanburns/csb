@@ -50,6 +50,9 @@ h1 {
 nav {
   grid-area: nav;
   background-color: #512e5f;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
 nav ul {
