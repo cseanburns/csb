@@ -33,8 +33,14 @@
 
     <section id="thetext">
       <h2 class="bigger">The Text, Please. Just the Text.</h2>
-      <p>The following are short essays, some personal, on whatever comes to mind. Basically, I'm mimicking Montaigne's <i>Essays</i> here, but with much less intriguing content and style and far shorter entries.</p>
-      <p>Longer, more academic focused essays may be found on my <a href="wiki/blog/blog-entries">wiki</a>.</p>
+
+      <p>The following are short essays, some personal, on whatever comes to
+      mind. Basically, I'm mimicking Montaigne's <i>Essays</i> here, but with
+      much less intriguing content and style and far shorter entries.</p>
+
+      <p>Longer, more academic focused essays may be found on my <a
+      href="wiki/blog/blog-entries">wiki</a>.</p>
+
       <p>If you use a RSS reader and would like to keep updated, please use my
       <a href="https://cseanburns.net/WWW/index.xml">feed</a>.</p>
 
@@ -86,22 +92,53 @@ vim.</p>
 <article id="20210127">
 <h2 id="loud-clamorous-blaring">Loud, Clamorous, Blaring</h2>
 <h3 id="january-27-2021"><time datetime="2021-01-27">January 27, 2021</time></h3>
-<p>The theme of the day is NOISE. The children bounced (still are) off the walls while I worked. Way more than usual. Their loud pitched screams accompanied their frenzied physicality. Fortunately, I was able to work in a separate room. Unfortunately, this offered zero sound and vibration proofing. The wee one wouldn’t nap and is hyper because of it.</p>
-<p>The new hard drive I installed is loud, too. So LOUD. I regret not getting a SSD. I mistakenly put the desktop on <em>top of the desk</em>, adjacent to my ear. Wrong move there, Burns. I finally unhooked the cables from the computer, re-seated the new hard drive to be sure it was snug, and converted the desktop into a <em>deskunder</em>. I think one of these things helped with the noise a bit.</p>
-<p>I guess I was surprised by how much I've adjusted to this atmosphere over the course of this past year. “Adapt or perish,” I suppose. Of all things, it was the hard drive sound that was driving me up the wall. But fixed that.</p>
+
+<p>The theme of the day is NOISE. The children bounced (still are) off the
+walls while I worked. Way more than usual. Their loud pitched screams
+accompanied their frenzied physicality. Fortunately, I was able to work in
+a separate room. Unfortunately, this offered zero sound and vibration proofing.
+The wee one wouldn’t nap and is hyper because of it.</p>
+
+<p>The new hard drive I installed is loud, too. So LOUD. I regret not getting
+a SSD. I mistakenly put the desktop on <em>top of the desk</em>, adjacent to my
+ear. Wrong move there, Burns. I finally unhooked the cables from the computer,
+re-seated the new hard drive to be sure it was snug, and converted the desktop
+into a <em>deskunder</em>. I think one of these things helped with the noise
+a bit.</p>
+
+<p>I guess I was surprised by how much I've adjusted to this atmosphere over
+the course of this past year. “Adapt or perish,” I suppose. Of all things, it
+was the hard drive sound that was driving me up the wall. But fixed that.</p>
+
 </article>
 
 <article id="20210126">
 <h2 id="in-my-next-life">In My Next Life</h2>
 <h3 id="january-26-2021"><time datetime="2021-01-26">January 26, 2021</time></h3>
-<p>My hope is that if there is a next life in this world, that I am a singer-songwriter in that life, and that I feel all that I feel now, and that I am able to capture it in song and sing it out.</p>
+
+<p>My hope is that if there is a next life in this world, that I am
+a singer-songwriter in that life, and that I feel all that I feel now, and that
+I am able to capture it in song and sing it out.</p>
+
 </article>
 
 <article id="20210125">
 <h2 id="you-have-mail-too">You Have Mail, too</h2>
 <h3 id="january-25-2021"><time datetime="2021-01-25">January 25, 2021</time></h3>
-<p>My very simple <code>email</code> script that I wrote yesterday did not perform as expected this morning when I ran it. I should have realized this. The basic <em>if/elif</em> statements meant that the script would report on one mailbox at a time and that I would have to open <code>mutt</code> for each mailbox in order for the script to move on to the next mailbox. <strong>Subpar work, Burns!</strong></p>
-<p>So I modified it this morning. I assigned the mailboxes to a Bash array and then surrounded a simpler <em>if</em> statement with a <em>for</em> loop that cycled through the array. I defined a function for this and then called the function at the end. This works as desired and the code is nicer to look at:</p>
+
+<p>My very simple <code>email</code> script that I wrote yesterday did not
+perform as expected this morning when I ran it. I should have realized this.
+The basic <em>if/elif</em> statements meant that the script would report on one
+mailbox at a time and that I would have to open <code>mutt</code> for each
+mailbox in order for the script to move on to the next mailbox. <strong>Subpar
+work, Burns!</strong></p>
+
+<p>So I modified it this morning. I assigned the mailboxes to a Bash array and
+then surrounded a simpler <em>if</em> statement with a <em>for</em> loop that
+cycled through the array. I defined a function for this and then called the
+function at the end. This works as desired and the code is nicer to look
+at:</p>
+
 <pre><code>#!/bin/bash
 
 checkmail() {
@@ -126,7 +163,11 @@ main() {
 }
 
 main</code></pre>
-<p>Maybe later on I’ll have it report email metadata. I took at look at the email headers last night, and it wouldn't be a hassle to do, but as I was looking through the headers, I was thinking that I might not care that much. We’ll see. Perhaps I'll just return a count of new emails.</p>
+
+<p>Maybe later on I’ll have it report email metadata. I took at look at the
+email headers last night, and it wouldn't be a hassle to do, but as I was
+looking through the headers, I was thinking that I might not care that much.
+We’ll see. Perhaps I'll just return a count of new emails.</p>
 
 <p>Link to <a href="https://github.com/cseanburns/sysadmin/blob/master/usr/email">email</a>.</p>
 </article>
@@ -134,14 +175,46 @@ main</code></pre>
 <article id="20210124">
 <h2 id="you-have-mail">You Have Mail</h2>
 <h3 id="january-24-2021"><time datetime="2021-01-24">January 24, 2021</time></h3>
-<p>A small command-line program called <code>email</code> that I used on Ubuntu does not seem to be available in the Fedora repositories. All the program did was tell me if I had new or unopened email in various Maildir directories (mailboxes), which contain subdirectories <em>new/</em>, <em>cur/</em>, and <em>tmp/</em>. I liked it because I could just type out the command to see if I had new email without having to open <code>mutt</code>, the email client that I use on the command line (I know, this is super lazy of me).</p>
-<p>I also used <code>email</code> in my <em>.bash_functions</em> file. Although I have a <em>systemd</em> timer setup to sync email every five minutes using <code>mbsync</code>, I have a function in <em>.bash_functions</em> to sync and list new emails on command:</p>
+
+<p>A small command-line program called <code>email</code> that I used on Ubuntu
+does not seem to be available in the Fedora repositories. All the program did
+was tell me if I had new or unopened email in various Maildir directories
+(mailboxes), which contain subdirectories <em>new/</em>, <em>cur/</em>, and
+<em>tmp/</em>. I liked it because I could just type out the command to see if
+I had new email without having to open <code>mutt</code>, the email client that
+I use on the command line (I know, this is super lazy of me).</p>
+
+<p>I also used <code>email</code> in my <em>.bash_functions</em> file. Although
+I have a <em>systemd</em> timer setup to sync email every five minutes using
+<code>mbsync</code>, I have a function in <em>.bash_functions</em> to sync and
+list new emails on command:</p>
+
 <pre><code>cmail () {
   mbsync -aq ; printf &quot;\n&quot; ; email ; printf &quot;\n&quot; ; date
 }</code></pre>
-<p>I wanted to keep using that function, and so I hacked together a very simple little script to replace what I lost by switching to Fedora. It uses the Bash <code>[</code> (test) builtin with the <code>-s</code> option to check if the <em>new/</em> directory is greater than zero. If it is greater than zero, then that simply means there’s a file in that directory, and if there’s a file in <em>new/</em>, then it means there’s a new email, or more specifically, a file that hasn’t been seen by <code>mutt</code>. When <code>mutt</code> does see that file, it gets moved to <em>cur/</em>, even if I don’t open the email. If I don’t open the email but <code>mutt</code> sees it, then <code>mutt</code> labels it as unopened and not just new.</p>
-<p>Eventually I’d like to update the script to print out the <strong>From</strong> and <strong>Subject</strong> lines. That way I can decide if I want to open <code>mutt</code> at all and read my email or just ignore for a while. In the meantime, I can use <code>mutt -Z</code> to open a mailbox that has new email, if <code>email</code> says I have some.</p>
-<p>Here’s a smaller version of the script. The <a href="https://github.com/cseanburns/sysadmin/blob/master/usr/email">full one</a> checks several Maildir directories that new mail goes to based on some filters I use.</p>
+
+<p>I wanted to keep using that function, and so I hacked together a very simple
+little script to replace what I lost by switching to Fedora. It uses the Bash
+<code>[</code> (test) builtin with the <code>-s</code> option to check if the
+<em>new/</em> directory is greater than zero. If it is greater than zero, then
+that simply means there’s a file in that directory, and if there’s a file in
+<em>new/</em>, then it means there’s a new email, or more specifically, a file
+that hasn’t been seen by <code>mutt</code>. When <code>mutt</code> does see
+that file, it gets moved to <em>cur/</em>, even if I don’t open the email. If
+I don’t open the email but <code>mutt</code> sees it, then <code>mutt</code>
+labels it as unopened and not just new.</p>
+
+<p>Eventually I’d like to update the script to print out the
+<strong>From</strong> and <strong>Subject</strong> lines. That way I can decide
+if I want to open <code>mutt</code> at all and read my email or just ignore for
+a while. In the meantime, I can use <code>mutt -Z</code> to open a mailbox that
+has new email, if <code>email</code> says I have some.</p>
+
+<p>Here’s a smaller version of the script. The <a
+href="https://github.com/cseanburns/sysadmin/blob/master/usr/email">full
+one</a> checks several Maildir directories that new mail goes to based on some
+filters I use.</p>
+
 <pre><code>#!/bin/bash
 
 # Date: 1/24/2021
@@ -161,18 +234,41 @@ fi</code></pre>
 <article id="20210123">
 <h2 id="a-good-long-walk">A Good Long Walk</h2>
 <h3 id="january-23-2021"><time datetime="2021-01-23">January 23, 2021</time></h3>
-<p>I took a good five-mile walk today with the wee one, who was strapped in their stroller, layered up and blanketed. They napped the whole way.</p>
-<p>I crossed paths with a colleague, a delightful one. We chatted for a bit, and that was very nice.</p>
-<p>When I walked to work every day, I got into the habit of listening to podcasts. I’ve gotten out of that habit, and it makes me glad to have let it go and to walk in silence.</p>
-<p>I usually nod my head at or wave to people when we pass each other, if we happen to catch each other’s eyes, but it’s not often that anyone responds. The only stranger to wave hello to me was another parent with her child in a stroller. I guess it was something about the shared situation that warranted acknowledgment and a connection.</p>
+
+<p>I took a good five-mile walk today with the wee one, who was strapped in
+their stroller, layered up and blanketed. They napped the whole way.</p>
+
+<p>I crossed paths with a colleague, a delightful one. We chatted for a bit,
+and that was very nice.</p>
+
+<p>When I walked to work every day, I got into the habit of listening to
+podcasts. I’ve gotten out of that habit, and it makes me glad to have let it go
+and to walk in silence.</p>
+
+<p>I usually nod my head at or wave to people when we pass each other, if we
+happen to catch each other’s eyes, but it’s not often that anyone responds. The
+only stranger to wave hello to me was another parent with her child in
+a stroller. I guess it was something about the shared situation that warranted
+acknowledgment and a connection.</p>
+
 </article>
 
 
 <article id="20210122">
 <h2 id="always-the-tinkerer">Always the Tinkerer</h2>
 <h3 id="january-22-2021"><time datetime="2021-01-22">January 22, 2021</time></h3>
-<p>I’ve been playing around with this site’s design recently. I wanted to add more pages and I didn’t think the last layout, with the horizontal nav bar, worked well for that. But it’s also that I like to fiddle around and keep up to date with basic web design ideas. If I don’t, then I quickly start to forget those things.</p>
-<p>I’ll probably redesign it again in a few months, in fact. I predict that I’ll start tinkering again when I’m knee-deep in my sabbatical research only because I’ll want a mental break, and doing little techie things like this can be a nice reprieve.</p>
+
+<p>I’ve been playing around with this site’s design recently. I wanted to add
+more pages and I didn’t think the last layout, with the horizontal nav bar,
+worked well for that. But it’s also that I like to fiddle around and keep up to
+date with basic web design ideas. If I don’t, then I quickly start to forget
+those things.</p>
+
+<p>I’ll probably redesign it again in a few months, in fact. I predict that
+I’ll start tinkering again when I’m knee-deep in my sabbatical research only
+because I’ll want a mental break, and doing little techie things like this can
+be a nice reprieve.</p>
+
 </article>
 
 <article id="20210121">
@@ -190,7 +286,10 @@ fi</code></pre>
 <li>Play Scrabble with family</li>
 <li>Turn off computer</li>
 <li>Disconnect hard drive and pull out of mount</li>
-<li>Remove hard drive cage. I kept looking for how to unscrew the cage and my 9 year old child, who is with me because they want to learn how to change a hard drive, notices that the cage is flexible and all I have to do is pull the cage off. I have very literally changed hundreds of hard drives. LOL!</li>
+<li>Remove hard drive cage. I kept looking for how to unscrew the cage and my
+9 year old child, who is with me because they want to learn how to change
+a hard drive, notices that the cage is flexible and all I have to do is pull
+the cage off. I have very literally changed hundreds of hard drives. LOL!</li>
 <li>Place new hard drive in cage and remount</li>
 </ul>
 
@@ -212,56 +311,167 @@ So:</p>
 <li>Install driver (it worked)</li>
 <li>Relocate computer, monitor, etc back to my desk</li>
 </ul>
-<p>And finally, restore my backup and install additional applications that are not installed by default (mutt, etc).</p>
-<p>Usually when I install a new Linux distro, it takes an hour to install and set things back up to how I like it. But because I wanted to secure wipe the old drive and because I had to relocate the computer to another room, this process took a lot longer. But all is well now, and Fedora is nice.</p>
+
+<p>And finally, restore my backup and install additional applications that are
+not installed by default (mutt, etc).</p>
+
+<p>Usually when I install a new Linux distro, it takes an hour to install and
+set things back up to how I like it. But because I wanted to secure wipe the
+old drive and because I had to relocate the computer to another room, this
+process took a lot longer. But all is well now, and Fedora is nice.</p>
+
 </article>
 
 <article id="20210116">
 <h2 id="my-desktop-after-eight-years">My Desktop after Eight Years</h2>
 <h3 id="january-16-2021"><time datetime="2021-01-16">January 16, 2021</time></h3>
-<p>Even though it’s been nearly 8 years, my desktop computer for work is still humming along nicely. When I selected this computer, I intentionally picked out a computer that was fairly beefy at the time because I wanted it to last a long while. The computer has 4 cores (i7-3770 @ 3.40GHz), 32 GB DDR3 RAM, an NVIDIA Quadro K2000 GPU, and a 1 TB hard drive at 5400 RPM.</p>
-<p>I can’t remember if I added RAM or replaced a bad RAM stick soon after I got this machine back in 2013, but other than that, I haven’t changed any of its hardware. I do run statistical computations on this machine for research but not real big data computations, and the machine handles it all fine.</p>
-<p>The machine also runs Linux. I’ve been a long time Ubuntu user but will switch to Fedora soon. I teach Fedora in my Linux systems administration course and have grown to like it a lot. I’ll install Fedora this week when I replace the hard drive. The current drive has been spinning for over 6 years and 4 months, and although a SMART test shows that it’s mostly okay (there are some pre-fail values), it is past its lifetime. The new drive is twice as big as the current one, and I doubt I’ll need the extra space for years, but it also runs at 7200 RPMs, and the faster speed might be nice.</p>
-<p>I hope this machine lasts at least another 8 years (or even longer). If it does, I like that I’m saving my employer a lot of money and that I’m lessening my environmental impact, albeit a very small one, by saving this machine from the recycle bin and replacing it over and over.</p>
+
+<p>Even though it’s been nearly 8 years, my desktop computer for work is still
+humming along nicely. When I selected this computer, I intentionally picked out
+a computer that was fairly beefy at the time because I wanted it to last a long
+while. The computer has 4 cores (i7-3770 @ 3.40GHz), 32 GB DDR3 RAM, an NVIDIA
+Quadro K2000 GPU, and a 1 TB hard drive at 5400 RPM.</p>
+
+<p>I can’t remember if I added RAM or replaced a bad RAM stick soon after I got
+this machine back in 2013, but other than that, I haven’t changed any of its
+hardware. I do run statistical computations on this machine for research but
+not real big data computations, and the machine handles it all fine.</p>
+
+<p>The machine also runs Linux. I’ve been a long time Ubuntu user but will
+switch to Fedora soon. I teach Fedora in my Linux systems administration course
+and have grown to like it a lot. I’ll install Fedora this week when I replace
+the hard drive. The current drive has been spinning for over 6 years and
+4 months, and although a SMART test shows that it’s mostly okay (there are some
+pre-fail values), it is past its lifetime. The new drive is twice as big as the
+current one, and I doubt I’ll need the extra space for years, but it also runs
+at 7200 RPMs, and the faster speed might be nice.</p>
+
+<p>I hope this machine lasts at least another 8 years (or even longer). If it
+does, I like that I’m saving my employer a lot of money and that I’m lessening
+my environmental impact, albeit a very small one, by saving this machine from
+the recycle bin and replacing it over and over.</p>
+
 </article>
 
 <article id="20210115">
 <h2 id="i-will-pass-on-time-travel">I Will Pass on Time Travel</h2>
 <h3 id="january-15-2021"><time datetime="2021-01-15">January 15, 2021</time></h3>
-<p>I have this recurring night or daymare where I travel back in time to my younger self. However, instead of there being two of me at this previous point in time—i.e., an older me that goes back to a time when the younger me also exists—in this dream it is only my conscious mind that is sent back and that occupies my younger self. In this scenario, I do not relive my life as a third person viewer, but I re-possess my old self, so to speak, and this gives me the ability to redo my future.</p>
-<p>While at first blush it seems neat that I could relive my life, when I find myself back in time in this dream, I realize that the future that I remember is forever lost—that there is no way to recreate the steps that led me to my old future or to prevent what I know about my old future from influencing what I do in the new present. I am forced into a new future.</p>
-<p>And I panic because of the implications of this. A new future means that since my three children are partly a function of the exact time they were conceived, that is, if they were conceived a day later, then different biological interactions, inevitable if occurring at different times, would result in different children—just as children that are conceived between the same two people at some other time in their relationship are siblings and not identical or clones of the prior ones. In essence, while I think I could manage to find my wife again in this alternate universe, I think it would be impossible for us to have the same children again even if I do find her. Going back in time in the way I dream it would thus be disastrous.</p>
-<p>This is a bizarre dream to have, but I think it’s simply an active imagination that’s considering getting older and taking measure of the life I’ve lived. Overall then, it’s a good dream, even if it has this nightmarish setting, because it’s about how I don’t care to relive my life simply for the fact that the sacrifices involved are too costly. It’s about how my life is not just about me but also about these three little darlings that are a part of my existence. Even if my life hasn’t been anywhere near perfect and there are struggles that I have now that I could have prevented if I had known better, I have taken measure of it and have found nothing wanting and everything to lose.</p>
+
+<p>I have this recurring night or daymare where I travel back in time to my
+younger self. However, instead of there being two of me at this previous point
+in time—i.e., an older me that goes back to a time when the younger me also
+exists—in this dream it is only my conscious mind that is sent back and that
+occupies my younger self. In this scenario, I do not relive my life as a third
+person viewer, but I re-possess my old self, so to speak, and this gives me the
+ability to redo my future.</p>
+
+<p>While at first blush it seems neat that I could relive my life, when I find
+myself back in time in this dream, I realize that the future that I remember is
+forever lost—that there is no way to recreate the steps that led me to my old
+future or to prevent what I know about my old future from influencing what I do
+in the new present. I am forced into a new future.</p>
+
+<p>And I panic because of the implications of this. A new future means that
+since my three children are partly a function of the exact time they were
+conceived, that is, if they were conceived a day later, then different
+biological interactions, inevitable if occurring at different times, would
+result in different children—just as children that are conceived between the
+same two people at some other time in their relationship are siblings and not
+identical or clones of the prior ones. In essence, while I think I could manage
+to find my wife again in this alternate universe, I think it would be
+impossible for us to have the same children again even if I do find her. Going
+back in time in the way I dream it would thus be disastrous.</p>
+
+<p>This is a bizarre dream to have, but I think it’s simply an active
+imagination that’s considering getting older and taking measure of the life
+I’ve lived. Overall then, it’s a good dream, even if it has this nightmarish
+setting, because it’s about how I don’t care to relive my life simply for the
+fact that the sacrifices involved are too costly. It’s about how my life is not
+just about me but also about these three little darlings that are a part of my
+existence. Even if my life hasn’t been anywhere near perfect and there are
+struggles that I have now that I could have prevented if I had known better,
+I have taken measure of it and have found nothing wanting and everything to
+lose.</p>
+
 <p><em>Update 1/16/2021:</em> Ha! My wife tells me this is like the plot to the movie <em>About Time</em>. I haven't seen it, but I guess I will now.</p>
 </article>
 
 <article id="20210114">
 <h2 id="citizen-science">Citizen Science</h2>
 <h3 id="january-14-2021"><time datetime="2021-01-14">January 14, 2021</time></h3>
-<p>I’ve lived in the same house going on eight years now. What’s nice about that is that I’ve been able to notice how the neighborhood changes around here. It changes pretty dramatically each year since a lot of students live on the block, and they usually only rent for a year or two.</p>
-<p>It’s also been nice to watch how other things change. There’s a groundhog that lives out back, and we’ve noticed it come out and eat the grasses throughout the years. My next door neighbor has a holly tree in their front yard, and every winter the robins strip the berries off that tree. It takes them about a half hour or so to complete their work, and because there are so many robins and because it happens so quickly, it’s fun to watch the frenzy.</p>
-<p>This year the robins went after the tree a couple of days ago. I had the sense that it happened at a much different date then in previous years. Fortunately, I had taken photos and video of the event in some past years. I went through my photos and found that the robins had stripped the tree on the following dates:</p>
+
+<p>I’ve lived in the same house going on eight years now. What’s nice about
+that is that I’ve been able to notice how the neighborhood changes around here.
+It changes pretty dramatically each year since a lot of students live on the
+block, and they usually only rent for a year or two.</p>
+
+<p>It’s also been nice to watch how other things change. There’s a groundhog
+that lives out back, and we’ve noticed it come out and eat the grasses
+throughout the years. My next door neighbor has a holly tree in their front
+yard, and every winter the robins strip the berries off that tree. It takes
+them about a half hour or so to complete their work, and because there are so
+many robins and because it happens so quickly, it’s fun to watch the
+frenzy.</p>
+
+<p>This year the robins went after the tree a couple of days ago. I had the
+sense that it happened at a much different date then in previous years.
+Fortunately, I had taken photos and video of the event in some past years.
+I went through my photos and found that the robins had stripped the tree on the
+following dates:</p>
+
 <ul>
 <li>January 26, 2014</li>
 <li>January 20, 2016</li>
 <li>January 12, 2021</li>
 </ul>
-<p>Given that this <em>appears</em> to be occurring at earlier dates, I was curious if that was correct and if so, if there was a cause. My initial, vague hypotheses were that 1) the tree was fruiting earlier, or 2) the birds had changed their behaviors, and that either of these were due to a warming winter.</p>
-<p>I thought I’d reach out and share this information with someone who does work on climate change and ecology at my university. I searched for a name and then emailed the professor. She responded back and added that it might also have something to do with the sweetness of the tree, given the sweetness of other trees in the area. And she let me know about some citizen science activities that I might find worthwhile! It was pretty cool, and I’m thankful that she responded. I look forward to collecting some data with the children!</p>
+
+<p>Given that this <em>appears</em> to be occurring at earlier dates, I was
+curious if that was correct and if so, if there was a cause. My initial, vague
+hypotheses were that 1) the tree was fruiting earlier, or 2) the birds had
+changed their behaviors, and that either of these were due to a warming
+winter.</p>
+
+<p>I thought I’d reach out and share this information with someone who does
+work on climate change and ecology at my university. I searched for a name and
+then emailed the professor. She responded back and added that it might also
+have something to do with the sweetness of the tree, given the sweetness of
+other trees in the area. And she let me know about some citizen science
+activities that I might find worthwhile! It was pretty cool, and I’m thankful
+that she responded. I look forward to collecting some data with the
+children!</p>
+
 </article>
 
 <article id="20210111">
 <h2 id="on-aging">On Aging</h2>
 <h3 id="january-11-2021"><time datetime="2021-01-11">January 11, 2021</time></h3>
-<p>I’ve gained a few pounds since the start of the pandemic. I used to walk a few miles every day by going to work and back home, but since I’ve been working from home, I walk much less. So, I started running a few days ago, and it’s made me realize the difference between my twenty-something year old body and my post-mid-middle-aged year old body. The difference is this: in my twenties, when I’d start a new exercise, I’d only feel sore. In my post-mid-middle-ages, I not only feel sore, but I also feel like my body is going to break apart. This cracks me up. But the running has made me feel better overall even if there is a lot of creaking going on in this shell of mine.</p>
+
+<p>I’ve gained a few pounds since the start of the pandemic. I used to walk
+a few miles every day by going to work and back home, but since I’ve been
+working from home, I walk much less. So, I started running a few days ago, and
+it’s made me realize the difference between my twenty-something year old body
+and my post-mid-middle-aged year old body. The difference is this: in my
+twenties, when I’d start a new exercise, I’d only feel sore. In my
+post-mid-middle-ages, I not only feel sore, but I also feel like my body is
+going to break apart. This cracks me up. But the running has made me feel
+better overall even if there is a lot of creaking going on in this shell of
+mine.</p>
+
 </article>
 
 <article id="20210109">
 <h2 id="the-trick-to-social-media">The Trick to Social Media</h2>
 <h3 id="january-9-2021"><time datetime="2021-01-09">January 9, 2021</time></h3>
-<p>We have lived with social media for fifteen or so years, but I have only now realized the trick with it. Here it is as a general, universal rule that I <em>recommend</em> all people of the world <em>follow</em>:</p>
+
+<p>We have lived with social media for fifteen or so years, but I have only now
+realized the trick with it. Here it is as a general, universal rule that
+I <em>recommend</em> all people of the world <em>follow</em>:</p>
+
 <blockquote>
-<p>Feel free to post to social media, but never ever read, watch, or listen to anything posted.</p>
+
+<p>Feel free to post to social media, but never ever read, watch, or listen to
+anything posted.</p>
+
 </blockquote>
 <p>Or,</p>
 <blockquote>
@@ -272,32 +482,97 @@ So:</p>
 <article id="20210107">
 <h2 id="on-conservatives">On Conservatives</h2>
 <h3 id="january-7-2021"><time datetime="2021-01-07">January 7, 2021</time></h3>
-<p>I think of myself as politically liberal but not uncritically so. And it seems to be important, at least in how we tend to form societies, that there exists a healthy conservative party. Because if the current conservative party cannot heal itself and eventually splinters, then what we saw yesterday might get <a href="https://www.theatlantic.com/international/archive/2017/06/ziblatt-democracy-conservative-parties/530118/">worse for democracy in the US</a>.</p>
+
+<p>I think of myself as politically liberal but not uncritically so. And it
+seems to be important, at least in how we tend to form societies, that there
+exists a healthy conservative party. Because if the current conservative party
+cannot heal itself and eventually splinters, then what we saw yesterday might
+get <a
+href="https://www.theatlantic.com/international/archive/2017/06/ziblatt-democracy-conservative-parties/530118/">worse
+for democracy in the US</a>.</p>
+
 <p>Republicans, heal thyselves. Pronto.</p>
 </article>
 
 <article id="20201229">
 <h2 id="lullabies-and-mixtapes">Lullabies and Mixtapes</h2>
 <h3 id="december-29-2020"><time datetime="2020-12-28">December 29, 2020</time></h3>
-<p>My wife has been responsible for putting the children to bed when they were infants. She’d normally hold and nurse them until they fell asleep. As soon as they become babies/toddlers, I would take over.</p>
-<p>During my tenure, I have usually put the children to sleep with music, but I’ve had separate playlists (mixtapes) for them. The first child’s playlist followed a specific musical pattern. The songs would start off upbeat. The third song would reach a crescendo, and then the fourth and remaining songs would wind down and therefore wind them down…for example: 4) <em>He War</em> / Cat Power, 5) <em>Drive</em> / The Cars, and 6) <em>Gypsy</em> / Fleetwood Mac. If the child wasn’t asleep by the time <em>Drive</em> completed, <em>Gypsy</em> would definitely do the trick. Simply because I found it a bit funny, the last song in this playlist was <em>Nonstop Disco Powerpack</em> / Beastie Boys. I played this to test if they were asleep. If they started to dance, then I’d need to start over. This was rare, though.</p>
-<p>The second child’s playlist mostly followed the same, general pattern but was shorter because they usually fell asleep faster, and still do. Their playlist (mixtape) ended with <em>St. Judy’s Comet</em> / Paul Simon. I liked ending it with a bona fide, modern lullaby. It’s a sweet, loving song. This child also adored the <em>Moana</em> soundtrack, and for a while I think I knew the words to most of the first seven or so songs of that soundtrack.</p>
-<p>The third child technically has only one song in their playlist—<em>Always On My Mind (Live)</em> / Willie Nelson. After that song plays, because I use a streaming service, the rest that play are determined by whatever algorithm the service uses. But as soon as Nelson starts to sing, even if that child might be sitting up, standing up, or crying and resisting, they’ll drop their head down onto my shoulders and start to sing along. They’re still not quite talking yet, but this child usually bellows out wordish sounds that resemble the last word of each line in the lyrics. It’s not uncommon for them to fall asleep by the second song that plays, which might be another Nelson song or a Kris Kristofferson song, but it could take nine or ten songs to do the trick. This is a tricky child.</p>
+
+<p>My wife has been responsible for putting the children to bed when they were
+infants. She’d normally hold and nurse them until they fell asleep. As soon as
+they become babies/toddlers, I would take over.</p>
+
+<p>During my tenure, I have usually put the children to sleep with music, but
+I’ve had separate playlists (mixtapes) for them. The first child’s playlist
+followed a specific musical pattern. The songs would start off upbeat. The
+third song would reach a crescendo, and then the fourth and remaining songs
+would wind down and therefore wind them down…for example: 4) <em>He War</em>
+/ Cat Power, 5) <em>Drive</em> / The Cars, and 6) <em>Gypsy</em> / Fleetwood
+Mac. If the child wasn’t asleep by the time <em>Drive</em> completed,
+<em>Gypsy</em> would definitely do the trick. Simply because I found it a bit
+funny, the last song in this playlist was <em>Nonstop Disco Powerpack</em>
+/ Beastie Boys. I played this to test if they were asleep. If they started to
+dance, then I’d need to start over. This was rare, though.</p>
+
+<p>The second child’s playlist mostly followed the same, general pattern but
+was shorter because they usually fell asleep faster, and still do. Their
+playlist (mixtape) ended with <em>St. Judy’s Comet</em> / Paul Simon. I liked
+ending it with a bona fide, modern lullaby. It’s a sweet, loving song. This
+child also adored the <em>Moana</em> soundtrack, and for a while I think I knew
+the words to most of the first seven or so songs of that soundtrack.</p>
+
+<p>The third child technically has only one song in their playlist—<em>Always
+On My Mind (Live)</em> / Willie Nelson. After that song plays, because I use
+a streaming service, the rest that play are determined by whatever algorithm
+the service uses. But as soon as Nelson starts to sing, even if that child
+might be sitting up, standing up, or crying and resisting, they’ll drop their
+head down onto my shoulders and start to sing along. They’re still not quite
+talking yet, but this child usually bellows out wordish sounds that resemble
+the last word of each line in the lyrics. It’s not uncommon for them to fall
+asleep by the second song that plays, which might be another Nelson song or
+a Kris Kristofferson song, but it could take nine or ten songs to do the trick.
+This is a tricky child.</p>
+
 </article>
 
 <article id="20201228">
 <h2 id="more-hard">More Hard</h2>
 <h3 id="december-28-2020"><time datetime="2020-12-28">December 28, 2020</time></h3>
-<p>Today has been another hard day with the kids. Meltdowns galore. I am sad for these children of mine.</p>
-<p>I have been trying to teach them how to meditate—or just breathe—when they get upset, and to take them on walks or to the park. Getting out of the house can help a lot, but it can be hard to gather and shuffle three little things out the door when it’s cold outside. Layering up takes time and is difficult when they’re already hyped up.</p>
-<p>They miss their friends. In the absence of their friends, they often look to me to be their friend and to play with them all day, but I can’t always be available to them in that way. I try at points throughout the day, but not the whole day, which is what they increasingly want.</p>
-<p>My research sabbatical is this spring. I’ve wavered about postponing it because I doubt I’ll be as productive as I would like to be. When they have meltdowns like what happened today, it is difficult to get back to work. Recovery takes a while. I’ll need to think of new ways to be more preemptive with this. Past ideas don’t work anymore.</p>
+
+<p>Today has been another hard day with the kids. Meltdowns galore. I am sad
+for these children of mine.</p>
+
+<p>I have been trying to teach them how to meditate—or just breathe—when they
+get upset, and to take them on walks or to the park. Getting out of the house
+can help a lot, but it can be hard to gather and shuffle three little things
+out the door when it’s cold outside. Layering up takes time and is difficult
+when they’re already hyped up.</p>
+
+<p>They miss their friends. In the absence of their friends, they often look to
+me to be their friend and to play with them all day, but I can’t always be
+available to them in that way. I try at points throughout the day, but not the
+whole day, which is what they increasingly want.</p>
+
+<p>My research sabbatical is this spring. I’ve wavered about postponing it
+because I doubt I’ll be as productive as I would like to be. When they have
+meltdowns like what happened today, it is difficult to get back to work.
+Recovery takes a while. I’ll need to think of new ways to be more preemptive
+with this. Past ideas don’t work anymore.</p>
+
 </article>
 
 <article id="20201227">
 <h2 id="somewhat-automated">Somewhat Automated</h2>
 <h3 id="december-27-2020"><time datetime="2020-12-27">December 27, 2020</time></h3>
-<p>I have this blog somewhat automated with two Bash scripts. The first one <a href="https://github.com/cseanburns/personal_website/blob/master/scripts/WWW-toc-generator">./WWW-toc-generator</a> generates a new table of contents entry for the home page and inserts the entry on that page in the right place. The second script <a href="https://github.com/cseanburns/personal_website/blob/master/scripts/make-rss">./make-rss</a> generates the XML for the RSS feed. Both scripts are pretty ugly, but I’ll address that later.</p>
+
+<p>I have this blog somewhat automated with two Bash scripts. The first one <a
+href="https://github.com/cseanburns/personal_website/blob/master/scripts/WWW-toc-generator">./WWW-toc-generator</a>
+generates a new table of contents entry for the home page and inserts the entry
+on that page in the right place. The second script <a
+href="https://github.com/cseanburns/personal_website/blob/master/scripts/make-rss">./make-rss</a>
+generates the XML for the RSS feed. Both scripts are pretty ugly, but I’ll
+address that later.</p>
+
 <p>My workflow here is:</p>
 <ol type="1">
 <li>Write post in markdown (in <code>ed</code> or <code>vim</code> or both)</li>
@@ -310,40 +585,148 @@ So:</p>
 <li>Manually <code>scp</code> files to server</li>
 <li>Push changes to GitHub repo</li>
 </ol>
-<p>Once I’ve written a post, the other steps only take a minute to complete, but I’d like to automate it all. Thus, the next step is to automate inserting new blog posts into this page and automate inserting the new XML item block into the index.xml RSS page. Then clean up the scripts. I’ll rewrite them and try to make them a bit portable. Right now they are far from that.</p>
-<p>I’ve never been completely happy with other flat-file based web projects even though there are some nice ones out there. I’m happy that this project, as slow as it goes, is scratching an itch I had about that.</p>
+
+<p>Once I’ve written a post, the other steps only take a minute to complete,
+but I’d like to automate it all. Thus, the next step is to automate inserting
+new blog posts into this page and automate inserting the new XML item block
+into the index.xml RSS page. Then clean up the scripts. I’ll rewrite them and
+try to make them a bit portable. Right now they are far from that.</p>
+
+<p>I’ve never been completely happy with other flat-file based web projects
+even though there are some nice ones out there. I’m happy that this project, as
+slow as it goes, is scratching an itch I had about that.</p>
+
 </article>
 
 <article id="20201223">
 <h2 id="the-dark-hard-days">The Dark, Hard Days</h2>
 <h3 id="december-23-2020"><time datetime="2020-12-23">December 23, 2020</time></h3>
-<p>I was a line cook for about 18 years, and I loved it and loved being really good at it. I loved those days when the restaurant was busy and cooking and service went smoothly. The world disappeared and a singular focus on cooking replaced it. The physical and the mental would meld, it felt like.</p>
-<p>There were times when line cooking didn’t go well. A thing would go wrong in the front or the back of the house, and the effect cascaded and would break the day. It felt herculean to regain order. There was some joy in that kind of recovery, if we were able to recover, even if most of such days lacked joy.</p>
-<p>There were times when line cooking that the day felt like a sustained, rhythmic assault, but the rhythm was odd and out of sync with our work. The tickets would print quickly and incessantly. It felt hard to breath and to get through it required an intense, determined will to focus. I remember working one shift like this the day after a Thanksgiving. The assault lasted hours and to calm myself and push through it, I found myself imagining curling up in a fetal position with my arms lifted up over my face to block the blows to my head. This was a most awful day.</p>
-<p>These past nine months have felt like the second scenario above but sometimes the third. It felt like something went wrong last March and then a cascading effect broke the rest of the year. My children suffered, my wife suffered, my family suffered, my friends suffered, the world suffered.</p>
-<p>Our own little household, 900 or so livable square feet of it, mirrors a cramped restaurant kitchen. We stepped over each other, tripped over each other, blasted each other sometimes, even if only under our breath, but sometimes to each other. We cried out for help. We tried to give each other help. We sought some help from outside. We regressed and then got better. Over and over.</p>
-<p>We are recovering, I think, which is why the last two posts have felt good to write. I’ve felt good, better. To push through this year, instead of curling up and weeping, which I’ve often wanted to do, I tried to hold my children as much as possible and to talk with my wife more. This has helped. I wept, just two weeks ago, when I found out my Mom had covid. I didn’t think she’d make it, but she did. It’s not stellar yet, but the days feel like they have less weight to them than they did even until recently, and I have high hopes that we’ll get through this stronger than we were when it started.</p>
+
+<p>I was a line cook for about 18 years, and I loved it and loved being really
+good at it. I loved those days when the restaurant was busy and cooking and
+service went smoothly. The world disappeared and a singular focus on cooking
+replaced it. The physical and the mental would meld, it felt like.</p>
+
+<p>There were times when line cooking didn’t go well. A thing would go wrong in
+the front or the back of the house, and the effect cascaded and would break the
+day. It felt herculean to regain order. There was some joy in that kind of
+recovery, if we were able to recover, even if most of such days lacked joy.</p>
+
+<p>There were times when line cooking that the day felt like a sustained,
+rhythmic assault, but the rhythm was odd and out of sync with our work. The
+tickets would print quickly and incessantly. It felt hard to breath and to get
+through it required an intense, determined will to focus. I remember working
+one shift like this the day after a Thanksgiving. The assault lasted hours and
+to calm myself and push through it, I found myself imagining curling up in
+a fetal position with my arms lifted up over my face to block the blows to my
+head. This was a most awful day.</p>
+
+<p>These past nine months have felt like the second scenario above but
+sometimes the third. It felt like something went wrong last March and then
+a cascading effect broke the rest of the year. My children suffered, my wife
+suffered, my family suffered, my friends suffered, the world suffered.</p>
+
+<p>Our own little household, 900 or so livable square feet of it, mirrors
+a cramped restaurant kitchen. We stepped over each other, tripped over each
+other, blasted each other sometimes, even if only under our breath, but
+sometimes to each other. We cried out for help. We tried to give each other
+help. We sought some help from outside. We regressed and then got better. Over
+and over.</p>
+
+<p>We are recovering, I think, which is why the last two posts have felt good
+to write. I’ve felt good, better. To push through this year, instead of curling
+up and weeping, which I’ve often wanted to do, I tried to hold my children as
+much as possible and to talk with my wife more. This has helped. I wept, just
+two weeks ago, when I found out my Mom had covid. I didn’t think she’d make it,
+but she did. It’s not stellar yet, but the days feel like they have less weight
+to them than they did even until recently, and I have high hopes that we’ll get
+through this stronger than we were when it started.</p>
+
 </article>
 
 <article id="20201220">
 <h2 id="on-buddies">On Buddies</h2>
 <h3 id="december-20-2020"><time datetime="2020-12-20">December 20, 2020</time></h3>
-<p>I am in a group chat with some college friends. It’s been on and off since the start of the pandemic, but it’s begun to flourish recently. It’s nice because even though it has been nearly 26 years since I’ve seen some of these people, we talk and joke and razz each other as if no time has passed—as if we haven’t become middle aged, as if we haven’t married (or not), raised children, become grandparents, had failures, gone to funerals, gotten divorced, and so much more. Or, despite all that, or because of it all, because we do comment on the intervening years and how much has happened and how it has all affected us.</p>
-<p>When I was growing up (nine different public schools, etc), and when I worked as a line cook (21 restaurants and many different states), I lived a fairly nomadic life, as much as that may look like in modern America. It’s meant that most of the people I’ve shared my life with, or have shared their lives with me, are not in my life anymore and never will be again, nor I theirs. There’s a kind of gravitas attached to that, and I didn’t realize how much, like the father in James Baldwin’s <em>Tell Me How Long the Train’s Been Gone</em>, that I was …</p>
+
+<p>I am in a group chat with some college friends. It’s been on and off since
+the start of the pandemic, but it’s begun to flourish recently. It’s nice
+because even though it has been nearly 26 years since I’ve seen some of these
+people, we talk and joke and razz each other as if no time has passed—as if we
+haven’t become middle aged, as if we haven’t married (or not), raised children,
+become grandparents, had failures, gone to funerals, gotten divorced, and so
+much more. Or, despite all that, or because of it all, because we do comment on
+the intervening years and how much has happened and how it has all affected
+us.</p>
+
+<p>When I was growing up (nine different public schools, etc), and when
+I worked as a line cook (21 restaurants and many different states), I lived
+a fairly nomadic life, as much as that may look like in modern America. It’s
+meant that most of the people I’ve shared my life with, or have shared their
+lives with me, are not in my life anymore and never will be again, nor
+I theirs. There’s a kind of gravitas attached to that, and I didn’t realize how
+much, like the father in James Baldwin’s <em>Tell Me How Long the Train’s Been
+Gone</em>, that I was …</p>
+
 <blockquote>
 <p>lonely for those faces which had borne witness to that past</p>
 </blockquote>
-<p>It’s been nice then not just to have this automatic reconnect with these friends, but to have it with these specific friends who once bore witness to some significant years of my past and whose past, significant for them also and for their own reasons, I bore witness to. It’s nice that there’s still some part of us that is who we were then—that there is some continuity, despite the nomadic life, despite the intervening decades, but that there’s still something to learn about each other that’s different and that this promises growth in these friendships.</p>
-<p>This loneliness that I had felt was not sourced in nostalgia. I do not wish to relive those days nor recreate them. I am happy with who I am. I’m happy that I have a family and a nice job. I want to keep going and keep growing as a person and with my partner, and to help my little ones become the persons they will be. But still, it’s nice to reconnect and share again. It feels really good.</p>
+
+<p>It’s been nice then not just to have this automatic reconnect with these
+friends, but to have it with these specific friends who once bore witness to
+some significant years of my past and whose past, significant for them also and
+for their own reasons, I bore witness to. It’s nice that there’s still some
+part of us that is who we were then—that there is some continuity, despite the
+nomadic life, despite the intervening decades, but that there’s still something
+to learn about each other that’s different and that this promises growth in
+these friendships.</p>
+
+<p>This loneliness that I had felt was not sourced in nostalgia. I do not wish
+to relive those days nor recreate them. I am happy with who I am. I’m happy
+that I have a family and a nice job. I want to keep going and keep growing as
+a person and with my partner, and to help my little ones become the persons
+they will be. But still, it’s nice to reconnect and share again. It feels
+really good.</p>
+
 </article>
 
 <article id="20201219">
 <h2 id="three-quarters-of-a-year">Three Quarters of a Year</h2>
 <h3 id="december-19-2020"><time datetime="2020-12-19">December 19, 2020</time></h3>
-<p>Three quarters of a year, and almost three seasons, have passed since the start of this quarantine. My Mom came down with covid recently, and she somehow defied the odds, which were not remotely in her favor–she’s the definition of underlying conditions. I dreaded this happening to her. She works in a big box store in a geographic area where it’s common for people to refuse to wear masks and get aggressive if requested to do so. If the former wasn’t enough for her to more likely contract covid, the latter made it more so. Well, it happened, and I’m so happy that she’s still here with us and that she’s out of danger for now.</p>
-<p>In our house, we call this time the Time of the Sickness. Despite all the difficulties (I’ve been trying to learn how to cry again, which helps with mental health), some great good has come out of it for us as a family, and I’m very thankful for that–a very silver lining around a very dark cloud. As if before my very eyes, I’ve watched my youngest transform into a toddler from a baby in a way that I don’t remember noticing with the others, and it’s been fun to watch how this child has latched onto their two older siblings, often mimicking the second oldest and demanding to play with them every chance they get. And I’ve watched my older two become big kids and best friends. I can’t steal the last cookie in the sight of my middle child without that child declaring that I must save it for their older sibling, and the oldest one often gathers the younger two to read to them as they sit on each side. So although it’s been the Time of Sickness and Great Sorrow (too), at least it’s also been the Time of Togetherness.</p>
-<p>Like everyone else I hope, I look forward to the end of this Sickness, but I’m not sure how much I want things to change for the family. I’ll still have the option to work remotely, at least for part of the week, and I will probably take that option as much as possible. I’ve grown kinda comfortable working amid the blaring of children.</p>
-<p>Update (12/20): Ha, ha! Of course, an hour after I posted this, one kid had a meltdown and the other two started fighting. Such is this roller coaster.</p>
+
+<p>Three quarters of a year, and almost three seasons, have passed since the
+start of this quarantine. My Mom came down with covid recently, and she somehow
+defied the odds, which were not remotely in her favor–she’s the definition of
+underlying conditions. I dreaded this happening to her. She works in a big box
+store in a geographic area where it’s common for people to refuse to wear masks
+and get aggressive if requested to do so. If the former wasn’t enough for her
+to more likely contract covid, the latter made it more so. Well, it happened,
+and I’m so happy that she’s still here with us and that she’s out of danger for
+now.</p>
+
+<p>In our house, we call this time the Time of the Sickness. Despite all the
+difficulties (I’ve been trying to learn how to cry again, which helps with
+mental health), some great good has come out of it for us as a family, and I’m
+very thankful for that–a very silver lining around a very dark cloud. As if
+before my very eyes, I’ve watched my youngest transform into a toddler from
+a baby in a way that I don’t remember noticing with the others, and it’s been
+fun to watch how this child has latched onto their two older siblings, often
+mimicking the second oldest and demanding to play with them every chance they
+get. And I’ve watched my older two become big kids and best friends. I can’t
+steal the last cookie in the sight of my middle child without that child
+declaring that I must save it for their older sibling, and the oldest one often
+gathers the younger two to read to them as they sit on each side. So although
+it’s been the Time of Sickness and Great Sorrow (too), at least it’s also been
+the Time of Togetherness.</p>
+
+<p>Like everyone else I hope, I look forward to the end of this Sickness, but
+I’m not sure how much I want things to change for the family. I’ll still have
+the option to work remotely, at least for part of the week, and I will probably
+take that option as much as possible. I’ve grown kinda comfortable working amid
+the blaring of children.</p>
+
+<p>Update (12/20): Ha, ha! Of course, an hour after I posted this, one kid had
+a meltdown and the other two started fighting. Such is this roller coaster.</p>
+
 </article>
 
 <article id="20201218">
@@ -351,25 +734,53 @@ So:</p>
 <h3 id="december-18-2020"><time datetime="2020-12-20">December 18, 2020</time></h3>
 <p>Who knew <em>The Princess Bride</em> was so prophetic about mask wearing?</p>
 <blockquote>
-<p>Fezzik: Why do you wear a mask? Were you burned by acid, or something like that?</p><br/>
-<p>Man in Black: Oh no. It’s just that they’re terribly comfortable. I think everyone will be wearing them in the future.</p>
+
+<p>Fezzik: Why do you wear a mask? Were you burned by acid, or something like
+that?</p><br/>
+
+<p>Man in Black: Oh no. It’s just that they’re terribly comfortable. I think
+everyone will be wearing them in the future.</p>
+
 </blockquote>
 </article>
 
 <article id="20201208">
 <h2 id="on-ebooks">On Ebooks</h2>
 <h3 id="december-8-2020"><time datetime="2020-12-08">December 8, 2020</time></h3>
-<p>I purchased an ebook reader recently, and I’m enjoying it. So far I like not adding more print books to my collection. The weight of the ones I have now is too much, although I still value having them.</p>
-<p>I like that if I do not become involved with a book that I’m reading on the device, I can simply remove it from the ereader and forget about it. Unread print books haunt me when I see them on my shelves. They remind me that I have somehow committed the sin of uncommitment. I appreciate freeing myself of that type of guilt.</p>
-<p>I wonder, though, if my migration to ebooks will have at least one negative consequence. My print books act as indices to parts of my life. I can look at any of the books on my shelves and remember when I got them and where and what I was doing during those times in my life. I know that I will lose that with ebooks. I might have other ways to index my life, though, and I guess that means time will tell, or it won’t.</p>
-</article>
+
+<p>I purchased an ebook reader recently, and I’m enjoying it. So far I like not
+adding more print books to my collection. The weight of the ones I have now is
+too much, although I still value having them.</p>
+
+<p>I like that if I do not become involved with a book that I’m reading on the
+device, I can simply remove it from the ereader and forget about it. Unread
+print books haunt me when I see them on my shelves. They remind me that I have
+somehow committed the sin of uncommitment. I appreciate freeing myself of that
+type of guilt.</p>
+
+<p>I wonder, though, if my migration to ebooks will have at least one negative
+consequence. My print books act as indices to parts of my life. I can look at
+any of the books on my shelves and remember when I got them and where and what
+I was doing during those times in my life. I know that I will lose that with
+ebooks. I might have other ways to index my life, though, and I guess that
+means time will tell, or it won’t.</p> </article>
 
 <article id="20201129">
 <h2 id="a-good-read">A Good Read</h2>
 <h3 id="november-29-2020"><time datetime="2020-11-29">November 29, 2020</time></h3>
-<p>Tonight I finished reading <em>Exciting Times</em> by Naoise Dolan. I don’t remember why I picked this book, but I think I saw it on a list somewhere. However I chose it, I’m glad I did. It was quite a pleasure.</p>
-<p>I am not quite pleased with a couple of reviews of the book that I read. I wanted to see how others thought about the ending, which is why I read the reviews after I read the book. The reviews were positive but also critical in a way that I thought were unwarranted.</p>
-<p>So, remind me not to read reviews again. It kind of spoiled the nice feeling I had and tend to get when I’ve just taken in a good story.</p>
+
+<p>Tonight I finished reading <em>Exciting Times</em> by Naoise Dolan. I don’t
+remember why I picked this book, but I think I saw it on a list somewhere.
+However I chose it, I’m glad I did. It was quite a pleasure.</p>
+
+<p>I am not quite pleased with a couple of reviews of the book that I read.
+I wanted to see how others thought about the ending, which is why I read the
+reviews after I read the book. The reviews were positive but also critical in
+a way that I thought were unwarranted.</p>
+
+<p>So, remind me not to read reviews again. It kind of spoiled the nice feeling
+I had and tend to get when I’ve just taken in a good story.</p>
+
 </article>
 
 <article id="20201124">
@@ -381,41 +792,93 @@ So:</p>
 <article id="20201121">
 <h2 id="on-sudoku">On Sudoku</h2>
 <h3 id="november-21-2020"><time datetime="2020-11-21">November 21, 2020</time></h3>
-<p>I've been playing a lot of Sudoku in recent months and I think I've gotten fairly adept at completing very difficult puzzles. Sometimes when I'm stuck, I’ll work through all the empty cells and add notes for all the possible candidates in each cell. Sometimes that doesn’t help at all and the puzzle looks like a mickle of numbers. However, if I go through and delete all of the candidates and start over, more often than not I'll see what I missed and complete the puzzle.</p>
+
+<p>I've been playing a lot of Sudoku in recent months and I think I've gotten
+fairly adept at completing very difficult puzzles. Sometimes when I'm stuck,
+I’ll work through all the empty cells and add notes for all the possible
+candidates in each cell. Sometimes that doesn’t help at all and the puzzle
+looks like a mickle of numbers. However, if I go through and delete all of the
+candidates and start over, more often than not I'll see what I missed and
+complete the puzzle.</p>
+
 </article>
 
 <article id="20201117">
 <h2 id="on-carrots">On Carrots</h2>
 <h3 id="november-17-2020"><time datetime="2020-11-17">November 17, 2020</time></h3>
-<p>I was lucky to once work for one of the greatest chefs in the country, and she didn't like carrots, and we never had them in the restaurant. I thought that was funny because, you know, mirepoix.</p>
-<p>But it was fine. Everything tasted wonderful. Her broth, her sauces, her soups, everything was out of this world.</p>
+
+<p>I was lucky to once work for one of the greatest chefs in the country, and
+she didn't like carrots, and we never had them in the restaurant. I thought
+that was funny because, you know, mirepoix.</p>
+
+<p>But it was fine. Everything tasted wonderful. Her broth, her sauces, her
+soups, everything was out of this world.</p>
+
 </article>
 
 <article id="20201115">
 <h2 id="primate-lessons">Primate Lessons</h2>
 <h3 id="november-15-2020"><time datetime="2020-11-15">November 15, 2020</time></h3>
-<p>There are a lot of PBS documentaries on primates, and I’ve been watching a bunch of them and realizing how little I know about our fairly close biological relatives.</p>
-<p>For example, I did not know that there is often a rigid social hierarchy in many primate groups, as there have been in most human societies throughout history. I wonder, as primates, if we have a kind of default disposition toward that kind of societal structure, too, and if it makes democracy and equality a hard sell for us. If so, then it is fascinating that attempts at democracy and equality have been as successful as they have been for so long here in the US, even if that success has been marginal for many and has fallen short, tragically, in so many ways, but then not surprising that it is so fragile and threatened, as we are discovering these days. I wonder if this default inclination, if it exists, is the reason for the appeal of the <a href="https://en.wikipedia.org/wiki/Strongman_(politics)">strongman</a> among half the population.</p>
-<p>These thoughts give me new meaning to King’s quote, that <q>the arc of the moral universe is long, but it bends toward justice.</q> My take on this now is that, it’s a moral universe because we are not simply primates, but the arc is long because we are.</p>
+
+<p>There are a lot of PBS documentaries on primates, and I’ve been watching
+a bunch of them and realizing how little I know about our fairly close
+biological relatives.</p>
+
+<p>For example, I did not know that there is often a rigid social hierarchy in
+many primate groups, as there have been in most human societies throughout
+history. I wonder, as primates, if we have a kind of default disposition toward
+that kind of societal structure, too, and if it makes democracy and equality
+a hard sell for us. If so, then it is fascinating that attempts at democracy
+and equality have been as successful as they have been for so long here in the
+US, even if that success has been marginal for many and has fallen short,
+tragically, in so many ways, but then not surprising that it is so fragile and
+threatened, as we are discovering these days. I wonder if this default
+inclination, if it exists, is the reason for the appeal of the <a
+href="https://en.wikipedia.org/wiki/Strongman_(politics)">strongman</a> among
+half the population.</p>
+
+<p>These thoughts give me new meaning to King’s quote, that <q>the arc of the
+moral universe is long, but it bends toward justice.</q> My take on this now is
+that, it’s a moral universe because we are not simply primates, but the arc is
+long because we are.</p>
+
 </article>
 
 <article id="20201114">
 <h2 id="on-solace">On Solace</h2>
 <h3 id="november-14-2020"><time datetime="2020-11-14">November 14, 2020</time></h3>
-<p>I’ve moved away from listening to podcasts and instead have been listening more to music in recent months. It’s been a great source of comfort. Lately I’ve been revisiting Kris Kristofferson and Willie Nelson’s catalogs. They remind me a bit of <a href="https://en.wikipedia.org/wiki/Texas">home</a>, but not in a nostalgic way, and that’s not why I’ve been listening to them anyway. I think I just forgot how poetic they were, or I never appreciated it until now. I need sung poems.</p>
+
+<p>I’ve moved away from listening to podcasts and instead have been listening
+more to music in recent months. It’s been a great source of comfort. Lately
+I’ve been revisiting Kris Kristofferson and Willie Nelson’s catalogs. They
+remind me a bit of <a href="https://en.wikipedia.org/wiki/Texas">home</a>, but
+not in a nostalgic way, and that’s not why I’ve been listening to them anyway.
+I think I just forgot how poetic they were, or I never appreciated it until
+now. I need sung poems.</p>
+
 </article>
 
 <article id="20201029">
 <h2 id="surreality-polarity-reversal">Surreality Polarity Reversal</h2>
 <h3 id="october-29-2020"><time datetime="2020-10-29">October 29, 2020</time></h3>
-<p>When the pandemic hit, it felt surreal to go outside because the world was so quiet.</p>
-<p>I took a walk the other day. There was so much activity that I forgot for two seconds that there was a pandemic. Surreal also.</p>
+
+<p>When the pandemic hit, it felt surreal to go outside because the world was
+so quiet.</p>
+
+<p>I took a walk the other day. There was so much activity that I forgot for
+two seconds that there was a pandemic. Surreal also.</p>
+
 </article>
 
 <article id="20201025">
 <h2 id="dear-mom">Dear Mom</h2>
 <h3 id="october-25-2020"><time datetime="2020-10-25">October 25, 2020</time></h3>
-<p>You’re still here, but it’s been a long time since we’ve had a visit with you and the rest of the family. I find, as this long year stumbles on into its darkest season, that I am missing you all very much. Give the rest of the family a big hug for me.</p>
+
+<p>You’re still here, but it’s been a long time since we’ve had a visit with
+you and the rest of the family. I find, as this long year stumbles on into its
+darkest season, that I am missing you all very much. Give the rest of the
+family a big hug for me.</p>
+
 <p>Love,</p>
 <p>Sean</p>
 </article>
@@ -423,43 +886,83 @@ So:</p>
 <article id="20201017">
 <h2 id="not-that-1984">Not That 1984</h2>
 <h3 id="october-17-2020"><time datetime="2020-10-17">October 17, 2020</time></h3>
-<p>What was it about the movies that were released <a href="https://en.wikipedia.org/wiki/List_of_1984_box_office_number-one_films_in_the_United_States">in 1984</a>? It’s as if all at once a bunch of different movie makers found the key to unlock pop culture. I remember going to the movies when I was a kid, but there is no year where I remember going to the movies to see all of these, and there’s no year that occupies such an outsized space in my head as that year. It could have been my age, but that can’t be all of the reason.</p>
+
+<p>What was it about the movies that were released <a
+href="https://en.wikipedia.org/wiki/List_of_1984_box_office_number-one_films_in_the_United_States">in
+1984</a>? It’s as if all at once a bunch of different movie makers found the
+key to unlock pop culture. I remember going to the movies when I was a kid, but
+there is no year where I remember going to the movies to see all of these, and
+there’s no year that occupies such an outsized space in my head as that year.
+It could have been my age, but that can’t be all of the reason.</p>
+
 </article>
 
 <article id="20201010">
 <h2 id="on-the-historical-person">On the Historical Person</h2>
 <h3 id="october-10-2020"><time datetime="2020-10-10">October 10, 2020</time></h3>
-<p>What if someone of historical note traveled through time to today, then heard someone quote them, and responded, "I said that?"</p>
+
+<p>What if someone of historical note traveled through time to today, then
+heard someone quote them, and responded, "I said that?"</p>
+
 <p>The time travel part would be remarkable, too.</p>
 </article>
 
 <article id="20200107">
 <h2 id="a-pictorial-list">A Pictorial List</h2>
 <h3 id="october-7-2020"><time datetime="2020-10-07">October 7, 2020</time></h3>
-<p>My middle child, who is not yet writing, thought I asked them to list some ideas they might have for a project. To create their list, they drew eight equal sized rectangles on a sheet of paper, and in five of the rectangles, they drew a picture that captured a specific idea. The remaining three rectangles were left empty.</p>
-<p>I simply think the preliterate mind is fascinating, but it also made me think about lists differently.</p>
-<p>Aside: This has been a very hard seven months, but there have also been these very gratifying and loving moments, too. I’m grateful for that.</p>
+
+<p>My middle child, who is not yet writing, thought I asked them to list some
+ideas they might have for a project. To create their list, they drew eight
+equal sized rectangles on a sheet of paper, and in five of the rectangles, they
+drew a picture that captured a specific idea. The remaining three rectangles
+were left empty.</p>
+
+<p>I simply think the preliterate mind is fascinating, but it also made me
+think about lists differently.</p>
+
+<p>Aside: This has been a very hard seven months, but there have also been
+these very gratifying and loving moments, too. I’m grateful for that.</p>
+
 </article>
 
 <article id="20201005">
 <h2 id="on-covid19-and-keystone-species">On Covid19 and Keystone Species</h2>
 <h3 id="october-5-2020"><time datetime="2020-10-05">October 5, 2020</time></h3>
-<p>I was watching <strong>The Serengeti Rules</strong> episode on PBS about keystone species, and the part where Robert Paine discovers the abundance of mussels after removing the starfish from the tide pool made me think that we are the mussels and covid19 is the reintroduction of a keystone predator.</p>
-<p>The crazy thoughts we (or is it just me?) have after seven months of this.</p>
+
+<p>I was watching <strong>The Serengeti Rules</strong> episode on PBS about
+keystone species, and the part where Robert Paine discovers the abundance of
+mussels after removing the starfish from the tide pool made me think that we
+are the mussels and covid19 is the reintroduction of a keystone predator.</p>
+
+<p>The crazy thoughts we (or is it just me?) have after seven months of
+this.</p>
+
 <p>I am not a biologist.</p>
 </article>
 
 <article id="20200926">
 <h2 id="sawkr">s/awk/R/</h2>
 <h3 id="september-26-2020"><time datetime="2020-09-26">September 26, 2020</time></h3>
-<p>One of the difficult parts of R is simply cleaning and prepping the data. I’m curious if that part of a research project would be better served using Awk, since Awk is a data-driven programming language, and then let R (or Python) take over for the analysis. I think I might give it a go with this next research project I’m working on with some colleagues. It will be a challenge, but I bet it might pay off nicely down the road.</p>
-<p>Update: I suppose I should have titled this post with the Awk equivalent for find and replace, instead of the sed version. Oi!</p>
+
+<p>One of the difficult parts of R is simply cleaning and prepping the data.
+I’m curious if that part of a research project would be better served using
+Awk, since Awk is a data-driven programming language, and then let R (or
+Python) take over for the analysis. I think I might give it a go with this next
+research project I’m working on with some colleagues. It will be a challenge,
+but I bet it might pay off nicely down the road.</p>
+
+<p>Update: I suppose I should have titled this post with the Awk equivalent for
+find and replace, instead of the sed version. Oi!</p>
+
 </article>
 
 <article id="20200923">
 <h2 id="sedawk">s/sed/awk/</h2>
 <h3 id="september-23-2020"><time datetime="2020-09-23">September 23, 2020</time></h3>
-<p>How did I not know that <code>sed</code> could work on a specific field or occurrence in a line? Instead of:</p>
+
+<p>How did I not know that <code>sed</code> could work on a specific field or
+occurrence in a line? Instead of:</p>
+
 <pre><code>cat test.csv
 apple apple apple apple
 awk &#39;gsub(&quot;apple&quot;, &quot;orange&quot;, $2)&#39; test.csv
@@ -482,21 +985,46 @@ apple orange apple apple</code></pre>
 <article id="20200912">
 <h2 id="on-teaching-linux">On Teaching Linux</h2>
 <h3 id="september-12-2020"><time datetime="2020-09-12">September 12, 2020</time></h3>
-<p>I have been using Linux for a long time now. In the early years it felt kind of magical and new and mysterious, and what I really mean is that using the command line felt that way, and would have felt that way if I was using the CLI on any *nix-based operating system. It is a really comforting place for me to be, and sometimes I wish it was the only computing interface needed.</p>
-<p>The magic and mystery faded a few years ago. I suppose that’s likely to happen with lots of things. Getting stuff done became more important. Then I proposed an undergraduate course on Linux systems administration, and in teaching that course, I have discovered new things about the OS and rediscovered experiences I had long ago.</p>
-<p>That’s all. I simply wanted to reflect on this for a moment, and be grateful that though I have people in my life that are infinitely more meaningful than a computer, I have this small thing that brings me calm.</p>
-</article>
+
+<p>I have been using Linux for a long time now. In the early years it felt kind
+of magical and new and mysterious, and what I really mean is that using the
+command line felt that way, and would have felt that way if I was using the CLI
+on any *nix-based operating system. It is a really comforting place for me to
+be, and sometimes I wish it was the only computing interface needed.</p>
+
+<p>The magic and mystery faded a few years ago. I suppose that’s likely to
+happen with lots of things. Getting stuff done became more important. Then
+I proposed an undergraduate course on Linux systems administration, and in
+teaching that course, I have discovered new things about the OS and
+rediscovered experiences I had long ago.</p>
+
+<p>That’s all. I simply wanted to reflect on this for a moment, and be grateful
+that though I have people in my life that are infinitely more meaningful than
+a computer, I have this small thing that brings me calm.</p> </article>
 
 <article id="20200908">
 <h2 id="dark-nights">Dark Nights</h2>
 <h3 id="september-8-2020"><time datetime="2020-09-08">September 8, 2020</time></h3>
-<p>I have this routine where I wander the house before bedtime each night, picking toys, clothes, and litter off the floor. I like to pause at the backdoor and peer through the window. I like to admire the night and see the shadows cast by the moon and the occasional night creature—the possum, the raccoon, the mouse. Last night I couldn’t see a single shape. The clouds kept the moon hidden and the street and surrounding house lights were off or too far away to have an effect. The darkness was beautiful and eerie and almost total.</p>
+<p>I have this routine where I wander the house before bedtime each night,
+picking toys, clothes, and litter off the floor. I like to pause at the
+backdoor and peer through the window. I like to admire the night and see the
+shadows cast by the moon and the occasional night creature—the possum, the
+raccoon, the mouse. Last night I couldn’t see a single shape. The clouds kept
+the moon hidden and the street and surrounding house lights were off or too far
+away to have an effect. The darkness was beautiful and eerie and almost
+total.</p>
 </article>
 
 <article id="20200830">
 <h2 id="on-revising">On Revising</h2>
 <h3 id="august-30-2020"><time datetime="2020-08-30">August 30, 2020</time></h3>
-<p>I couldn’t let go the last Bash script <a href=WWW/index.html#on-distractions>On Distractions</a>. As I read more about <code>awk</code>, I learned that it was possible to write <a href="https://blog.jpalardy.com/posts/awk-tutorial-part-2/">multiple condition-block</a> statements. It then occurred to me I could write a (long) <em>one-liner</em> using this technique and that the Bash function and the <code>awk</code> <strong>if-else</strong> statement were unnecessary:</p>
+<p>I couldn’t let go the last Bash script <a
+href=WWW/index.html#on-distractions>On Distractions</a>. As I read more about
+<code>awk</code>, I learned that it was possible to write <a
+href="https://blog.jpalardy.com/posts/awk-tutorial-part-2/">multiple
+condition-block</a> statements. It then occurred to me I could write a (long)
+<em>one-liner</em> using this technique and that the Bash function and the
+<code>awk</code> <strong>if-else</strong> statement were unnecessary:</p>
 <pre><code>#!/bin/bash
 systemctl status --user mbsync.timer |\
          awk -F&quot;;&quot;\
@@ -507,26 +1035,62 @@ systemctl status --user mbsync.timer |\
 <li>Run the <code>systemctl</code> command</li>
 <li>Pipe output to <code>awk</code></li>
 <li>Do a regex search for <strong>Trigger:</strong></li>
-<li>If the output is <strong>NULL</strong>, then the systemd timer is syncing and print that.</li>
+<li>If the output is <strong>NULL</strong>, then the systemd timer is syncing
+and print that.</li>
 <li>Do a regex search for <strong>Trigger:</strong></li>
-<li>If the output is <strong>not NULL</strong>, then the systemd timer is counting and print the count</li>
+<li>If the output is <strong>not NULL</strong>, then the systemd timer is
+counting and print the count</li>
+
 </ol>
 </article>
 
 <article id="20200826">
 <h2 id="on-distractions">On Distractions</h2>
 <h3 id="august-26-2020"><time datetime="2020-08-26">August 26, 2020</time></h3>
-<p>It was a fairly productive day, but I’m not sure how I got anything done. Lots of distractions.</p>
-<p>My first distraction of the day was all my fault. I use <code>mbsync</code> to retrieve email and I have a <code>systemd</code> timer (instead of a <code>cron</code> job) set to retrieve email every five minutes. This is the first time I’ve used <code>systemd</code> instead of <code>cron</code>. It’s fine, but even though I have no skin in the <code>systemd</code> controversy, I'm often annoyed by the length of some of the commands. For instance, to see when <code>mbsync</code> would next sync my email to my desktop, I’d type this out:</p>
+
+<p>It was a fairly productive day, but I’m not sure how I got anything done.
+Lots of distractions.</p>
+
+<p>My first distraction of the day was all my fault. I use <code>mbsync</code>
+to retrieve email and I have a <code>systemd</code> timer (instead of
+a <code>cron</code> job) set to retrieve email every five minutes. This is the
+first time I’ve used <code>systemd</code> instead of <code>cron</code>. It’s
+fine, but even though I have no skin in the <code>systemd</code> controversy,
+I'm often annoyed by the length of some of the commands. For instance, to see
+when <code>mbsync</code> would next sync my email to my desktop, I’d type this
+out:</p>
+
 <pre><code>systemctl status --user mbsync.timer</code></pre>
-<p>I wanted to fix that. I could have taken better advantage of Bash history, but I thought I could make it a bit more entertaining, and this morning I decided to write a small function to replace that whole line, and I also thought that I’d write it so it would simply return the time left until the next sync. So I wrote this:</p>
+
+<p>I wanted to fix that. I could have taken better advantage of Bash history,
+but I thought I could make it a bit more entertaining, and this morning
+I decided to write a small function to replace that whole line, and I also
+thought that I’d write it so it would simply return the time left until the
+next sync. So I wrote this:</p>
+
 <pre><code>systemctl status --user mbsync.timer |\
   grep -F &quot;Trigger:&quot; |\
   awk -F&quot;;&quot; &#39;{ print &quot;Time left to sync: &quot; $2 }&#39;</code></pre>
+
 <p>And that worked fine. It would output something like:</p>
+
 <pre><code>Time left to sync: 4min 17s left</code></pre>
-<p>That’s pretty much what I wanted, and all was rosy until I ran the function and got something meaningless in return. Then I realized that <code>mbsync</code> was syncing at the moment that I ran the function and so there was no time info to return. Enter distraction, and I said to myself, “what was the syntax for an <code>awk</code> <strong>if-else</strong> statement.” I’m only beginner level <code>awk</code> writer, and it had been a long time since I played around with <code>awk</code> conditionals.</p>
-<p>But I worked at it and kept boinking the <strong>if</strong> statement up, and there were many other distractions that had nothing to do with any of this, but eventually, I got rid of the bugs, and now when <code>mbsync</code> is syncing, my little script checks if field two is null, then returns "Syncing ...", else it prints the time left to sync, per the <code>systemd</code> status message:</p>
+
+<p>That’s pretty much what I wanted, and all was rosy until I ran the function
+and got something meaningless in return. Then I realized that
+<code>mbsync</code> was syncing at the moment that I ran the function and so
+there was no time info to return. Enter distraction, and I said to myself,
+“what was the syntax for an <code>awk</code> <strong>if-else</strong>
+statement.” I’m only beginner level <code>awk</code> writer, and it had been
+a long time since I played around with <code>awk</code> conditionals.</p>
+
+<p>But I worked at it and kept boinking the <strong>if</strong> statement up,
+and there were many other distractions that had nothing to do with any of this,
+but eventually, I got rid of the bugs, and now when <code>mbsync</code> is
+syncing, my little script checks if field two is null, then returns "Syncing
+...", else it prints the time left to sync, per the <code>systemd</code> status
+message:</p>
+
 <pre><code>#!/bin/bash
 
 # Check how much time left to sync email
@@ -549,92 +1113,240 @@ systemctl status --user mbsync.timer | awk &#39;/Trigger:/&#39; | gettime
 
 <p>Specifically, when <code>mbsync</code> is syncing, it tells me:</p>
 <pre><code>Syncing ...</code></pre>
-<p>It's things like this that make primarily working at the command line fun in the same way that playing and solving a hard Sudoku puzzle is fun. And I learned something, too, which I'm happy about because I think <code>awk</code> is a neat programming language.</p>
+
+<p>It's things like this that make primarily working at the command line fun in
+the same way that playing and solving a hard Sudoku puzzle is fun. And
+I learned something, too, which I'm happy about because I think
+<code>awk</code> is a neat programming language.</p>
+
 </article>
 
 <article id="20200809">
 <h2 id="a-distro-hop">A Distro Hop</h2>
 <h3 id="august-9-2020"><time datetime="2020-08-09">August 9, 2020</time></h3>
-<p>I’ve begun the migration to Fedora Linux. I installed it on my laptop, replacing an Ubuntu installation, and have really liked it. If I complete the migration, this will be the first non-Debian based distribution that I’ve used as my main OS since the early 2000s, when I used to run Red Hat Linux and Mandrake Linux, my first two GNU/Linux OSs.</p>
-<p>I’ve been using Fedora for a few years now on a server and have also used it as the demo server in my Linux SysAdmin course, so it’s not entirely new to me. What’s new to me is the desktop version. I like the take on Gnome (although I prefer i3), which seems to work much better than it does on Ubuntu.</p>
-<p>I may switch back to Ubuntu someday. Who knows? But in the meantime, it feels kinda good to distro hop—feels like my first days with Linux.</p>
+
+<p>I’ve begun the migration to Fedora Linux. I installed it on my laptop,
+replacing an Ubuntu installation, and have really liked it. If I complete the
+migration, this will be the first non-Debian based distribution that I’ve used
+as my main OS since the early 2000s, when I used to run Red Hat Linux and
+Mandrake Linux, my first two GNU/Linux OSs.</p>
+
+<p>I’ve been using Fedora for a few years now on a server and have also used it
+as the demo server in my Linux SysAdmin course, so it’s not entirely new to me.
+What’s new to me is the desktop version. I like the take on Gnome (although
+I prefer i3), which seems to work much better than it does on Ubuntu.</p>
+
+<p>I may switch back to Ubuntu someday. Who knows? But in the meantime, it
+feels kinda good to distro hop—feels like my first days with Linux.</p>
+
 </article>
 
 <article id="20200714">
 <h2 id="on-conspiracy-theories">On Conspiracy Theories</h2>
 <h3 id="july-14-2020"><time datetime="2020-07-14">July 14, 2020</time></h3>
-<p>I think if I were to believe in a conspiracy theory about Covid-19, I think I'd believe that this is a plot by NASA in order to test how well humans are able to self-isolate for long periods of time. You know, because space travel.</p>
-<p>Seriously though, I know some people who tend to believe in a few kinds of theories, some related to Covid-19 but also a few others, and it's starting to really annoy me.</p>
+
+<p>I think if I were to believe in a conspiracy theory about Covid-19, I think
+I'd believe that this is a plot by NASA in order to test how well humans are
+able to self-isolate for long periods of time. You know, because space
+travel.</p>
+
+<p>Seriously though, I know some people who tend to believe in a few kinds of
+theories, some related to Covid-19 but also a few others, and it's starting to
+really annoy me.</p>
+
 </article>
 
 <article id="20200602">
 <h2 id="earths-holocaust">Earth's Holocaust</h2>
 <h3 id="june-2-2020"><time datetime="2020-06-02">June 2, 2020</time></h3>
-<p>Lower case definition: <a href="https://www.gutenberg.org/files/9231/9231-h/9231-h.htm"><em>holocaust</em> : a sacrifice, consumed by fire</a></p>
-<p>I read Nathaniel Hawthorne's short story, <a href="https://www.merriam-webster.com/dictionary/holocaust">Earth's Holocaust</a>, about 25+ years ago, and re-read it recently because I kept thinking about it these last few years. When I first read it, I was studying religion, philosophy, and literature, and that had an impact on how I interpreted the story. Now that I am in the social sciences, I can tell I read it much differently. But since that old me is still there inside, it felt like two different, almost conflicting, identities were reading it at the same time. Regardless, though, it's still a depressing tale, and the question stands from my two readings: is the human heart forever condemned, or can institutions solve our base tendencies?</p>
+
+<p>Lower case definition: <a
+href="https://www.gutenberg.org/files/9231/9231-h/9231-h.htm"><em>holocaust</em>
+: a sacrifice, consumed by fire</a></p>
+
+<p>I read Nathaniel Hawthorne's short story, <a
+href="https://www.merriam-webster.com/dictionary/holocaust">Earth's
+Holocaust</a>, about 25+ years ago, and re-read it recently because I kept
+thinking about it these last few years. When I first read it, I was studying
+religion, philosophy, and literature, and that had an impact on how
+I interpreted the story. Now that I am in the social sciences, I can tell
+I read it much differently. But since that old me is still there inside, it
+felt like two different, almost conflicting, identities were reading it at the
+same time. Regardless, though, it's still a depressing tale, and the question
+stands from my two readings: is the human heart forever condemned, or can
+institutions solve our base tendencies?</p>
+
 <p>Peace and justice.</p>
 </article>
 
 <article id="20200508">
 <h2 id="come-sail-away">Come Sail Away</h2>
 <h3 id="may-8-2020"><time datetime="2020-05-08">May 8, 2020</time></h3>
-<p>I like that turn of phrase, &quot;I've found myself doing something.&quot; When a person says or thinks that, it's not that they just discovered what they were doing but that perhaps they realized there was a mystery about the thing they already knew they were doing, which of course, suggests that there were doing something they didn't know they were doing.</p>
-<p>I've found myself recently watching lots of online videos of people sailing around the world. I think I must be watching these videos for two, perhaps seemingly conflicting reasons.</p>
-<p>The obvious reason is that these videos are a way to escape. Times are rough right now. Who wouldn't want to get away from the Threat and see beautiful parts of the world and all the great oceans and seas.</p>
-<p>But most of the videos I've been watching are of people sailing around the world either on their own or with a partner or a small family. They go long stretches of time without seeing others. It's not just escaping then. It's social distancing. It's how it feels right now.</p>
+
+<p>I like that turn of phrase, &quot;I've found myself doing something.&quot;
+When a person says or thinks that, it's not that they just discovered what they
+were doing but that perhaps they realized there was a mystery about the thing
+they already knew they were doing, which of course, suggests that there were
+doing something they didn't know they were doing.</p>
+
+<p>I've found myself recently watching lots of online videos of people sailing
+around the world. I think I must be watching these videos for two, perhaps
+seemingly conflicting reasons.</p>
+
+<p>The obvious reason is that these videos are a way to escape. Times are rough
+right now. Who wouldn't want to get away from the Threat and see beautiful
+parts of the world and all the great oceans and seas.</p>
+
+<p>But most of the videos I've been watching are of people sailing around the
+world either on their own or with a partner or a small family. They go long
+stretches of time without seeing others. It's not just escaping then. It's
+social distancing. It's how it feels right now.</p>
+
 <p>Apropos.</p>
 </article>
 
 <article id="20200507">
 <h2 id="on-the-bookshelf">On the Bookshelf</h2>
 <h3 id="may-7-2020"><time datetime="2020-05-07">May 7, 2020</time></h3>
-<p>I've kept a book on the bookshelf now for over thirty years. It's not a long book, and I don't know who gave it to me, but someone did, and I have never read it, nor its companion book (it's a series, I guess) that I also have.</p>
-<p>I might read it, but the book has always weirded me out. The book has almost no information about the author or translators or the series, and there's no copyright date and the copyright page is non-standard. There are blurbs in the front matter, but they seem made up---part of the book's fiction. It was printed on good paper and was well made. It looks as new as it ever did, even the jacket, which it still has.</p>
-<p>Over the years, as the web grew, I thought I could find more information about it. I've never thoroughly tried to research the work---only cursory searches. It shows up on Amazon and various book sites and apparently is held by very few libraries, but these listings do not provide background information. Author or publisher information is absent on the web. There are some short reviews on a few sites, and they say brief, delightful things, but they are not informative otherwise.</p>
-<p>It's the oddest little thing. Kind of a mystery, and I kind of like that, even though it really does weird me out.</p>
+
+<p>I've kept a book on the bookshelf now for over thirty years. It's not a long
+book, and I don't know who gave it to me, but someone did, and I have never
+read it, nor its companion book (it's a series, I guess) that I also have.</p>
+
+<p>I might read it, but the book has always weirded me out. The book has almost
+no information about the author or translators or the series, and there's no
+copyright date and the copyright page is non-standard. There are blurbs in the
+front matter, but they seem made up---part of the book's fiction. It was
+printed on good paper and was well made. It looks as new as it ever did, even
+the jacket, which it still has.</p>
+
+<p>Over the years, as the web grew, I thought I could find more information
+about it. I've never thoroughly tried to research the work---only cursory
+searches. It shows up on Amazon and various book sites and apparently is held
+by very few libraries, but these listings do not provide background
+information. Author or publisher information is absent on the web. There are
+some short reviews on a few sites, and they say brief, delightful things, but
+they are not informative otherwise.</p>
+
+<p>It's the oddest little thing. Kind of a mystery, and I kind of like that,
+even though it really does weird me out.</p>
+
 </article>
 
 <article id="20200429">
 <h2 id="the-chronicles">The Chronicles</h2>
 <h3 id="april-29-2020"><time datetime="2020-04-29">April 29 2020</time></h3>
-<p>This is something like the 44th day of our Quarantine. I am fortunate that this whole thing mostly feels surreal, but sometimes I see it playing out like it's a movie.</p>
-<p>Movie opens with a family preparing breakfast before school and work, and chatting about their day or arguing about some random thing. TV plays in the background and news reporter is covering a virus outbreak in Wuhan, China.</p>
-<p>A couple of weeks later, and the scene is on a different person or a group of people. Perhaps a couple in their bedroom at night who are watching TV before going to sleep. News about the virus becomes more frequent and urgent. Couple briefly talk about it and wonder if it'll impact them somehow.</p>
-<p>Again, another week or so later, and another person, like a teacher in a break room or something. Reports are coming in faster about the virus, and it's spreading. Teacher is eating lunch while watching the reports.</p>
-<p>Meanwhile, hospitals, particularly in the US northeast and US northwest, start to see increased visits from people with flu like symptoms.</p>
-<p>Then, week before quarantine. The virus has spread to multiple countries, but the threat is still abstract for most people in the film. But people are increasingly becoming infected, according to the reports. Lots of uncertainty. Decision making, personal, commercial, governmental, is on hold until uncertainties are addressed. Information goes out about washing hands, not touching faces, and then a bit later, social distancing.</p>
-<p>Then the Quarantine. Some experience just horror---especially those on the front lines, while others experience economic hardship, or other types of losses. Others are simply experiencing a wait, and the whole thing feels like a slog to them. Some become impatient or perhaps are suffering under hardships, and begin to vent through protest.</p>
+
+<p>This is something like the 44th day of our Quarantine. I am fortunate that
+this whole thing mostly feels surreal, but sometimes I see it playing out like
+it's a movie.</p>
+
+<p>Movie opens with a family preparing breakfast before school and work, and
+chatting about their day or arguing about some random thing. TV plays in the
+background and news reporter is covering a virus outbreak in Wuhan, China.</p>
+
+<p>A couple of weeks later, and the scene is on a different person or a group
+of people. Perhaps a couple in their bedroom at night who are watching TV
+before going to sleep. News about the virus becomes more frequent and urgent.
+Couple briefly talk about it and wonder if it'll impact them somehow.</p>
+
+<p>Again, another week or so later, and another person, like a teacher in
+a break room or something. Reports are coming in faster about the virus, and
+it's spreading. Teacher is eating lunch while watching the reports.</p>
+
+<p>Meanwhile, hospitals, particularly in the US northeast and US northwest,
+start to see increased visits from people with flu like symptoms.</p>
+
+<p>Then, week before quarantine. The virus has spread to multiple countries,
+but the threat is still abstract for most people in the film. But people are
+increasingly becoming infected, according to the reports. Lots of uncertainty.
+Decision making, personal, commercial, governmental, is on hold until
+uncertainties are addressed. Information goes out about washing hands, not
+touching faces, and then a bit later, social distancing.</p>
+
+<p>Then the Quarantine. Some experience just horror---especially those on the
+front lines, while others experience economic hardship, or other types of
+losses. Others are simply experiencing a wait, and the whole thing feels like
+a slog to them. Some become impatient or perhaps are suffering under hardships,
+and begin to vent through protest.</p>
+
 </article>
 
 <article id="20200426">
 <h2 id="past-colleagues">Past Colleagues</h2>
 <h3 id="april-26-2020"><time datetime="2020-04-26">26 April 2020</time></h3>
-<p>A long time ago, I worked as a cook at a restaurant alongside an old chef who taught me a lot about cooking. I was thinking about him recently because he once told me that in order to make good chicken stock, I had to use vegetables that I would be willing to serve to guests. That meant no onion skins or carrot shavings, or like, but peeled onions, shaved carrots, and like.</p>
-<p>Dave, I'm here to tell you that you were wrong. I've been making vegetable broth with saved vegetable trimmings only. So, only onion peels, carrot shavings, and like. And the broth I've been making has an incredible aroma and taste.</p>
-<p>As I started to write this, I texted a friend of mine that stayed in that area, and asked about that old chef. He texted back that he had heard that the old chef had passed away about 15 or so years ago, possibly from an AIDS related illness.</p>
-<p>Rest in peace, Dave. I'm glad I still have cooking conversations with you in my head.</p>
+
+<p>A long time ago, I worked as a cook at a restaurant alongside an old chef
+who taught me a lot about cooking. I was thinking about him recently because he
+once told me that in order to make good chicken stock, I had to use vegetables
+that I would be willing to serve to guests. That meant no onion skins or carrot
+shavings, or like, but peeled onions, shaved carrots, and like.</p>
+
+<p>Dave, I'm here to tell you that you were wrong. I've been making vegetable
+broth with saved vegetable trimmings only. So, only onion peels, carrot
+shavings, and like. And the broth I've been making has an incredible aroma and
+taste.</p>
+
+<p>As I started to write this, I texted a friend of mine that stayed in that
+area, and asked about that old chef. He texted back that he had heard that the
+old chef had passed away about 15 or so years ago, possibly from an AIDS
+related illness.</p>
+
+<p>Rest in peace, Dave. I'm glad I still have cooking conversations with you in
+my head.</p>
+
 </article>
 
 <article id="20200425">
 <h2 id="on-consistency">On Consistency</h2>
 <h3 id="april-25-2020"><time datetime="2020-04-25">25 April 2020</time></h3>
-<p>I am often surprised by people behaving inconsistently with their strongly, espoused beliefs, and I can only think of three explanations for why it happens.</p>
+
+<p>I am often surprised by people behaving inconsistently with their strongly,
+espoused beliefs, and I can only think of three explanations for why it
+happens.</p>
+
 <ol style="list-style-type: decimal">
-<li>They do not behave consistently because they haven't thought through their beliefs.</li>
+
+<li>They do not behave consistently because they haven't thought through their
+beliefs.</li>
+
 <li>They do not believe what they espouse but espouse in order to signal.</li>
+
 <li>Their beliefs are not as strong as they espouse.</li>
+
 </ol>
-<p>I kind of tested this a bit recently on a person who acknowledged that they were behaving inconsistently with their previously and strongly espoused beliefs. They responded by with a shrug. I suppose, if they were responding truthfully, that that indicates (3).</p>
-<p>So, I don't know. People are interesting, as another friend said to me recently about a different matter.</p>
+
+<p>I kind of tested this a bit recently on a person who acknowledged that they
+were behaving inconsistently with their previously and strongly espoused
+beliefs. They responded by with a shrug. I suppose, if they were responding
+truthfully, that that indicates (3).</p>
+
+<p>So, I don't know. People are interesting, as another friend said to me
+recently about a different matter.</p>
+
 </article>
 
 <article id="20200418">
 <h2 id="restaurant-dreams">Restaurant Dreams</h2>
 <h3 id="april-18-2020"><time datetime="2020-04-18">18 April 2020</time></h3>
-<p>I worked in many restaurants and did so for many years, but it has been 13 years since my last job in one. I used to have the standard, common, nightmare restaurant dreams when I worked in them, but it's been a long time since I had one of those. This week, I've had two of them.</p>
-<p>Last night I dreamt I was visiting a restaurant (in today's time) that I worked at 20 years ago. There was some desparation in the air, and I was asked to take over the grill station at the last minute just as the restaurant was opening. But I no longer knew the menu, and all the prep was wrong. Steaks were cut in grossly uneven portions and in different shapes, as were various vegetables, and so everything was cooking wrong. The oversized things were burning on the outside but were raw on the inside, and the undersized things were burning throughout. The tickets were coming in faster.</p>
+
+<p>I worked in many restaurants and did so for many years, but it has been 13
+years since my last job in one. I used to have the standard, common, nightmare
+restaurant dreams when I worked in them, but it's been a long time since I had
+one of those. This week, I've had two of them.</p>
+
+<p>Last night I dreamt I was visiting a restaurant (in today's time) that
+I worked at 20 years ago. There was some desparation in the air, and I was
+asked to take over the grill station at the last minute just as the restaurant
+was opening. But I no longer knew the menu, and all the prep was wrong. Steaks
+were cut in grossly uneven portions and in different shapes, as were various
+vegetables, and so everything was cooking wrong. The oversized things were
+burning on the outside but were raw on the inside, and the undersized things
+were burning throughout. The tickets were coming in faster.</p>
+
 <p>Go away restaurant dreams.</p>
 <p>I hope you're all okay, my old restaurant friends.</p>
+
 </article>
 
 <article id="20200417">
@@ -647,99 +1359,226 @@ systemctl status --user mbsync.timer | awk &#39;/Trigger:/&#39; | gettime
 <article id="20200411">
 <h2 id="an-action-under-which-description">An Action Under Which Description</h2>
 <h3 id="april-11-2020"><time datetime="2020-04-11">11 April 2020</time></h3>
+
 <p>I can imagine a conversation where one person asks an other person what they are doing.</p>
+
 <p><strong>Case 1:</strong></p>
-<p>The person walks into a room. The other person is on the computer writing an email. The first person asks, &quot;what are you doing?&quot; The other person replies, &quot;I'm on the computer.&quot;</p>
+
+<p>The person walks into a room. The other person is on the computer writing an
+email. The first person asks, &quot;what are you doing?&quot; The other person
+replies, &quot;I'm on the computer.&quot;</p>
+
 <p><strong>Case 2:</strong></p>
-<p>Here is another scenario where the action is fairly similar but the tool different, and therefore I imagine, the response is different, and more specific.</p>
-<p>The person walks into a room. The other person is hand writing a letter on a legal pad. The first person asks, &quot;what are you doing?&quot; The other person replies, &quot;I'm writing a letter.&quot;</p>
+
+<p>Here is another scenario where the action is fairly similar but the tool
+different, and therefore I imagine, the response is different, and more
+specific.</p>
+
+<p>The person walks into a room. The other person is hand writing a letter on
+a legal pad. The first person asks, &quot;what are you doing?&quot; The other
+person replies, &quot;I'm writing a letter.&quot;</p>
+
 <p><strong>Case 3:</strong></p>
-<p>In the last scenario, the tool is the same as in Case 1, but the action is obvious, and therefore the response is specific as in Case 2.</p>
-<p>The person walks into a room. The other person is on the computer playing a video game. The first person asks, &quot;what you you doing?&quot; The other person replies, &quot;I'm playing a video game.&quot;</p>
+
+<p>In the last scenario, the tool is the same as in Case 1, but the action is
+obvious, and therefore the response is specific as in Case 2.</p>
+
+<p>The person walks into a room. The other person is on the computer playing
+a video game. The first person asks, &quot;what you you doing?&quot; The other
+person replies, &quot;I'm playing a video game.&quot;</p>
+
 <br/>
 <p><strong>Thoughts:</strong></p>
 <br/>
 <p><strong>Case 1:</strong></p>
-<p>I'm wondering if we default to the less descriptive action when the tool that we are using affords a broad range of functions. Thus:</p>
+
+<p>I'm wondering if we default to the less descriptive action when the tool
+that we are using affords a broad range of functions. Thus:</p>
+
 <p>&quot;I'm on the computer&quot; versus &quot;I'm writing an email.&quot;</p>
+
 <p><strong>Case 2:</strong></p>
-<p>I'm also wondering if we default to a more descriptive action when the tool that we are using affords a narrow range of functions. For example:</p>
-<p>&quot;I'm writing a letter&quot; on a legal pad versus &quot;I'm on a legal pad.&quot;</p>
+
+<p>I'm also wondering if we default to a more descriptive action when the tool
+that we are using affords a narrow range of functions. For example:</p>
+
+<p>&quot;I'm writing a letter&quot; on a legal pad versus &quot;I'm on a legal
+pad.&quot;</p>
+
 <p><strong>Case 3:</strong></p>
-<p>In the last case, I'm wondering if we default to a more descriptive action regardless of the affordances offered by the tool if the action is obvious in some way.</p>
-<p>&quot;I'm playing a game&quot; on the computer versus &quot;I'm on the computer.&quot;</p>
-<p>Under what other actions on a computer might the specificity of our descriptions vary, I also wonder.</p>
+
+<p>In the last case, I'm wondering if we default to a more descriptive action
+regardless of the affordances offered by the tool if the action is obvious in
+some way.</p>
+
+<p>&quot;I'm playing a game&quot; on the computer versus &quot;I'm on the
+computer.&quot;</p>
+
+<p>Under what other actions on a computer might the specificity of our
+descriptions vary, I also wonder.</p>
+
 <p>Why do our descriptions vary?</p>
-<p>These are some initial thoughts on <a href="https://plato.stanford.edu/entries/anscombe/#ActThe">action</a> and affordances.</p>
+
+<p>These are some initial thoughts on <a
+href="https://plato.stanford.edu/entries/anscombe/#ActThe">action</a> and
+affordances.</p>
+
 </article>
 
 <article id="20200409">
 <h2 id="the-slow-down">The Slow Down</h2>
 <h3 id="april-09-2020"><time datetime="2020-04-09">09 April 2020</time></h3>
-<p>I imagine many people in higher education are wondering how the pandemic will change our work. I haven't measured it, but I have noticed that the volume of email I receive (and send) has dropped substantially.</p>
-<p>I can think of a lot of reasons for why that might be, and I'm sure there are a lot of reasons. The major idea I have is that people have less time to work because they might be at home and having to mind children, but also worry about relatives, and like, and when they can get work in, they're doing the really essential stuff, like teaching and research. In a way, it could be leading to more efficiency, but that's just a hypothesis, and perhaps something to test down the line.</p>
-<p>I mean, perhaps it's just me who is getting less email, but I've heard from one colleague in a different college that this experience was true for them, too. However, I would wager that what we're experiencing right now will be woven into the fabric of what we're calling the new normal. That is, these behaviors will persist. We'll see, I suppose.</p>
-</article>
+
+<p>I imagine many people in higher education are wondering how the pandemic
+will change our work. I haven't measured it, but I have noticed that the volume
+of email I receive (and send) has dropped substantially.</p>
+
+<p>I can think of a lot of reasons for why that might be, and I'm sure there
+are a lot of reasons. The major idea I have is that people have less time to
+work because they might be at home and having to mind children, but also worry
+about relatives, and like, and when they can get work in, they're doing the
+really essential stuff, like teaching and research. In a way, it could be
+leading to more efficiency, but that's just a hypothesis, and perhaps something
+to test down the line.</p>
+
+<p>I mean, perhaps it's just me who is getting less email, but I've heard from
+one colleague in a different college that this experience was true for them,
+too. However, I would wager that what we're experiencing right now will be
+woven into the fabric of what we're calling the new normal. That is, these
+behaviors will persist. We'll see, I suppose.</p> </article>
 
 <article id="20200408">
 <h2 id="id-rather">I'd Rather</h2>
 <h3 id="april-08-2020"><time datetime="2020-04-08">08 April 2020</time></h3>
-<p>... research old reference works. They have a lot to say about us and about technology.</p>
+
+<p>... research old reference works. They have a lot to say about us and about
+technology.</p>
+
 <p>Soon perhaps.</p>
 </article>
 
 <article id="20200404">
 <h2 id="its-the-little-things">It's the Little Things</h2>
 <h3 id="april-04-2020"><time datetime="2020-04-04">04 April 2020</time></h3>
-<p>Like many people who are fortunate to have a job during this pandemic, I am working from home. I have a desktop machine at the office at work, but I didn't bring it home, and instead am using a laptop with a small ~13-inch screen.</p>
-<p>When I tried to use this laptop more intensively in the past, I found it frustrating to do any kind of substantial work. My desktop machine has a nice sized monitor, and sometimes two of them, and I had gotten very used to them. So I am surprised that I have become quite adjusted to working completely off a small screen, and have even enjoyed using it as a primary device to do all the same work that I was doing on my desktop. I have even found that it's helped with focus.</p>
+
+<p>Like many people who are fortunate to have a job during this pandemic, I am
+working from home. I have a desktop machine at the office at work, but I didn't
+bring it home, and instead am using a laptop with a small ~13-inch screen.</p>
+
+<p>When I tried to use this laptop more intensively in the past, I found it
+frustrating to do any kind of substantial work. My desktop machine has a nice
+sized monitor, and sometimes two of them, and I had gotten very used to them.
+So I am surprised that I have become quite adjusted to working completely off
+a small screen, and have even enjoyed using it as a primary device to do all
+the same work that I was doing on my desktop. I have even found that it's
+helped with focus.</p>
+
 </article>
 
 <article id="20200326">
 <h2 id="on-research-speed">On Research Speed</h2>
 <h3 id="march-26-2020"><time datetime="2020-03-26">26 March 2020</time></h3>
-<p>For the longest time, I felt insanely guilty for not writing research manuscripts fast enough. Sometimes, I was even guilted by collaborators. I don't blame them, though, because as I've aged into this research, I've come to better understand how I work and think through problems, and I didn't necessarily have these insights before now. Nowadays, I'm perfectly fine being a bit slow, and I'm better at communicating that with collaborators. That, my friends, feels good.</p>
+
+<p>For the longest time, I felt insanely guilty for not writing research
+manuscripts fast enough. Sometimes, I was even guilted by collaborators.
+I don't blame them, though, because as I've aged into this research, I've come
+to better understand how I work and think through problems, and I didn't
+necessarily have these insights before now. Nowadays, I'm perfectly fine being
+a bit slow, and I'm better at communicating that with collaborators. That, my
+friends, feels good.</p>
+
 </article>
 
 <article id="20200324">
 <h2 id="on-stress-relief">On Stress Relief</h2>
 <h3 id="march-24-2020"><time datetime="2020-03-24">24 March 2020</time></h3>
-<p>I find that when I'm a bit stressed out, I code. For example, tonight I updated this website. Next I'll work on some R code. If I don't code, I play Sudoku. Not sure if this means anything, but I'm fortunate and grateful that I have a healthy mechanism for winding down.</p>
+
+<p>I find that when I'm a bit stressed out, I code. For example, tonight
+I updated this website. Next I'll work on some R code. If I don't code, I play
+Sudoku. Not sure if this means anything, but I'm fortunate and grateful that
+I have a healthy mechanism for winding down.</p>
+
 </article>
 
 <article id="20200322">
 <h2 id="on-sheltering">On Sheltering</h2>
 <h3 id="march-22-2020"><time datetime="2020-03-22">22 March 2020</time></h3>
-<p>The whole point of the social sciences is to acquire the knowledge needed to improve society, and then apply that knowledge. But the coronavirus epidemic is highlighting all the points of failure across our various systems: healthcare, politics, economics, education, etc.</p>
-<p>I hope we get through this with minimal harm, but I also hope that we learn how to build a society that is more just and caring to all, and that is based on all the things we know work towards that kind of system.</p>
+
+<p>The whole point of the social sciences is to acquire the knowledge needed to
+improve society, and then apply that knowledge. But the coronavirus epidemic is
+highlighting all the points of failure across our various systems: healthcare,
+politics, economics, education, etc.</p>
+
+<p>I hope we get through this with minimal harm, but I also hope that we learn
+how to build a society that is more just and caring to all, and that is based
+on all the things we know work towards that kind of system.</p>
 </article>
 
 <article id="20200316">
 <h2 id="on-social-distancing">On Social Distancing</h2>
 <h3 id="march-16-2020"><time datetime="2020-03-16">16 March 2020</time></h3>
-<p>We went for a walk yesterday on a short trail in the city, just to get everyone out of the house and to be in a place where few people might be congregating. There were a few others on the trail, and what was interesting was that whenever we would pass these people on the trail, no one would look at us, or smile, or say hi. All heads were kept down.</p>
-<p>That kind of distancing isn't common, in my experience. People are generally friendly on the trails, and so although I'm guessing, I think it's because this is how people interpret <em>social distancing</em> --- we don't just physically distance ourselves from each other --- we also distance ourselves from strangers in deeper ways. I noticed this kind of thing at the grocery store the other day. There I thought it was simply because people were becoming competitive for goods, but I'm guessing it goes beyond that. If this is a good interpretation, it worries me.</p>
+
+<p>We went for a walk yesterday on a short trail in the city, just to get
+everyone out of the house and to be in a place where few people might be
+congregating. There were a few others on the trail, and what was interesting
+was that whenever we would pass these people on the trail, no one would look at
+us, or smile, or say hi. All heads were kept down.</p>
+
+<p>That kind of distancing isn't common, in my experience. People are generally
+friendly on the trails, and so although I'm guessing, I think it's because this
+is how people interpret <em>social distancing</em> --- we don't just physically
+distance ourselves from each other --- we also distance ourselves from
+strangers in deeper ways. I noticed this kind of thing at the grocery store the
+other day. There I thought it was simply because people were becoming
+competitive for goods, but I'm guessing it goes beyond that. If this is a good
+interpretation, it worries me.</p>
+
 <p>This pandemic is going to have long lasting consequences across a broad range of our societies.</p>
 </article>
 
 <article id="20200312">
 <h2 id="losing-a-walker-friend">Losing a Walker Friend</h2>
 <h3 id="march-12-2020"><time datetime="2020-03-12">12 March 2020</time></h3>
-<p>I had mentioned before that over the years I had made some acquaintances as a neighborhood walker. These were fellow walkers, too. I found out this morning that one of them, <em>B</em>, who I had mentioned <a href="WWW/index.html#the-walkers">in a previous post</a>, passed away a couple of months ago. Of course that explained why I hadn't seen him since then, and I was worried the last time I saw him. He had been in a wheelchair for a while, but still roamed the streets, and the last time I saw him, he had his pant legs drawn up to his knees so that his heavily bruised, swollen skin was exposed to the subfreezing temperature. I told him to pull his pant legs down, and he responded as if he wasn't even aware that they had been pulled up.</p>
-<p>He was an alcoholic, probably a diabetic, and he certainly had other health issues. I met his partner once. She was nice, and he described me to her as if I were an old friend.</p>
+
+<p>I had mentioned before that over the years I had made some acquaintances as
+a neighborhood walker. These were fellow walkers, too. I found out this morning
+that one of them, <em>B</em>, who I had mentioned <a
+href="WWW/index.html#the-walkers">in a previous post</a>, passed away a couple
+of months ago. Of course that explained why I hadn't seen him since then, and
+I was worried the last time I saw him. He had been in a wheelchair for a while,
+but still roamed the streets, and the last time I saw him, he had his pant legs
+drawn up to his knees so that his heavily bruised, swollen skin was exposed to
+the subfreezing temperature. I told him to pull his pant legs down, and he
+responded as if he wasn't even aware that they had been pulled up.</p>
+
+<p>He was an alcoholic, probably a diabetic, and he certainly had other health
+issues. I met his partner once. She was nice, and he described me to her as if
+I were an old friend.</p>
+
 <p>It was nice talking with him over the years.</p>
 <p>Rest in peace, <em>B</em>.</p>
 <p>...</p>
-<p>August 2020: It seems <em>B</em> has been spotted and may not in fact have passed. I stil am not sure, though.</p>
+
+<p>August 2020: It seems <em>B</em> has been spotted and may not in fact have
+passed. I stil am not sure, though.</p>
+
 </article>
 
 
 <article id="20200306">
 <h2 id="when-a-baby-cries-as-a-toddler">When a Baby Cries as a Toddler</h2>
 <h3 id="march-06-2020"><time datetime="2020-03-06">06 March 2020</time></h3>
-<p>There are usually just a few number of reasons why an infant cries. They need to burp, they need a diaper change, they need to eat, they need to sleep, or they are not feeling well.</p>
-<p>So it's kind of neat to see them cry for a new reason. Like when they are annoyed by something. Even though it's sad or hard in some way to see them cry, when they cry for a reason that's not directly related to a physical need, it's kind of a marker that they are becoming a toddler, and thus, that they are developing a sense of self. It's kind of a beautiful thing to witness, as a parent, I think.</p>
-</article>
+
+<p>There are usually just a few number of reasons why an infant cries. They
+need to burp, they need a diaper change, they need to eat, they need to sleep,
+or they are not feeling well.</p>
+
+<p>So it's kind of neat to see them cry for a new reason. Like when they are
+annoyed by something. Even though it's sad or hard in some way to see them cry,
+when they cry for a reason that's not directly related to a physical need, it's
+kind of a marker that they are becoming a toddler, and thus, that they are
+developing a sense of self. It's kind of a beautiful thing to witness, as
+a parent, I think.</p> </article>
 
 <article id="20200303">
 <h2>Post Two</h2>
@@ -755,9 +1594,21 @@ systemctl status --user mbsync.timer | awk &#39;/Trigger:/&#39; | gettime
 <section class="two">
 <h2 id="switching-window-managers">Switching Window Managers</h2>
 <h3 id="march-03-2020a"><time datetime="2020-03-03">03 March 2020</time></h3>
-<p>I'm testing out the <a href="https://regolith-linux.org/">Regolith version</a> of the <a href="https://i3wm.org/">i3</a> window manager. I really like it but I don't know if I'll make the switch permanent. Regolith makes i3 very nice looking and I really like the Gnome integration, but Regolith has different keybindings, and the keybindings are different enough to make it annoying and, in some cases, feel more cumbersome to use.</p>
-<p>The keybindings are configurable, but because of the Gnome integration, there are a lot more than there are in standard i3, and it's annoying to go through the configuration file and make the changes.</p>
-<p>I bet someone has created a more aligned i3 configuration file for Regolith. I might look for that.</p>
+
+<p>I'm testing out the <a href="https://regolith-linux.org/">Regolith
+version</a> of the <a href="https://i3wm.org/">i3</a> window manager. I really
+like it but I don't know if I'll make the switch permanent. Regolith makes i3
+very nice looking and I really like the Gnome integration, but Regolith has
+different keybindings, and the keybindings are different enough to make it
+annoying and, in some cases, feel more cumbersome to use.</p>
+
+<p>The keybindings are configurable, but because of the Gnome integration,
+there are a lot more than there are in standard i3, and it's annoying to go
+through the configuration file and make the changes.</p>
+
+<p>I bet someone has created a more aligned i3 configuration file for Regolith.
+I might look for that.</p>
+
 <p>Perhaps this is a switch that I could work on over the summer.</p>
 </section>
 </article>
@@ -765,44 +1616,116 @@ systemctl status --user mbsync.timer | awk &#39;/Trigger:/&#39; | gettime
 <article id="20200129">
 <h2 id="remembering-some-text">Remembering Some Text</h2>
 <h3 id="january-29-2020"><time datetime="2020-01-29">29 January 2020</time></h3>
-<p>Every once in a while I'll confuse something in my memory. The other day I was thinking of the TREC experiments but had confused the TREC experiments with the Cranfield experiments from the 1960s. In particular, I was thinking of something that had happened at the Cranfield experiments but had it in my mind that the event had happened at some TREC track.</p>
-<p>However, I knew I was missing a piece of information, and I also needed the reference. I remembered that I read about the event in a specific book, which I had read in 2009. I pulled my copy of the book from my bookshelf and scanned the index for TREC, but the term wasn't there. Then I looked for the keyword <em>relevance</em> and found the section that I remembered reading over ten years ago. That led me to a journal article that I had also read ten years ago and that covered the event in more detail.</p>
-<p>It was all kind of a meta information retrieval moment about an information retrieval topic, which I thought was kind of funny.</p>
+
+<p>Every once in a while I'll confuse something in my memory. The other day
+I was thinking of the TREC experiments but had confused the TREC experiments
+with the Cranfield experiments from the 1960s. In particular, I was thinking of
+something that had happened at the Cranfield experiments but had it in my mind
+that the event had happened at some TREC track.</p>
+
+<p>However, I knew I was missing a piece of information, and I also needed the
+reference. I remembered that I read about the event in a specific book, which
+I had read in 2009. I pulled my copy of the book from my bookshelf and scanned
+the index for TREC, but the term wasn't there. Then I looked for the keyword
+<em>relevance</em> and found the section that I remembered reading over ten
+years ago. That led me to a journal article that I had also read ten years ago
+and that covered the event in more detail.</p>
+
+<p>It was all kind of a meta information retrieval moment about an information
+retrieval topic, which I thought was kind of funny.</p>
+
 <p>And that is all I have to say on that.</p>
 </article>
 
 <article id="20191223">
 <h2 id="some-observations-on-usability">Some Observations on Usability Pertaining to a Child</h2>
 <h3 id="december-23-2019"><time datetime="2019-12-23">23 December 2019</time></h3>
-<p>I was watching a young child (8 years old) use a word processor application for the first time. The child knows how to write, relative to their age, but had practiced writing mostly on paper. I learned a lot by watching them:</p>
+
+<p>I was watching a young child (8 years old) use a word processor application
+for the first time. The child knows how to write, relative to their age, but
+had practiced writing mostly on paper. I learned a lot by watching them:</p>
+
 <ol style="list-style-type: decimal">
-<li>We started by launching a word processor application and a new, blank page. Even though an entire blank page appears, since the default position of the cursor is at the beginning, no part of the page was accessible. The child didn't understand why the entire page was not accessible but that what was only accessible was the point up to the cursor. The child was initially confused by being presented a <em>page</em> or a <em>sheet of paper</em> and not having the ability to use it like they would use a physical sheet of paper.</li>
-<li>The child therefore had to learn how to create space, even though the page looks like a piece of paper, all that space doesn't yet exist. The child had to learn how to create empty space by using the space bar and the enter key. This <em>page</em> or <em>sheet of paper</em> metaphor that a word processor presents is really powerful but obviously not coherent with physical sheets of paper. The strength of this incomplete metaphor had never really occurred to me before.</li>
-<li>Eventually the child created a few pages of content by writing a story for their book that they're writing. The red squiggly lines that appeared underneath misspelled words were a source of distraction for the child, who once they understood what they signified, wanted to stop and edit before completing their writing. To me, this violates the <em>write first, edit later</em> principle. I turned that function off to help the child focus on one thing at a time.</li>
-<li>The child's interpretation of the page indicator at the bottom of the screen was interesting. After the child created a few pages of content, they moved the cursor to the third of the fourth page. The child then noticed the page indicator for the first time, which stated &quot;Page 3 of 4&quot;, and asked why their book (which is what they were writing) could be no more than four pages. That is, to the child, that &quot;of 4&quot; suggested all the pages that could exist for their book.</li>
+<li>We started by launching a word processor application and a new, blank page.
+Even though an entire blank page appears, since the default position of the
+cursor is at the beginning, no part of the page was accessible. The child
+didn't understand why the entire page was not accessible but that what was only
+accessible was the point up to the cursor. The child was initially confused by
+being presented a <em>page</em> or a <em>sheet of paper</em> and not having the
+ability to use it like they would use a physical sheet of paper.</li>
+
+<li>The child therefore had to learn how to create space, even though the page
+looks like a piece of paper, all that space doesn't yet exist. The child had to
+learn how to create empty space by using the space bar and the enter key. This
+<em>page</em> or <em>sheet of paper</em> metaphor that a word processor
+presents is really powerful but obviously not coherent with physical sheets of
+paper. The strength of this incomplete metaphor had never really occurred to me
+before.</li>
+
+<li>Eventually the child created a few pages of content by writing a story for
+their book that they're writing. The red squiggly lines that appeared
+underneath misspelled words were a source of distraction for the child, who
+once they understood what they signified, wanted to stop and edit before
+completing their writing. To me, this violates the <em>write first, edit
+later</em> principle. I turned that function off to help the child focus on one
+thing at a time.</li>
+
+<li>The child's interpretation of the page indicator at the bottom of the
+screen was interesting. After the child created a few pages of content, they
+moved the cursor to the third of the fourth page. The child then noticed the
+page indicator for the first time, which stated &quot;Page 3 of 4&quot;, and
+asked why their book (which is what they were writing) could be no more than
+four pages. That is, to the child, that &quot;of 4&quot; suggested all the
+pages that could exist for their book.</li>
 </ol>
-<p>This is not the first time the child had written on a computer, but it was the first time I had let them use a word processor application. A couple of times before, I let the child write in the <a href="https://www.nano-editor.org/">Nano</a> text editor. None of the above issues came up because Nano does not use the page metaphor or most other indicators besides a cursor. The cursor on Nano is more obviously on a screen, and not a <em>page</em> or <em>sheet of paper</em>.</p>
+
+<p>This is not the first time the child had written on a computer, but it was
+the first time I had let them use a word processor application. A couple of
+times before, I let the child write in the <a
+href="https://www.nano-editor.org/">Nano</a> text editor. None of the above
+issues came up because Nano does not use the page metaphor or most other
+indicators besides a cursor. The cursor on Nano is more obviously on a screen,
+and not a <em>page</em> or <em>sheet of paper</em>.</p>
+
 </article>
 
 <article id="20191121">
 <h2 id="bad-superblock">Bad Superblock</h2>
 <h3 id="november-21-2019"><time datetime="2019-11-21">21 November 2019</time></h3>
-<p>It's painful and a bit nerve wracking, especially if your most recent backup is not recent enough. Also, <strong>bad superblock</strong> sounds like a name for a terrible hard rock band.</p>
+
+<p>It's painful and a bit nerve wracking, especially if your most recent backup
+is not recent enough. Also, <strong>bad superblock</strong> sounds like a name
+for a terrible hard rock band.</p>
+
 </article>
 
 <article id="20190913">
 <h2 id="a-quick-bash-one-liner-and-children">A Quick Bash One-Liner and Children</h2>
 <h3 id="september-13-2019"><time datetime="2019-09-13">13 September 2019</time></h3>
-<p>I wrote a little Bash one-liner script today that was fun to write. I have a CSV file that looks something like this:</p>
+
+<p>I wrote a little Bash one-liner script today that was fun to write. I have
+a CSV file that looks something like this:</p>
+
 <pre><code>&quot;last name, first name&quot;,&quot;username&quot;,&quot;email address&quot;</code></pre>
-<p>My goal was to grep and yank a username out of the file and then insert that into a <code>s-nail</code> command in order to send local email. Took less than a minute to write, which is probably why it was fun:</p>
+
+<p>My goal was to grep and yank a username out of the file and then insert that
+into a <code>s-nail</code> command in order to send local email. Took less than
+a minute to write, which is probably why it was fun:</p>
+
 <pre><code>grep -i username email.csv | awk -F, &#39;{ print $3 }&#39; | sed &#39;s/&quot;//g&#39;</code></pre>
-<p>Then I put that one-liner into a text file and made it executable and generalizable with a positional parameter:</p>
+
+<p>Then I put that one-liner into a text file and made it executable and
+generalizable with a positional parameter:</p>
+
 <pre><code>#!/bin/bash
 
 grep -i &quot;$1&quot; email.csv | awk -F, &#39;{ print $3 }&#39; | sed &#39;s/&quot;//g&#39;</code></pre>
-<p>I named the file <code>emailwho.sh</code> and called it from <code>s-nail</code>:</p>
+
+<p>I named the file <code>emailwho.sh</code> and called it from
+<code>s-nail</code>:</p>
+
 <pre><code>s-nail -s &quot;subject line&quot; $(emailwho.sh [grep string])</code></pre>
+
 <p>A quick and dirty address book.</p>
 
 <p>...</p>
@@ -813,7 +1736,17 @@ grep -i &quot;$1&quot; email.csv | awk -F, &#39;{ print $3 }&#39; | sed &#39;s/&
 <article id="20190815">
 <h2 id="tidyverse-skeptic-too">Tidyverse Skeptic Too</h2>
 <h3 id="august-15-2019"><time datetime="2019-08-15">15 August 2019</time></h3>
-<p>Upon reflection, I am skeptical with <a href="https://github.com/matloff/TidyverseSkeptic#start-of-content">Matloff</a>, too. When I was writing R code for my last project and using the Tidyverse <em>dialect</em>, I found myself having to refer continually to the documentation to see how to express each function. Even after repeated use, they just wouldn't stick in my memory. In base-R, and CRAN packages that follow that original dialect, I only have to think about the data and how it's structured in order to slice, filter, etc the data. It felt good reading that piece because now I know it's okay to let it go.</p>
+
+<p>Upon reflection, I am skeptical with <a
+href="https://github.com/matloff/TidyverseSkeptic#start-of-content">Matloff</a>,
+too. When I was writing R code for my last project and using the Tidyverse
+<em>dialect</em>, I found myself having to refer continually to the
+documentation to see how to express each function. Even after repeated use,
+they just wouldn't stick in my memory. In base-R, and CRAN packages that follow
+that original dialect, I only have to think about the data and how it's
+structured in order to slice, filter, etc the data. It felt good reading that
+piece because now I know it's okay to let it go.</p>
+
 </article>
 
 <article id="20190725">
