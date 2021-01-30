@@ -49,34 +49,34 @@
 <h3 id="january-28-2021"><time datetime="2021-01-28">January 28, 2021</time></h3>
 
 <p>File systems are a weak point with me and operating systems. This is 
-because I’ve never really had to deal with lots of disks, with 
+because I've never really had to deal with lots of disks, with 
 complicated storage needs, humongous amounts of data, etc., and 
 therefore never really had to learn a lot of the intricacies. I 
 remember, for example, in my early days of using Linux, having to edit 
 <code>/etc/fstab</code> and feeling bewildered by the process and trying 
 to figure out how to understand the relevant <code>man</code> pages. 
-However, since I started to teach system administration with Linux, I’ve 
+However, since I started to teach system administration with Linux, I've 
 had to learn a lot more than I did, and now feel good working with 
 partitions, volume management, and related tools.</p>
 
 <p>Now that Fedora has switched to the <a 
 href="https://btrfs.wiki.kernel.org/index.php/Main_Page">Btrfs</a> file 
-system, I’m starting from scratch again since I’ll need to teach Btrfs 
+system, I'm starting from scratch again since I'll need to teach Btrfs 
 the next time I teach my sysadmin course. This file system is a bit 
-confusing, and to make matters worse, I’ve been having issues with my 
+confusing, and to make matters worse, I've been having issues with my 
 hard drive (I think) since I installed Fedora the other day. Since I 
-installed Fedora right after installing the new drive, however, I can’t 
+installed Fedora right after installing the new drive, however, I can't 
 be sure where the problem is without a lot more investigating. Are the 
-problems I’m having due to the physical hard drive? Or the file system? 
-Or something else, like Wayland? I’m completely not sure. Too many 
+problems I'm having due to the physical hard drive? Or the file system? 
+Or something else, like Wayland? I'm completely not sure. Too many 
 variables.</p>
 
 <p>This morning I used the Btrfs <code>scrub</code> utility, and it 
 <em>felt</em> like the thrashing went away as a result and that the OS 
 was running more smoothly. However, as I type this in <code>vim</code>, 
-there’s sometimes a decent amount of lag after pressing keys. It’s 
+there's sometimes a decent amount of lag after pressing keys. It's 
 pretty frustrating, and since I have a lot of non-Linux work to do this 
-sabbatical, if I don’t get it resolved soon, I might switch back to 
+sabbatical, if I don't get it resolved soon, I might switch back to 
 Ubuntu. Perhaps Fedora is too cutting edge for my daily work needs.</p>
 
 <p><em>Update:</em> The keyboard lag is a <em>libinput</em> issue, it 
@@ -97,7 +97,7 @@ vim.</p>
 walls while I worked. Way more than usual. Their loud pitched screams
 accompanied their frenzied physicality. Fortunately, I was able to work in
 a separate room. Unfortunately, this offered zero sound and vibration proofing.
-The wee one wouldn’t nap and is hyper because of it.</p>
+The wee one wouldn't nap and is hyper because of it.</p>
 
 <p>The new hard drive I installed is loud, too. So LOUD. I regret not getting
 a SSD. I mistakenly put the desktop on <em>top of the desk</em>, adjacent to my
@@ -107,7 +107,7 @@ into a <em>deskunder</em>. I think one of these things helped with the noise
 a bit.</p>
 
 <p>I guess I was surprised by how much I've adjusted to this atmosphere over
-the course of this past year. “Adapt or perish,” I suppose. Of all things, it
+the course of this past year. &quot;Adapt or perish,&quot; I suppose. Of all things, it
 was the hard drive sound that was driving me up the wall. But fixed that.</p>
 
 </article>
@@ -164,10 +164,10 @@ main() {
 
 main</code></pre>
 
-<p>Maybe later on I’ll have it report email metadata. I took at look at the
+<p>Maybe later on I'll have it report email metadata. I took at look at the
 email headers last night, and it wouldn't be a hassle to do, but as I was
 looking through the headers, I was thinking that I might not care that much.
-We’ll see. Perhaps I'll just return a count of new emails.</p>
+We'll see. Perhaps I'll just return a count of new emails.</p>
 
 <p>Link to <a href="https://github.com/cseanburns/sysadmin/blob/master/usr/email">email</a>.</p>
 </article>
@@ -197,20 +197,20 @@ list new emails on command:</p>
 little script to replace what I lost by switching to Fedora. It uses the Bash
 <code>[</code> (test) builtin with the <code>-s</code> option to check if the
 <em>new/</em> directory is greater than zero. If it is greater than zero, then
-that simply means there’s a file in that directory, and if there’s a file in
-<em>new/</em>, then it means there’s a new email, or more specifically, a file
-that hasn’t been seen by <code>mutt</code>. When <code>mutt</code> does see
-that file, it gets moved to <em>cur/</em>, even if I don’t open the email. If
-I don’t open the email but <code>mutt</code> sees it, then <code>mutt</code>
+that simply means there's a file in that directory, and if there's a file in
+<em>new/</em>, then it means there's a new email, or more specifically, a file
+that hasn't been seen by <code>mutt</code>. When <code>mutt</code> does see
+that file, it gets moved to <em>cur/</em>, even if I don't open the email. If
+I don't open the email but <code>mutt</code> sees it, then <code>mutt</code>
 labels it as unopened and not just new.</p>
 
-<p>Eventually I’d like to update the script to print out the
+<p>Eventually I'd like to update the script to print out the
 <strong>From</strong> and <strong>Subject</strong> lines. That way I can decide
 if I want to open <code>mutt</code> at all and read my email or just ignore for
 a while. In the meantime, I can use <code>mutt -Z</code> to open a mailbox that
 has new email, if <code>email</code> says I have some.</p>
 
-<p>Here’s a smaller version of the script. The <a
+<p>Here's a smaller version of the script. The <a
 href="https://github.com/cseanburns/sysadmin/blob/master/usr/email">full
 one</a> checks several Maildir directories that new mail goes to based on some
 filters I use.</p>
@@ -242,11 +242,11 @@ their stroller, layered up and blanketed. They napped the whole way.</p>
 and that was very nice.</p>
 
 <p>When I walked to work every day, I got into the habit of listening to
-podcasts. I’ve gotten out of that habit, and it makes me glad to have let it go
+podcasts. I've gotten out of that habit, and it makes me glad to have let it go
 and to walk in silence.</p>
 
 <p>I usually nod my head at or wave to people when we pass each other, if we
-happen to catch each other’s eyes, but it’s not often that anyone responds. The
+happen to catch each other's eyes, but it's not often that anyone responds. The
 only stranger to wave hello to me was another parent with her child in
 a stroller. I guess it was something about the shared situation that warranted
 acknowledgment and a connection.</p>
@@ -258,15 +258,15 @@ acknowledgment and a connection.</p>
 <h2 id="always-the-tinkerer">Always the Tinkerer</h2>
 <h3 id="january-22-2021"><time datetime="2021-01-22">January 22, 2021</time></h3>
 
-<p>I’ve been playing around with this site’s design recently. I wanted to add
-more pages and I didn’t think the last layout, with the horizontal nav bar,
-worked well for that. But it’s also that I like to fiddle around and keep up to
-date with basic web design ideas. If I don’t, then I quickly start to forget
+<p>I've been playing around with this site's design recently. I wanted to add
+more pages and I didn't think the last layout, with the horizontal nav bar,
+worked well for that. But it's also that I like to fiddle around and keep up to
+date with basic web design ideas. If I don't, then I quickly start to forget
 those things.</p>
 
-<p>I’ll probably redesign it again in a few months, in fact. I predict that
-I’ll start tinkering again when I’m knee-deep in my sabbatical research only
-because I’ll want a mental break, and doing little techie things like this can
+<p>I'll probably redesign it again in a few months, in fact. I predict that
+I'll start tinkering again when I'm knee-deep in my sabbatical research only
+because I'll want a mental break, and doing little techie things like this can
 be a nice reprieve.</p>
 
 </article>
@@ -274,7 +274,7 @@ be a nice reprieve.</p>
 <article id="20210121">
 <h2 id="fedora-switch-complete">Fedora Switch Complete</h2>
 <h3 id="january-21-2021"><time datetime="2021-01-21">January 21, 2021</time></h3>
-<p>The new hard drive is now installed. It took 2 minutes and also hours. Here’s the process:</p>
+<p>The new hard drive is now installed. It took 2 minutes and also hours. Here's the process:</p>
 <ul>
 <li>Back up home directory to external drive (short process since I backup often)</li>
 <li>Download Fedora ISO</li>
@@ -297,7 +297,7 @@ the cage off. I have very literally changed hundreds of hard drives. LOL!</li>
 dongle. Because this is a work computer, my work bought one for me. Because my
 work can only buy from select vendors, I only had two choices. Because neither
 choice supported Linux by default, I had to find a driver for it. Because the
-base install of Fedora doesn’t come with the necessary development software to
+base install of Fedora doesn't come with the necessary development software to
 install a new driver, I had to connect the computer to the router, which again,
 was in another room, to have internet access to download the required software.
 So:</p>
@@ -326,28 +326,28 @@ process took a lot longer. But all is well now, and Fedora is nice.</p>
 <h2 id="my-desktop-after-eight-years">My Desktop after Eight Years</h2>
 <h3 id="january-16-2021"><time datetime="2021-01-16">January 16, 2021</time></h3>
 
-<p>Even though it’s been nearly 8 years, my desktop computer for work is still
+<p>Even though it's been nearly 8 years, my desktop computer for work is still
 humming along nicely. When I selected this computer, I intentionally picked out
 a computer that was fairly beefy at the time because I wanted it to last a long
 while. The computer has 4 cores (i7-3770 @ 3.40GHz), 32 GB DDR3 RAM, an NVIDIA
 Quadro K2000 GPU, and a 1 TB hard drive at 5400 RPM.</p>
 
-<p>I can’t remember if I added RAM or replaced a bad RAM stick soon after I got
-this machine back in 2013, but other than that, I haven’t changed any of its
+<p>I can't remember if I added RAM or replaced a bad RAM stick soon after I got
+this machine back in 2013, but other than that, I haven't changed any of its
 hardware. I do run statistical computations on this machine for research but
 not real big data computations, and the machine handles it all fine.</p>
 
-<p>The machine also runs Linux. I’ve been a long time Ubuntu user but will
+<p>The machine also runs Linux. I've been a long time Ubuntu user but will
 switch to Fedora soon. I teach Fedora in my Linux systems administration course
-and have grown to like it a lot. I’ll install Fedora this week when I replace
+and have grown to like it a lot. I'll install Fedora this week when I replace
 the hard drive. The current drive has been spinning for over 6 years and
-4 months, and although a SMART test shows that it’s mostly okay (there are some
+4 months, and although a SMART test shows that it's mostly okay (there are some
 pre-fail values), it is past its lifetime. The new drive is twice as big as the
-current one, and I doubt I’ll need the extra space for years, but it also runs
+current one, and I doubt I'll need the extra space for years, but it also runs
 at 7200 RPMs, and the faster speed might be nice.</p>
 
 <p>I hope this machine lasts at least another 8 years (or even longer). If it
-does, I like that I’m saving my employer a lot of money and that I’m lessening
+does, I like that I'm saving my employer a lot of money and that I'm lessening
 my environmental impact, albeit a very small one, by saving this machine from
 the recycle bin and replacing it over and over.</p>
 
@@ -359,15 +359,15 @@ the recycle bin and replacing it over and over.</p>
 
 <p>I have this recurring night or daymare where I travel back in time to my
 younger self. However, instead of there being two of me at this previous point
-in time—i.e., an older me that goes back to a time when the younger me also
-exists—in this dream it is only my conscious mind that is sent back and that
+in time&mdash;i.e., an older me that goes back to a time when the younger me also
+exists&mdash;in this dream it is only my conscious mind that is sent back and that
 occupies my younger self. In this scenario, I do not relive my life as a third
 person viewer, but I re-possess my old self, so to speak, and this gives me the
 ability to redo my future.</p>
 
 <p>While at first blush it seems neat that I could relive my life, when I find
 myself back in time in this dream, I realize that the future that I remember is
-forever lost—that there is no way to recreate the steps that led me to my old
+forever lost&mdash;that there is no way to recreate the steps that led me to my old
 future or to prevent what I know about my old future from influencing what I do
 in the new present. I am forced into a new future.</p>
 
@@ -375,20 +375,20 @@ in the new present. I am forced into a new future.</p>
 since my three children are partly a function of the exact time they were
 conceived, that is, if they were conceived a day later, then different
 biological interactions, inevitable if occurring at different times, would
-result in different children—just as children that are conceived between the
+result in different children&mdash;just as children that are conceived between the
 same two people at some other time in their relationship are siblings and not
 identical or clones of the prior ones. In essence, while I think I could manage
 to find my wife again in this alternate universe, I think it would be
 impossible for us to have the same children again even if I do find her. Going
 back in time in the way I dream it would thus be disastrous.</p>
 
-<p>This is a bizarre dream to have, but I think it’s simply an active
-imagination that’s considering getting older and taking measure of the life
-I’ve lived. Overall then, it’s a good dream, even if it has this nightmarish
-setting, because it’s about how I don’t care to relive my life simply for the
-fact that the sacrifices involved are too costly. It’s about how my life is not
+<p>This is a bizarre dream to have, but I think it's simply an active
+imagination that's considering getting older and taking measure of the life
+I've lived. Overall then, it's a good dream, even if it has this nightmarish
+setting, because it's about how I don't care to relive my life simply for the
+fact that the sacrifices involved are too costly. It's about how my life is not
 just about me but also about these three little darlings that are a part of my
-existence. Even if my life hasn’t been anywhere near perfect and there are
+existence. Even if my life hasn't been anywhere near perfect and there are
 struggles that I have now that I could have prevented if I had known better,
 I have taken measure of it and have found nothing wanting and everything to
 lose.</p>
@@ -400,17 +400,17 @@ lose.</p>
 <h2 id="citizen-science">Citizen Science</h2>
 <h3 id="january-14-2021"><time datetime="2021-01-14">January 14, 2021</time></h3>
 
-<p>I’ve lived in the same house going on eight years now. What’s nice about
-that is that I’ve been able to notice how the neighborhood changes around here.
+<p>I've lived in the same house going on eight years now. What's nice about
+that is that I've been able to notice how the neighborhood changes around here.
 It changes pretty dramatically each year since a lot of students live on the
 block, and they usually only rent for a year or two.</p>
 
-<p>It’s also been nice to watch how other things change. There’s a groundhog
-that lives out back, and we’ve noticed it come out and eat the grasses
+<p>It's also been nice to watch how other things change. There's a groundhog
+that lives out back, and we've noticed it come out and eat the grasses
 throughout the years. My next door neighbor has a holly tree in their front
 yard, and every winter the robins strip the berries off that tree. It takes
 them about a half hour or so to complete their work, and because there are so
-many robins and because it happens so quickly, it’s fun to watch the
+many robins and because it happens so quickly, it's fun to watch the
 frenzy.</p>
 
 <p>This year the robins went after the tree a couple of days ago. I had the
@@ -431,12 +431,12 @@ hypotheses were that 1) the tree was fruiting earlier, or 2) the birds had
 changed their behaviors, and that either of these were due to a warming
 winter.</p>
 
-<p>I thought I’d reach out and share this information with someone who does
+<p>I thought I'd reach out and share this information with someone who does
 work on climate change and ecology at my university. I searched for a name and
 then emailed the professor. She responded back and added that it might also
 have something to do with the sweetness of the tree, given the sweetness of
 other trees in the area. And she let me know about some citizen science
-activities that I might find worthwhile! It was pretty cool, and I’m thankful
+activities that I might find worthwhile! It was pretty cool, and I'm thankful
 that she responded. I look forward to collecting some data with the
 children!</p>
 
@@ -446,12 +446,12 @@ children!</p>
 <h2 id="on-aging">On Aging</h2>
 <h3 id="january-11-2021"><time datetime="2021-01-11">January 11, 2021</time></h3>
 
-<p>I’ve gained a few pounds since the start of the pandemic. I used to walk
-a few miles every day by going to work and back home, but since I’ve been
+<p>I've gained a few pounds since the start of the pandemic. I used to walk
+a few miles every day by going to work and back home, but since I've been
 working from home, I walk much less. So, I started running a few days ago, and
-it’s made me realize the difference between my twenty-something year old body
+it's made me realize the difference between my twenty-something year old body
 and my post-mid-middle-aged year old body. The difference is this: in my
-twenties, when I’d start a new exercise, I’d only feel sore. In my
+twenties, when I'd start a new exercise, I'd only feel sore. In my
 post-mid-middle-ages, I not only feel sore, but I also feel like my body is
 going to break apart. This cracks me up. But the running has made me feel
 better overall even if there is a lot of creaking going on in this shell of
@@ -499,36 +499,36 @@ for democracy in the US</a>.</p>
 <h3 id="december-29-2020"><time datetime="2020-12-28">December 29, 2020</time></h3>
 
 <p>My wife has been responsible for putting the children to bed when they were
-infants. She’d normally hold and nurse them until they fell asleep. As soon as
+infants. She'd normally hold and nurse them until they fell asleep. As soon as
 they become babies/toddlers, I would take over.</p>
 
 <p>During my tenure, I have usually put the children to sleep with music, but
-I’ve had separate playlists (mixtapes) for them. The first child’s playlist
+I've had separate playlists (mixtapes) for them. The first child's playlist
 followed a specific musical pattern. The songs would start off upbeat. The
 third song would reach a crescendo, and then the fourth and remaining songs
-would wind down and therefore wind them down…for example: 4) <em>He War</em>
+would wind down and therefore wind them down'for example: 4) <em>He War</em>
 / Cat Power, 5) <em>Drive</em> / The Cars, and 6) <em>Gypsy</em> / Fleetwood
-Mac. If the child wasn’t asleep by the time <em>Drive</em> completed,
+Mac. If the child wasn't asleep by the time <em>Drive</em> completed,
 <em>Gypsy</em> would definitely do the trick. Simply because I found it a bit
 funny, the last song in this playlist was <em>Nonstop Disco Powerpack</em>
 / Beastie Boys. I played this to test if they were asleep. If they started to
-dance, then I’d need to start over. This was rare, though.</p>
+dance, then I'd need to start over. This was rare, though.</p>
 
-<p>The second child’s playlist mostly followed the same, general pattern but
+<p>The second child's playlist mostly followed the same, general pattern but
 was shorter because they usually fell asleep faster, and still do. Their
-playlist (mixtape) ended with <em>St. Judy’s Comet</em> / Paul Simon. I liked
-ending it with a bona fide, modern lullaby. It’s a sweet, loving song. This
+playlist (mixtape) ended with <em>St. Judy's Comet</em> / Paul Simon. I liked
+ending it with a bona fide, modern lullaby. It's a sweet, loving song. This
 child also adored the <em>Moana</em> soundtrack, and for a while I think I knew
 the words to most of the first seven or so songs of that soundtrack.</p>
 
-<p>The third child technically has only one song in their playlist—<em>Always
+<p>The third child technically has only one song in their playlist&mdash;<em>Always
 On My Mind (Live)</em> / Willie Nelson. After that song plays, because I use
 a streaming service, the rest that play are determined by whatever algorithm
 the service uses. But as soon as Nelson starts to sing, even if that child
-might be sitting up, standing up, or crying and resisting, they’ll drop their
-head down onto my shoulders and start to sing along. They’re still not quite
+might be sitting up, standing up, or crying and resisting, they'll drop their
+head down onto my shoulders and start to sing along. They're still not quite
 talking yet, but this child usually bellows out wordish sounds that resemble
-the last word of each line in the lyrics. It’s not uncommon for them to fall
+the last word of each line in the lyrics. It's not uncommon for them to fall
 asleep by the second song that plays, which might be another Nelson song or
 a Kris Kristofferson song, but it could take nine or ten songs to do the trick.
 This is a tricky child.</p>
@@ -542,22 +542,22 @@ This is a tricky child.</p>
 <p>Today has been another hard day with the kids. Meltdowns galore. I am sad
 for these children of mine.</p>
 
-<p>I have been trying to teach them how to meditate—or just breathe—when they
+<p>I have been trying to teach them how to meditate&mdash;or just breathe&mdash;when they
 get upset, and to take them on walks or to the park. Getting out of the house
 can help a lot, but it can be hard to gather and shuffle three little things
-out the door when it’s cold outside. Layering up takes time and is difficult
-when they’re already hyped up.</p>
+out the door when it's cold outside. Layering up takes time and is difficult
+when they're already hyped up.</p>
 
 <p>They miss their friends. In the absence of their friends, they often look to
-me to be their friend and to play with them all day, but I can’t always be
+me to be their friend and to play with them all day, but I can't always be
 available to them in that way. I try at points throughout the day, but not the
 whole day, which is what they increasingly want.</p>
 
-<p>My research sabbatical is this spring. I’ve wavered about postponing it
-because I doubt I’ll be as productive as I would like to be. When they have
+<p>My research sabbatical is this spring. I've wavered about postponing it
+because I doubt I'll be as productive as I would like to be. When they have
 meltdowns like what happened today, it is difficult to get back to work.
-Recovery takes a while. I’ll need to think of new ways to be more preemptive
-with this. Past ideas don’t work anymore.</p>
+Recovery takes a while. I'll need to think of new ways to be more preemptive
+with this. Past ideas don't work anymore.</p>
 
 </article>
 
@@ -570,7 +570,7 @@ href="https://github.com/cseanburns/personal_website/blob/master/scripts/WWW-toc
 generates a new table of contents entry for the home page and inserts the entry
 on that page in the right place. The second script <a
 href="https://github.com/cseanburns/personal_website/blob/master/scripts/make-rss">./make-rss</a>
-generates the XML for the RSS feed. Both scripts are pretty ugly, but I’ll
+generates the XML for the RSS feed. Both scripts are pretty ugly, but I'll
 address that later.</p>
 
 <p>My workflow here is:</p>
@@ -586,14 +586,14 @@ address that later.</p>
 <li>Push changes to GitHub repo</li>
 </ol>
 
-<p>Once I’ve written a post, the other steps only take a minute to complete,
-but I’d like to automate it all. Thus, the next step is to automate inserting
+<p>Once I've written a post, the other steps only take a minute to complete,
+but I'd like to automate it all. Thus, the next step is to automate inserting
 new blog posts into this page and automate inserting the new XML item block
-into the index.xml RSS page. Then clean up the scripts. I’ll rewrite them and
+into the index.xml RSS page. Then clean up the scripts. I'll rewrite them and
 try to make them a bit portable. Right now they are far from that.</p>
 
-<p>I’ve never been completely happy with other flat-file based web projects
-even though there are some nice ones out there. I’m happy that this project, as
+<p>I've never been completely happy with other flat-file based web projects
+even though there are some nice ones out there. I'm happy that this project, as
 slow as it goes, is scratching an itch I had about that.</p>
 
 </article>
@@ -607,7 +607,7 @@ good at it. I loved those days when the restaurant was busy and cooking and
 service went smoothly. The world disappeared and a singular focus on cooking
 replaced it. The physical and the mental would meld, it felt like.</p>
 
-<p>There were times when line cooking didn’t go well. A thing would go wrong in
+<p>There were times when line cooking didn't go well. A thing would go wrong in
 the front or the back of the house, and the effect cascaded and would break the
 day. It felt herculean to regain order. There was some joy in that kind of
 recovery, if we were able to recover, even if most of such days lacked joy.</p>
@@ -634,12 +634,12 @@ help. We sought some help from outside. We regressed and then got better. Over
 and over.</p>
 
 <p>We are recovering, I think, which is why the last two posts have felt good
-to write. I’ve felt good, better. To push through this year, instead of curling
-up and weeping, which I’ve often wanted to do, I tried to hold my children as
+to write. I've felt good, better. To push through this year, instead of curling
+up and weeping, which I've often wanted to do, I tried to hold my children as
 much as possible and to talk with my wife more. This has helped. I wept, just
-two weeks ago, when I found out my Mom had covid. I didn’t think she’d make it,
-but she did. It’s not stellar yet, but the days feel like they have less weight
-to them than they did even until recently, and I have high hopes that we’ll get
+two weeks ago, when I found out my Mom had covid. I didn't think she'd make it,
+but she did. It's not stellar yet, but the days feel like they have less weight
+to them than they did even until recently, and I have high hopes that we'll get
 through this stronger than we were when it started.</p>
 
 </article>
@@ -648,11 +648,11 @@ through this stronger than we were when it started.</p>
 <h2 id="on-buddies">On Buddies</h2>
 <h3 id="december-20-2020"><time datetime="2020-12-20">December 20, 2020</time></h3>
 
-<p>I am in a group chat with some college friends. It’s been on and off since
-the start of the pandemic, but it’s begun to flourish recently. It’s nice
-because even though it has been nearly 26 years since I’ve seen some of these
-people, we talk and joke and razz each other as if no time has passed—as if we
-haven’t become middle aged, as if we haven’t married (or not), raised children,
+<p>I am in a group chat with some college friends. It's been on and off since
+the start of the pandemic, but it's begun to flourish recently. It's nice
+because even though it has been nearly 26 years since I've seen some of these
+people, we talk and joke and razz each other as if no time has passed&mdash;as if we
+haven't become middle aged, as if we haven't married (or not), raised children,
 become grandparents, had failures, gone to funerals, gotten divorced, and so
 much more. Or, despite all that, or because of it all, because we do comment on
 the intervening years and how much has happened and how it has all affected
@@ -660,31 +660,31 @@ us.</p>
 
 <p>When I was growing up (nine different public schools, etc), and when
 I worked as a line cook (21 restaurants and many different states), I lived
-a fairly nomadic life, as much as that may look like in modern America. It’s
-meant that most of the people I’ve shared my life with, or have shared their
+a fairly nomadic life, as much as that may look like in modern America. It's
+meant that most of the people I've shared my life with, or have shared their
 lives with me, are not in my life anymore and never will be again, nor
-I theirs. There’s a kind of gravitas attached to that, and I didn’t realize how
-much, like the father in James Baldwin’s <em>Tell Me How Long the Train’s Been
-Gone</em>, that I was …</p>
+I theirs. There's a kind of gravitas attached to that, and I didn't realize how
+much, like the father in James Baldwin's <em>Tell Me How Long the Train's Been
+Gone</em>, that I was ...</p>
 
 <blockquote>
 <p>lonely for those faces which had borne witness to that past</p>
 </blockquote>
 
-<p>It’s been nice then not just to have this automatic reconnect with these
+<p>It's been nice then not just to have this automatic reconnect with these
 friends, but to have it with these specific friends who once bore witness to
 some significant years of my past and whose past, significant for them also and
-for their own reasons, I bore witness to. It’s nice that there’s still some
-part of us that is who we were then—that there is some continuity, despite the
-nomadic life, despite the intervening decades, but that there’s still something
-to learn about each other that’s different and that this promises growth in
+for their own reasons, I bore witness to. It's nice that there's still some
+part of us that is who we were then&mdash;that there is some continuity, despite the
+nomadic life, despite the intervening decades, but that there's still something
+to learn about each other that's different and that this promises growth in
 these friendships.</p>
 
 <p>This loneliness that I had felt was not sourced in nostalgia. I do not wish
-to relive those days nor recreate them. I am happy with who I am. I’m happy
+to relive those days nor recreate them. I am happy with who I am. I'm happy
 that I have a family and a nice job. I want to keep going and keep growing as
 a person and with my partner, and to help my little ones become the persons
-they will be. But still, it’s nice to reconnect and share again. It feels
+they will be. But still, it's nice to reconnect and share again. It feels
 really good.</p>
 
 </article>
@@ -695,33 +695,33 @@ really good.</p>
 
 <p>Three quarters of a year, and almost three seasons, have passed since the
 start of this quarantine. My Mom came down with covid recently, and she somehow
-defied the odds, which were not remotely in her favor–she’s the definition of
+defied the odds, which were not remotely in her favor&mdash;she's the definition of
 underlying conditions. I dreaded this happening to her. She works in a big box
-store in a geographic area where it’s common for people to refuse to wear masks
-and get aggressive if requested to do so. If the former wasn’t enough for her
+store in a geographic area where it's common for people to refuse to wear masks
+and get aggressive if requested to do so. If the former wasn't enough for her
 to more likely contract covid, the latter made it more so. Well, it happened,
-and I’m so happy that she’s still here with us and that she’s out of danger for
+and I'm so happy that she's still here with us and that she's out of danger for
 now.</p>
 
 <p>In our house, we call this time the Time of the Sickness. Despite all the
-difficulties (I’ve been trying to learn how to cry again, which helps with
-mental health), some great good has come out of it for us as a family, and I’m
-very thankful for that–a very silver lining around a very dark cloud. As if
-before my very eyes, I’ve watched my youngest transform into a toddler from
-a baby in a way that I don’t remember noticing with the others, and it’s been
+difficulties (I've been trying to learn how to cry again, which helps with
+mental health), some great good has come out of it for us as a family, and I'm
+very thankful for that'a very silver lining around a very dark cloud. As if
+before my very eyes, I've watched my youngest transform into a toddler from
+a baby in a way that I don't remember noticing with the others, and it's been
 fun to watch how this child has latched onto their two older siblings, often
 mimicking the second oldest and demanding to play with them every chance they
-get. And I’ve watched my older two become big kids and best friends. I can’t
+get. And I've watched my older two become big kids and best friends. I can't
 steal the last cookie in the sight of my middle child without that child
 declaring that I must save it for their older sibling, and the oldest one often
 gathers the younger two to read to them as they sit on each side. So although
-it’s been the Time of Sickness and Great Sorrow (too), at least it’s also been
+it's been the Time of Sickness and Great Sorrow (too), at least it's also been
 the Time of Togetherness.</p>
 
 <p>Like everyone else I hope, I look forward to the end of this Sickness, but
-I’m not sure how much I want things to change for the family. I’ll still have
+I'm not sure how much I want things to change for the family. I'll still have
 the option to work remotely, at least for part of the week, and I will probably
-take that option as much as possible. I’ve grown kinda comfortable working amid
+take that option as much as possible. I've grown kinda comfortable working amid
 the blaring of children.</p>
 
 <p>Update (12/20): Ha, ha! Of course, an hour after I posted this, one kid had
@@ -738,7 +738,7 @@ a meltdown and the other two started fighting. Such is this roller coaster.</p>
 <p>Fezzik: Why do you wear a mask? Were you burned by acid, or something like
 that?</p><br/>
 
-<p>Man in Black: Oh no. It’s just that they’re terribly comfortable. I think
+<p>Man in Black: Oh no. It's just that they're terribly comfortable. I think
 everyone will be wearing them in the future.</p>
 
 </blockquote>
@@ -748,11 +748,11 @@ everyone will be wearing them in the future.</p>
 <h2 id="on-ebooks">On Ebooks</h2>
 <h3 id="december-8-2020"><time datetime="2020-12-08">December 8, 2020</time></h3>
 
-<p>I purchased an ebook reader recently, and I’m enjoying it. So far I like not
+<p>I purchased an ebook reader recently, and I'm enjoying it. So far I like not
 adding more print books to my collection. The weight of the ones I have now is
 too much, although I still value having them.</p>
 
-<p>I like that if I do not become involved with a book that I’m reading on the
+<p>I like that if I do not become involved with a book that I'm reading on the
 device, I can simply remove it from the ereader and forget about it. Unread
 print books haunt me when I see them on my shelves. They remind me that I have
 somehow committed the sin of uncommitment. I appreciate freeing myself of that
@@ -763,15 +763,15 @@ consequence. My print books act as indices to parts of my life. I can look at
 any of the books on my shelves and remember when I got them and where and what
 I was doing during those times in my life. I know that I will lose that with
 ebooks. I might have other ways to index my life, though, and I guess that
-means time will tell, or it won’t.</p> </article>
+means time will tell, or it won't.</p> </article>
 
 <article id="20201129">
 <h2 id="a-good-read">A Good Read</h2>
 <h3 id="november-29-2020"><time datetime="2020-11-29">November 29, 2020</time></h3>
 
-<p>Tonight I finished reading <em>Exciting Times</em> by Naoise Dolan. I don’t
+<p>Tonight I finished reading <em>Exciting Times</em> by Naoise Dolan. I don't
 remember why I picked this book, but I think I saw it on a list somewhere.
-However I chose it, I’m glad I did. It was quite a pleasure.</p>
+However I chose it, I'm glad I did. It was quite a pleasure.</p>
 
 <p>I am not quite pleased with a couple of reviews of the book that I read.
 I wanted to see how others thought about the ending, which is why I read the
@@ -779,7 +779,7 @@ reviews after I read the book. The reviews were positive but also critical in
 a way that I thought were unwarranted.</p>
 
 <p>So, remind me not to read reviews again. It kind of spoiled the nice feeling
-I had and tend to get when I’ve just taken in a good story.</p>
+I had and tend to get when I've just taken in a good story.</p>
 
 </article>
 
@@ -795,8 +795,8 @@ I had and tend to get when I’ve just taken in a good story.</p>
 
 <p>I've been playing a lot of Sudoku in recent months and I think I've gotten
 fairly adept at completing very difficult puzzles. Sometimes when I'm stuck,
-I’ll work through all the empty cells and add notes for all the possible
-candidates in each cell. Sometimes that doesn’t help at all and the puzzle
+I'll work through all the empty cells and add notes for all the possible
+candidates in each cell. Sometimes that doesn't help at all and the puzzle
 looks like a mickle of numbers. However, if I go through and delete all of the
 candidates and start over, more often than not I'll see what I missed and
 complete the puzzle.</p>
@@ -820,7 +820,7 @@ soups, everything was out of this world.</p>
 <h2 id="primate-lessons">Primate Lessons</h2>
 <h3 id="november-15-2020"><time datetime="2020-11-15">November 15, 2020</time></h3>
 
-<p>There are a lot of PBS documentaries on primates, and I’ve been watching
+<p>There are a lot of PBS documentaries on primates, and I've been watching
 a bunch of them and realizing how little I know about our fairly close
 biological relatives.</p>
 
@@ -837,9 +837,9 @@ inclination, if it exists, is the reason for the appeal of the <a
 href="https://en.wikipedia.org/wiki/Strongman_(politics)">strongman</a> among
 half the population.</p>
 
-<p>These thoughts give me new meaning to King’s quote, that <q>the arc of the
+<p>These thoughts give me new meaning to King's quote, that <q>the arc of the
 moral universe is long, but it bends toward justice.</q> My take on this now is
-that, it’s a moral universe because we are not simply primates, but the arc is
+that, it's a moral universe because we are not simply primates, but the arc is
 long because we are.</p>
 
 </article>
@@ -848,11 +848,11 @@ long because we are.</p>
 <h2 id="on-solace">On Solace</h2>
 <h3 id="november-14-2020"><time datetime="2020-11-14">November 14, 2020</time></h3>
 
-<p>I’ve moved away from listening to podcasts and instead have been listening
-more to music in recent months. It’s been a great source of comfort. Lately
-I’ve been revisiting Kris Kristofferson and Willie Nelson’s catalogs. They
+<p>I've moved away from listening to podcasts and instead have been listening
+more to music in recent months. It's been a great source of comfort. Lately
+I've been revisiting Kris Kristofferson and Willie Nelson's catalogs. They
 remind me a bit of <a href="https://en.wikipedia.org/wiki/Texas">home</a>, but
-not in a nostalgic way, and that’s not why I’ve been listening to them anyway.
+not in a nostalgic way, and that's not why I've been listening to them anyway.
 I think I just forgot how poetic they were, or I never appreciated it until
 now. I need sung poems.</p>
 
@@ -874,7 +874,7 @@ two seconds that there was a pandemic. Surreal also.</p>
 <h2 id="dear-mom">Dear Mom</h2>
 <h3 id="october-25-2020"><time datetime="2020-10-25">October 25, 2020</time></h3>
 
-<p>You’re still here, but it’s been a long time since we’ve had a visit with
+<p>You're still here, but it's been a long time since we've had a visit with
 you and the rest of the family. I find, as this long year stumbles on into its
 darkest season, that I am missing you all very much. Give the rest of the
 family a big hug for me.</p>
@@ -889,11 +889,11 @@ family a big hug for me.</p>
 
 <p>What was it about the movies that were released <a
 href="https://en.wikipedia.org/wiki/List_of_1984_box_office_number-one_films_in_the_United_States">in
-1984</a>? It’s as if all at once a bunch of different movie makers found the
+1984</a>? It's as if all at once a bunch of different movie makers found the
 key to unlock pop culture. I remember going to the movies when I was a kid, but
 there is no year where I remember going to the movies to see all of these, and
-there’s no year that occupies such an outsized space in my head as that year.
-It could have been my age, but that can’t be all of the reason.</p>
+there's no year that occupies such an outsized space in my head as that year.
+It could have been my age, but that can't be all of the reason.</p>
 
 </article>
 
@@ -921,7 +921,7 @@ were left empty.</p>
 think about lists differently.</p>
 
 <p>Aside: This has been a very hard seven months, but there have also been
-these very gratifying and loving moments, too. I’m grateful for that.</p>
+these very gratifying and loving moments, too. I'm grateful for that.</p>
 
 </article>
 
@@ -945,10 +945,10 @@ this.</p>
 <h3 id="september-26-2020"><time datetime="2020-09-26">September 26, 2020</time></h3>
 
 <p>One of the difficult parts of R is simply cleaning and prepping the data.
-I’m curious if that part of a research project would be better served using
+I'm curious if that part of a research project would be better served using
 Awk, since Awk is a data-driven programming language, and then let R (or
 Python) take over for the analysis. I think I might give it a go with this next
-research project I’m working on with some colleagues. It will be a challenge,
+research project I'm working on with some colleagues. It will be a challenge,
 but I bet it might pay off nicely down the road.</p>
 
 <p>Update: I suppose I should have titled this post with the Awk equivalent for
@@ -979,7 +979,7 @@ apple orange apple apple</code></pre>
 <article id="20200913">
 <h2 id="on-marriage">On Marriage</h2>
 <h3 id="september-13-2020"><time datetime="2020-09-13">September 13, 2020</time></h3>
-<p>My wife said I’m a Dwight.</p>
+<p>My wife said I'm a Dwight.</p>
 </article>
 
 <article id="20200912">
@@ -992,13 +992,13 @@ command line felt that way, and would have felt that way if I was using the CLI
 on any *nix-based operating system. It is a really comforting place for me to
 be, and sometimes I wish it was the only computing interface needed.</p>
 
-<p>The magic and mystery faded a few years ago. I suppose that’s likely to
+<p>The magic and mystery faded a few years ago. I suppose that's likely to
 happen with lots of things. Getting stuff done became more important. Then
 I proposed an undergraduate course on Linux systems administration, and in
 teaching that course, I have discovered new things about the OS and
 rediscovered experiences I had long ago.</p>
 
-<p>That’s all. I simply wanted to reflect on this for a moment, and be grateful
+<p>That's all. I simply wanted to reflect on this for a moment, and be grateful
 that though I have people in my life that are infinitely more meaningful than
 a computer, I have this small thing that brings me calm.</p> </article>
 
@@ -1008,8 +1008,8 @@ a computer, I have this small thing that brings me calm.</p> </article>
 <p>I have this routine where I wander the house before bedtime each night,
 picking toys, clothes, and litter off the floor. I like to pause at the
 backdoor and peer through the window. I like to admire the night and see the
-shadows cast by the moon and the occasional night creature—the possum, the
-raccoon, the mouse. Last night I couldn’t see a single shape. The clouds kept
+shadows cast by the moon and the occasional night creature&mdash;the possum, the
+raccoon, the mouse. Last night I couldn't see a single shape. The clouds kept
 the moon hidden and the street and surrounding house lights were off or too far
 away to have an effect. The darkness was beautiful and eerie and almost
 total.</p>
@@ -1018,7 +1018,7 @@ total.</p>
 <article id="20200830">
 <h2 id="on-revising">On Revising</h2>
 <h3 id="august-30-2020"><time datetime="2020-08-30">August 30, 2020</time></h3>
-<p>I couldn’t let go the last Bash script <a
+<p>I couldn't let go the last Bash script <a
 href=WWW/index.html#on-distractions>On Distractions</a>. As I read more about
 <code>awk</code>, I learned that it was possible to write <a
 href="https://blog.jpalardy.com/posts/awk-tutorial-part-2/">multiple
@@ -1048,16 +1048,16 @@ counting and print the count</li>
 <h2 id="on-distractions">On Distractions</h2>
 <h3 id="august-26-2020"><time datetime="2020-08-26">August 26, 2020</time></h3>
 
-<p>It was a fairly productive day, but I’m not sure how I got anything done.
+<p>It was a fairly productive day, but I'm not sure how I got anything done.
 Lots of distractions.</p>
 
 <p>My first distraction of the day was all my fault. I use <code>mbsync</code>
 to retrieve email and I have a <code>systemd</code> timer (instead of
 a <code>cron</code> job) set to retrieve email every five minutes. This is the
-first time I’ve used <code>systemd</code> instead of <code>cron</code>. It’s
+first time I've used <code>systemd</code> instead of <code>cron</code>. It's
 fine, but even though I have no skin in the <code>systemd</code> controversy,
 I'm often annoyed by the length of some of the commands. For instance, to see
-when <code>mbsync</code> would next sync my email to my desktop, I’d type this
+when <code>mbsync</code> would next sync my email to my desktop, I'd type this
 out:</p>
 
 <pre><code>systemctl status --user mbsync.timer</code></pre>
@@ -1065,7 +1065,7 @@ out:</p>
 <p>I wanted to fix that. I could have taken better advantage of Bash history,
 but I thought I could make it a bit more entertaining, and this morning
 I decided to write a small function to replace that whole line, and I also
-thought that I’d write it so it would simply return the time left until the
+thought that I'd write it so it would simply return the time left until the
 next sync. So I wrote this:</p>
 
 <pre><code>systemctl status --user mbsync.timer |\
@@ -1076,12 +1076,12 @@ next sync. So I wrote this:</p>
 
 <pre><code>Time left to sync: 4min 17s left</code></pre>
 
-<p>That’s pretty much what I wanted, and all was rosy until I ran the function
+<p>That's pretty much what I wanted, and all was rosy until I ran the function
 and got something meaningless in return. Then I realized that
 <code>mbsync</code> was syncing at the moment that I ran the function and so
 there was no time info to return. Enter distraction, and I said to myself,
 “what was the syntax for an <code>awk</code> <strong>if-else</strong>
-statement.” I’m only beginner level <code>awk</code> writer, and it had been
+statement.” I'm only beginner level <code>awk</code> writer, and it had been
 a long time since I played around with <code>awk</code> conditionals.</p>
 
 <p>But I worked at it and kept boinking the <strong>if</strong> statement up,
@@ -1125,19 +1125,19 @@ I learned something, too, which I'm happy about because I think
 <h2 id="a-distro-hop">A Distro Hop</h2>
 <h3 id="august-9-2020"><time datetime="2020-08-09">August 9, 2020</time></h3>
 
-<p>I’ve begun the migration to Fedora Linux. I installed it on my laptop,
+<p>I've begun the migration to Fedora Linux. I installed it on my laptop,
 replacing an Ubuntu installation, and have really liked it. If I complete the
-migration, this will be the first non-Debian based distribution that I’ve used
+migration, this will be the first non-Debian based distribution that I've used
 as my main OS since the early 2000s, when I used to run Red Hat Linux and
 Mandrake Linux, my first two GNU/Linux OSs.</p>
 
-<p>I’ve been using Fedora for a few years now on a server and have also used it
-as the demo server in my Linux SysAdmin course, so it’s not entirely new to me.
-What’s new to me is the desktop version. I like the take on Gnome (although
+<p>I've been using Fedora for a few years now on a server and have also used it
+as the demo server in my Linux SysAdmin course, so it's not entirely new to me.
+What's new to me is the desktop version. I like the take on Gnome (although
 I prefer i3), which seems to work much better than it does on Ubuntu.</p>
 
 <p>I may switch back to Ubuntu someday. Who knows? But in the meantime, it
-feels kinda good to distro hop—feels like my first days with Linux.</p>
+feels kinda good to distro hop&mdash;feels like my first days with Linux.</p>
 
 </article>
 
