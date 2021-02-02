@@ -44,6 +44,83 @@
       <p>If you use a RSS reader and would like to keep updated, please use my
       <a href="https://cseanburns.net/WWW/index.xml">feed</a>.</p>
 
+<article id="20210202">
+<h2 id="my-sysadmin-work">My Sysadmin Work</h2>
+<h3 id="february-2-2021"><time datetime="2021-02-02">February 2, 2021</time></h3>
+<p>A few years ago, a number of faculty in my unit were using some ad hoc
+services to teach a few technology courses. I suppose for some things, this
+would be fine, but in several hallway chats, I kept hearing stories about the
+instability of these services. For example, professor A would use X free
+hosting service for some content management system, and then halfway through
+the semester, the service would do something disruptive, which would then
+disrupt the course.</p>
+
+<p>Perhaps if this kind of thing only happened to one professor and
+infrequently, then some other solution could have been applied, but it was
+a problem several professors were experiencing often. So I proposed that we buy
+and manage our own server. Or, rather, I proposed that they (the unit) buy
+a server and that I manage it for the faculty and install whatever was needed,
+as long as it was some open source solution since this would be a Linux based
+server. I also wanted to use the server to teach a couple of courses: one on
+systems administration and the other on semantic web development. And I knew
+that one other faculty would want to use it for a similar purpose. They
+accepted the proposal. A server was ordered. I set it up, got a domain name for
+it from the university, set up SSL certs, and installed and configured what we
+wanted.</p>
+
+<p>It started off well and it was eventually used in six or seven courses and
+more sections of some of those courses. A few of those courses used it to
+access a couple of different content management systems, and a few others used
+it for shell access to work on things like MySQL, PHP, and like. But then the
+university made big cybersecurity changes about a year and a half ago, and it's
+much more difficult for students to use SSH to get shell access from off-campus
+now.</p>
+
+<p>My solution to this was for the unit to pay for and use a virtual machine
+provided by a hosting company for those courses that needed shell access and
+keep using the unit's server for those courses that use content management
+systems. The virtual machine is super cheap and even though it's minimal, it's
+fine for our needs. They accepted the proposal and this is now the current
+setup, which means that I'm managing two servers. In a way, this is more work,
+but in another way, it's better to partition out the separate use cases because
+it's easier, from a security standpoint, to keep the shell users away from the
+content management systems. I like to give my students who have shell access
+a lot of room to roam around the directories, and I couldn't do this when they
+were all on one machine because I had to lock down a lot of directories. Since
+the shell users are now using a virtual machine at a hosting company and not on
+the university's network, and since the machine itself is managed well by the
+company, it's not so much of a problem if the system is compromised,
+intentionally or not.</p>
+
+<p>Even though it's a bit more work, most of that work is simply keeping an eye
+on things. That's not nothing, but I've largely automated the other tasks. For
+example, for one course, every semester I need to create shell and MySQL
+accounts for a list of students and create databases and set up privileges for
+those databases. I had written a couple of Bash scripts to take care of this
+and recently merged them into a single script that does all this work. I still
+want to generalize the script a bit more but it's only used for one course, and
+so there's no hurry. Here's the script:</p>
+
+<p><a href="https://github.com/cseanburns/sysadmin/blob/master/usr/makeaccounts">https://github.com/cseanburns/sysadmin/blob/master/usr/makeaccounts</a></p>
+
+<p>For the original server, the faculty who teach one of the courses that uses
+a content management system (CMS) need new students added to the CMS every
+semester and in particular roles in the CMS, and students removed and content
+purged from the CMS from the prior semester. Since this is an open source CMS,
+I studied the MySQL databases and figured out how to automate this so that
+I could add and remove students and delete old content in batch. Otherwise, the
+faculty would have had to delete everything manually in the CMS. The faculty
+still have to send the students their passwords for the CMS. I had installed
+and configured an email server for this machine, but the university's
+cybersecurity folks detected it and asked that I turn it off. Oh, well.</p>
+
+<p>I'm a tiny bit burnt out doing this stuff. I still have to teach, research,
+etc., but mostly, it's good that I'm doing it. Since I teach a system
+administration course, the work keeps me current, and it's important to me that
+I stay current with these technologies so that I can teach better.</p>
+</article>
+
+
 <article id="20210130">
 <h2 id="back-to-i3">Back To i3</h2>
 <h3 id="january-30-2021"><time datetime="2021-01-30">January 30, 2021</time></h3>
