@@ -14,8 +14,8 @@ body {
   grid-template-columns: 150px auto;
   max-width: 800px;
   margin: auto;
-  background-color: #5ed3fe;
-  color: #000;
+  background-color: #394139;
+  color: #ffd7af;
 }
 
 @media (max-width: 810px) {
@@ -46,13 +46,13 @@ h1 {
 }
 
 .mainheading a {
-  background-color: #5ed3fe;
-  color: #000;
+  background-color: #394139;
+  color: #ffd7af;
   text-decoration: none;
 }
 
 .mainheading a:hover {
-  background-color: #5ed3fe;
+  background-color: #394139;
   color: #566873;
 }
 
@@ -101,12 +101,12 @@ main {
 }
 
 section a {
-  background-color: #5ed3fe;
-  color: #000;
+  background-color: #394139;
+  color: #ffd7af;
 }
 
 section a:hover {
-  background-color: #5ed3fe;
+  background-color: #394139;
   color: #566873;
 }
 
@@ -118,14 +118,14 @@ article {
 h2 {
   font-family: Helvetica, sans-serif;
   font-size: 2.25em;
-  color: #000;
+  color: #ffda7af;
   scroll-margin-top: 3ex; /* places h2 element just below the top of the window */
 }
 
 h3 {
   font-family: Helvetica, sans-serif;
   font-size: 2em;
-  color: #c82617;
+  color: #ff8700;
 }
 
 p {
@@ -163,7 +163,7 @@ a:hover {
 /* https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ */
 
 blockquote {
-    background-color: #5ed3fe;
+    background-color: #394139;
     border-left: 10px solid #c82617;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
@@ -189,11 +189,16 @@ blockquote p {
 pre {
   padding: 5px;
   border-radius: 10px;
-  color: #c82617;
-  background-color: #5ed3fe;
+  color: #fdd805;
+  background-color: #394139;
   font-size: 1.9em;
   overflow: auto;
 }
+
+/*
+background-color: #394139;
+color: #ffd7af;
+*/
 
 p > code {
   padding: 1px 3px 1px 3px;
