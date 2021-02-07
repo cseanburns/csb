@@ -14,7 +14,7 @@ body {
   grid-template-columns: 150px auto;
   max-width: 800px;
   margin: auto;
-  background-color: #fff;
+  background-color: #5ed3fe;
   color: #000;
 }
 
@@ -46,19 +46,19 @@ h1 {
 }
 
 .mainheading a {
-  background-color: #fff;
+  background-color: #5ed3fe;
   color: #000;
   text-decoration: none;
 }
 
 .mainheading a:hover {
-  background-color: #fff;
+  background-color: #5ed3fe;
   color: #566873;
 }
 
 nav {
   grid-area: nav;
-  background-color: #512e5f;
+  background-color: #fdd805;
 }
 
 nav ul {
@@ -86,12 +86,12 @@ nav li:nth-child(5) {
 nav li a {
   letter-spacing: 0.1em;
   text-decoration: none;
-  background-color: #512e5f;
-  color: #fff;
+  background-color: #fdd805;
+  color: #000;
 }
 
 nav li a:hover {
-  background-color: #512e5f;
+  background-color: #fdd805;
   color: #566873;
 }
 
@@ -101,12 +101,12 @@ main {
 }
 
 section a {
-  background-color: #fff;
+  background-color: #5ed3fe;
   color: #000;
 }
 
 section a:hover {
-  background-color: #fff;
+  background-color: #5ed3fe;
   color: #566873;
 }
 
@@ -125,7 +125,7 @@ h2 {
 h3 {
   font-family: Helvetica, sans-serif;
   font-size: 2em;
-  color: #512e5f;
+  color: #c82617;
 }
 
 p {
@@ -150,7 +150,7 @@ li {
 
 a {
   background-color: #fff;
-  color: #000;
+  color: #5ed3fe;
   text-decoration: underline;
 }
 
@@ -163,8 +163,8 @@ a:hover {
 /* https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ */
 
 blockquote {
-    background-color: #fff;
-    border-left: 10px solid #512e5f;
+    background-color: #5ed3fe;
+    border-left: 10px solid #c82617;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
 }
@@ -189,8 +189,8 @@ blockquote p {
 pre {
   padding: 5px;
   border-radius: 10px;
-  color: #512e5f;
-  background-color: #fff;
+  color: #c82617;
+  background-color: #5ed3fe;
   font-size: 1.9em;
   overflow: auto;
 }
@@ -199,7 +199,7 @@ p > code {
   padding: 1px 3px 1px 3px;
   border-radius: 5px;
   color: #fff;
-  background-color: #566573;
+  background-color: #c82617;
   font-family: sans-serif;
   font-size: .9em;
 }
