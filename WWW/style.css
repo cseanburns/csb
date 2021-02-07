@@ -126,6 +126,7 @@ h3 {
   font-family: Helvetica, sans-serif;
   font-size: 2em;
   color: #ff8700;
+  scroll-margin-top: 3ex; /* places h2 element just below the top of the window */
 }
 
 p {
