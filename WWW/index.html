@@ -44,6 +44,75 @@
       <p>If you use a RSS reader and would like to keep updated, please use my
       <a href="https://cseanburns.net/WWW/index.xml">feed</a>.</p>
 
+<article id="20210212">
+<h2 id="salt-the-hash">Salt the Hash</h2>
+<h3 id="february-12-2021"><time datetime="2021-02-12">February 12, 2021</time></h3>
+
+<p>There was one last item on my to-do list for (near) total sysadmin
+automation. One of the classes in our program uses a content management system
+(CMS) with MySQL as its database. Normally, for a new user to set up an account
+on the CMS, the CMS would need to have at least an SMTP server configured to
+complete the user setup. I'm not allowed to use a full-blown email server on
+this computer, and I've never set up an email account and something like <a
+href="https://marlam.de/msmtp/">msmtp</a> to have emails sent to new users to
+complete account setups. What I wanted to do was merely batch create the
+student accounts.</p>
+
+<p>Batch creating the student accounts was easy and standard with MySQL. To do
+this, I download the roster for the course as a CSV file, quickly remove the
+unneeded columns in LibreOffice Calc, and save this as a CSV file. Then
+I create a <em>sql</em> source file from that CSV data using, primarily, some
+<code>sed</code> one-liners, and the result would look something like this:</p>
+
+<pre><code>insert into table_name(id,username,name,email,active,role) values
+(id_value,username_value,email_value,active_value,role_value),
+(id_value,username_value,email_value,active_value,role_value),
+...
+(id_value,username_value,email_value,active_value,role_value);</code></pre>
+
+<p>But that <em>sql</em> source file was missing two columns: a <a
+href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">hashed</a>, <a
+href="https://en.wikipedia.org/wiki/Salt_(cryptography)">salted</a> password
+column and a salt column. I've worked with databases enough to know more than
+the basics of working with data for analysis or retrieval, but I've never
+really worked with databases, other than doing the kind of thing as above,
+where I have to modify user accounts for a CMS, and so I didn't know how to
+create a <em>sql</em> source file that included the hashed password and the
+salt. This meant that I could create the accounts for my colleagues, but then
+they'd have to log in to the CMS and manually add passwords for the students.
+At least I could generate passwords for them using <code>pwgen</code> or
+<code>diceware</code>.</p>
+
+<p>It took some reading to figure out how to accomplish automating the salt and
+hash password process, but now that I know how, the steps are easy.</p>
+
+<p>First, generate the salts.</p>
+
+<pre><code># The CMS uses a 16 byte salt. To create this in Bash:
+&lt; /dev/urandom tr -dc A-Z-a-z-0-9 | head -c16 ; echo
+FCTSAB10-YKYGAC-</code></pre>
+
+<p>With that salt, create a new <em>sql</em> file with the relevant MySQL
+commands. Let's say the password for the new user is <em>grapes</em> and the
+new user's account that I want to update has a table ID of 100, then to set the
+password in MySQL with the above salt goes like this:</p>
+
+<pre><code>update table_name set password=sha1(concat(&#39;FCTSAB10-YKYGAC-&#39;,&#39;grapes&#39;)) where id = 100;</code></pre>
+
+<p>This salts the password and then hashes it with SHA-1 (I know that SHA-1 is
+obsolete, but it's what the CMS uses. Students only use the CMS for a few
+weeks, and then the data is wiped anyway.)</p>
+
+<p>And then I update the table to add the salt to the salt column:</p>
+
+<pre><code>update table_name set salt=&#39;FCTSAB10-YKYGAC-&#39; where id = 100;</code></pre>
+
+<p>The next step, which I'll get to later, is to write a Bash script to
+automate this process.</p>
+
+</article>
+
+
 <article id="20210211">
 <h2 id="not-really-a-kobayashi-maru">Not Really a Kobayashi Maru</h2>
 <h3 id="february-11-2021"><time datetime="2021-02-11">February 11, 2021</time></h3>
