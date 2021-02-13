@@ -49,19 +49,19 @@
 <h3 id="february-12-2021"><time datetime="2021-02-12">February 12, 2021</time></h3>
 
 <p>There was one last item on my to-do list for (near) total sysadmin
-automation. One of the classes in our program uses a content management system
-(CMS) with MySQL as its database. Normally, for a new user to set up an account
-on the CMS, the CMS would need to have at least an SMTP server configured to
-complete the user setup. I'm not allowed to use a full-blown email server on
-this computer, and I've never set up an email account and something like <a
-href="https://marlam.de/msmtp/">msmtp</a> to have emails sent to new users to
-complete account setups. What I wanted to do was merely batch create the
-student accounts.</p>
+automation. One of the classes in our program uses an open source content
+management system (CMS) with MySQL as its database. Normally, for a new user to
+set up an account on the CMS, the CMS would need to have at least an SMTP
+server configured to complete the user setup. I'm not allowed to use
+a full-blown email server on this computer, and I've never set up an email
+account and something like <a href="https://marlam.de/msmtp/">msmtp</a> to have
+emails sent to new users to complete account setups. What I wanted to do was
+merely batch create the student accounts.</p>
 
-<p>Batch creating the student accounts was easy and standard with MySQL. To do
-this, I download the roster for the course as a CSV file, quickly remove the
-unneeded columns in LibreOffice Calc, and save this as a CSV file. Then
-I create a <em>sql</em> source file from that CSV data using, primarily, some
+<p>Batch creating the student accounts is easy with MySQL. To do this,
+I download the roster for the course as a CSV file, quickly remove the unneeded
+columns in LibreOffice Calc, and save this as a CSV file. Then I create
+a <em>sql</em> source file from that CSV data using, primarily, some
 <code>sed</code> one-liners, and the result would look something like this:</p>
 
 <pre><code>insert into table_name(id,username,name,email,active,role) values
