@@ -87,10 +87,11 @@ At least I could generate passwords for them using <code>pwgen</code> or
 hash password process, but I worked it out and learned some things, which is
 cool.</p>
 
-<p>First, generate the salts.</p>
+<p>First, the CMS uses a 16 byte salt. To generate the salt in Bash, use random
+data from <em>/dev/urandom</em> and use the <code>tr</code> command to delete
+characters that are not indicated in the regular expression:</p>
 
-<pre><code># The CMS uses a 16 byte salt. To create this in Bash:
-&lt; /dev/urandom tr -dc A-Z-a-z-0-9 | head -c16 ; echo
+<pre><code>&lt; /dev/urandom tr -dc A-Z-a-z-0-9 | head -c16 ; echo
 FCTSAB10-YKYGAC-</code></pre>
 
 <p>With that salt, create a new <em>sql</em> file with the relevant MySQL
