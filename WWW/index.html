@@ -88,12 +88,22 @@ At least I could generate passwords for them using <code>pwgen</code> or
 hash password process, but I worked it out and learned some things, which is
 cool.</p>
 
-<p>First, the CMS uses a 16 byte salt. To generate the salt in Bash, I use random
-data from <em>/dev/urandom</em> and the <code>tr</code> command to delete
-characters that are not indicated in the regular expression:</p>
+<p>First, the CMS uses a 16 byte salt. To generate the salt in Bash, I learned
+that I could use the <code>tr</code> command and random data from
+<em>/dev/urandom</em> to generate it. So clever.</p>
 
 <pre><code>&lt; /dev/urandom tr -dc A-Z-a-z-0-9 | head -c16 ; echo
 FCTSAB10-YKYGAC-</code></pre>
+
+<p>However, when I first saw that command, I was confused by its structure.
+Normally, I'd see it written like so:</p>
+
+<pre><code>tr -cd A-Z-a-z-0-9 &lt; /dev/urandom | head -c16 ; echo
+FCTSAB10-YKYGAC-</code></pre>
+
+<p>So seeing it the first way was a good reminder of <a
+href="https://www.gnu.org/software/bash/manual/html_node/Redirections.html">how
+redirection works in Bash</a>.</p>
 
 <p>With that salt, I create a new <em>sql</em> file with the relevant MySQL
 commands. Let's say the password for the new user is <em>grapes</em> and the
