@@ -44,8 +44,51 @@
       <p>If you use a RSS reader and would like to keep updated, please use my
       <a href="https://cseanburns.net/WWW/index.xml">feed</a>.</p>
 
-<article id="20210215">
+<article id="20210216">
+<h2 id="be-virtuous">Be Virtuous</h2>
+<h3 id="february-16-2021"><time datetime="2021-02-16">February 16, 2021</time></h3>
 
+<p>I write posts here in <a
+href="https://en.wikipedia.org/wiki/Markdown">markdown</a> and create an HTML
+version using <a href="https://pandoc.org/">pandoc</a>. The <code>pandoc</code>
+command is too long to want to type often. It looks like this:</p>
+
+<pre><code>pandoc -f gfm -t html post.md &gt; post.html
+</code></pre>
+
+<p>This takes a <a href="https://github.github.com/gfm/">GitHub flavored
+markdown</a> (<strong>gfm</strong>) file and converts it to an HTML file.</p>
+
+<p>Since <a href="https://wiki.c2.com/?LazinessImpatienceHubris">laziness is
+a virtue</a>, I wrote a short Bash function to make it a single word command
+followed by the name of the markdown file.</p>
+
+<pre><code>makepost () {
+  sourcefile=&quot;$1&quot;
+  pandoc -f gfm -t html &quot;$sourcefile&quot; &gt; \
+    $(basename &quot;$sourcefile&quot; .md).html
+}
+</code></pre>
+
+<p>The function creates an HTML copy of the markdown file, and in the process,
+it strips the <strong>.md</strong> extension and replaces it with the
+<strong>.html</strong> extension when creating the copy. If the markdown file
+were named <strong>post.md</strong>, then to get the HTML version, I only have
+to type:</p>
+
+<pre><code>makepost post.md
+</code></pre>
+
+<p>Bash functions (and aliases) are so useful. For aliases, I'd rather not ever
+type <code>clear</code> in the shell to clear the screen, which I do often
+because I like the cursor up high. Instead I just type the letter
+<code>c</code>, which is set by this alias:</p>
+
+<pre><code>alias c=&#39;clear&#39;
+</code></pre>
+</article>
+
+<article id="20210215">
 <h2 id="cooks-log-fermentation-date-9">Cook's Log, Fermentation Date 9</h2>
 <h3 id="february-15-2021"><time datetime="2021-02-15">February 15, 2021</time></h3>
 <p>I opened one of the three jars of cabbage that I began fermenting on
