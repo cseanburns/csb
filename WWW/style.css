@@ -14,8 +14,8 @@ body {
   grid-template-columns: 150px auto;
   max-width: 800px;
   margin: auto;
-  background-color: #394139;
-  color: #ffd7af;
+  background-color: #fff;
+  color: #000;
 }
 
 @media (max-width: 810px) {
@@ -46,19 +46,19 @@ h1 {
 }
 
 .mainheading a {
-  background-color: #394139;
-  color: #ffd7af;
+  background-color: #fff;
+  color: #000;
   text-decoration: none;
 }
 
 .mainheading a:hover {
-  background-color: #394139;
+  background-color: #fff;
   color: #566873;
 }
 
 nav {
   grid-area: nav;
-  background-color: #fdd805;
+  background-color: #ff8700;
 }
 
 nav ul {
@@ -86,12 +86,12 @@ nav li:nth-child(5) {
 nav li a {
   letter-spacing: 0.1em;
   text-decoration: none;
-  background-color: #fdd805;
+  background-color: #ff8700;
   color: #000;
 }
 
 nav li a:hover {
-  background-color: #fdd805;
+  background-color: #ff8700;
   color: #566873;
 }
 
@@ -101,12 +101,12 @@ main {
 }
 
 section a {
-  background-color: #394139;
-  color: #ffd7af;
+  background-color: #fff;
+  color: #000;
 }
 
 section a:hover {
-  background-color: #394139;
+  background-color: #fff;
   color: #566873;
 }
 
@@ -139,7 +139,7 @@ p {
 
 ul {
   /* https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references */
-  list-style-type: '\223C';
+  list-style-type: '\2933\ ';
 }
 
 li {
@@ -164,7 +164,7 @@ a:hover {
 /* https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ */
 
 blockquote {
-    background-color: #394139;
+    background-color: #fff;
     border-left: 10px solid #c82617;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
@@ -190,8 +190,8 @@ blockquote p {
 pre {
   padding: 5px;
   border-radius: 10px;
-  color: #fdd805;
-  background-color: #394139;
+  color: #c82617;
+  background-color: #fff;
   font-size: 1.9em;
   overflow: auto;
 }
