@@ -48,17 +48,38 @@
 
 <h2 id="cooks-log-fermentation-date-9">Cook's Log, Fermentation Date 9</h2>
 <h3 id="february-15-2021"><time datetime="2021-02-15">February 15, 2021</time></h3>
-<p>I opened one of the three jars of cabbage that I began fermenting on February 5. It tastes great! The cabbage has a firm bite and a nice tart taste. I think I'll let one of the other jars ferment for a couple more weeks and then, depending on how that goes, the third jar for a couple of weeks beyond that.</p>
-<p>We're having a fairly chilly winter, and we keep the thermostat in the low sixties. I'm keeping that in mind because I'll likely want to see how this goes in the summer, when it's much warmer in the house.</p>
-<p>I'm excited to see what becomes of the cabbage, ginger, and peppers in the other two jars.</p>
+<p>I opened one of the three jars of cabbage that I began fermenting on
+February 5. It tastes great! The cabbage has a firm bite and a nice tart taste.
+I think I'll let one of the other jars ferment for a couple more weeks and
+then, depending on how that goes, the third jar for a couple of weeks beyond
+that.</p>
+
+<p>We're having a fairly chilly winter, and we keep the thermostat in the low
+sixties. I'm keeping that in mind because I'll likely want to see how this goes
+in the summer, when it's much warmer in the house.</p>
+
+<p>I'm excited to see what becomes of the cabbage, ginger, and peppers in the
+other two jars.</p>
+
 <p>Bonus: the two older kids love the sauerkraut (but not the little one).</p>
 </article>
 
 <article id="20210213">
 <h2 id="puzzled">Puzzled</h2>
 <h3 id="february-13-2021"><time datetime="2021-02-13">February 13, 2021</time></h3>
-<p>Kind of like in the recent George Clooney movie, <em>The Midnight Sky</em>, when he uses some instrument to detect how near in the atmosphere whatever it is that's killing all life on the planet, I've played a lot of puzzles in recent months as a way to test if I have brain fog from long Covid-19. I don't think I've had Covid-19. We've been pretty isolated, and I've never tested positive. But I as long as I still have the ability to focus for some substantial amount of time on a puzzle, then I guess I'm happy.</p>
-<p>I'm writing about puzzles pretty broadly. I play about three Sudoku games every day, but the coding counts, for my sysadmin work but also for research, which involves a lot of R lately. We also are working on a 1000-piece actual puzzle. It's nice to get lost in that. So, generally speaking, puzzles are my instrument.</p>
+<p>Kind of like in the recent George Clooney movie, <em>The Midnight Sky</em>,
+when he uses some instrument to detect how near in the atmosphere whatever it
+is that's killing all life on the planet, I've played a lot of puzzles in
+recent months as a way to test if I have brain fog from long Covid-19. I don't
+think I've had Covid-19. We've been pretty isolated, and I've never tested
+positive. But I as long as I still have the ability to focus for some
+substantial amount of time on a puzzle, then I guess I'm happy.</p>
+
+<p>I'm writing about puzzles pretty broadly. I play about three Sudoku games
+every day, but the coding counts, for my sysadmin work but also for research,
+which involves a lot of R lately. We also are working on a 1000-piece actual
+puzzle. It's nice to get lost in that. So, generally speaking, puzzles are my
+instrument.</p>
 </article>
 
 <article id="20210212">
@@ -128,13 +149,19 @@ new user's account that I want to update has a table ID of 100, then to salt
 and then hash the password and store it in the appropriate table cell for that
 user:</p>
 
-<pre><code>update table_name set password=sha1(concat(&#39;FCTSAB10-YKYGAC-&#39;,&#39;grapes&#39;)) where id = 100;</code></pre>
+<pre><code>update table_name
+set password=sha1(concat(&#39;FCTSAB10-YKYGAC-&#39;,&#39;grapes&#39;))
+where id = 100;</code></pre>
 
-<p>And then I update the table to add the salt to the salt column. This is needed for the CMS to parse the password and let users login.</p>
+<p>And then I update the table to add the salt to the salt column. This is
+needed for the CMS to parse the password and let users login.</p>
 
-<pre><code>update table_name set salt=&#39;FCTSAB10-YKYGAC-&#39; where id = 100;</code></pre>
+<pre><code>update table_name
+set salt=&#39;FCTSAB10-YKYGAC-&#39;
+where id = 100;</code></pre>
 
-<p>Sometime later I'll write a proper Bash script to automate this process for the 50 or more students who use this CMS each semester.</p>
+<p>Sometime later I'll write a proper Bash script to automate this process for
+the 50 or more students who use this CMS each semester.</p>
 
 </article>
 
