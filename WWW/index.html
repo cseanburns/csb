@@ -66,7 +66,7 @@ followed by the name of the markdown file.</p>
 <pre><code>makepost () {
   sourcefile=&quot;$1&quot;
   pandoc -f gfm -t html &quot;$sourcefile&quot; &gt; \
-    $(basename &quot;$sourcefile&quot; .md).html
+    $(basename -s md &quot;$sourcefile&quot;)html
 }
 </code></pre>
 
