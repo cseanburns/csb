@@ -1,7 +1,3 @@
-html {
-  font-size: 62.5%;
-}
-
 @font-face {
   font-family: 'Open Sans';
   src: url("fonts/OpenSans-Bold.ttf");
@@ -13,8 +9,8 @@ html {
 }
 
 @font-face {
-  font-family: Arapey;
-  src: url("fonts/arapey-regular.ttf");
+  font-family: Liberation;
+  src: url("fonts/LiberationSerif-Regular.ttf");
 }
 
 body {
@@ -29,8 +25,8 @@ body {
   grid-template-columns: 150px auto;
   max-width: 800px;
   margin: auto;
-  background-color: #202020;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
 @media (max-width: 810px) {
@@ -54,20 +50,20 @@ header {
 }
 
 h1 {
-  font-family: Afta, Georgia, Times, "Times New Roman", serif;
+  font-family: Afta, Georgia, Times, serif;
   font-weight: 400;
-  font-size: 2.25em;
+  font-size: 1.25em;
   padding-top: 5px;
 }
 
 .mainheading a {
-  background-color: #202020;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   text-decoration: none;
 }
 
 .mainheading a:hover {
-  background-color: #202020;
+  background-color: #fff;
   color: #566873;
 }
 
@@ -109,19 +105,19 @@ nav li a:hover {
   background-color: #ff8700;
   color: #566873;
 }
-
+LiberationSerif-Regular.ttf
 main {
   grid-area: main;
   margin: 10px;
 }
-arapey-regular.ttf
+
 section a {
-  background-color: #202020;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
 section a:hover {
-  background-color: #202020;
+  background-color: #fff;
   color: #566873;
 }
 
@@ -131,23 +127,21 @@ article {
 }
 
 h2 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 2.25em;
-  color: #fff;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 1.5em;
+  color: #000;
   scroll-margin-top: 3ex; /* places h2 element just below the top of the window */
 }
 
 h3 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.8em;
+  font-family: 'Open Sans', Helvetica, sans-serif;
   color: #ff8700;
   scroll-margin-top: 3ex; /* places h2 element just below the top of the window */
 }
 
 p {
-  font-family: Arapey;
-  font-size: 1.85em;
-  line-height: 1.5em;
+  font-family: Liberation, Georgia, Times, serif;
+  line-height: 1.25em;
   text-indent: 2em;
   max-width: 600px;
 }
@@ -158,8 +152,7 @@ ul {
 }
 
 li {
-  font-family: Arapey, Georgia, Times, serif;
-  font-size: 1.75em;
+  font-family: Liberation, Georgia, Times, serif;
   line-height: 1.5em;
   max-width: 600px;
 }
@@ -179,7 +172,7 @@ a:hover {
 /* https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ */
 
 blockquote {
-    background-color: #282828;
+    background-color: #fff;
     border-left: 10px solid #c82617;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
@@ -195,19 +188,14 @@ blockquote:before {
 blockquote p {
     display: inline;
     line-height: 2em;
-    font-size: 1.75em;
-}
-
-.bigger {
-  font-size: 2.75em;
 }
 
 pre {
   padding: 5px;
   border-radius: 10px;
   color: #c82617;
-  background-color: #282828;
-  font-size: 1.9em;
+  background-color: #fff;
+  font-size: 1.1em;
   overflow: auto;
 }
 
@@ -261,15 +249,15 @@ footer {
 }
 
 footer h2 {
-  font-size: 1.4em;
+  font-size: .9em;
 }
 
 footer a {
-  font-size: 1.2em;
+  font-size: 0.65em;
   line-height: 1.5em;
 }
 
 footer p {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 0.65em;
 }
