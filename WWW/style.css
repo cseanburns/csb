@@ -2,6 +2,21 @@ html {
   font-size: 62.5%;
 }
 
+@font-face {
+  font-family: 'Open Sans';
+  src: url("fonts/OpenSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: Afta;
+  src: url("fonts/AftaSerifThin-Regular.otf");
+}
+
+@font-face {
+  font-family: Arapey;
+  src: url("fonts/arapey-regular.ttf");
+}
+
 body {
   display: grid;
   column-gap: 35px;
@@ -14,8 +29,8 @@ body {
   grid-template-columns: 150px auto;
   max-width: 800px;
   margin: auto;
-  background-color: #fff;
-  color: #000;
+  background-color: #202020;
+  color: #fff;
 }
 
 @media (max-width: 810px) {
@@ -39,20 +54,20 @@ header {
 }
 
 h1 {
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: Afta, Georgia, Times, "Times New Roman", serif;
   font-weight: 400;
   font-size: 2.25em;
   padding-top: 5px;
 }
 
 .mainheading a {
-  background-color: #fff;
-  color: #000;
+  background-color: #202020;
+  color: #fff;
   text-decoration: none;
 }
 
 .mainheading a:hover {
-  background-color: #fff;
+  background-color: #202020;
   color: #566873;
 }
 
@@ -68,11 +83,11 @@ nav ul {
 }
 
 nav li {
-  font-family: Helvetica, sans-serif;
+  font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 12pt; 
-  font-weight: 600;
+  font-weight: 500;
   padding: 5px 0 5px 0;
-  border-top: 1px dotted white;
+  border-top: 1px dotted #282828;
 }
 
 nav li:nth-child(1) {
@@ -80,7 +95,7 @@ nav li:nth-child(1) {
 }
 
 nav li:nth-child(5) {
-  border-bottom: 1px dotted #fff;
+  border-bottom: 1px dotted #202020;
 }
 
 nav li a {
@@ -99,14 +114,14 @@ main {
   grid-area: main;
   margin: 10px;
 }
-
+arapey-regular.ttf
 section a {
-  background-color: #fff;
-  color: #000;
+  background-color: #202020;
+  color: #fff;
 }
 
 section a:hover {
-  background-color: #fff;
+  background-color: #202020;
   color: #566873;
 }
 
@@ -116,22 +131,22 @@ article {
 }
 
 h2 {
-  font-family: Helvetica, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 2.25em;
-  color: #000;
+  color: #fff;
   scroll-margin-top: 3ex; /* places h2 element just below the top of the window */
 }
 
 h3 {
-  font-family: Helvetica, sans-serif;
-  font-size: 2em;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.8em;
   color: #ff8700;
   scroll-margin-top: 3ex; /* places h2 element just below the top of the window */
 }
 
 p {
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 1.75em;
+  font-family: Arapey;
+  font-size: 1.85em;
   line-height: 1.5em;
   text-indent: 2em;
   max-width: 600px;
@@ -143,20 +158,20 @@ ul {
 }
 
 li {
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: Arapey, Georgia, Times, serif;
   font-size: 1.75em;
   line-height: 1.5em;
   max-width: 600px;
 }
 
 a {
-  background-color: #fff;
-  color: #5ed3fe;
+  background-color: #202020;
+  color: #fff;
   text-decoration: underline;
 }
 
 a:hover {
-  background-color: #fff;
+  background-color: #202020;
   color: #566873;
 }
 
@@ -164,7 +179,7 @@ a:hover {
 /* https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ */
 
 blockquote {
-    background-color: #fff;
+    background-color: #282828;
     border-left: 10px solid #c82617;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
@@ -191,15 +206,10 @@ pre {
   padding: 5px;
   border-radius: 10px;
   color: #c82617;
-  background-color: #fff;
+  background-color: #282828;
   font-size: 1.9em;
   overflow: auto;
 }
-
-/*
-background-color: #394139;
-color: #ffd7af;
-*/
 
 p > code {
   padding: 1px 3px 1px 3px;
