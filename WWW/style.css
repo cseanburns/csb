@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'Open Sans';
-  src: url("fonts/OpenSans-Bold.ttf");
+  src: url("fonts/OpenSans-Bold.ttf") format("ttf");
 }
 
 @font-face {
   font-family: Afta;
-  src: url("fonts/AftaSerifThin-Regular.otf");
+  src: url("fonts/AftaSerifThin-Regular.otf") format("otf");
 }
 
 @font-face {
   font-family: Liberation;
-  src: url("fonts/LiberationSerif-Regular.ttf");
+  src: url("fonts/LiberationSerif-Regular.ttf") format("ttf");
 }
 
 body {
