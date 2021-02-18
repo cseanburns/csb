@@ -44,6 +44,42 @@
       <p>If you use a RSS reader and would like to keep updated, please use my
       <a href="https://cseanburns.net/WWW/index.xml">feed</a>.</p>
 
+<article id="20210218">
+<h2 id="font-lode">Font Lode</h2>
+<h3 id="february-18-2021"><time datetime="2021-02-18">February 18, 2021</time></h3>
+<p>I added some new fonts to this site from <a href="https://www.fontsquirrel.com/">Font Squirrel</a> last night and so crossed off another item on my tinker list. For the navigation items and the <code>h2</code> and <code>h3</code> heading HTML elements, I chose <a href="https://www.fontsquirrel.com/fonts/open-sans">Open Sans</a>. For the <code>h1</code> heading element, I selected <a href="https://www.fontsquirrel.com/fonts/afta-serif">Afta Serif</a>, and for the <code>p</code> paragraph element, I picked <a href="https://www.fontsquirrel.com/fonts/liberation-serif">Liberation Serif</a>, which is the default font in LibreOffice. I tested a few serif fonts for the <code>p</code> tag but thought Liberation Serif was the most readable.</p>
+<p>I downloaded the <a href="https://fileinfo.com/extension/ttf">TTF</a> and <a href="https://fileinfo.com/extension/otf">OTF</a> font files from Font Squirrel and uploaded them to my web space and placed them in a <strong>fonts</strong> directory. In my CSS, I <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face">specified the fonts</a> with the following code:</p>
+<pre><code>@font-face {
+  font-family: &#39;Open Sans&#39;;
+  src: url(&quot;fonts/OpenSans-Bold.ttf&quot;) format(&quot;ttf&quot;);
+}
+
+@font-face {
+  font-family: &#39;Afta&#39;;
+  src: url(&quot;fonts/AftaSerifThin-Regular.otf&quot;) format(&quot;otf&quot;);
+}
+
+@font-face {
+  font-family: &#39;Liberation&#39;;
+  src: url(&quot;fonts/LiberationSerif-Regular.ttf&quot;) format(&quot;ttf&quot;);
+}
+</code></pre>
+<p>And then added them to the CSS selectors with code like this:</p>
+<pre><code>h1 {
+  font-family: Afta, Georgia, serif;
+}
+
+h2 {
+  font-family: &#39;Open Sans&#39;, Helvetica, sans-serif;
+}
+
+p {
+  font-family: Liberation, Georgia, serif;
+}
+</code></pre>
+<p>I'm happy with the fonts and think they look good on mobile and desktop. But, <a href="/WWW/index.html#always-the-tinkerer">always be tinkering</a>.</p>
+</article>
+
 <article id="20210216">
 <h2 id="be-virtuous">Be Virtuous</h2>
 <h3 id="february-16-2021"><time datetime="2021-02-16">February 16, 2021</time></h3>
@@ -130,16 +166,16 @@ instrument.</p>
 <h2 id="salt-the-hash">Salt the Hash</h2>
 <h3 id="february-12-2021"><time datetime="2021-02-12">February 12, 2021</time></h3>
 
-<p>There was one last item on my to-do list for (near) total sysadmin
-automation. One of the classes in our program uses an open source content
-management system (CMS) with MySQL as its database. Normally, for a new user to
-set up an account on the CMS, the CMS would need to have at least an SMTP
-server configured to complete the user setup. I'm not allowed to use
-a full-blown email server on this computer, and I didn't want to set up an
-email account and use something like <a
-href="https://marlam.de/msmtp/">msmtp</a> to have emails sent to new users to
-complete account setups. What I wanted to do was merely batch create the
-student accounts.</p>
+<p>There was one last item on my to-do list for <a
+href="/WWW/index.html#my-sysadmin-work">(near) total sysadmin automation</a>. One
+of the classes in our program uses an open source content management system
+(CMS) with MySQL as its database. Normally, for a new user to set up an account
+on the CMS, the CMS would need to have at least an SMTP server configured to
+complete the user setup. I'm not allowed to use a full-blown email server on
+this computer, and I didn't want to set up an email account and use something
+like <a href="https://marlam.de/msmtp/">msmtp</a> to have emails sent to new
+users to complete account setups. What I wanted to do was merely batch create
+the student accounts.</p>
 
 <p>Batch creating the student accounts is easy with MySQL. To do this,
 I download the roster for the course as a CSV file, quickly remove the unneeded
