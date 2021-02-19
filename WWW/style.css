@@ -146,10 +146,10 @@ p {
   max-width: 600px;
 }
 
-ul {
-  /* https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references */
+/* ul {
+  https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
   list-style-type: '\2933\ ';
-}
+} */
 
 li {
   font-family: Liberation, Georgia, Times, serif;
