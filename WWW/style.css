@@ -208,6 +208,10 @@ p > code {
   font-size: .9em;
 }
 
+ol li {
+  margin-left: 1.2em;
+}
+
 .bold {
   font-weight: bold;
 }
