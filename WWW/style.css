@@ -13,6 +13,20 @@
   src: url("fonts/LiberationSerif-Regular.ttf") format("ttf");
 }
 
+@font-face {
+    font-family: 'compagnonroman';
+    src: url('fonts/compagnon-roman-webfont.woff2') format('woff2'),
+         url('fontscompagnon-roman-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'Compagnon';
+  src: url("fonts/Compagnon-Roman.otf") format("otf");
+}
+
 body {
   display: grid;
   column-gap: 35px;
@@ -51,9 +65,17 @@ header {
 
 h1 {
   font-family: Afta, Georgia, Times, serif;
+  text-transform: uppercase;
   font-weight: 400;
   font-size: 1.25em;
-  padding-top: 5px;
+  padding-top: 5px;@font-face {
+    font-family: 'compagnonroman';
+    src: url('compagnon-roman-webfont.woff2') format('woff2'),
+         url('compagnon-roman-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 }
 
 .mainheading a {
@@ -73,7 +95,14 @@ nav {
 }
 
 nav ul {
-  text-align: center;
+  text-align: center;@font-face {
+    font-family: 'compagnonroman';
+    src: url('compagnon-roman-webfont.woff2') format('woff2'),
+         url('compagnon-roman-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
   display: inline;
   list-style: none;
 }
@@ -89,7 +118,14 @@ nav li {
 nav li:nth-child(1) {
   border-top: none;
 }
+@font-face {
+    font-family: 'compagnonroman';
+    src: url('compagnon-roman-webfont.woff2') format('woff2'),
+         url('compagnon-roman-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
+}
 nav li:nth-child(5) {
   border-bottom: 1px dotted #202020;
 }
@@ -129,18 +165,21 @@ article {
 h2 {
   font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 1.5em;
+  text-transform: uppercase;
   color: #000;
   scroll-margin-top: 3ex; /* places h2 element just below the top of the window */
 }
 
 h3 {
   font-family: 'Open Sans', Helvetica, sans-serif;
+  text-transform: uppercase;
   color: #ff8700;
   scroll-margin-top: 3ex; /* places h2 element just below the top of the window */
 }
 
 p {
-  font-family: Liberation, Georgia, Times, serif;
+  font-family: 'compagnonroman';
+  font-size: 1.1em;
   line-height: 1.25em;
   text-indent: 2em;
   max-width: 600px;
@@ -152,7 +191,8 @@ p {
 } */
 
 li {
-  font-family: Liberation, Georgia, Times, serif;
+  font-family: compagnonroman;
+  /*font-family: Liberation, Georgia, Times, serif;*/
   line-height: 1.5em;
   max-width: 600px;
 }
@@ -191,6 +231,7 @@ blockquote p {
 }
 
 pre {
+  font-family: 'Open Sans', sans-serif;
   padding: 5px;
   border-radius: 10px;
   color: #c82617;
@@ -200,6 +241,7 @@ pre {
 }
 
 p > code {
+  font-family: 'Open Sans', sans-serif;
   padding: 1px 3px 1px 3px;
   border-radius: 5px;
   color: #fff;
