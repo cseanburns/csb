@@ -44,6 +44,50 @@
       <p>If you use a RSS reader and would like to keep updated, please use my
       <a href="https://cseanburns.net/WWW/index.xml">feed</a>.</p>
 
+<article id="20210421">
+<h2 id="no-sudo-for-you">No Sudo For You</h2>
+<h3 id="april-21-2021"><time datetime="2021-04-21">April 21, 2021</time></h3>
+<p>Learning moment: don't do sys admin work when you're distracted and
+interrupted. I edited my <em>sudoers</em> file with <code>sudo visudo</code>,
+but I messed up the syntax. Of course, <code>visudo</code> warned me of the
+syntax error, but because of the distractions and interruptions, I saved the
+file anyway. Running <code>sudo</code> afterward resulted in a segmentation
+fault. And since this is Ubuntu, I didn't set up a root password. Oi! Things
+would go downhill quickly if I couldn't manage the system.</p>
+<p>In the olden days, I'd just reboot with a Live CD, mount the drive, and edit
+the file. It would have been a simple fix because I only needed to delete two
+lines. But the drive is encrypted via LUKS and also uses logical volumes. So
+the challenge here was to boot with a Live CD, decrypt the drive, then mount
+the correct volume and partition, and edit the <em>sudoers</em> file.</p>
+<p>To solve this, I rebooted with the Live CD and once running, I opened
+a terminal and did the following:</p>
+
+<pre><code>
+# locate partitions
+sudo fdisk -l
+# mount volume to /dev/mapper/myvolume
+sudo cryptsetup luksOpen /dev/sdb3 myvolume
+# scan LVM volumes and choose the correct one
+sudo vgscan
+# activate the correct volume
+sudo vgchange -ay vgubuntu 
+# locate root volume
+sudo lvs
+# mount partition (I think correct location; from memory)
+sudo mount /dev/vgubuntu/root /mnt/
+</code></pre>
+<p>Once the partition was mounted, I could then fix the file:</p>
+<pre><code>sudo visudo -f /mnt/etc/sudoers
+</code></pre>
+<p>As usual, other people had similar problems and these were addressed on
+Stack Overflow. The answers helped me solve this issue:</p>
+<ul>
+<li><a href="https://askubuntu.com/questions/653408/mounting-encrypted-luks-partition-from-live-cd">Mounting encrypted LUKS partition from Live CD</a></li>
+<li><a href="https://askubuntu.com/questions/73864/how-to-modify-an-invalid-etc-sudoers-file">How to modify an invalid '/etc/sudoers' file?</a></li>
+</ul>
+<p>I'm super thankful this was my home computer and not some box that I connect to remotely.</p>
+</article>
+
 <article id="20210419">
 <h2 id="the-liminal-space-that-was">The Liminal Space That Was</h2>
 <h3 id="april-19-2021"><time datetime="2021-04-19">April 19, 2021</time></h3>
