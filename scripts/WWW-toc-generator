@@ -21,7 +21,7 @@ grep "h2 id=" "$attemptsfile" | head -n1 | \
     's/$/\<\/li\>/' > tmp.html
 
 # Add the new <li> entry to the top of the table of contents in ../index.html
-sed -i "/ol type/ a $(cat tmp.html)" ../index.html
+sed -i "/ol reversed/ a $(cat tmp.html)" ../index.html
 
 # Cleanup
 trash tmp.html

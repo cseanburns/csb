@@ -39,66 +39,61 @@
 /* BODY */
 
 body {
-  display: grid;
-  column-gap: 35px;
-  grid-template-areas:
-    "nav    header"
-    "nav    main"
-    "nav    main"
-    "nav    footer";
-  grid-template-rows: minmax(60px,60px);
-  grid-template-columns: 225px auto;
-  margin: auto; 
-  background-color: #fff;
-  color: #000;
+  margin: 0;
 }
 
-@media (max-width: 810px) {
-  body {
+.container {
+  display: grid;
+  width: 100%;
+  gap: 0 10px;
+  grid-template-areas:
+    "nav    header    text"
+    "nav    news      text"
+    "nav    research  text"
+    "nav    teaching  text"
+    "nav    git       text"
+    "nav    sysadmin  text"
+    "nav    footer    text";
+  grid-template-rows: minmax(60px,60px);
+  grid-template-columns: 200px auto 400px;
+}
+
+@media (max-width: 799px) {
+  .container {
     display: block;
     padding: 0 5px 0 5px;
   }
 }
 
-@media (min-width: 810px) {
+@media (min-width: 800px) {
  nav {
     position: sticky;
     top: 0;
     height: 100vh;
   }
+  section {
+    margin: auto;
+  }
 }
-
-/* HEADER */
 
 header {
   grid-area: header;
-  max-width: 700px;
+  padding-left: 5px;
+  border-bottom: 1px solid #0375b4;
 }
 
-h1 {
-  font-family: 'afta_serifregular', Georgia, Times, serif;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 1.25em;
-  padding-top: 5px;
+header > h1 {
+  text-align: center;
 }
 
 .mainheading a {
-  background-color: #fff;
-  color: #000;
   text-decoration: none;
-}
-
-.mainheading a:hover {
-  background-color: #fff;
-  color: #566873;
 }
 
 /* NAV */
 
 nav {
   grid-area: nav;
-  background-color: #6a0dad;
 }
 
 nav ul {
@@ -126,46 +121,73 @@ nav li:nth-child(5) {
 nav li a {
   letter-spacing: 0.1em;
   text-decoration: none;
-  background-color: #6a0dad;
-  color: #fff;
 }
 
 nav li a:hover {
-  background-color: #6a0dad;
-  color: #000;
 }
 
-/* MAIN */
-
-main {
-  grid-area: main;
+.news {
+  grid-area: news;
+  min-width: 350px;
   max-width: 700px;
+  padding-left: 5px;
+  border-bottom: 1px solid #0375b4;
 }
 
-section a {
-  background-color: #fff;
-  color: #000;
+.research {
+  grid-area: research;
+  min-width: 350px;
+  max-width: 700px;
+  padding-left: 5px;
+  border-bottom: 1px solid #0375b4;
 }
 
-section a:hover {
-  background-color: #fff;
-  color: #566873;
+.teaching {
+  grid-area: teaching;
+  min-width: 350px;
+  max-width: 700px;
+  padding-left: 5px;
+  border-bottom: 1px solid #0375b4;
 }
 
-article {
+.git {
+  grid-area: git;
+  min-width: 350px;
+  max-width: 700px;
+  padding-left: 5px;
+  border-bottom: 1px solid #0375b4;
+}
+
+.sysadmin {
+  grid-area: sysadmin;
+  min-width: 350px;
+  max-width: 700px;
+  padding-left: 5px;
+}
+
+.text {
+  grid-area: text;
+  padding-left: 5px;
+  border-bottom: 1px solid #0375b4;
+}
+
+h1 {
+  font-family: 'afta_serifregular', Georgia, Times, serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.25em;
+  padding-top: 5px;
 }
 
 h2 {
   font-family: 'open_sansbold', Helvetica, sans-serif;
   font-size: 1.5em;
-  color: #000;
   scroll-margin-top: 3ex; /* places h2 element just below the top of the window */
 }
 
 h3 {
   font-family: 'open_sansbold', Helvetica, sans-serif;
   text-transform: uppercase;
-  color: #6a0dad;
   scroll-margin-top: 3ex; /* places h2 element just below the top of the window */
 }
 
@@ -176,39 +198,34 @@ p {
   text-indent: 2em;
 }
 
-/* ul {
-  https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
-  list-style-type: '\2933\ ';
-} */
-
 li {
   font-family: 'liberation_serifregular', Georgia, Times, serif;
   line-height: 1.5em;
 }
 
 a {
-  background-color: #202020;
-  color: #fff;
   text-decoration: underline;
+  background-color: #fff;
+  color: #0375b4;
 }
 
 a:hover {
-  background-color: #202020;
-  color: #566873;
+  background-color: #fff;
+  color: #007849;
 }
 
-/* blockquote code from: */
-/* https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ */
+a:visited {
+  background-color: #fff;
+  color: #007849;
+}
 
 blockquote {
-    background-color: #fff;
-    border-left: 10px solid #c82617;
+    border-left: 10px solid #0375b4;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
 }
 
 blockquote:before {
-    color: #ccc;
     line-height: 1em;
     margin-right: 0.25em;
     vertical-align: -0.4em;
@@ -223,8 +240,6 @@ pre {
   font-family: 'open_sansbold', sans-serif;
   padding: 5px;
   border-radius: 10px;
-  color: #c82617;
-  background-color: #fff;
   font-size: 1.1em;
   overflow: auto;
   line-height: 1em;
@@ -234,8 +249,6 @@ p > code {
   font-family: 'open_sansbold', sans-serif;
   padding: 1px 3px 1px 3px;
   border-radius: 5px;
-  color: #fff;
-  background-color: #c82617;
   font-size: .9em;
 }
 
@@ -249,12 +262,12 @@ ol li {
 
 table {
   border-collapse: collapse;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #0375b4;
 }
 
 th {
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+  border-top: 1px solid #0375b4;
+  border-bottom: 1px solid #0375b4;
   padding: 10px;
   font-weight: bold;
 }
@@ -272,9 +285,8 @@ tr:hover {
 
 footer {
   grid-area: footer;
-  max-width: 700px;
   padding: 10px 5px 10px 5px;
-  border-top: 1px solid black;
+  border-top: 1px solid #0375b4;
 }
 
 #footercontact {

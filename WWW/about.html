@@ -13,8 +13,47 @@
     <meta name="description" content="About Page, C. Sean Burns, PhD.">
     <meta name="language" content="en">
     <base href="https://cseanburns.net">
+
+    <style>
+    .container {
+      display: grid;
+      width: 100%;
+      gap: 0 10px;
+      grid-template-areas:
+        "nav  header"
+        "nav  about"
+        "nav  siteinfo"
+        "nav  footer";
+      grid-template-rows: minmax(60px, 60px);
+      grid-template-columns: 200px auto;
+      }
+
+      @media (max-width: 799px) {
+        .container {
+          display: block;
+          padding: 0 5px 0 5px;
+        }
+      }
+
+      @media (min-width: 800px) {
+       nav {
+          position: sticky;
+          top: 0;
+          height: 100vh;
+        }
+
+      nav { grid-area: nav;}
+      header { grid-area: header;}
+      .about { grid-area: about;}
+      .siteinfo {grid-area: siteinfo;}
+      footer {grid-area: footer;}
+    </style>
+
   </head>
+
   <body>
+
+  <div class="container">
 
     <header>
       <h1 class="mainheading"><a href="index.html">C. Sean Burns</a></h1>
@@ -30,8 +69,7 @@
       </ul>
     </nav>
 
-    <main>
-    <section id="about">
+    <section class="about">
     <h2>About</h2>
     <p>I am an <a href="https://ci.uky.edu/sis/users/sean-burns">associate
     professor of information science</a> at the University of Kentucky, where
@@ -69,7 +107,7 @@
     <p>Thanks for visiting.</p>
     </section>
 
-    <section>
+    <section class="siteinfo">
     <h2>Site Info</h2>
 
     <p>I do not have any analytics software installed on this site. Except for
@@ -83,7 +121,6 @@
     otherwise attributed.</p>
 
     </section>
-    </main>
 
     <footer>
     <section id="footercontact">
@@ -104,6 +141,8 @@
     <p>Copyright by Sean Burns, 2019.
     Last modified: <time datetime="2021-02-15">2021-02-15</time>.</p>
     </footer>
+
+    </div>
 
   </body>
 </html>

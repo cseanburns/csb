@@ -14,7 +14,44 @@
     <meta name="language" content="en">
     <base href="https://cseanburns.net">
   </head>
+
+    <style>
+    .container {
+      display: grid;
+      width: 100%;
+      gap: 0 10px;
+      grid-template-areas:
+        "nav  header"
+        "nav  thetext"
+        "nav  footer";
+      grid-template-rows: minmax(60px, 60px);
+      grid-template-columns: 200px auto;
+      }
+
+      @media (max-width: 799px) {
+        .container {
+          display: block;
+          padding: 0 5px 0 5px;
+        }
+      }
+
+      @media (min-width: 800px) {
+       nav {
+          position: sticky;
+          top: 0;
+          height: 100vh;
+        }
+      }
+
+      nav { grid-area: nav;}
+      header { grid-area: header;}
+      .thetext { grid-area: thetext;}
+      footer {grid-area: footer;}
+    </style>
+
   <body>
+
+    <div class="container">
 
     <header>
     <h1 class="mainheading"><a href="index.html">C. Sean Burns</a></h1>
@@ -30,8 +67,7 @@
       </ul>
     </nav>
 
-<main>
-    <section id="thetext">
+    <section class="thetext">
       <h2 class="bigger">The Text, Please. Just the Text.</h2>
 
       <p>The following are short essays, some personal, on whatever comes to
@@ -2483,7 +2519,7 @@ a parent, I think.</p> </article>
 
 <article id="20200303">
 <h2>Post Two</h2>
-<section class="one">
+<section>
 <h2 id="converting-markdown-to-html-with-table-of-contents-using-pandoc">Converting Markdown to HTML with Table of Contents Using Pandoc</h2>
 <h3 id="march-03-2020b"><time datetime="2020-03-03">03 March 2020</time></h3>
 <p>So I remember: to convert Markdown to HTML with a table of contents using Pandoc:</p>
@@ -2492,7 +2528,7 @@ a parent, I think.</p> </article>
 </section>
 
 <h2>Post One</h2>
-<section class="two">
+<section>
 <h2 id="switching-window-managers">Switching Window Managers</h2>
 <h3 id="march-03-2020a"><time datetime="2020-03-03">03 March 2020</time></h3>
 
@@ -2935,7 +2971,6 @@ only use <a href="http://w3m.sourceforge.net/">w3m</a> all of the time, I'd be
 even happier.</p>
 </article>
 </section>
-</main>
 
     <footer>
 
@@ -2959,6 +2994,8 @@ even happier.</p>
     <p>Copyright by Sean Burns, 2019.
     Last modified: <time datetime="2021-01-26">2021-01-26</time>.</p>
     </footer>
+
+    </div>
 
   </body>
 </html>
