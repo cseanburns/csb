@@ -87,8 +87,58 @@
       <p>If you use a RSS reader and would like to keep updated, please use my
       <a href="https://cseanburns.net/WWW/index.xml">feed</a>.</p>
 
-<article id="20210526">
+<article id="20210612">
 
+<h2 id="a-meaningless-post-on-measuring-food">A Meaningless Post on Measuring Food</h2>
+<h3 id="june-12-2021"><time datetime="2021-06-12">June 12, 2021</time></h3>
+<p>In 1994, I started work as a prep and lunch cook, and each morning I'd have to roll out several hundred balls of ground beef at 6 ounces a piece, which would later be flattened and breaded for chicken fried steak.</p>
+<p>Since there were a lot of other tasks to complete before lunch started, I had to move quickly. I had a scale to weigh the food, but if I used the scale to weigh every item, it would slow me down, and I wouldn't finish my prep work in time. The solution meant getting a feel for 6 ounces and to grab that exact amount my hand and by eyeballing the bowl of beef. I'd still use the scale but use it just every once in a while to keep me calibrated.</p>
+<p>All the longtime cooks that I've worked with had gained this tacit feel for measuring things. I knew a person who had to cut steaks from sides of beef, and he could cut each steak at exactly 12 ounces. Others, including myself, could pour a tablespoon of salt into the palm of our hands, or a cup of sugar into a bowl of flour, without measuring. If we checked our work with a scale or a measuring cup, we'd find we were on target.</p>
+<p>Last night I made corn tortillas, and I wanted each ball of masa dough to weigh 2 ounces. I wanted to see if I still had this ability to eyeball the weight of some food item, and so I brought out my scale and then measured what I pulled from the dough on the first try. I recorded my measurements and entered them in R:</p>
+<pre><code>tortillas &lt;- c(2.1, 2.0, 1.9, 1.7, 2.3, 2.2, 2.0, 2.4, 2.1, 1.9, 2.1, 2.3, 2.0, 2.4)
+</code></pre>
+<p>My average weight was close to 2 ounces but not exactly so:</p>
+<pre><code>mean(tortillas) ; median(tortillas)
+[1] 2.1
+[1] 2.1
+</code></pre>
+<p>The range was kinda high, but I think I messed up with the <code>max(tortillas) - min(tortillas) = 0.7</code> probably because I was thinking too much about what I was doing when I first started to measure these:</p>
+<pre><code>summary(tortillas)
+ Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+1.700   2.000   2.100   2.100   2.275   2.400
+</code></pre>
+<p>But the standard deviation was fairly tight, which is a good sign:</p>
+<pre><code>round(sd(tortillas), 2)
+[1] 0.2
+</code></pre>
+<p>Finally, was a mean of 2.1 significantly different from the goal of a mean of 2.0 ounces?</p>
+<pre><code>t.test(tortillas, alternative = &quot;two.sided&quot;, mu = 2.0)
+
+        One Sample t-test
+
+data:  tortillas
+t = 1.8359, df = 13, p-value = 0.08935
+alternative hypothesis: true mean is not equal to 2
+95 percent confidence interval:
+ 1.982324 2.217676
+sample estimates:
+mean of x
+      2.1
+</code></pre>
+<p>It looks like I still got it---there's no statistical difference between the means 2.0 and 2.1.</p>
+<p>I never did this kind of test when I was working as a cook, but I'm guessing that I probably performed about as well now as I did all those years ago.</p>
+</article>
+
+<article id="20210530">
+<h2 id="why-libraries-are-fascinating-to-me">Why Libraries Are Fascinating to Me</h2>
+<h3 id="may-30-2021"><time datetime="2021-05-30">May 30, 2021</time></h3>
+<p>Libraries are fascinating, to me, because documentation is fascinating, and libraries (and archives, museums) are how we have institutionalized the systemic organization of documents.</p>
+<p>Since libraries have institutionalized the systemic organization of documents, they provide a key to uncovering the social realities of society.</p>
+<p>The challenge lies in that, too. Since libraries have institutionalized the systemic organization of documents, they have also systematically institutionalized the good and the bad of society. Critical theorists seek to unveil the bad in this way.</p>
+<p>More on documents later. More on systemic organization later. More on the institutionalization of these later.</p>
+</article>
+
+<article id="20210526">
 <h2 id="ferment-fail">Ferment Fail</h2>
 <h3 id="may-26-2021"><time datetime="2021-05-26">May 26, 2021</time></h3>
 <p>One of the fermenting jars of pickles went bad. The other one is still good, though, and I've put it in the fridge.</p>
