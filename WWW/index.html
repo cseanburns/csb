@@ -87,14 +87,20 @@
       <p>If you use a RSS reader and would like to keep updated, please use my
       <a href="https://cseanburns.net/WWW/index.xml">feed</a>.</p>
 
-<article id="20210612">
+<article id="20210614">
+<h2 id="458-days">458 Days</h2>
+<h3 id="june-14-2021"><time datetime="2021-06-14">June 14, 2021</h3>
+<p>I'm working at the office on campus for the first time in 458 days. It was getting difficult to work from home. Last year, when quarantine started, our littlest one couldn't walk, but now they walk and run, which means we have three very active children in the house. And that means it was getting difficult to work in our fairly small, crowded home.</p>
+<p>So I arrived early this morning. It doesn't feel like it was just yesterday that I was here. It feels like it was a long time ago.</p>
+</article>
 
+<article id="20210612">
 <h2 id="a-meaningless-post-on-measuring-food">A Meaningless Post on Measuring Food</h2>
 <h3 id="june-12-2021"><time datetime="2021-06-12">June 12, 2021</time></h3>
 <p>In 1994, I started work as a prep and lunch cook, and each morning I'd have to roll out several hundred balls of ground beef at 6 ounces a piece, which would later be flattened and breaded for chicken fried steak.</p>
-<p>Since there were a lot of other tasks to complete before lunch started, I had to move quickly. I had a scale to weigh the food, but if I used the scale to weigh every item, it would slow me down, and I wouldn't finish my prep work in time. The solution meant getting a feel for 6 ounces and to grab that exact amount my hand and by eyeballing the bowl of beef. I'd still use the scale but use it just every once in a while to keep me calibrated.</p>
-<p>All the longtime cooks that I've worked with had gained this tacit feel for measuring things. I knew a person who had to cut steaks from sides of beef, and he could cut each steak at exactly 12 ounces. Others, including myself, could pour a tablespoon of salt into the palm of our hands, or a cup of sugar into a bowl of flour, without measuring. If we checked our work with a scale or a measuring cup, we'd find we were on target.</p>
-<p>Last night I made corn tortillas, and I wanted each ball of masa dough to weigh 2 ounces. I wanted to see if I still had this ability to eyeball the weight of some food item, and so I brought out my scale and then measured what I pulled from the dough on the first try. I recorded my measurements and entered them in R:</p>
+<p>I had to move quickly since there were a lot of other tasks to complete before lunch started. I could use a scale to weigh the food, but if I used it to weigh every item, it would slow me down, and I wouldn't finish my prep work in time. The solution meant getting a feel for 6 ounces and to grab that exact amount by hand and by eye. I'd use the scale but just every once in a while to keep me calibrated.</p>
+<p>All the longtime cooks that I've worked with had gained this tacit feel for measuring things. I knew a person who could cut steaks from sides of beef to the exact weight needed. Others, including myself, could pour a tablespoon of salt into the palm of our hands, or a cup of sugar into a bowl of flour, without measuring. If we checked our work with a scale or a measuring cup, we'd find we were on target.</p>
+<p>Last night I made corn tortillas, and I wanted each ball of masa dough to weigh 2 ounces. I wanted to see if I still had this ability to eyeball the weight, and I brought out my scale and measured what I pulled from the dough on the first try. I recorded my measurements and entered them in R as such:</p>
 <pre><code>tortillas &lt;- c(2.1, 2.0, 1.9, 1.7, 2.3, 2.2, 2.0, 2.4, 2.1, 1.9, 2.1, 2.3, 2.0, 2.4)
 </code></pre>
 <p>My average weight was close to 2 ounces but not exactly so:</p>
@@ -102,17 +108,21 @@
 [1] 2.1
 [1] 2.1
 </code></pre>
-<p>The range was kinda high, but I think I messed up with the <code>max(tortillas) - min(tortillas) = 0.7</code> probably because I was thinking too much about what I was doing when I first started to measure these:</p>
-<pre><code>summary(tortillas)
+<p>The range was kinda wide, but I think I went a little high and a little low a few times  because I was thinking too much about what I was doing when I first started to measure the dough:</p>
+<pre><code>
+# range
+max(tortillas) - min(tortillas) = 0.7
+# summary
+summary(tortillas)
  Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
 1.700   2.000   2.100   2.100   2.275   2.400
 </code></pre>
-<p>But the standard deviation was fairly tight, which is a good sign:</p>
+<p>But the standard deviation was fairly tight, which was a good sign that I was fairly consistent:</p>
 <pre><code>round(sd(tortillas), 2)
 [1] 0.2
 </code></pre>
-<p>Finally, was a mean of 2.1 significantly different from the goal of a mean of 2.0 ounces?</p>
-<pre><code>t.test(tortillas, alternative = &quot;two.sided&quot;, mu = 2.0)
+<p>Finally, I want to ask, is a mean of 2.1 significantly different from the goal of a mean of 2.0 ounces, where the null hypothesis is that the true mean is equal to 2.0?</p>
+<pre><code>t.test(tortillas, alternative = &quot;two.sided&quot;, mu = 2.0, conf.level = 0.95)
 
         One Sample t-test
 
@@ -125,8 +135,34 @@ sample estimates:
 mean of x
       2.1
 </code></pre>
-<p>It looks like I still got it---there's no statistical difference between the means 2.0 and 2.1.</p>
-<p>I never did this kind of test when I was working as a cook, but I'm guessing that I probably performed about as well now as I did all those years ago.</p>
+<p>According to the test, I should fail to reject the null hypothesis. That's great. It means that, statistically, I'm pretty close to my goal and pretty consistent.</p>
+<p>I really did weigh the dough out in order to do this, but obviously this was just for fun. But it's a helpful kind of fun. When I first started learning R and statistics, this was the kind of thing I'd do to help me gain an intuition for the various tests I was learning. A lot of textbook cases use example data that does not connect to me personally. I would address this by collecting data on something I was doing (like playing a game), and then reproducing whatever test I was learning with my own data.</p>
+<p>I'd also practice by playing around with functions in R, where I can, for example, adjust the confidence level of the <code>t.test</code> by changing the value for the <code>conf.level</code> argument. Here I set it to 0.90:</p>
+<pre><code>t.test(tortillas, alternative = &quot;two.sided&quot;, mu = 2.0, conf.level = 0.90)</code></pre>
+<p>This results in a narrower confidence interval than it does if the level is set at 0.95. For example, let's set the confidence level to 0.90 and to 0.99 for the <code>t.test</code> and compare the width of the intervals for each. I'll save the 0.90 test as <code>t90</code> and the 0.99 test as <code>t99</code>:</p>
+<pre><code>
+# Set at 0.90
+t90 <- t.test(tortillas, mu = 2.0, conf.level=0.90)
+# Set at 0.99
+t99 <- t.test(tortillas, mu = 2.0, conf.level=0.99)
+# Compare the intervals
+max(t90$conf.int) - min(t90$conf.int)
+[1] 0.1929272
+max(t99$conf.int) - min(t99$conf.int)
+[1] 0.3281602
+</code></pre>
+<p>On the surface, the smaller confidence interval for the <code>t90</code> test would seem to suggest more certainty in the results than the wider confidence interval for the <code>t99</code> test, but that would be misleading without taking into consideration the confidence level. Although the smaller confidence level for the <code>t90</code> test increases the precision of the test, it also increases the error. That is, it raises the probability that I would see this result less often in repeated tests (only 90 out of 100 versus 99 out of 100 tests). In fact, for the <code>t90</code> test, the lower bound of the confidence interval is greater than 2.0, which is what I set the true value of the mean to in the <code>t.test</code> when I set <code>mu = 2.0</code>. That means for a confidence level of 0.90, since p = 0.089, then I would fail to reject the null hypothesis since p &#60; 0.10.</p>
+<p>This can all be nicely visualized (not here though, since this is a text only page), by comparing boxplots of the above tests. Let's create a new test for a confidence level of 0.95:</p>
+<pre><code>
+# Set at 0.95
+t95 <- t.test(tortillas, mu = 2.0, conf.level=0.95)
+</code></pre>
+<p>Then let's compare boxplots for the three tests:</p>
+<pre><code>
+boxplot(t90$conf.int, t95$conf.int, t99$conf.int)
+</code></pre>
+<p>When I do this, I see that for the <code>t95</code> and the <code>t99</code> tests, the bottom borders encompass 2.0 but not for the <code>t90</code> test. Visually, then, for the <code>t90</code> test, a mean of 2.1 is significantly different than a mean of 2.0, but not for the two stricter confidence level tests.</p>
+<p>Anyway, fun!</p>
 </article>
 
 <article id="20210530">
