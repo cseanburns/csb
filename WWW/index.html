@@ -10,51 +10,10 @@
     <link rel="icon" type="image/png" href="images/f16.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="C. Sean Burns">
-    <meta name="description" content="Blog of C. Sean Burns, PhD.">
+    <meta name="description" content="Short Essays">
     <meta name="language" content="en">
     <base href="https://cseanburns.net">
   </head>
-
-    <style>
-    .container {
-      display: grid;
-      width: 100%;
-      gap: 0 10px;
-      grid-template-areas:
-        "nav  header"
-        "nav  thetext"
-        "nav  footer";
-      grid-template-rows: minmax(60px, 60px);
-      grid-template-columns: 200px auto;
-      }
-
-      @media (max-width: 799px) {
-        .container {
-          display: block;
-          padding: 0 5px 0 5px;
-        }
-      }
-
-      @media (min-width: 800px) {
-       nav {
-          position: sticky;
-          top: 0;
-          height: 100vh;
-        }
-        header {
-          margin-right: 410px;
-        }
-        section {
-          margin-left: 150px;
-          margin-right: 400px;
-          }
-      }
-
-      nav { grid-area: nav;}
-      header { grid-area: header;}
-      .thetext { grid-area: thetext;}
-      footer {grid-area: footer;}
-    </style>
 
   <body>
 
@@ -62,15 +21,25 @@
 
     <header>
     <h1 class="mainheading"><a href="index.html">C. Sean Burns</a></h1>
+    <h2 class="mainheading">Associate Professor</h2>
+    <p><a href="https://ci.uky.edu/sis/">University of Kentucky<br>
+    College of Communication and Information<br>
+    School of Information Science</a><br>
+    PhD, University of Missouri, 2013<br>
+    MA, University of Missouri, 2009<br>
+    BA, Monmouth College, 1996</p>
+    <p>Email: sean.burns@uky.edu or sean.csb@gmail.com<br>
+    Twitter: <a href="https://twitter.com/cseanburns">https://twitter.com/cseanburns</a><br/>
+    GitHub: <a href="https://github.com/cseanburns">https://github.com/cseanburns</a></p>
     </header>
 
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="WWW/index.html">The Text</a></li>
-        <li><a href="WWW/bookshelf.html">Bookshelf</a></li>
-        <li><a href="WWW/about.html">About</a></li>
-        <li><a href="wiki/cv">wiki/CV</a></li>
+        <li>[ <a href="index.html">Home</a> ]</li>
+        <li>[ <a href="WWW/index.html">The Text</a> ]</li>
+        <li>[ <a href="WWW/bookshelf.html">Bookshelf</a> ]</li>
+        <li>[ <a href="WWW/about.html">About</a> ]</li>
+        <li>[ <a href="wiki/cv">wiki/CV</a> ]</li>
       </ul>
     </nav>
 
@@ -86,10 +55,11 @@
 
       <p>If you use a RSS reader and would like to keep updated, please use my
       <a href="https://cseanburns.net/WWW/index.xml">feed</a>.</p>
+      <hr>
 
 <article id="20210614">
 <h2 id="458-days">458 Days</h2>
-<h3 id="june-14-2021"><time datetime="2021-06-14">June 14, 2021</h3>
+<h3 id="june-14-2021"><time datetime="2021-06-14">June 14, 2021</time></h3>
 <p>I'm working at the office on campus for the first time in 458 days. It was getting difficult to work from home. Last year, when quarantine started, our littlest one couldn't walk, but now they walk and run, which means we have three very active children in the house. And that means it was getting difficult to work in our fairly small, crowded home.</p>
 <p>So I arrived early this morning. It doesn't feel like it was just yesterday that I was here. It feels like it was a long time ago.</p>
 </article>
@@ -143,9 +113,9 @@ mean of x
 <p>This results in a narrower confidence interval than it does if the level is set at 0.95. For example, let's set the confidence level to 0.90 and to 0.99 for the <code>t.test</code> and compare the width of the intervals for each. I'll save the 0.90 test as <code>t90</code> and the 0.99 test as <code>t99</code>:</p>
 <pre><code>
 # Set at 0.90
-t90 <- t.test(tortillas, mu = 2.0, conf.level=0.90)
+t90 &lt;- t.test(tortillas, mu = 2.0, conf.level=0.90)
 # Set at 0.99
-t99 <- t.test(tortillas, mu = 2.0, conf.level=0.99)
+t99 &lt;- t.test(tortillas, mu = 2.0, conf.level=0.99)
 # Compare the intervals
 max(t90$conf.int) - min(t90$conf.int)
 [1] 0.1929272
@@ -156,7 +126,7 @@ max(t99$conf.int) - min(t99$conf.int)
 <p>This can all be nicely visualized (not here though, since this is a text only page), by comparing boxplots of the above tests. Let's create a new test for a confidence level of 0.95:</p>
 <pre><code>
 # Set at 0.95
-t95 <- t.test(tortillas, mu = 2.0, conf.level=0.95)
+t95 &lt;- t.test(tortillas, mu = 2.0, conf.level=0.95)
 </code></pre>
 <p>Then let's compare boxplots for the three tests:</p>
 <pre><code>
@@ -3116,30 +3086,14 @@ even happier.</p>
 </article>
 </section>
 
-    <footer>
+<footer>
+<p>Unless otherwise attributed, the views, thoughts, and opinions expressed on this site belong solely to the site owner, C. Sean Burns, and not to the site owner's employer or any other related entity.</p>
 
-    <section id="footercontact">
-    <h2>Contact</h2>
-    <a href="mailto:sean.burns@uky.edu">UK Email</a><br/>
-    <a href="mailto:sean.csb@gmail.com">Gmail</a><br/>
-    <a href="https://twitter.com/cseanburns">Twitter</a><br/>
-    <a href="https://github.com/cseanburns">Github</a>
-    </section>
+<p>Copyright by C. Sean Burns, 2019.
+Last modified: <time datetime="2021-07-01">2021-07-01</time>.</p>
+</footer>
 
-    <section id="footerinfo">
-    <h2>Academic Info</h2>
-    <a href="https://ci.uky.edu/sis/users/sean-burns">School of Information Science</a><br/>
-    <a href="https://orcid.org/0000-0001-8695-3643">ORCID</a><br/>
-    <a href="https://scholar.google.com/citations?user=WE8LF20AAAAJ&hl=en">Google Scholar</a><br/>
-    <a href="https://www.researcherid.com/rid/F-9237-2013">ResearcherID</a><br/>
-    <a href="https://works.bepress.com/cseanburns/">Green OA works at UK</a>
-    </section>
+</div>
 
-    <p>Copyright by Sean Burns, 2019.
-    Last modified: <time datetime="2021-01-26">2021-01-26</time>.</p>
-    </footer>
-
-    </div>
-
-  </body>
+</body>
 </html>

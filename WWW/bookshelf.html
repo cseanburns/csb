@@ -13,47 +13,6 @@
     <meta name="description" content="My digital bookshelf--reading list" />
     <meta name="language" content="en">
     <base href="https://cseanburns.net">
-
-    <style>
-    .container {
-      display: grid;
-      width: 100%;
-      gap: 0 10px;
-      grid-template-areas:
-        "nav  header"
-        "nav  bookshelf"
-        "nav  footer";
-      grid-template-rows: minmax(60px, 60px);
-      grid-template-columns: 200px auto;
-      }
-
-      @media (max-width: 799px) {
-        .container {
-          display: block;
-          padding: 0 5px 0 5px;
-        }
-      }
-
-      @media (min-width: 800px) {
-       nav {
-          position: sticky;
-          top: 0;
-          height: 100vh;
-        }
-        header {
-          margin-right: 410px;
-        }
-        section {
-          margin-left: 150px;
-          margin-right: 400px;
-          }
-      }
-
-      nav { grid-area: nav;}
-      header { grid-area: header;}
-      .bookshelf { grid-area: bookshelf;}
-      footer {grid-area: footer;}
-    </style>
   </head>
 
   <body>
@@ -62,15 +21,25 @@
 
     <header>
       <h1 class="mainheading"><a href="index.html">C. Sean Burns</a></h1>
+      <h2 class="mainheading">Associate Professor</h2>
+    <p><a href="https://ci.uky.edu/sis/">University of Kentucky<br>
+    College of Communication and Information<br>
+    School of Information Science</a><br>
+    PhD, University of Missouri, 2013<br>
+    MA, University of Missouri, 2009<br>
+    BA, Monmouth College, 1996</p>
+    <p>Email: sean.burns@uky.edu or sean.csb@gmail.com<br>
+    Twitter: <a href="https://twitter.com/cseanburns">https://twitter.com/cseanburns</a><br/>
+    GitHub: <a href="https://github.com/cseanburns">https://github.com/cseanburns</a></p>
     </header>
 
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="WWW/index.html">The Text</a></li>
-        <li><a href="WWW/bookshelf.html">Bookshelf</a></li>
-        <li><a href="WWW/about.html">About</a></li>
-        <li><a href="wiki/cv">wiki/CV</a></li>
+        <li>[ <a href="index.html">Home</a> ]</li>
+        <li>[ <a href="WWW/index.html">The Text</a> ]</li>
+        <li>[ <a href="WWW/bookshelf.html">Bookshelf</a> ]</li>
+        <li>[ <a href="WWW/about.html">About</a> ]</li>
+        <li>[ <a href="wiki/cv">wiki/CV</a> ]</li>
       </ul>
     </nav>
 
@@ -112,23 +81,9 @@
     </section>
 
     <footer>
-    <section id="footercontact">
-    <h2>Contact</h2>
-    <a href="mailto:sean.burns@uky.edu">UK Email</a><br/>
-    <a href="mailto:sean.csb@gmail.com">Gmail</a><br/>
-    <a href="https://twitter.com/cseanburns">Twitter</a><br/>
-    <a href="https://github.com/cseanburns">Github</a>
-    </section>
-    <section id="footerinfo">
-    <h2>Academic Info</h2>
-    <a href="https://ci.uky.edu/sis/users/sean-burns">School of Information Science</a><br/>
-    <a href="https://orcid.org/0000-0001-8695-3643">ORCID</a><br/>
-    <a href="https://scholar.google.com/citations?user=WE8LF20AAAAJ&hl=en">Google Scholar</a><br/>
-    <a href="https://www.researcherid.com/rid/F-9237-2013">ResearcherID</a><br/>
-    <a href="https://works.bepress.com/cseanburns/">Green OA works at UK</a>
-    </section>
+    <p>Unless otherwise attributed, the views, thoughts, and opinions expressed on this site belong solely to the site owner, C. Sean Burns, and not to the site owner's employer or any other related entity.</p>
     <p>Copyright by Sean Burns, 2019.
-    Last modified: <time datetime="2021-06-25">2021-06-25</time>.</p>
+    Last modified: <time datetime="2021-07-01">2021-07-01</time>.</p>
     </footer>
 
     </div>
