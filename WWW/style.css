@@ -45,10 +45,6 @@ nav li a {
   border-bottom: 1px solid #000;
 }
 
-.git {
-  border-bottom: 1px solid #000;
-}
-
 .bookshelf {
   border-bottom: 1px solid #000;
 }
@@ -79,6 +75,10 @@ h2, h3 {
 
 p, li {
   line-height: 1.25em;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 blockquote {
