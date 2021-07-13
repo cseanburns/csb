@@ -61,8 +61,8 @@
 <h2 id="back-to-ubuntu">Back to Ubuntu</h2>
 <h3 id="july-9-2021"><time datetime="2021-07-09">July 9, 2021</time></h3>
 <p>About a year ago I began the switch to Fedora. I first installed it on my laptop and then my desktop about six months later. I've now returned to Ubuntu.</p>
-<p>I like Fedora. I prefer their version of Gnome, although I only use it sometimes when I'm not using the i3 window manager, over Ubuntu's. (The Gnome differences are really minor, though.) However, there were a few annoyances. The laptop wouldn't sleep when I closed the lid, even though it was configured to do so. The distribution was too bleeding edge for me. Sometimes it was nice to have the most recent version of whatever software, but I'm willing to sacrifice that for a less bleeding edge system if it means having to reboot less often. I don't mind rebooting my laptop because I regularly shut it down anyway, but I'd rather not have to reboot my desktop as much as it asked me to. Finally, the package manager, <code>dnf</code>, felt slow compared to Debian/Ubuntu's package manager, <code>apt</code>.</p>
-<p>It was fun, though, to distro hop. It reminded me of the days when I started to use Linux and would often test new distributions out. I don't do that very often these days because it's more important to me to maintain a good workflow and to have a system that supports that workflow than it is to learn a new system. In an case, it's not goodbye to Fedora. I will continue using Fedora in my systems administration class, and I'm looking forward to learning more about the <code>Btrfs</code> file system.</p>
+<p>I like Fedora. I prefer their version of Gnome, although I only use it sometimes when I'm not using the i3 window manager. (The Gnome differences are really minor, though.) However, there were a few annoyances. The laptop wouldn't sleep when I closed the lid, even though it was configured to do so. The distribution was too bleeding edge for me. Sometimes it was nice to have the most recent version of whatever software, but I'm willing to sacrifice that for a less bleeding edge system if it means fewer system and software updates and less frequent reboots. I don't mind rebooting my laptop because I regularly shut it down anyway, but I'd rather not have to reboot my desktop as much as it asked me to. Finally, the package manager, <code>dnf</code>, felt slow compared to Debian/Ubuntu's package manager, <code>apt</code>.</p>
+<p>It was fun to distro hop, though. It reminded me when I started to use Linux and would often test new distributions out. I don't do that very often these days because it's more important to me to maintain a good workflow and to have a system that supports that workflow than it is to learn a new system. In any case, it's not goodbye to Fedora. I will continue using it in my systems administration class, and I'm looking forward to learning more about the Btrfs file system.</p>
 </article>
 
 <article id="20210701">
@@ -94,8 +94,7 @@
 [1] 2.1
 </code></pre>
 <p>The range was kinda wide, but I think I went a little high and a little low a few times  because I was thinking too much about what I was doing when I first started to measure the dough:</p>
-<pre><code>
-# range
+<pre><code># range
 max(tortillas) - min(tortillas)
 [1] 0.7
 # summary
@@ -126,8 +125,7 @@ mean of x
 <p>I'd also practice by playing around with functions in R, where I can, for example, adjust the confidence level of the <code>t.test</code> by changing the value for the <code>conf.level</code> argument. Here I set it to 0.90:</p>
 <pre><code>t.test(tortillas, alternative = &quot;two.sided&quot;, mu = 2.0, conf.level = 0.90)</code></pre>
 <p>This results in a narrower confidence interval than it does if the level is set at 0.95. For example, let's set the confidence level to 0.90 and to 0.99 for the <code>t.test</code> and compare the width of the intervals for each. I'll save the 0.90 test as <code>t90</code> and the 0.99 test as <code>t99</code>:</p>
-<pre><code>
-# Set at 0.90
+<pre><code># Set at 0.90
 t90 &lt;- t.test(tortillas, mu = 2.0, conf.level=0.90)
 # Set at 0.99
 t99 &lt;- t.test(tortillas, mu = 2.0, conf.level=0.99)
@@ -139,14 +137,11 @@ max(t99$conf.int) - min(t99$conf.int)
 </code></pre>
 <p>On the surface, the smaller confidence interval for the <code>t90</code> test would seem to suggest more certainty in the results than the wider confidence interval for the <code>t99</code> test, but that would be misleading without taking into consideration the confidence level. Although the smaller confidence level for the <code>t90</code> test increases the precision of the test, it also increases the error. That is, it raises the probability that I would see this result less often in repeated tests (only 90 out of 100 versus 99 out of 100 tests). In fact, for the <code>t90</code> test, the lower bound of the confidence interval is greater than 2.0, which is what I set the true value of the mean to in the <code>t.test</code> when I set <code>mu = 2.0</code>. That means for a confidence level of 0.90, since p = 0.089, then I would reject the null hypothesis since p &#60; 0.10.</p>
 <p>This can all be nicely visualized (not here though, since this is a text only page), by comparing boxplots of the above tests. Let's create a new test for a confidence level of 0.95:</p>
-<pre><code>
-# Set at 0.95
+<pre><code># Set at 0.95
 t95 &lt;- t.test(tortillas, mu = 2.0, conf.level=0.95)
 </code></pre>
 <p>Then let's compare boxplots for the three tests:</p>
-<pre><code>
-boxplot(t90$conf.int, t95$conf.int, t99$conf.int)
-</code></pre>
+<pre><code>boxplot(t90$conf.int, t95$conf.int, t99$conf.int)</code></pre>
 <p>When I do this, I see that for the <code>t95</code> and the <code>t99</code> tests, the bottom borders encompass 2.0 but not for the <code>t90</code> test. Visually, then, for the <code>t90</code> test, a mean of 2.1 is significantly different than a mean of 2.0, but not for the two stricter confidence level tests.</p>
 <p>Anyway, fun!</p>
 </article>
@@ -236,8 +231,7 @@ the correct volume and partition, and edit the <em>sudoers</em> file.</p>
 <p>To solve this, I rebooted with the Live CD and once running, I opened
 a terminal and did the following:</p>
 
-<pre><code>
-# locate partitions
+<pre><code># locate partitions
 sudo fdisk -l
 # mount volume to /dev/mapper/myvolume
 sudo cryptsetup luksOpen /dev/sdb3 myvolume
@@ -651,8 +645,7 @@ the fonts</a> with the following code:</del></p>
 
 <p>Code generated by the Font Squirrel Webfont Generator:</p>
 
-<pre><code>
-/* Open Sans font: https://www.fontsquirrel.com/fonts/open-sans */
+<pre><code>/* Open Sans font: https://www.fontsquirrel.com/fonts/open-sans */
 @font-face {
     font-family: &#39;open_sansbold&#39;
     src: url(&#39;fonts/opensans-bold-webfont.woff2&#39;) format(&#39;woff2&#39;),
@@ -2090,7 +2083,7 @@ href=WWW/index.html#on-distractions>On Distractions</a>. As I read more about
 href="https://blog.jpalardy.com/posts/awk-tutorial-part-2/">multiple
 condition-block</a> statements. It then occurred to me I could write a (long)
 <em>one-liner</em> using this technique and that the Bash function and the
-<code>awk</code> <strong>if-else</strong> statement were unnecessary:</p>
+<code>awk</code> <code>if-else</code> statement were unnecessary:</p>
 <pre><code>#!/bin/bash
 systemctl status --user mbsync.timer |\
          awk -F&quot;;&quot;\
@@ -3066,7 +3059,7 @@ computers by primarily using the DOS command line.</p>
 
 <p>I brought my computer with me when I went to college in 1991, but I also
 used the computers in the college's library. I don't know what kind of
-computers these were, but what I really liked about them was that they had
+computers those were, but what I really liked about them was that they had
 WordPerfect 5.1. Like the word processors we have today, I didn't use the vast
 majority of the functions WP 5.1 offered, but what I liked about it was that,
 like all DOS-based applications at the time, its interface was <a
@@ -3077,7 +3070,8 @@ seeking or recreating it since.</p>
 <p>My Tandy stopped booting sometime around 1994 or so, and I graduated at the
 end of 1995. I went several years without my own computer, but in 1998
 I started working for a company and had to use a computer with Windows 95, and
-then later I bought my next computer, which had Windows 98.</p>
+then later, around 1999 or 2000, I bought my next computer, which had Windows
+98.</p>
 
 <p>The graphical user interface was entirely new to me, and I hated how busy it
 was. In the early 2000s, it occurred to me that it would be nice to install WP
@@ -3102,7 +3096,9 @@ even happier.</p>
 </section>
 
 <footer>
-<p>Unless otherwise attributed, the views, thoughts, and opinions expressed on this site belong solely to the site owner, C. Sean Burns, and not to the site owner's employer or any other related entity.</p>
+<p>Unless otherwise attributed, the views, thoughts, and opinions expressed on
+this site belong solely to the site owner, C. Sean Burns, and not to the site
+owner's employer or any other related entity.</p>
 
 <p>Copyright by C. Sean Burns, 2019.
 Last modified: <time datetime="2021-07-01">2021-07-01</time>.</p>
