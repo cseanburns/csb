@@ -1,15 +1,16 @@
 /* BODY */
 
 body {
-  margin: 1% 3% 0 3%;
+  margin: 1% 5% 0 5%;
   font-family: monospace; 
   font-size: 11pt;
 }
 
 header {
   border: 1px solid #000;
+  max-width: 700px;
   padding-left: 10px;
-  background-color: LightGray;
+  background-color: #eeeeee;
   color: black;
 }
 
@@ -19,10 +20,6 @@ header h2 {
 
 header p {
   font-size: .8em;
-}
-
-nav {
-  text-align: center;
 }
 
 nav li {
@@ -38,38 +35,51 @@ nav li a {
 
 .news {
   border-bottom: 1px solid #000;
+  max-width: 700px;
 }
 
 .research {
   border-bottom: 1px solid #000;
+  max-width: 700px;
 }
 
 .teaching {
   border-bottom: 1px solid #000;
+  max-width: 700px;
 }
 
 .bookshelf {
   border-bottom: 1px solid #000;
+  max-width: 700px;
 }
 
 .about {
   border-bottom: 1px solid #000;
+  max-width: 700px;
 }
 
 .siteinfo {
   border-bottom: 1px solid #000;
+  max-width: 700px;
 }
 
 .sysadmin {
   border-bottom: 1px solid #000;
+  max-width: 700px;
 }
 
 .statnotes {
   border-bottom: 1px solid #000;
+  max-width: 700px;
 }
 
 .text {
   border-bottom: 1px solid #000;
+  max-width: 700px;
+}
+
+.thetext {
+  max-width: 700px; 
 }
 
 article {
@@ -134,16 +144,8 @@ tr:hover {
 /* FOOTER */
 
 footer {
-  padding: 10px 5px 10px 5px;
-}
-
-#footercontact {
-  float: left;
-}
-
-#footerinfo {
-  text-align: right;
-  clear: right;
+  padding: 10px 5px 10px 0;
+  max-width: 700px;
 }
 
 footer h2 {
@@ -156,6 +158,5 @@ footer a {
 }
 
 footer p {
-  text-align: center;
   font-size: 0.65em;
 }
