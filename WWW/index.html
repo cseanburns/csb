@@ -86,7 +86,8 @@
 <p>I had to move quickly since there were a lot of other tasks to complete before lunch started. I could use a scale to weigh the food, but if I used it to weigh every item, it would slow me down, and I wouldn't finish my prep work in time. The solution meant getting a feel for 6 ounces and to grab that exact amount by hand and by eye. I'd use the scale but just every once in a while to keep me calibrated.</p>
 <p>All the longtime cooks that I've worked with had gained this tacit feel for measuring things. I knew a person who could cut steaks from sides of beef to the exact weight needed. Others, including myself, could pour a tablespoon of salt into the palm of our hands, or a cup of sugar into a bowl of flour, without measuring. If we checked our work with a scale or a measuring cup, we'd find we were on target.</p>
 <p>Last night I made corn tortillas, and I wanted each ball of masa dough to weigh 2 ounces. I wanted to see if I still had this ability to eyeball the weight, and I brought out my scale and measured what I pulled from the dough on the first try. I recorded my measurements and entered them in R as such:</p>
-<pre><code>tortillas &lt;- c(2.1, 2.0, 1.9, 1.7, 2.3, 2.2, 2.0, 2.4, 2.1, 1.9, 2.1, 2.3, 2.0, 2.4)
+<pre><code>tortillas &lt;- c(2.1, 2.0, 1.9, 1.7, 2.3, 2.2, 2.0,
+               2.4, 2.1, 1.9, 2.1, 2.3, 2.0, 2.4)
 </code></pre>
 <p>My average weight was close to 2 ounces but not exactly so:</p>
 <pre><code>mean(tortillas) ; median(tortillas)
