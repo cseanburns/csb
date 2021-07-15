@@ -57,6 +57,41 @@
       <a href="https://cseanburns.net/WWW/index.xml">feed</a>.</p>
       <hr>
 
+<article id="20210715">
+<h2 id="a-timer">A Timer</h2>
+<h3 id="july-15-2021"><time datetime="2021-07-15">July 15, 2021</time></h3>
+<p>I haven't written a Bash script in a few months, and I must be out of practice because it took me too long and too many web searches to write a very basic countdown script.</p>
+<p>Also, writing this reminded me that I don't like using Bash to write scripts that involve any kind of integer evaluation. I should have used Python.</p>
+<p>Anyway, I like to take breaks from typing to stretch my wrists, and having a little script to count down from 30 or so seconds is nice.</p>
+<pre><code>#!/bin/bash
+
+# Use as a countdown timer
+# Usage: timer [arg]
+# where [arg] is a number
+# Date: 2021-07-15
+
+timer () {
+  clear
+  if [ -n &quot;$1&quot; ] &amp;&amp; [ &quot;$1&quot; -eq &quot;$1&quot; ] &amp;&gt;/dev/null ; then
+    for i in $(seq &quot;$1&quot; | sort -nr)
+    do
+      clear
+      printf &quot;%s &quot; &quot;$i&quot; &amp;&amp; sleep 1
+      clear
+    done
+  else
+    printf &quot;\nNot a number.\n&quot; ; exit 1
+  fi
+  printf &quot;\nCountdown over.\n&quot;
+}
+
+timer &quot;$1&quot;
+</code></pre>
+<p>I named the script <code>timer</code>. If I want to start the timer at 30 seconds, then I just do this:</p>
+<pre><code>timer 30
+</code></pre>
+</article>
+
 <article id="20210709">
 <h2 id="back-to-ubuntu">Back to Ubuntu</h2>
 <h3 id="july-9-2021"><time datetime="2021-07-09">July 9, 2021</time></h3>

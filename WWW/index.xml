@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Jul 2021 17:38:39 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 15 Jul 2021 13:54:19 -0400</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>A Timer</title>
+          <link>https://cseanburns.net/WWW/index.html#a-timer</link>
+          <pubDate>Thu, 15 Jul 2021 13:54:19 -0400</pubDate>
+          <guid>https://cseanburns.net/WWW/index.html#a-timer</guid>
+        </item>
         <item>
           <title>Back to Ubuntu</title>
           <link>https://cseanburns.net/WWW/index.html#back-to-ubuntu</link>
