@@ -57,12 +57,91 @@
       <a href="https://cseanburns.net/WWW/index.xml">feed</a>.</p>
       <hr>
 
+<article id="20210716">
+<h2 id="timing-is-everything">Timing is Everything</h2>
+<h3 id="july-16-2021"><time datetime="2021-07-16">July 16, 2021</time></h3>
+<p>I was unhappy yesterday with writing the timer/countdown script in Bash, and I thought I'd give it a go in Python.</p>
+<p>I've written two versions. The first version involves asking for input after running the script. Since I've written scripts using <code>input()</code>, this was an easy version to write. Usage is <code>timer.py</code>. Then enter a number upon the prompt, and the countdown starts. If a string, a floating number, or a negative number is entered, then it'll ask you to try again.</p>
+<pre><code>#!/usr/bin/env python3
+
+# Use as a countdown timer
+# Usage: timer [arg]
+# where [arg] is a positive number
+# Date: 2021-07-16
+
+import os 
+import time
+
+os.system(&#39;clear&#39;)
+
+# Function to take a positive, whole number 
+def check_input():
+    while True:
+        try:
+            count_start = int(input(&quot;Start number: &quot;))
+            if count_start &gt;= 0:
+                os.system(&#39;clear&#39;)
+                return count_start
+            else:
+                print(&quot;Enter a whole, positive number. Try again.&quot;)
+        except (ValueError):
+            print(&quot;Enter whole, positive number. Try again.&quot;)
+
+# Do the countdown
+def timer():
+    count_start = check_input()
+    for count_start in reversed(range(count_start)):
+        print(count_start)
+        time.sleep(1)
+        os.system(&#39;clear&#39;)
+    print(&quot;Countdown over.&quot;)
+
+# Call timer function 
+timer()
+</code></pre>
+<p>I'm still fine-tuning the second version. In this version, I use <a href="https://docs.python.org/3/library/argparse.html">argparse</a> to take a value at the command line, which means this version replicates yesterday's Bash version more closely. <code>argparse</code> is new to me, though, and this version is incomplete because I need to add additional help info when the argument is a negative number, a float, or a string:</p>
+<pre><code>#!/usr/bin/env python3
+
+# Use as a countdown timer
+# Usage: timer [arg]
+# where [arg] is a positive number
+# Date: 2021-07-16
+
+import os 
+import time
+import argparse
+
+os.system(&#39;clear&#39;)
+
+# Function to take a positive, whole number 
+def take_input():
+    count_start = argparse.ArgumentParser()
+    count_start.add_argument(&quot;number&quot;,
+            help = &quot;Enter a positive number.&quot;, type=int)
+    args = count_start.parse_args()
+    return args
+    os.system(&#39;clear&#39;)
+
+# Do the countdown
+def timer():
+    args = take_input()
+    for args.number in reversed(range(args.number)):
+        print(args.number)
+        time.sleep(1)
+        os.system(&#39;clear&#39;)
+    print(&quot;Countdown over.&quot;)
+
+# Call timer function 
+timer()
+</code></pre>
+</article>
+
 <article id="20210715">
 <h2 id="a-timer">A Timer</h2>
 <h3 id="july-15-2021"><time datetime="2021-07-15">July 15, 2021</time></h3>
-<p>I haven't written a Bash script in a few months, and I must be out of practice because it took me too long and too many web searches to write a very basic countdown script.</p>
+<p>I haven't written a Bash script in a few months, and I am out of practice. It took me too long and too many web searches to write a very basic countdown script.</p>
 <p>Also, writing this reminded me that I don't like using Bash to write scripts that involve any kind of integer evaluation. I should have used Python.</p>
-<p>Anyway, I like to take breaks from typing to stretch my wrists, and having a little script to count down from 30 or so seconds is nice.</p>
+<p>Anyway, I like to take breaks from typing to stretch my wrists, and having a little script to count down from 30 or so seconds, or however long I want to stretch while at the desk, is nice.</p>
 <pre><code>#!/bin/bash
 
 # Use as a countdown timer
