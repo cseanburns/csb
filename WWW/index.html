@@ -100,7 +100,7 @@ def timer():
 timer()
 </code></pre>
 <p><del>I'm still fine-tuning the second version.</del> In this second version, I use <a href="https://docs.python.org/3/library/argparse.html">argparse</a> to take a value at the command line, which means this version replicates yesterday's Bash version more closely. <code>argparse</code> is new to me <span class="bold">(See update below)</span><del>, though, and this version is incomplete because I need to add additional help info when the argument is a negative number, a float, or a string</del>.</p>
-<p><span class="bold">Update: </span>I fixed the above issues (now striked above). After closer reading of the documentation, <code>argparse</code> was behaving as it should when a string or a float was passed to it. However, if I passed a negative number to it, it would immediately print out &quot;Countdown over.&quot;. To solve this, it dawned on me <em>(naps are helpful :) </em> that I could just use the <code>abs()</code> function to make sure the number was always positive. The code below reflects that now:</p>
+<p><span class="bold">Update: </span>I fixed the above issues (now striked above). After a closer reading of the documentation, <code>argparse</code> was behaving as it should when a string or a float was passed to it. However, if I passed a negative number to it, it would immediately print out &quot;Countdown over.&quot;. To solve this, it dawned on me <em>(naps are helpful :) </em> that I could just use the <code>abs()</code> function to make sure the number was always positive. The code below reflects that now:</p>
 <pre><code>#!/usr/bin/env python3
 
 # Use as a countdown timer
