@@ -61,12 +61,12 @@
 <h2 id="timing-is-everything">Timing is Everything</h2>
 <h3 id="july-16-2021"><time datetime="2021-07-16">July 16, 2021</time></h3>
 <p>I was unhappy yesterday with writing the timer/countdown script in Bash, and I thought I'd give it a go in Python.</p>
-<p>I've written two versions. The first version involves asking for input after running the script. Since I've written scripts using <code>input()</code>, this was an easy version to write. Usage is <code>timer.py</code>. Then enter a number upon the prompt, and the countdown starts. If a string, a floating number, or a negative number is entered, then it'll ask you to try again.</p>
+<p>I've written two versions. The first version involves asking for input after running the script. Since I've written scripts using <code>input()</code>, this was an easy version to write. Usage is <code>timer</code>. Then enter a number at the prompt, and the countdown starts. If a string, a floating number, or a negative number is entered, then it'll ask you to try again.</p>
 <pre><code>#!/usr/bin/env python3
 
 # Use as a countdown timer
-# Usage: timer [arg]
-# where [arg] is a positive number
+# Usage: timer
+# Enter a whole, positive number at the prompt
 # Date: 2021-07-16
 
 import os 
@@ -147,7 +147,7 @@ timer()
 
 # Use as a countdown timer
 # Usage: timer [arg]
-# where [arg] is a number
+# where [arg] is a whole, positive number
 # Date: 2021-07-15
 
 timer () {
