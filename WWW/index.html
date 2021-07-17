@@ -46,9 +46,7 @@
     <section class="thetext">
       <h2 class="bigger">The Text, Please. Just the Text.</h2>
 
-      <p>The following are short essays, some personal, on whatever comes to
-      mind. Basically, I'm mimicking Montaigne's <i>Essays</i> here, but with
-      much less intriguing content and style and far shorter entries.</p>
+      <p>The following are short essays on whatever comes to mind.</p>
 
       <p>Longer, more academic focused essays may be found on my <a
       href="wiki/blog/blog-entries">wiki</a>.</p>
@@ -79,7 +77,7 @@ def check_input():
     while True:
         try:
             count_start = int(input(&quot;Start number: &quot;))
-            if count_start &gt;= 0:
+            if count_start &gt;= 1:
                 os.system(&#39;clear&#39;)
                 return count_start
             else:
