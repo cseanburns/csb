@@ -63,6 +63,81 @@
       <a href="https://cseanburns.net/WWW/index.xml">feed</a>.</p>
       <hr>
 
+<article id="20210719">
+<h2 id="wim-hof-guided-breathing">Wim Hof Guided Breathing</h2>
+<h3 id="july-19-2021"><time datetime="2021-07-19">July 19, 2021</time></h3>
+<p>I've been following the <a href="https://www.wimhofmethod.com/">Wim Hof</a> method, all of it, including the breathing exercises, the cold showers, and the meditations, and I like it. I've been using one of the <a href="https://www.youtube.com/watch?v=tybOi4hjZFQ">videos</a> for the guided breathing session, but sometimes I like to follow the video without any sound. So, if I'm not using sound, I thought I'd create another script that mimics the breathing method so I can run this on the command line.</p>
+<p>This is a pretty <a href="https://github.com/cseanburns/sysadmin/blob/master/usr/wimhof">basic script</a> and it's like version 0.25. Later I'll upgrade this to make it print the text pretty (maybe add bubbles like in the video, but ASCII only) and also to add command line arguments that allow for different numbers of rounds, etc.</p>
+<pre><code>#!/usr/bin/env python3
+
+# A little script that follows the Wim Hof Breathing method
+# Currently hardcoded to do five rounds
+# Usage: ./wimhof
+# Pretty much follows the following video:
+# https://www.youtube.com/watch?v=tybOi4hjZFQ
+# Date: 2021-07-19
+# To do: Make pretty
+# To do: Add command line arguments
+
+import os
+import time
+
+os.system(&#39;clear&#39;)
+print(&quot;&#39;All right, guys, welcome.&#39;&quot;)
+time.sleep(1.5)
+print(&quot;&#39;This is a guided breathing session.&#39;&quot;)
+time.sleep(1.5)
+print(&quot;&#39;Relax to the deepest.&#39;&quot;)
+time.sleep(1.5)
+print(&quot;&#39;Whatever it takes, relax.&#39;&quot;)
+time.sleep(1.5)
+print(&quot;&#39;Are you ready?&#39;&quot;)
+time.sleep(1.5)
+print(&quot;&#39;Here we go.&#39; --Wim Hof&quot;)
+time.sleep(1.5)
+os.system(&#39;clear&#39;)
+print(&quot;Let&#39;s do five rounds.&quot;)
+time.sleep(2)
+os.system(&#39;clear&#39;)
+
+def breath():
+    for i,j in zip(range(1,31), range(1,31)):
+        print(&quot;Breath in&quot;, i)
+        time.sleep(1.7)
+        print(&quot;Breath out&quot;, j)
+        time.sleep(1.7)
+
+def breathout_hold():
+    print(&quot;Hold breath for 1:30&quot;)
+    for k in reversed(range(1,91)):
+        print(k, &quot;seconds left&quot;)
+        time.sleep(1)
+
+def breathin_hold(): 
+    print(&quot;Breath in and hold for 15 seconds&quot;)
+    for l in reversed(range(1,16)):
+        print(l, &quot;seconds left&quot;)
+        time.sleep(1)
+
+def round():
+    for m in range(1,6):
+        print(&quot;Round number &quot;, m)
+        breath()
+        breathout_hold()
+        breathin_hold()
+        os.system(&#39;clear&#39;)
+
+round()
+
+print(&quot;&#39;Let it go.&#39;&quot;)
+print(&quot;&#39;Let your breathing return to normal\
+as you finish up the round.&#39;&quot;)
+print(&quot;&#39;Move your body bit by bit,\
+starting with your fingers and your toes.&#39;&quot;)
+print(&quot;&#39;Let your breathing normalize.&#39; --Wim Hof&quot;)
+</code></pre>
+</article>
+
 <article id="20210716">
 <h2 id="timing-is-everything">Timing is Everything</h2>
 <h3 id="july-16-2021"><time datetime="2021-07-16">July 16, 2021</time></h3>
