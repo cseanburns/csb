@@ -105,6 +105,10 @@ p, li {
   line-height: 1.25em;
 }
 
+strong {
+  color: blue;
+}
+
 .bold {
   font-weight: bold;
 }
