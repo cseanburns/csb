@@ -78,6 +78,10 @@ nav li a {
   max-width: 700px;
 }
 
+.title {
+  font-style: italic;
+}
+
 #thetext {
   max-width: 700px; 
 }
