@@ -63,6 +63,20 @@
       <p id="top"><a href="WWW/index.html#thetext">Back to Top</a></p>
       <hr>
 
+<article id="20210813">
+<h2 id="diff-ed-patch">diff, ed, patch</h2>
+<h3 id="august-13-2021"><time datetime="2021-08-13">August 13, 2021</time></h3>
+<p>Sometimes I like to do things using the old ways, largely because it’s sometimes interesting how thing were done a while back. But also because even though I write some scripts in R and Python, I’m not any kind of software developer and have not had any real training in computer science.</p>
+<p>This is all just to say that right now I’m learning a bit more about the <code>diff</code> command. I’ve used it quite a bit over the years to visually compare two or more text files, but I’ve never used it the way a programmer might use it; that is, by using it with the <code>patch</code> command or with an <code>ed</code> script. (I have, however, used <a href="http://pages.cs.wisc.edu/~plonka/sysadmin/article.html">RCS</a> to edit web pages on a multi-user <a href="https://netbsd.org/">NetBSD</a> based <a href="http://sdf.org/">public access UNIX system</a>. I remember how fun it was when I first had to use it back around 2004 or 2005.)</p>
+<p>Anyways, to use <code>ed</code> and <code>patch</code> with <code>diff</code>, let’s say there are two files: file1.py file2.py, and file2.py is a modification of file1.py.</p>
+<p>To merge them with <code>diff</code> and an <code>ed</code> script:</p>
+<pre><code>diff -e file1.py file2.py &gt; patch.ed
+(cat patch.ed &amp;&amp; echo w) | ed - file1.py</code></pre>
+<p>To merge them with <code>diff</code> and the <code>patch</code> command:</p>
+<pre><code>diff -u file1.py file2.py &gt; patchfile.patch
+patch file1.py patchfile.patch</code></pre>
+</article>
+
 <article id="20210810">
 <h2 id="vegetarian-red-bean-soup">Vegetarian Red Bean Soup</h2>
 <h3 id="august-10-2021"><time datetime="2021-08-10">August 10, 2021</h3>
