@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Aug 2021 10:57:14 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 03 Sep 2021 15:28:15 -0400</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>When I Feel Best</title>
+          <link>https://cseanburns.net/WWW/index.html#when-i-feel-best</link>
+          <pubDate>Fri, 03 Sep 2021 15:28:15 -0400</pubDate>
+          <guid>https://cseanburns.net/WWW/index.html#when-i-feel-best</guid>
+        </item>
         <item>
           <title>Measuring Food with Pandas</title>
           <link>https://cseanburns.net/WWW/index.html#measuring-food-with-pandas</link>
