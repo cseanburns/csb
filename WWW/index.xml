@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Sep 2021 09:52:13 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 07 Sep 2021 08:40:13 -0400</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>Rest</title>
+          <link>https://cseanburns.net/WWW/index.html#rest</link>
+          <pubDate>Tue, 07 Sep 2021 08:40:13 -0400</pubDate>
+          <guid>https://cseanburns.net/WWW/index.html#rest</guid>
+        </item>
         <item>
           <title>Breathing</title>
           <link>https://cseanburns.net/WWW/index.html#breathing</link>
