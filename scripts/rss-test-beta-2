@@ -1,0 +1,18 @@
+ed -s tmp.xml <<EOF
+r !date -R
+a
+
+.
+1t2
+1s/^/<lastBuildDate>/
+1s/$/<\/lastBuildDate/
+3s/^/<pubDate>/
+3s/$/<\/pubDate>/
+2i
+<item>
+.
+4a
+</item>
+.
+wq
+EOF
