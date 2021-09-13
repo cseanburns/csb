@@ -63,6 +63,40 @@
       <p id="top"><a href="WWW/index.html#thetext">Back to Top</a></p>
       <hr>
 
+<article id="20210913">
+<h2 id="vim-ed-and-also-markdown">Vim, Ed, and also Markdown</h2>
+<h3 id="september-13-2021"><time datetime="2021-09-13">September 13, 2021</time></h3>
+<p>Some things I like doing in <code>/usr/bin/vim</code>, <code>/usr/bin/nvi</code>, or <code>/usr/bin/ed</code>:</p>
+<p>Use the <code>%</code> (percent sign) to run a <code>sh</code> command on the current buffer.</p>
+<p>For example, from within Vim or ed, I can run <code>pandoc</code> on a markdown file that I'm writing to convert that file to an HTML file (or whatever else that pandoc supports):</p>
+<pre><code># save file; run pandoc from sh, output markdown file to a file named file.html
+w !pandoc % -o test.html
+
+# view the file with the w3m text browser
+!w3m test.html
+</code></pre>
+<p>This behavior is buried in the <code>info ed</code> documentation, which Vim inherits as a descendant, but I first learned about it in a <a href="https://twitter.com/cseanburns/status/1423825942758166530">tweet</a>. From <code>info ed</code>:</p>
+<blockquote>
+<p>an unescaped '%' is replaced by the default filename</p>
+</blockquote>
+<p>More often when I'm generating an HTML file from a markdown file, which I do a lot because I write lectures and other content in markdown, I use a function that I wrote and keep in my <strong>.bash_functions</strong> file. I like this function because it keeps smart formatting out of my HTML.</p>
+<pre><code>makepost () {
+  sourcefile=&quot;$1&quot;
+  pandoc -f gfm -t html &quot;$sourcefile&quot; &gt; \
+    $(basename -s md &quot;$sourcefile&quot;)html
+}
+</code></pre>
+<p>Alternatively, I could do this within ed or Vim. In command mode:</p>
+<pre><code>w !pandoc -f gfm -t html % &gt; somefile.html
+</code></pre>
+<p>But if I use the <code>makepost</code> function, then after I exit the editor, I can do <code>makepost somefile.md</code> to generate <strong>somefile.html</strong>. Then to copy that file from the command line, I use the following function that copies the contents of a text file to my clipboard. Then I can paste that (via Ctrl-v) in Canvas or wherever I want the HTML:</p>
+<pre><code>clip () {
+  xclip -selection clipboard -i &quot;$1&quot;
+}
+</code></pre>
+<p>I do use <code>/usr/bin/ed</code> quite often. I've found that it's a great editor for writing but also for editing because I can focus solely on a line at a time more easily. But I'll usually go back to Vim when I want to make some big passes through a work.</p>
+</article>
+
 <article id="20210907">
 <h2 id="rest">Rest</h2>
 <h3 id="september-7-2021"><time datetime="2021-09-07">September 7, 2021</time></h3>

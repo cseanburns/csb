@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Sep 2021 08:40:13 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 13 Sep 2021 14:34:09 -0400</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>Vim, Ed, and also Markdown</title>
+          <link>https://cseanburns.net/WWW/index.html#vim-ed-and-also-markdown</link>
+          <pubDate>Mon, 13 Sep 2021 14:34:09 -0400</pubDate>
+          <guid>https://cseanburns.net/WWW/index.html#vim-ed-and-also-markdown</guid>
+        </item>
         <item>
           <title>Rest</title>
           <link>https://cseanburns.net/WWW/index.html#rest</link>
