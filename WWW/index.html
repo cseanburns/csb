@@ -89,7 +89,7 @@ w !pandoc % -o test.html
 <p>Alternatively, I could do this within ed or Vim. In command mode:</p>
 <pre><code>w !pandoc -f gfm -t html % &gt; somefile.html
 </code></pre>
-<p>When I use the <code>makepost</code> function, when I exit the editor, I can do <code>makepost somefile.md</code> to generate <strong>somefile.html</strong>. To copy that file from the command line, I use the following function that copies the contents of a text file to my clipboard. Then I can paste that (via Ctrl-v) in Canvas or wherever I want the HTML:</p>
+<p>When I exit the editor, I can do <code>makepost somefile.md</code> to generate <strong>somefile.html</strong>. To copy that file from the command line, I use the following function that copies the contents of a text file to my clipboard. Then I can paste that (via Ctrl-v) in Canvas or wherever I want the HTML:</p>
 <pre><code>clip () {
   xclip -selection clipboard -i &quot;$1&quot;
 }
