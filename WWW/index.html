@@ -68,14 +68,14 @@
 <h3 id="september-13-2021"><time datetime="2021-09-13">September 13, 2021</time></h3>
 <p>Some things I like doing in <code>/usr/bin/vim</code>, <code>/usr/bin/nvi</code>, or <code>/usr/bin/ed</code>:</p>
 <p>Use the <code>%</code> (percent sign) to run a <code>sh</code> command on the current buffer.</p>
-<p>For example, from within Vim or ed, I can run <code>pandoc</code> on a markdown file that I'm writing to convert that file to an HTML file (or whatever else that pandoc supports):</p>
+<p>For example, from within Vim or ed, I can convert a markdown file to an HTML (or whatever else <code>pandoc</code> supports):</p>
 <pre><code># save file; run pandoc from sh, output markdown file to a file named file.html
 w !pandoc % -o test.html
 
 # view the file with the w3m text browser
 !w3m test.html
 </code></pre>
-<p>This behavior is buried in the <code>info ed</code> documentation, which Vim inherits as a descendant, but I first learned about it in a <a href="https://twitter.com/cseanburns/status/1423825942758166530">tweet</a>. From <code>info ed</code>:</p>
+<p>This behavior is buried in the <code>info ed</code> documentation. Vim inherits this behavior as a descendant of ed, but I first learned about it in a <a href="https://twitter.com/cseanburns/status/1423825942758166530">tweet</a>. From <code>info ed</code>:</p>
 <blockquote>
 <p>an unescaped '%' is replaced by the default filename</p>
 </blockquote>
@@ -89,12 +89,13 @@ w !pandoc % -o test.html
 <p>Alternatively, I could do this within ed or Vim. In command mode:</p>
 <pre><code>w !pandoc -f gfm -t html % &gt; somefile.html
 </code></pre>
-<p>But if I use the <code>makepost</code> function, then after I exit the editor, I can do <code>makepost somefile.md</code> to generate <strong>somefile.html</strong>. Then to copy that file from the command line, I use the following function that copies the contents of a text file to my clipboard. Then I can paste that (via Ctrl-v) in Canvas or wherever I want the HTML:</p>
+<p>When I use the <code>makepost</code> function, when I exit the editor, I can do <code>makepost somefile.md</code> to generate <strong>somefile.html</strong>. To copy that file from the command line, I use the following function that copies the contents of a text file to my clipboard. Then I can paste that (via Ctrl-v) in Canvas or wherever I want the HTML:</p>
 <pre><code>clip () {
   xclip -selection clipboard -i &quot;$1&quot;
 }
 </code></pre>
-<p>I do use <code>/usr/bin/ed</code> quite often. I've found that it's a great editor for writing but also for editing because I can focus solely on a line at a time more easily. But I'll usually go back to Vim when I want to make some big passes through a work.</p>
+<p>To use that, I do <code>clip somefile.html</code>.</p>
+<p>I use <code>/usr/bin/ed</code> quite often. I've found that it's a great editor for writing because I find it easier to simply stay in insert mode longer (i.e., Vim, as a screen editor, faciliates mode switching). I have also found that ed is great for editing because it helps me focus on one line at a time. I'll usually go back to Vim when I want to make some big passes through a work.</p>
 </article>
 
 <article id="20210907">
