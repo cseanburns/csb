@@ -29,10 +29,37 @@ nav li {
   letter-spacing: 0.1em;
 }
 
-nav li a {
-  text-decoration: none;
+nav li:nth-child(1) {
+  background-color: red;
+  color: white;
 }
 
+nav li:nth-child(2) {
+  background-color: fuchsia;
+  color: black;
+}
+
+nav li:nth-child(3) {
+  background-color: green;
+  color: white;
+}
+
+nav li:nth-child(4) {
+  background-color: yellow;
+  color: black;
+}
+
+nav li:nth-child(5) {
+  background-color: aqua;
+  color: white;
+}
+
+nav li a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+}
 .news {
   border-bottom: 1px solid #000;
   max-width: 700px;
