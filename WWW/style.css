@@ -160,6 +160,7 @@ pre {
   color: orange;
   padding: 1% 0 1% 1%;
   font-size: 93%;
+  overflow: scroll;
 }
 
 p > code {
