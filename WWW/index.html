@@ -67,6 +67,27 @@
       <p id="top"><a href="WWW/index.html#thetext">Back to Top</a></p>
       <hr>
 
+<article id="20211001">
+<h2 id="openurl">OpenURL</h2>
+<h3 id="october-1-2021"><time datetime="2021-10-01">October 1, 2021</time></h3>
+<p>My university's library uses <a href="https://en.wikipedia.org/wiki/OpenURL">OpenURL</a> and Primo/Alma's discovery service/link resolver to request sources from various bibliographic databases. Or more accurately, the university library uses Primo/Alma, which uses OpenURL.</p>
+<p>Basically, the technology is meant to help library users gain access to a library's (usually paywalled) electronic resources. E.g., if you're searching on Google Scholar and you see a <strong>View Now @ [YOUR LIBRARY]</strong> link next to a search result, and you click on that link, then you are using a link resolver to request the source. You have to add your institution in Google Scholar via their <a href="https://scholar.google.com/scholar_settings?sciifh=1&amp;hl=en&amp;as_sdt=0,18#2">settings</a>, but if you're using a database directly provided by your library, then it should be available by default.</p>
+<p>Because OpenURL and link resolver technology is partly based on <a href="https://en.wikipedia.org/wiki/Query_string">query strings</a>, it's fun to glean all sorts of information by examining the URL: the query string component that contains the metadata for the source but also the base component that contains the vendor and institutional information and also the URL type. Namely, it turns out that Primo/Alma uses two URL types to request resources: a search URL and an OpenURL. At my institution, the base search URL looks like this:</p>
+<pre><code>https://saalck-uky.primo.exlibrisgroup.com/discovery/search?
+</code></pre>
+<p>The base OpenURL differs just a bit (see the end of the URL):</p>
+<pre><code>https://saalck-uky.primo.exlibrisgroup.com/discovery/openurl?
+</code></pre>
+<p>The base search URL appears when searching the university's online catalog (or discovery service). However, the OpenURL appears only in transit from one resource and before reaching the final source; e.g., after clicking on a <strong>View Now @</strong> link and before being redirected to the full text version of the article that might be available at the original location (an open access location) or via the proxy location (e.g., <a href="https://en.wikipedia.org/wiki/EZproxy">EZproxy</a>). Because the redirect happens quickly, I had to quickly copy my institution's specific OpenURL when I clicked on a <strong>View Now</strong> link, which redirected to the OpenURL page, before it redirected again and landed on the EZproxy page.</p>
+<p>My students often identify great problems to solve or are the source of great ideas. One of my students in my <a href="https://github.com/cseanburns/electronic_resource_mgmt">electronic resource management class</a> noticed that <a href="https://www.zotero.org/">Zotero</a> has a <a href="https://www.zotero.org/support/locate">locate menu</a> that uses OpenURLs to look up items online. By default, Zotero uses WorldCat, but it can use a specific institution's OpenURL resolver, too. I had completely forgotten about this. I think I stopped trying to use it years ago because the WorldCat default stopped working. Anyway, when I investigated, I noticed that my institution wasn't available via Zotero or listed on their page of <a href="https://www.zotero.org/support/locate/openurl_resolvers">OpenURL resolvers</a>.</p>
+<p>At the time, I didn't know what my institution's exact OpenURL was, but I was able to figure it out by comparing the syntax and values from other Primo URLs listed on Zotero's page of OpenURL resolvers and because I had just written a lecture on link resolvers. So by comparing OpenURLs and by using the info from my lecture, where I had discussed the components of link resolver URLs, I was able to derive my institution's specific OpenURL (base component plus institutional info), which is:</p>
+<pre><code>https://saalck-uky.primo.exlibrisgroup.com/discovery/openurl?institution=01SAA_UKY&amp;vid=01SAA_UKY:UKY
+</code></pre>
+<p>I added that to Zotero, and it worked well, and then I posted the OpenURL info to Zotero's forum, and they've added it to their OpenURL resolver page. That's pretty cool.</p>
+<p>If anyone who comes across this post and is curious about how to add this info to Zotero, <a href="https://library.sacredheart.edu/zotero/advanced/usingLibraryLookup">another library</a> has created a video on this. The directions cover adding a specific OpenURL to Zotero and on how to use Zotero's Library Lookup functionality.</p>
+<p>My students are awesome.</p>
+</article>
+
 <article id="20210917">
 <h2 id="cold-showers">Cold Showers</h2>
 <h3 id="september-17-2021"><time datetime="2021-09-17">September 17, 2021</time></h3>
