@@ -29,31 +29,6 @@ nav li {
   letter-spacing: 0.1em;
 }
 
-nav li nth-child(1) a {
-  background-color: white;
-  color: red;
-}
-
-nav li:nth-child(2) a {
-  background-color: white;
-  color: fuchsia;
-}
-
-nav li:nth-child(3) a {
-  background-color: white;
-  color: green;
-}
-
-nav li:nth-child(4) a {
-  background-color: white;
-  color: orange;
-}
-
-nav li:nth-child(5) a {
-  background-color: white;
-  color: purple;
-}
-
 nav li a {
   text-decoration: none;
   font-weight: bold;
@@ -137,7 +112,7 @@ p, li {
 }
 
 strong {
-  color: blue;
+  color: crimson;
 }
 
 .bold {
@@ -156,16 +131,17 @@ blockquote p {
 
 pre {
   line-height: 1.5em;
-  background-color: black;
-  color: orange;
+  background-color: lawngreen;
+  color: black;
   padding: 1% 0 1% 1%;
   font-size: 93%;
   overflow: scroll;
 }
 
 p > code {
-  background-color: yellow;
+  background-color: lawngreen;
   color: black;
+  padding: 0 3px 0 3px;
 }
 
 table {
@@ -197,14 +173,14 @@ footer {
 }
 
 footer h2 {
-  font-size: .9em;
+  font-size: 1em;
 }
 
 footer a {
-  font-size: 0.65em;
+  font-size: 1em;
   line-height: 1.5em;
 }
 
 footer p {
-  font-size: 0.65em;
+  font-size: 1em;
 }
