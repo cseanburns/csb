@@ -131,16 +131,16 @@ blockquote p {
 
 pre {
   line-height: 1.5em;
-  background-color: lawngreen;
-  color: black;
-  padding: 1% 0 1% 1%;
-  font-size: 93%;
+  background-color: black;
+  color: white;
+  padding: 1% 0 0 1%;
+  
   overflow: scroll;
 }
 
 p > code {
-  background-color: lawngreen;
-  color: black;
+  background-color: black;
+  color: white;
   padding: 0 3px 0 3px;
 }
 
