@@ -30,7 +30,6 @@ nav li {
 }
 
 nav li a {
-  text-decoration: none;
   font-weight: bold;
 }
 
@@ -112,7 +111,7 @@ p, li {
 }
 
 strong {
-  color: crimson;
+  color: #0000A8;
 }
 
 .bold {
