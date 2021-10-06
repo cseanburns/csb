@@ -67,6 +67,16 @@
       <p id="top"><a href="WWW/index.html#thetext">Back to Top</a></p>
       <hr>
 
+<article id="20211006">
+
+<h2 id="some-automation">Some Automation</h2>
+<h3 id="october-6-2021"><time datetime="2021-10-06">October 6, 2021</time></h3>
+<p>I have an installation of <a href="https://omeka.org/">Omeka</a> that I manage for some colleagues who use it for a course they teach, but it's on a server that can't do email (long story, and I can work around it, but I don't want to). So the challenge has been how to create 50 to 60 accounts for students at a time. But because I used Omeka on a <a href="https://web.archive.org/web/20081101142436/http://archive.poyi.org/">project a long time ago</a> (the site is still running, but the link goes to a 2008 version, which is about the time we launched it), I knew that I could work with the MySQL database it uses. And so a couple of years ago I wrote a small shell script to help me generate SQL statements that I could use to create accounts. This saved having to do it manually from the Omeka admin interface.</p>
+<p>However, I had only partially automated the process. It saved a lot of grunt work and time, but I still had to do some of the work manually (hey, it's not my full time job!). So each semester, I'd tackle a little bit more of that task, and I'm glad to say that I have it fully automated. After clearing out the previous semester's content and accounts in the MySQL database, all I have to do is download the course rosters, which are exported from my university as XLSX files, save those as CSV files, and then run the script. The script then generates three files of SQL statements. One SQL file creates the accounts, the second one updates the tables with salted passwords, and the third adds the salts for the passwords. Then I can source those files after logging into the MySQL database. The code is one of my <a href="https://github.com/cseanburns/sysadmin/tree/master/omeka_amdin">GitHub repos</a>.</p>
+<p>It's an early version of the script, and I'm sure I'll come across a bug or two eventually, but it works perfectly now. The main bug I'll watch for is how it handles variations with student names. I think it's robust against that, but there are times when students have "Jr.", "III", or four or more names, and I'll need to watch for how it handles those. I also want to make it function-based too, which will make it easier to maintain.</p>
+<p>I've had this on the back burner for a while, and it feels good to be pretty much done with it, maintenance and tweaks aside.</p>
+</article>
+
 <article id="20211001">
 <h2 id="openurl">OpenURL</h2>
 <h3 id="october-1-2021"><time datetime="2021-10-01">October 1, 2021</time></h3>
