@@ -3,7 +3,7 @@
 body {
   margin: 1% 5% 0 5%;
   font-family: monospace; 
-  font-size: 11pt;
+  font-size: 0.875rem;
 }
 
 header {
@@ -12,14 +12,6 @@ header {
   padding-left: 10px;
   background-color: #eeeeee;
   color: black;
-}
-
-header h2 {
-  font-size: 1.0em;
-}
-
-header p {
-  font-size: .8em;
 }
 
 nav li {
@@ -33,7 +25,6 @@ nav li a {
   font-weight: bold;
 }
 
-}
 .news {
   border-bottom: 1px solid #000;
   max-width: 700px;
@@ -183,17 +174,4 @@ a:visited {
 footer {
   padding: 10px 5px 10px 0;
   max-width: 700px;
-}
-
-footer h2 {
-  font-size: 1em;
-}
-
-footer a {
-  font-size: 1em;
-  line-height: 1.5em;
-}
-
-footer p {
-  font-size: 1em;
 }
