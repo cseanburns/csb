@@ -163,6 +163,21 @@ tr:hover {
   color: #6c6b6b;
 }
 
+a {
+  color: darkblue;
+  text-decoration-color: darkblue;
+  text-decoration-line: underline
+}
+
+a:hover {
+  text-decoration-line: none;
+}
+
+a:visited {
+  color: darkmagenta;
+  text-decoration-color: darkmagenta;
+}
+
 /* FOOTER */
 
 footer {
