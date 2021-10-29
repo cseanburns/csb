@@ -4,13 +4,14 @@ body {
   margin: 1% 5% 0 5%;
   font-family: monospace; 
   font-size: 0.875rem;
+  background-color: #f4ecd8;
 }
 
 header {
   border: 1px solid #000;
   max-width: 700px;
   padding-left: 10px;
-  background-color: #eeeeee;
+  background-color: #bdbbb6;
   color: black;
 }
 
@@ -85,7 +86,7 @@ nav li a {
   top: 0; 
   margin: 2px 0 2px 0;
   padding: 5px 0 5px 0;
-  background: #eeeeee;
+  background: #bdbbb6;
   text-align: center;
 }
 
@@ -102,7 +103,7 @@ p, li {
 }
 
 strong {
-  color: #0000A8;
+  color: #000000;
 }
 
 .bold {
@@ -121,15 +122,15 @@ blockquote p {
 
 pre {
   line-height: 1.5em;
-  background-color: #0000A8;
-  color: #ffffff;
+  background-color: #000000;
+  color: #ffc000;
   padding: 1% 0 0 1%;
   overflow: scroll;
 }
 
 p > code {
-  background-color: #0000A8;
-  color: white;
+  background-color: #000000;
+  color: #ffc000;
   padding: 0 3px 0 3px;
 }
 
