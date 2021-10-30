@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Oct 2021 12:57:14 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 30 Oct 2021 13:44:16 -0400</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>Groff and Troff</title>
+          <link>https://cseanburns.net/WWW/index.html#groff-and-troff</link>
+          <pubDate>Sat, 30 Oct 2021 13:44:16 -0400</pubDate>
+          <guid>https://cseanburns.net/WWW/index.html#groff-and-troff</guid>
+        </item>
         <item>
           <title>On Forgetting</title>
           <link>https://cseanburns.net/WWW/index.html#on-forgetting</link>

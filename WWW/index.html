@@ -67,6 +67,43 @@
       <p id="top"><a href="WWW/index.html#thetext">Back to Top</a></p>
       <hr>
 
+<article id="20211030">
+<h2 id="groff-and-troff">Groff and Troff</h2>
+<h3 id="october-30-2021"><time datetime="2021-10-30">October 30, 2021</time></h3>
+<p>I started learning <em>LaTeX</em> a long time ago, within the first few years of using Linux. I liked learning <em>LaTeX</em>, but because I wasn't in school or higher education at the time, I mostly used it to create silly documents. When I did go to graduate school, I used it for it's intended purpose, which was to typeset papers. I also used it to markup notes in some classes, like my ANOVA class. As a result, I have ANOVA notes that look very nice and are very readable, I think.</p>
+<p>It must have been around that time that I learned about <code>groff</code>, <code>troff</code>, and <code>nroff</code>, the document typesetting utilities that have been with Unix since the earliest of their days (well, <code>groff</code> is a GNU addition that came much later), but I didn't learn them at the time.</p>
+<p>I already don't remember what motivated me, but I started to learn <code>groff</code> and the <code>groff_mm</code> macro a couple of weeks ago, and I love it. I mailed a letter to a friend the other day, and I used the <code>man 7 groff_mm</code> macro. This is what it kind of looks like:</p>
+<pre><code>\&quot; This is a comment
+\&quot; Set Writer Address
+.WA &quot;Sean&quot;
+Street Address
+City, State ZIP
+.WE
+\&quot; Set Addressee Information
+.IA
+Addressee
+Street Address
+City, State ZIP
+.IE
+\&quot; Set salutation
+.LO SA &quot;Dear Addressee,&quot;
+\&quot; Format letter as Semi-Blocked
+.LT SB
+.P
+This is a paragraph.
+\&quot; Add an italic to a word in another paragraph
+.P This is another
+.I
+paragraph.
+.R
+\&quot; Set closing
+.FC
+\&quot; Insert Signature Line
+.SG
+</code></pre>
+<p>There's a lot more to learn, and I think I'll keep exploring. The system is very Unix-y, and I find that appealing.</p>
+</article>
+
 <article id="20211020">
 <h2 id="on-forgetting">On Forgetting</h2>
 <h3 id="october-20-2021"><time datetime="2021-10-20">October 20, 2021</time></h3>
