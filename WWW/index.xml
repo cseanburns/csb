@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Dec 2021 09:19:25 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 22 Dec 2021 11:33:02 -0600</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>My Friends</title>
+          <link>https://cseanburns.net/WWW/index.html#my-friends</link>
+          <pubDate>Wed, 22 Dec 2021 11:33:02 -0600</pubDate>
+          <guid>https://cseanburns.net/WWW/index.html#my-friends</guid>
+        </item>
         <item>
           <title>What I Would Do</title>
           <link>https://cseanburns.net/WWW/index.html#what-i-would-do</link>
