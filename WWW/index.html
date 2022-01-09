@@ -277,7 +277,7 @@ w !pandoc % -o test.html
     $(basename -s md &quot;$sourcefile&quot;)html
 }
 </code></pre>
-<p>Alternatively, I could do this within ed or Vim. In command mode:</p>
+<p>Alternatively, I could do this within ed(1) or Vim. In command mode:</p>
 <pre><code>w !pandoc -f gfm -t html % &gt; somefile.html
 </code></pre>
 <p>When I exit the editor, I can do <code>makepost somefile.md</code> to generate <strong>somefile.html</strong>. To copy that file from the command line, I use the following function that copies the contents of a text file to my clipboard. Then I can paste that (via Ctrl-v) in Canvas or wherever I want the HTML:</p>
@@ -286,7 +286,7 @@ w !pandoc % -o test.html
 }
 </code></pre>
 <p>To use that, I do <code>clip somefile.html</code>.</p>
-<p>I use <code>/usr/bin/ed</code> quite often. I've found that it's a great editor for writing because I find it easier to simply stay in insert mode longer (i.e., Vim, as a screen editor, faciliates mode switching). I have also found that ed is great for editing because it helps me focus on one line at a time. I'll usually go back to Vim when I want to make some big passes through a work.</p>
+<p>I use <code>/usr/bin/ed</code> quite often. I've found that it's a great editor for writing because I find it easier to simply stay in insert mode longer (i.e., Vim, as a screen editor, faciliates mode switching). I have also found that ed(1) is great for editing because it helps me focus on one line at a time. I'll usually go back to Vim when I want to make some big passes through a work.</p>
 </article>
 
 <article id="20210907">
@@ -3692,30 +3692,30 @@ href="https://en.wikipedia.org/wiki/Ed_(text_editor)">ed</a>.</p>
 </article>
 
 <article id="20190425">
-<h2 id="using-ed-the-standard-text-editor">Using ed, The Standard Text Editor</h2>
+<h2 id="using-ed-the-standard-text-editor">Using ed(1), The Standard Text Editor</h2>
 <h3 id="april-25-2019"><time datetime="2019-04-25">25 April 2019</time></h3>
 
 <p>I started typing this in the <a
-href="https://www.gnu.org/software/ed/ed.html">ed</a> text editor. My go-to
-editor is Vim, but ed can be a respite for even that minimal interface. The
+href="https://www.gnu.org/software/ed/ed.html">ed(1)</a> text editor. My go-to
+editor is Vim, but ed(1) can be a respite for even that minimal interface. The
 problem is that even with editors like Vim, there is still a temptation to mix
 modes -- to edit as I write. Since I find it much more cumbersome to edit with
-ed as I write, using ed places more focus on the writing process.</p>
+ed(1) as I write, using ed(1) places more focus on the writing process.</p>
 
-<p>I particularly enjoy writing in ed with the terminal in full screen mode. It
+<p>I particularly enjoy writing in ed(1) with the terminal in full screen mode. It
 is probably overkill because I already use the minimalist i3 (tiled) window
 manager, but even with i3 and Vim I get distracted by mixing up my modes -- by
-writing and editing concurrently. Ed forces me to write because switching and
-working in different modes in ed (input mode to edit mode) is unlike switching
+writing and editing concurrently. ed(1)forces me to write because switching and
+working in different modes in ed(1) (input mode to edit mode) is unlike switching
 and working in different modes in Vim, and the latter is easier. To edit in
 Vim: press the escape key, move around the screen, make the desired edits,
-repeat, done. In ed, start a new line, press period (.) to enter command mode,
+repeat, done. In ed(1), start a new line, press period (.) to enter command mode,
 print to screen the range of text to edit, make edits using regular
 expressions, repeat, done. This is all a bit cumbersome, and the process
 encourages me to avoid using it.</p>
 
-<p>I do not altogether avoid editing in ed, and a side benefit of editing with
-ed is that it has made me a more advanced Vim user. Even though I have been
+<p>I do not altogether avoid editing in ed(1), and a side benefit of editing with
+ed(1) is that it has made me a more advanced Vim user. Even though I have been
 using Vim for 15 plus years, I am still learning.</p>
 </article>
 
