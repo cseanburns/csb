@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Jan 2022 17:52:28 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 11 Jan 2022 17:47:28 -0600</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>Reading Patterns</title>
+          <link>https://cseanburns.net/WWW/index.html#reading-patterns</link>
+          <pubDate>Tue, 11 Jan 2022 17:47:28 -0600</pubDate>
+          <guid>https://cseanburns.net/WWW/index.html#reading-patterns</guid>
+        </item>
         <item>
           <title>Semantic Line Breaks</title>
           <link>https://cseanburns.net/WWW/index.html#semantic-line-breaks</link>
