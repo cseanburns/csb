@@ -19,6 +19,18 @@ header {
   color: black;
 }
 
+nav {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  margin-top: 10px;
+  max-width: 700px;
+  padding-left: 10px;
+  top: 0; 
+  background: #bdbbb6;
+  text-align: center;
+  border: 1px solid #000;
+}
+
 nav li {
   display: inline;
   list-style: none;
@@ -81,17 +93,6 @@ nav li a {
 
 #thetext {
   max-width: 700px; 
-}
-
-#top {
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  max-width: 700px;
-  top: 0; 
-  margin: 2px 0 2px 0;
-  padding: 5px 0 5px 0;
-  background: #bdbbb6;
-  text-align: center;
 }
 
 article {
