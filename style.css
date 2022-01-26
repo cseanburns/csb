@@ -11,9 +11,10 @@ body {
 
 nav {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   justify-items: center;
   background-color: #950740;
+  padding: 5px 0 5px 0;
 }
 
 nav a {
@@ -41,6 +42,10 @@ section h1 {
 
 section h2, h3, p, dl {
   padding: 0 0.5rem 0 0.5rem;
+}
+
+section p {
+  font-size: 1.1rem;
 }
 
 section ol {
