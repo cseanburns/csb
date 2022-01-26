@@ -62,6 +62,19 @@ p, li {
   font-weight: bold;
 }
 
+#top {
+  position: sticky;
+  top: 0;
+  background-color: #950740;
+  color: #fff;
+  padding: 5px 0 5px 5px;
+}
+
+#top a {
+  background-color: #950740;
+  color: #fff;
+}
+
 blockquote {
     border-left: 1px solid #000;
     padding-left: 0.5em; 
