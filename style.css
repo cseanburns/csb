@@ -29,8 +29,9 @@ header {
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1em;
 }
 
 section h1 {
@@ -43,6 +44,18 @@ section h2, h3, p, dl {
 
 section ol {
   padding-left: 3em; 
+}
+
+#section1 {
+}
+
+#section2 {
+}
+
+#section3 {
+}
+
+#section4 {
 }
 
 footer {
