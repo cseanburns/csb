@@ -39,11 +39,11 @@ section h1 {
 }
 
 section h2, h3, p, dl {
-  padding: 0 0.5em 0 0.5em;
+  padding: 0 0.5rem 0 0.5rem;
 }
 
 section ol {
-  padding-left: 3em; 
+  padding-left: 3rem; 
 }
 
 article {
@@ -55,7 +55,7 @@ h2, h3 {
 }
 
 p, li {
-  line-height: 1.25em;
+  line-height: 1.25rem;
 }
 
 .bold {
@@ -77,16 +77,16 @@ p, li {
 
 blockquote {
     border-left: 1px solid #000;
-    padding-left: 0.5em; 
+    padding-left: 0.5rem; 
 }
 
 blockquote p {
     display: inline;
-    line-height: 1.5em;
+    line-height: 1.5rem;
 }
 
 pre {
-  line-height: 1.25em;
+  line-height: 1.25rem;
   background-color: #1a1a1d;
   color: #ffffff;
   padding: 1% 0 0 1%;

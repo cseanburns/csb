@@ -32,7 +32,7 @@ header {
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1em;
+  gap: 1rem;
 }
 
 section h1 {
@@ -40,23 +40,11 @@ section h1 {
 }
 
 section h2, h3, p, dl {
-  padding: 0 0.5em 0 0.5em;
+  padding: 0 0.5rem 0 0.5rem;
 }
 
 section ol {
-  padding-left: 3em; 
-}
-
-#section1 {
-}
-
-#section2 {
-}
-
-#section3 {
-}
-
-#section4 {
+  padding-left: 3rem; 
 }
 
 footer {
