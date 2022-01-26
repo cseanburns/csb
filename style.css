@@ -1,7 +1,7 @@
 html {
   font-family: arial, sans-serif;
   font-size: 100%;
-  background-color: #adadad;
+  background-color: #ffffff;
 }
 
 body {
@@ -16,12 +16,16 @@ nav {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   justify-items: center;
-  background-color: #2e1114;
+  background-color: #950740;
 }
 
 nav a {
   color: white;
   text-decoration-line: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 header {
@@ -60,6 +64,6 @@ section ol {
 
 footer {
   padding: 10px 5px 10px 0;
-  background-color: #2e1114;
+  background-color: #950740;
   color: white;
 }

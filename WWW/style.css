@@ -1,7 +1,7 @@
 html {
   font-family: arial, sans-serif;
   font-size: 100%;
-  background-color: #adadad;
+  background-color: #ffffff;
 }
 
 body {
@@ -10,18 +10,21 @@ body {
 }
 
 nav {
-  position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   justify-items: center;
-  background-color: #2e1114;
+  background-color: #950740;
 }
 
 nav a {
   color: white;
   text-decoration-line: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 header {
@@ -45,8 +48,49 @@ section ol {
   padding-left: 3em; 
 }
 
+article {
+  border-bottom: 1px dotted #000;
+}
+
+h2, h3 {
+  scroll-margin-top: 3ex; /* places h2 element just below the top of the window */
+}
+
+p, li {
+  line-height: 1.25em;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+blockquote {
+    border-left: 1px solid #000;
+    padding-left: 0.5em; 
+}
+
+blockquote p {
+    display: inline;
+    line-height: 1.5em;
+}
+
+pre {
+  line-height: 1.25em;
+  background-color: #1a1a1d;
+  color: #ffffff;
+  padding: 1% 0 0 1%;
+  overflow: scroll;
+}
+
+p > code {
+  background-color: #1a1a1d;
+  color: #ffffff;
+  padding: 0 3px 0 3px;
+}
+
 footer {
   padding: 10px 5px 10px 0;
-  background-color: #2e1114;
+  background-color: #950740;
   color: white;
 }
+
