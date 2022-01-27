@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/bash
 
-## Generates a RSS entry for the most recent attempts post for ../WWW/index.xml
+## Generates a RSS entry for the most post in ../WWW/index.html
 ## Date: 10/11/2020
 ## Sean Burns
 ## Usage: ./make-rss
@@ -12,37 +12,35 @@ rss_date="$(date -R)"
 echo "$rss_date" > tmp.xml
 
 # Extract title value for the most recent attempts entry from the index.html file.
+# The secong grep is a GNU trick for positive and negative look-ahead and
+# look-back searching. See:
+# https://stackoverflow.com/questions/13242469/how-to-use-sed-grep-to-extract-text-between-two-words
 grep 'h2 id=' ../WWW/index.html | \
   head -n1 | \
-  xmlstarlet sel -t -v '/h2' >> tmp.xml
+  grep -o -P '(?<=>).*(?=<)' >> tmp.xml
 
-# Work this out instead of using xmlstarlet above
-# Right now it breaks something
-#grep 'h2 id=' ../WWW/index.html | \
-#    head -n1 | \
-#    sed -e 's/<h2 id\=\"[a-z]*\-[a-z]*\">//' | \
-#    sed -e 's/<\/h2>//' >> tmp.xml
-
-echo -e "\n" >> tmp.xml
+# Insert a temporary blank line
+printf "\n" >> tmp.xml
 
 # Create a link using the baseurl and the <h2> element from index.html.
-printf 'https://cseanburns.net/WWW/index.html#' >> tmp.xml
+printf "https://cseanburns.net/WWW/index.html#" >> tmp.xml
 grep 'h2 id=' ../WWW/index.html | \
   head -n1 | \
-  xmlstarlet sel -T -t -v '/h2/@id' >> tmp.xml
+  grep -o -P '(?<=").*(?=")' >> tmp.xml
 
-# Copy the date from <lastBuildDate> to a new line in order to create the <pubDate> XML element.
+# Copy the date to a new line in order to create <lastBuildDate> and
+# <pubDate> lines.
 printf '1t4\nw\n' | \
   ed -s tmp.xml
 
-# Delete a blank line. Need to investigate so that this isn't needed. 
+# Delete the blank line.
 printf '3d\nw\n' | \
   ed -s tmp.xml
 
 # Copy link from above to use with the <guid> XML element
 printf '3t4\nw\n' | \
   ed -s tmp.xml
-
+ 
 ## Part 2: Add all of the XML tags for all the values above
 
 sed -i '1 s/^/<lastBuildDate>/' tmp.xml
