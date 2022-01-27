@@ -33,6 +33,18 @@
 <hr>
 <div class="container">
 <section id="thetext">
+
+<article id="20220126">
+<h2 id="new-site-redesign">New Site Redesign</h2>
+<h3 id="january-26-2022"><time datetime="2022-01-26">January 26, 2022</time></h3>
+<p>It was time for a site redesign. I'm teaching a web development course this semester, and working on that course inspired me to do something fun with this site. It may be less attractive than the prior version, but I like the busy-ness of this new look. In fact, the goal for this current version was to mimic, at least on the front page, those old <em>Pennysaver</em>-like ad rags that were fun to skim through. I think those things were fun, in part, because they contained so little white space. They <em>screamed</em> abundance. I plan to add more on the front page to fully realize that look.</p>
+<p>I also updated my automation scripts (see <a href="https://github.com/cseanburns/personal_website/tree/master/scripts">GitHub repo</a>) for this site:</p>
+<p>I updated the <code>WWW-toc-generator</code> script because I have a table of contents in two locations now: the home page and this page. The script therefore needed to insert the most recent entry in both places.</p>
+<p>In the prior version of the <code>make-rss</code> script, I used the <a href="http://xmlstar.sourceforge.net/">xmlstarlet</a> program to parse and extract values for the RSS feed from this <strong>index.html</strong> file. It's bothered me to depend on <code>xmlstarlet</code>. It's a nice program, but I wanted to rely on the fundamentals. So I finally did some digging and figured out a way to use <code>GNU grep</code> to replace it. <code>make-rss</code> is still quite a wonky script, but it's more interesting now, I think.</p>
+<p>Finally, I crossed off a big item of my to-do list. In the past, my <code>make-rss</code> script would simply generate the XML I needed for my <strong>index.xml</strong> (RSS) file and store it in a temporary file. To use that XML, I'd manually insert it into the proper places in <strong>index.xml</strong>. I wrote a script, <code>insert-xml</code> that would automate that process. The script primarily contains <code>ed(1)</code> commands.</p>
+<p>Since I write these posts in separate, markdown files, the last item to accomplish before this site is fully automated is to write a script that will insert new posts in the proper place of this <strong>index.html</strong> file. Once I get around to that, whenever I write a new post, I will be able to type one command to process the site and copy it to the remote server. Almost there!</p>
+</article>
+
 <article id="20220118">
 <h2 id="high-school">High School</h2>
 <h3 id="january-18-2022"><time datetime="2022-01-18">January 18, 2022</time></h3>
@@ -3765,6 +3777,7 @@ even happier.</p>
 <section id="section4">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#new-site-redesign">New Site Redesign</a></li>
 <li><a href="WWW/index.html#high-school">High School</a></li>
 <li><a href="WWW/index.html#reading-patterns">Reading Patterns</a></li>
 <li><a href="WWW/index.html#semantic-line-breaks">Semantic Line Breaks</a></li>
