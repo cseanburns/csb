@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+# Orignal date: 2022-01-26
+
+# Insert contents of the tmp.xml into the RSS file at ../WWW/index.xml 
+
+cat tmp.xml ../WWW/index.xml > new.xml
+ed -s new.xml << EOF
+1m15
+14d
+1,6m15
+8s/^/    /
+10,15s/^/        /
+11,14s/^/  /
+.
+wq
+EOF
+
+rm tmp.xml new.xml
