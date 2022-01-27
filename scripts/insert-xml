@@ -16,4 +16,5 @@ ed -s new.xml << EOF
 wq
 EOF
 
-rm tmp.xml new.xml
+mv new.xml ../WWW/index.xml
+rm tmp.xml 
