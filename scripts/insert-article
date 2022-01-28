@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+# Original date: 2022-01-28
+
+# Add new post into proper place of index.html file
+# Line 36 is always where new posts are added,
+# until I change something above that line
+
+# Usage: ./insert_article post-name.html
+
+post="$1"
+
+sed -i '36 r '$post'' ../WWW/index.html
