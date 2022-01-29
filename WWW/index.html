@@ -34,6 +34,64 @@
 <div class="container">
 <section id="thetext">
 
+<article id="20220128">
+<h2 id="obsession">Obsession</h2>
+<h3 id="january-28-2022"><time datetime="2022-01-28">January 28, 2022</time></h3>
+<p>A couple of days ago I posted here that I had nearly automated the site. If you are reading this post, then it means that I've fully automated the site. I think this is called obsessing. Anyways, now I can write a post in markdown, and then run some commands to process the site and copy it to the remote server.</p>
+<p>My approach has me cracking up a bit because the scripts (all five of them plus two functions stored in my <strong>.bash_functions</strong> file) are pretty ridiculous in some ways. Most of the code draws upon the following:</p>
+<ul>
+<li><code>ed</code></li>
+<li><code>sed</code></li>
+<li>various <code>bash</code> utilities</li>
+</ul>
+<p>All of this would likely have been a lot easier if I had used JavaScript in a lot of places, but I really, really wanted to use ed(1) as much as possible, and I really, really want to avoid using JavaScript on this site. It was tricky, too, because I had to use ed(1) to insert text in the middle of lines. Since ed(1) is a line editor, that's not something it was really meant to do. But I did it, and I learned a lot.</p>
+<p>Here's an example script that primarily uses ed(1) to add additional HTML elements, attributes, and values to an existing HTML file:</p>
+<pre><code>#!/usr/bin/bash
+
+# Original date: 2022-01-28
+
+# After running ``makepost`` (in .bash_functions), which will convert the
+# markdown file into an HTML one. This ed(1) commands below add some additional
+# HTML elements etc to make the post ready for the main index.html file.
+
+# Usage: ./make-article post-name.html
+
+post=&quot;$1&quot;
+
+ed -s &quot;$post&quot; &lt;&lt; &#39;EOF&#39;
+0i
+&lt;article id=&quot;
+.
+1r !date +\%Y\%m\%d
+1,2j
+1a
+&quot;&gt;
+.
+1,2j
+3s/[0-9]\&quot;&gt;/\
+&amp;\
+
+.
+4r !date +\%Y-\%m-\%d
+4a
+&lt;time datetime=&quot;
+.
+6a
+&quot;&gt;
+.
+8s/&lt;\/h3&gt;/&lt;\/time&gt;&lt;\/h3&gt;
+3,8j
+$a
+&lt;/article&gt;
+
+.
+wq
+EOF
+</code></pre>
+<p>The code is super specific to my site, but I could probably generalize it someday as a flat-file blogging application and then make it available as an open source project.</p>
+<p>I'll write a separate page about the scripts and post a link to that page on my homepage, which needs more clutter.</p>
+</article>
+
 <article id="20220126">
 <h2 id="new-site-redesign">New Site Redesign</h2>
 <h3 id="january-26-2022"><time datetime="2022-01-26">January 26, 2022</time></h3>
@@ -3777,6 +3835,7 @@ even happier.</p>
 <section id="section4">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#obsession">Obsession</a></li>
 <li><a href="WWW/index.html#new-site-redesign">New Site Redesign</a></li>
 <li><a href="WWW/index.html#high-school">High School</a></li>
 <li><a href="WWW/index.html#reading-patterns">Reading Patterns</a></li>
