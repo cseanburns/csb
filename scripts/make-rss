@@ -15,6 +15,8 @@ echo "$rss_date" > tmp.xml
 # The secong grep is a GNU trick for positive and negative look-ahead and
 # look-back searching. See:
 # https://stackoverflow.com/questions/13242469/how-to-use-sed-grep-to-extract-text-between-two-words
+# A nice explanation for how lookahead and lookbehind work:
+# https://fabianlee.org/2021/01/09/bash-grep-with-lookbehind-and-lookahead-to-isolate-desired-text/
 grep 'h2 id=' ../WWW/index.html | \
   head -n1 | \
   grep -o -P '(?<=>).*(?=<)' >> tmp.xml
