@@ -2,13 +2,15 @@
 
 # Original date: 2022-01-28
 
-# After running ``makepost`` (in .bash_functions), which will convert the
-# markdown file into an HTML one this ed(1) command below add some additional
-# HTML elements etc to make the post ready for the main index.html file.
+# Run ``makepost`` (in .bash_functions) first.
+# ``makepost`` converts the markdown file into HTML.
+# The ed(1) heredoc below adds additional HTML elements, etc
+# to make the post ready for the WWW/index.html file.
 
 # Usage: ./make_article post-name.html
 
-post="$1"
+base_dir="$HOME/personal_website/WWW/markdown-posts/"
+post="$base_dir/$1"
 
 ed -s "$post" << 'EOF'
 0i

@@ -2,9 +2,12 @@
 
 # Orignal date: 2022-01-26
 
-# Insert contents of the tmp.xml into the RSS file at ../WWW/index.xml 
+# Insert contents of the tmp.xml
+# into the RSS file at ../WWW/index.xml 
 
-cat tmp.xml ../WWW/index.xml > new.xml
+target_file="$HOME/personal_website/WWW/index.xml"
+
+cat tmp.xml "${target_file}" > new.xml
 ed -s new.xml << EOF
 1m15
 14d
@@ -16,5 +19,5 @@ ed -s new.xml << EOF
 wq
 EOF
 
-mv new.xml ../WWW/index.xml
+mv new.xml "${target_file}" 
 rm tmp.xml 
