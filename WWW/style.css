@@ -53,6 +53,10 @@ section ol {
   padding-left: 3rem; 
 }
 
+section {
+  font-size: 1.1rem;
+}
+
 article {
   border-bottom: 1px dotted #000;
 }
@@ -64,6 +68,10 @@ article p {
 #section4 {
   border-radius: 25px;
   background-color: #e5e4e2;
+}
+
+#about {
+  font-size: 1.1rem;
 }
 
 h2, h3 {
@@ -90,6 +98,7 @@ blockquote p {
 
 pre {
   line-height: 1.25rem;
+  font-size: 1.1rem;
   background-color: #1a1a1d;
   color: #ffffff;
   padding: 1% 0 0 1%;
