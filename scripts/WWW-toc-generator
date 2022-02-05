@@ -23,7 +23,7 @@ grep "h2 id=" "${thetext_file}" | head -n1 | \
 
 # Add the new <li> entry to the top of the table of contents in ../index.html
 # and ../WWW/index.html 
-sed -i "/ol reversed/ a $(cat tmp.html)" "${homepage}"../index.html
+sed -i "/ol reversed/ a $(cat tmp.html)" "${homepage}"
 sed -i "/ol reversed/ a $(cat tmp.html)" "${thetext_file}" 
 
 # Cleanup

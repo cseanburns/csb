@@ -75,10 +75,11 @@ makepost () {
 
 # Usage: ./make_article post-name.html
 
-base_dir="$HOME/personal_website/WWW/markdown-posts/"
-post="$base_dir/$1"
+base_dir="$HOME/workspace/personal_website/WWW/markdown-posts/"
+cd "${base_dir}" || exit
+post="$1"
 
-ed -s "$post" &lt;&lt; 'EOF'
+ed -s "${base_dir}"/"${post}" &lt;&lt; 'EOF'
 0i
 &lt;article id="
 .
@@ -125,9 +126,9 @@ EOF
 
 # Usage: ./insert_article post-name.html
 
-base_dir="$HOME/personal_website/WWW/markdown-posts/"
+base_dir="$HOME/workspace/personal_website/WWW/markdown-posts/"
 post="${base_dir}/$1"
-target_file="$HOME/personal_website/WWW/index.html"
+target_file="$HOME/workspace/personal_website/WWW/index.html"
 
 sed -i "36 r ${post}" "${target_file}" 
 </code></pre>

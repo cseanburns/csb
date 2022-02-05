@@ -9,10 +9,11 @@
 
 # Usage: ./make_article post-name.html
 
-base_dir="$HOME/personal_website/WWW/markdown-posts/"
-post="$base_dir/$1"
+base_dir="$HOME/workspace/personal_website/WWW/markdown-posts/"
+cd "${base_dir}" || exit
+post="$1"
 
-ed -s "$post" << 'EOF'
+ed -s "${base_dir}"/"${post}" << 'EOF'
 0i
 <article id="
 .

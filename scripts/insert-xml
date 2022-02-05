@@ -5,7 +5,7 @@
 # Insert contents of the tmp.xml
 # into the RSS file at ../WWW/index.xml 
 
-target_file="$HOME/personal_website/WWW/index.xml"
+target_file="$HOME/workspace/personal_website/WWW/index.xml"
 
 cat tmp.xml "${target_file}" > new.xml
 ed -s new.xml << EOF

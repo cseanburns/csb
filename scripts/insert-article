@@ -8,8 +8,8 @@
 
 # Usage: ./insert_article post-name.html
 
-base_dir="$HOME/personal_website/WWW/markdown-posts/"
+base_dir="$HOME/workspace/personal_website/WWW/markdown-posts/"
 post="${base_dir}/$1"
-target_file="$HOME/personal_website/WWW/index.html"
+target_file="$HOME/workspace/personal_website/WWW/index.html"
 
 sed -i "36 r ${post}" "${target_file}" 
