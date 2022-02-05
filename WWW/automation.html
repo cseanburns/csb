@@ -148,12 +148,13 @@ sed -i "36 r ${post}" "${target_file}"
 #
 # Usage: ./WWW-toc-generator
    
-html_file="../WWW/index.html"
+homepage="$HOME/workspace/personal_website/index.html"
+thetext_file="$HOME/workspace/personal_website/WWW/index.html"
 
 # Get the title of the most recent The Text entry. Substitute the original
 # HTML tags for the ones needed for the &lt;li&gt; line in the table of contents
 # in ../index.html
-grep "h2 id=" "${html_file}" | head -n1 | \
+grep "h2 id=" "${thetext_file}" | head -n1 | \
     sed -e 's/h2 id/a href/' -e\
     's/h2/a/' -e\
     's/\"/\"WWW\/index.html\#/' -e\
@@ -162,8 +163,8 @@ grep "h2 id=" "${html_file}" | head -n1 | \
 
 # Add the new &lt;li&gt; entry to the top of the table of contents in ../index.html
 # and ../WWW/index.html 
-sed -i "/ol reversed/ a $(cat tmp.html)" ../index.html
-sed -i "/ol reversed/ a $(cat tmp.html)" ../WWW/index.html
+sed -i "/ol reversed/ a $(cat tmp.html)" "${homepage}"
+sed -i "/ol reversed/ a $(cat tmp.html)" "${thetext_file}"
 
 # Cleanup
 trash tmp.html
