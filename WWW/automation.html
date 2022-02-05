@@ -44,10 +44,10 @@
 <div class="automation">
 <section> 
 <h2>makepost</h2>
-<p>I use markdown to write posts for <em>The Text</em>, so I wrote
-a small <code>bash</code> function to convert the markdown to HTML. I
-keep this function in my <strong>.bash_functions</strong> file. It looks
-like this:</p>
+
+<p>I use markdown to write posts for <em>The Text</em>. To convert
+markdown to HTML, I wrote a small <code>bash</code> function that I keep
+in my <strong>.bash_functions</strong> file. It looks like this:</p>
 
 <pre><code>
 # convert markdown to HTML without smart formatting
@@ -61,7 +61,7 @@ makepost () {
 
 <section> 
 <h2>make-article</h2>
-<p>Then I need to process the new HTML file. For each post I add some special <em>id</em> attributes and some extra elements. Here I mostly use a <em>heredoc</em> with <code>ed</code> commands:</p>
+<p>After I create the HTML file above, I need to process this file. For each file (or post) I add some special <em>id</em> attributes and some extra elements. To add these things, I mostly use a <em>heredoc</em> with <code>ed</code> commands:</p>
 
 <pre><code>
 #!/usr/bin/bash
@@ -113,7 +113,7 @@ EOF
 
 <section> 
 <h2>insert-article</h2>
-<p>The above post is done, but it's still a standalone file, and I need to add it to the main <strong>index.html</strong> file. It also needs to be placed in a certain position of that file, which is exactly 36 lines in. To do that, I use <code>sed</code>:</p>
+<p>Even though the above script modifies the HTML file, it's still a standalone file, and I need to add it to the main <strong>index.html</strong> file. It also needs to be placed in a certain position of that file, which is exactly 36 lines in. I don't like having that hard-coded, but I'll fix that later. Anyway, to insert the post into its place, I use <code>sed</code>:</p>
 
 <pre><code>
 #!/usr/bin/bash
@@ -136,7 +136,7 @@ sed -i "36 r ${post}" "${target_file}"
 
 <section> 
 <h2>WWW-toc-generator</h2>
-<p>Now that the new post has been inserted into its proper place in that file, I can process it to create an entry for the table of contents that I have for the <em>The Text</em> posts. I do that with <code>grep</code> and <code>sed</code>:</p>
+<p>Now that the new post has been inserted into its proper place in that file, I parse it to create an entry for the table of contents that I have for the <em>The Text</em> posts. I do that with <code>grep</code> and <code>sed</code>:</p>
 
 <pre><code>
 #!/usr/bin/bash
@@ -174,7 +174,7 @@ trash tmp.html
  
 <section> 
 <h2>make-rss</h2>
-<p>I started using RSS at some point, and of course I didn't want to manually write a RSS entry for each new post. This is my script for that. One of the cool things about writing this script was that I got to learn about <em>lookahead</em> and <em>lookbehind</em> assertions using GNU <code>grep</code>. The documentation for these is in the <code>man pcre</code> page. This script is the wildest of them all:</p>
+<p>I started using RSS at some point, and of course I didn't want to manually write a RSS entry for each new post. This is my script for that. One of the cool things about writing this script was that I got to learn about <em>lookahead</em> and <em>lookbehind</em> assertions using GNU <code>grep</code>. The documentation for these is in the <code>man pcre</code> page. This script is the wildest of them all, and for the first time in my life, it makes me think perl might be fun to learn.</p>
 
 <pre><code>
 #!/usr/bin/bash
