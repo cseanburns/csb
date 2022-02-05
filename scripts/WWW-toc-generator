@@ -13,7 +13,7 @@ html_file="../WWW/index.html"
 # Get the title of the most recent The Text entry. Substitute the original
 # HTML tags for the ones needed for the <li> line in the table of contents
 # in ../index.html
-grep "h2 id=" "$html_file" | head -n1 | \
+grep "h2 id=" "${html_file}" | head -n1 | \
     sed -e 's/h2 id/a href/' -e\
     's/h2/a/' -e\
     's/\"/\"WWW\/index.html\#/' -e\

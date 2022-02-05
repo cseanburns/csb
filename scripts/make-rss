@@ -9,7 +9,7 @@
 
 # Create a date for the <lastBuildDate> xml element.
 rss_date="$(date -R)"
-echo "$rss_date" > tmp.xml
+echo "${rss_date}" > tmp.xml
 
 # Extract title value for the most recent attempts entry from the index.html file.
 # The secong grep is a GNU trick for positive and negative look-ahead and
