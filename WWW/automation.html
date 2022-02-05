@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Site Automation w/ Scripts</title>
+    <link rel="apple-touch-icon" sizes="144x144" href="images/f144.png">
+    <link rel="icon" type="image/png" sizes="114x114" href="images/f114.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="images/f72.png">
+    <link rel="icon" type="image/png" href="images/f16.png">
+    <base href="https://cseanburns.net">
+  </head>
+
+  <body>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="WWW/index.html">The Text</a>
+      <a href="WWW/bookshelf.html">Bookshelf</a>
+      <a href="WWW/about.html">About</a>
+      <a href="wiki/cv">wiki/CV</a>
+    </nav>
+
+<header>
+<p>Twitter: <a href="https://twitter.com/cseanburns">@cseanburns</a>
+| GitHub: <a href="https://github.com/cseanburns">@cseanburns</a>
+| ORCID: <a href="https://orcid.org/0000-0001-8695-3643">0000-0001-8695-3643</a>
+| The Text RSS <a href="https://cseanburns.net/WWW/index.xml">feed</a></p>
+</header>
+
+<section id="automation">
+<h1>Site Automation w/ Scripts</h1>
+<hr>
+
+<p>This site started off with a pretty simple design and site structure, but then I started posting to the <em>The Text</em> on a regular basis, and that led me to want to automate that process. Then things got complicated, and that led me to want to complicate things more.</p>
+
+<p>So to automate posting to <em>The Text</em>, I ended up writing a series of shell scripts that are kind of funny to me. They're funny because they're just a hodgepodge of utilities and other oddities. I could have written these scripts in a more coherent way, if I had worked on that, but I was playing around with <code>ed</code> a lot, so I thought, why not use <code>ed</code> a lot in the scripts. But also <code>sed</code>, etc.</p>
+
+<p>The scripts below are subject to change, but I keep <a href="https://github.com/cseanburns/personal_website/tree/master/scripts">updated copies on GitHub</a>. In the meantime, here's my automation process:</p>
+
+<p>I use markdown to write posts for <em>The Text</em>, so I wrote a small <code>bash</code> function to convert the markdown to HTML. I keep this function in my <strong>.bash_functions</strong> file. It looks like this:</p>
+
+<pre><code>
+# convert markdown to HTML without smart formatting
+makepost () {
+  local sourcefile="$1"
+  pandoc -f gfm -t html "$sourcefile" &gt; \
+    $(basename -s md "$sourcefile")html
+}
+</code></pre>
+
+<p>Then I need to process the new HTML file. For each post I add some special <em>id</em> attributes and some extra elements. Here I mostly use a <em>heredoc</em> with <code>ed</code> commands:</p>
+
+<pre><code>
+#!/usr/bin/bash
+
+# Original date: 2022-01-28
+
+# Run ``makepost`` (in .bash_functions) first.
+# ``makepost`` converts the markdown file into HTML.
+# The ed(1) heredoc below adds additional HTML elements, etc
+# to make the post ready for the WWW/index.html file.
+
+# Usage: ./make_article post-name.html
+
+base_dir="$HOME/personal_website/WWW/markdown-posts/"
+post="$base_dir/$1"
+
+ed -s "$post" &lt;&lt; 'EOF'
+0i
+&lt;article id="
+.
+1r !date +\%Y\%m\%d
+1,2j
+1a
+"&gt;
+.
+1,2j
+3s/[0-9]\"&gt;/\
+&amp;\
+
+.
+4r !date +\%Y-\%m-\%d
+4a
+&lt;time datetime="
+.
+6a
+"&gt;
+.
+8s/&lt;\/h3&gt;/&lt;\/time&gt;&lt;\/h3&gt;
+3,8j
+$a
+&lt;/article&gt;
+
+.
+wq
+EOF
+</code></pre>
+
+<p>The above post is done, but it's still a standalone file, and I need to add it to the main <strong>index.html</strong> file. It also needs to be placed in a certain position of that file, which is exactly 36 lines in. To do that, I use <code>sed</code>:</p>
+
+<pre><code>
+#!/usr/bin/bash
+
+# Original date: 2022-01-28
+
+# Add new post into proper place of index.html file
+# Line 36 is always where new posts are added,
+# until I change something above that line
+
+# Usage: ./insert_article post-name.html
+
+base_dir="$HOME/personal_website/WWW/markdown-posts/"
+post="${base_dir}/$1"
+target_file="$HOME/personal_website/WWW/index.html"
+
+sed -i "36 r ${post}" "${target_file}" 
+</code></pre>
+
+<p>Now that the new post has been inserted into its proper place in that file, I can process it to create an entry for the table of contents that I have for the <em>The Text</em> posts. I do that with <code>grep</code> and <code>sed</code>:</p>
+
+<pre><code>
+#!/usr/bin/bash
+
+# Original Date: 2020-03-27
+#
+# This script creates a &lt;li&gt; item from the most recent The Text post in
+# ../WWW/index.html and inserts the item into the table of contents on
+# ../index.html.
+#
+# Usage: ./WWW-toc-generator
+   
+html_file="../WWW/index.html"
+
+# Get the title of the most recent The Text entry. Substitute the original
+# HTML tags for the ones needed for the &lt;li&gt; line in the table of contents
+# in ../index.html
+grep "h2 id=" "${html_file}" | head -n1 | \
+    sed -e 's/h2 id/a href/' -e\
+    's/h2/a/' -e\
+    's/\"/\"WWW\/index.html\#/' -e\
+    's/^/\&lt;li\&gt;/' -e\
+    's/$/\&lt;\/li\&gt;/' &gt; tmp.html
+
+# Add the new &lt;li&gt; entry to the top of the table of contents in ../index.html
+# and ../WWW/index.html 
+sed -i "/ol reversed/ a $(cat tmp.html)" ../index.html
+sed -i "/ol reversed/ a $(cat tmp.html)" ../WWW/index.html
+
+# Cleanup
+trash tmp.html
+</code></pre>
+
+<p>I started using RSS at some point, and of course I didn't want to manually write a RSS entry for each new post. This is my script for that. One of the cool things about writing this script was that I got to learn about <em>lookahead</em> and <em>lookbehind</em> assertions using GNU <code>grep</code>. The documentation for these is in the <code>man pcre</code> page. This script is the wildest of them all:</p>
+
+<pre><code>
+#!/usr/bin/bash
+
+## Generates a RSS entry for the most post in ../WWW/index.html
+## Date: 10/11/2020
+## Sean Burns
+## Usage: ./make-rss
+
+## Part 1: Get values
+
+# Create a date for the &lt;lastBuildDate&gt; xml element.
+rss_date="$(date -R)"
+echo "${rss_date}" &gt; tmp.xml
+
+# Extract title value for the most recent attempts entry from the index.html file.
+# The secong grep is a GNU trick for positive and negative look-ahead and
+# look-back searching. See:
+# https://stackoverflow.com/questions/13242469/how-to-use-sed-grep-to-extract-text-between-two-words
+# A nice explanation for how lookahead and lookbehind work:
+# https://fabianlee.org/2021/01/09/bash-grep-with-lookbehind-and-lookahead-to-isolate-desired-text/
+grep 'h2 id=' ../WWW/index.html | \
+  head -n1 | \
+  grep -o -P '(?&lt;=&gt;).*(?=&lt;)' &gt;&gt; tmp.xml
+
+# Insert a temporary blank line
+printf "\n" &gt;&gt; tmp.xml
+
+# Create a link using the baseurl and the &lt;h2&gt; element from index.html.
+printf "https://cseanburns.net/WWW/index.html#" &gt;&gt; tmp.xml
+grep 'h2 id=' ../WWW/index.html | \
+  head -n1 | \
+  grep -o -P '(?&lt;=").*(?=")' &gt;&gt; tmp.xml
+
+# Copy the date to a new line in order to create &lt;lastBuildDate&gt; and
+# &lt;pubDate&gt; lines.
+printf '1t4\nw\n' | \
+  ed -s tmp.xml
+
+# Delete the blank line.
+printf '3d\nw\n' | \
+  ed -s tmp.xml
+
+# Copy link from above to use with the &lt;guid&gt; XML element
+printf '3t4\nw\n' | \
+  ed -s tmp.xml
+ 
+## Part 2: Add all of the XML tags for all the values above
+
+sed -i '1 s/^/&lt;lastBuildDate&gt;/' tmp.xml
+sed -i '1 s/$/&lt;\/lastBuildDate&gt;/' tmp.xml
+
+sed -i '2 s/^/&lt;title&gt;/' tmp.xml
+sed -i '2 s/$/&lt;\/title&gt;/' tmp.xml
+
+sed -i '3 s/^/&lt;link&gt;/' tmp.xml
+sed -i '3 s/$/&lt;\/link&gt;/' tmp.xml
+
+sed -i '4 s/^/&lt;pubDate&gt;/' tmp.xml
+sed -i '4 s/$/&lt;\/pubDate&gt;/' tmp.xml
+
+sed -i '5 s/^/&lt;guid&gt;/' tmp.xml
+sed -i '5 s/$/&lt;\/guid&gt;/' tmp.xml
+
+# Add the opening and closing &lt;item&gt; XML elements for the new entry block
+ed -s tmp.xml &lt;&lt; EOF
+2i
+&lt;item&gt;
+.
+6a
+&lt;/item&gt;
+.
+wq
+EOF
+</code></pre>
+
+<p>The above script only generates the XML entry. It doesn't insert that entry into the <strong>index.xml</strong> file. I have this script for that:</p>
+
+<pre><code>
+#!/usr/bin/bash
+
+# Orignal date: 2022-01-26
+
+# Insert contents of the tmp.xml
+# into the RSS file at ../WWW/index.xml 
+
+target_file="$HOME/personal_website/WWW/index.xml"
+
+cat tmp.xml "${target_file}" &gt; new.xml
+ed -s new.xml &lt;&lt; EOF
+1m15
+14d
+1,6m15
+8s/^/    /
+10,15s/^/        /
+11,14s/^/  /
+.
+wq
+EOF
+
+mv new.xml "${target_file}" 
+rm tmp.xml 
+</code></pre>
+
+<p>Finally, I can deploy the updated files to the server:</p>
+
+<pre><code>
+# deploy updated pages to server
+sendpost () {
+  local basedir="/home/sean/workspace/personal_website"
+  local main_directory="SERVER:~/public_html/"
+  local sub_directory="SERVER:~/public_html/WWW/"
+  scp "$basedir/index.html" "$main_directory"
+  scp "$basedir/WWW/index.html" "$sub_directory"
+  scp "$basedir/WWW/index.xml" "$sub_directory"
+}
+</code></pre>
+
+<p>I'll continue to bake these scripts until they're more polished, but for now, it does the job, and I'm  good with that.</p>
+
+</section>
+
+<footer>
+
+<p>Unless otherwise attributed, the views, thoughts, and opinions expressed on this site belong solely to the site owner, C. Sean Burns, and not to the site owner's employer or any other related entity.</p>
+
+<p>Copyright by C. Sean Burns, 2019. Last modified: <time datetime="2022-02-04">2022-02-04</time>.</p>
+
+</footer>
+
+</body>
+</html>
