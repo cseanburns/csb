@@ -42,7 +42,7 @@
 <hr>
 
 <div class="automation">
-<article> 
+<section> 
 <h2>makepost</h2>
 <p>I use markdown to write posts for <em>The Text</em>, so I wrote
 a small <code>bash</code> function to convert the markdown to HTML. I
@@ -57,9 +57,9 @@ makepost () {
     $(basename -s md "$sourcefile")html
 }
 </code></pre>
-</article>
+</section>
 
-<article> 
+<section> 
 <h2>make-article</h2>
 <p>Then I need to process the new HTML file. For each post I add some special <em>id</em> attributes and some extra elements. Here I mostly use a <em>heredoc</em> with <code>ed</code> commands:</p>
 
@@ -108,9 +108,9 @@ $a
 wq
 EOF
 </code></pre>
-</article>
+</section>
 
-<article> 
+<section> 
 <h2>insert-article</h2>
 <p>The above post is done, but it's still a standalone file, and I need to add it to the main <strong>index.html</strong> file. It also needs to be placed in a certain position of that file, which is exactly 36 lines in. To do that, I use <code>sed</code>:</p>
 
@@ -131,9 +131,9 @@ target_file="$HOME/personal_website/WWW/index.html"
 
 sed -i "36 r ${post}" "${target_file}" 
 </code></pre>
-</article>
+</section>
 
-<article> 
+<section> 
 <h2>WWW-toc-generator</h2>
 <p>Now that the new post has been inserted into its proper place in that file, I can process it to create an entry for the table of contents that I have for the <em>The Text</em> posts. I do that with <code>grep</code> and <code>sed</code>:</p>
 
@@ -168,9 +168,9 @@ sed -i "/ol reversed/ a $(cat tmp.html)" ../WWW/index.html
 # Cleanup
 trash tmp.html
 </code></pre>
-</article>
+</section>
  
-<article> 
+<section> 
 <h2>make-rss</h2>
 <p>I started using RSS at some point, and of course I didn't want to manually write a RSS entry for each new post. This is my script for that. One of the cool things about writing this script was that I got to learn about <em>lookahead</em> and <em>lookbehind</em> assertions using GNU <code>grep</code>. The documentation for these is in the <code>man pcre</code> page. This script is the wildest of them all:</p>
 
@@ -248,9 +248,9 @@ ed -s tmp.xml &lt;&lt; EOF
 wq
 EOF
 </code></pre>
-</article>
+</section>
 
-<article> 
+<section> 
 <h2>insert-xml</h2>
 <p>The above script only generates the XML entry. It doesn't insert that entry into the <strong>index.xml</strong> file. I have this script for that:</p>
 
@@ -279,16 +279,16 @@ EOF
 mv new.xml "${target_file}" 
 rm tmp.xml 
 </code></pre>
-</article>
+</section>
 
-<article> 
+<section> 
 <h2>sendpost</h2>
 <p>Finally, I can deploy the updated files to the server:</p>
 
 <pre><code>
 # deploy updated pages to server
 sendpost () {
-  local basedir="/home/sean/workspace/personal_website"
+  local basedir="$HOME/workspace/personal_website"
   local main_directory="SERVER:~/public_html/"
   local sub_directory="SERVER:~/public_html/WWW/"
   scp "$basedir/index.html" "$main_directory"
@@ -296,7 +296,7 @@ sendpost () {
   scp "$basedir/WWW/index.xml" "$sub_directory"
 }
 </code></pre>
-</article>
+</section>
 </div>
 
 <p>I'll continue to bake these scripts until they're more polished, but for now, it does the job, and I'm  good with that.</p>
