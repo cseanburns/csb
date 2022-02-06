@@ -61,7 +61,7 @@ makepost () {
 
 <section> 
 <h2>make-article</h2>
-<p>After I create the HTML file above, I need to process this file. For each file (or post) I add some special <em>id</em> attributes and some extra elements. To add these things, I mostly use a <em>heredoc</em> with <code>ed</code> commands:</p>
+<p>After I create the HTML file using the <code>makepost</code> function, I need to process this file. For each file (post) I add some special <em>id</em> attributes and some extra HTML elements. To add these things, I mostly use a <em>heredoc</em> with <code>ed</code> commands:</p>
 
 <pre><code>
 #!/usr/bin/bash
@@ -174,7 +174,8 @@ trash tmp.html
  
 <section> 
 <h2>make-rss</h2>
-<p>I started using RSS at some point, and of course I didn't want to manually write a RSS entry for each new post. This is my script for that. One of the cool things about writing this script was that I got to learn about <em>lookahead</em> and <em>lookbehind</em> assertions using GNU <code>grep</code>. The documentation for these is in the <code>man pcre</code> page. This script is the wildest of them all, and for the first time in my life, it makes me think perl might be fun to learn.</p>
+<p>I added a RSS feed at some point, and of course I didn't want to manually write RSS entries for each new post. This is my script to automate that process instead.</p>
+<p>One of the cool things about writing this script was that I got to learn about <em>lookahead</em> and <em>lookbehind</em> assertions using GNU <code>grep</code>. The documentation for these is in the <code>man pcre</code> page. This script is the wildest of them all, and for the first time in my life, it makes me think perl might be fun to learn.</p>
 
 <pre><code>
 #!/usr/bin/bash
@@ -254,7 +255,7 @@ EOF
 
 <section> 
 <h2>insert-xml</h2>
-<p>The above script only generates the XML entry. It doesn't insert that entry into the <strong>index.xml</strong> file. I have this script for that:</p>
+<p>The above script only generates the XML entry. It doesn't insert that entry into the <strong>index.xml</strong> file for the RSS feed. I have this script for that:</p>
 
 <pre><code>
 #!/usr/bin/bash
