@@ -8,8 +8,8 @@
 #
 # Usage: ./WWW-toc-generator
    
-homepage="$HOME/workspace/personal_website/index.html"
-thetext_file="$HOME/workspace/personal_website/WWW/index.html"
+readonly homepage="$HOME/workspace/personal_website/index.html"
+readonly thetext_file="$HOME/workspace/personal_website/WWW/index.html"
 
 # Get the title of the most recent The Text entry. Substitute the original
 # HTML tags for the ones needed for the <li> line in the table of contents

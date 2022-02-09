@@ -9,7 +9,7 @@
 
 # Usage: ./make_article post-name.html
 
-base_dir="$HOME/workspace/personal_website/WWW/markdown-posts/"
+readonly base_dir="$HOME/workspace/personal_website/WWW/markdown-posts/"
 cd "${base_dir}" || exit
 post="$1"
 
