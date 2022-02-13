@@ -5,9 +5,9 @@ This directory contains several scripts that I use to process the site and copy 
 Eventually I'll compose a wrapper script that includes all of them. But these scripts are still fairly fresh or freshly revised, and I should work out any bugs before I take it to that level. Until then, run the scripts in the order below:
 
 ```
-makepost ../WWW/markdown/post-name.md
-make-article ../WWW/markdown/post-name.html
-insert-article ../WWW/markdown/post-name.html
+makepost post-name.md
+make-article post-name.html
+insert-article post-name.html
 WWW-toc-generator
 make-rss
 insert-xml
