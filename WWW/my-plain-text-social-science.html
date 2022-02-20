@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>My Plain Way to Do Plain Text Social Science</title>
+    <link rel="apple-touch-icon" sizes="144x144" href="images/f144.png">
+    <link rel="icon" type="image/png" sizes="114x114" href="images/f114.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="images/f72.png">
+    <link rel="icon" type="image/png" href="images/f16.png">
+    <base href="https://cseanburns.net">
+  </head>
+
+  <body>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="WWW/index.html">The Text</a>
+      <a href="WWW/bookshelf.html">Bookshelf</a>
+      <a href="WWW/about.html">About</a>
+      <a href="wiki/cv">wiki/CV</a>
+    </nav>
+
+<header>
+<p>Twitter: <a href="https://twitter.com/cseanburns">@cseanburns</a>
+| GitHub: <a href="https://github.com/cseanburns">@cseanburns</a>
+| ORCID: <a href="https://orcid.org/0000-0001-8695-3643">0000-0001-8695-3643</a>
+| The Text RSS <a href="https://cseanburns.net/WWW/index.xml">feed</a></p>
+</header>
+
+<section id="research-workflow">
+<h1>My Plain Way to Do Plain Text Social Science</h1>
+<hr>
+
+<p>A research workflow is a fairly personalized process.
+People use classes of tools to essentially accomplish
+the same kind of work.
+We use statistical applications, programming languages,
+and qualitative data analysis software
+to prepare and analyze data.
+Digital lab notebooks and like
+are used to keep notes, logs,
+and reflections about data and the research environment.
+Some people use bibliographic reference managers
+to build and curate reference libraries,
+and then those can be integrated into word processing
+programs to write papers.</p>
+
+<p>People also use different instances of tools
+within each class of tool.
+For example, some may use Python, R, SPSS, STATA, or
+something else for statistical work.
+And a host of specific software exists for all of 
+the other classes of tools listed above.
+My guess is that people adopt
+these tools often based on their
+first encounter with them.
+Perhaps they were in graduate school and
+were introduced to SPSS in their first statistics course,
+and so that's what they use now
+because that's what they know.
+The surrounding research culture
+matters in these things.</p>
+
+<p>I think because my first experiences with 
+a computer were via the command line
+(DOS from the mid 1980s to the early 1990s),
+and perhaps because of some quirks in the way
+I prefer to interact with the world,
+I favor command line approaches
+to most of the ways that I use a computer.
+I use command line text editors and
+a command line email client for a lot of my work
+but also a command line web browser
+and other utilities for random other things.
+Basically, I want to work in the terminal
+as much as possible.</p>
+
+<p>For instance, I want to use the
+<a href="https://www.vim.org/">Vim</a> text editor
+for most of my writing;
+however, I use
+<a href="https://en.wikipedia.org/wiki/Ed_(text_editor">ed(1)</a>
+a lot nowadays too,
+but mostly for getting the word down and for revising.
+I also like to use R and Python on the command line or in Vim.
+I like RStudio, but I prefer to convert
+Vim into an R IDE using some Vim plugins.
+Since these kinds of tools are all text-centered,
+they integrate really well with version control
+systems, like Git.
+(To be fair, applications like RStudio
+follow an Engineering model,
+but I still prefer a text only interface
+as much as possible.)</p>
+
+<p>Using these kinds of tools can
+cause some friction when I collaborate with others.
+When collaborating, I cannot write papers (completely) in Vim
+because most of the people in the world around me
+do not use a text editor to write their papers.
+Instead, they use word processor software
+and other graphical applications.
+And since I want to work with these people,
+that means I need to conform to their ways
+rather than ask them to conform to mine.
+People know the basics of using a word processor,
+but my way requires effort and time to acquire.
+And I have yet to meet the person who wants to work
+with me so badly as to attempt to try my way
+of doing analysis and writing academic papers!</p>
+
+<p><a href="https://kieranhealy.org/">Kieran Healy</a>
+wrote a nice discussion about this issue and
+the utility of plain text in the research workflow called
+<a href="https://plain-text.co/">
+The Plain Person's Guide To Plain Text Social Science</a>.
+He created descriptive terms for my scenario above:
+<em>The Office Model</em> and <em>The Engineering Model</em>.
+With the Office model,
+word processors function as the main writing and
+writing management tool, and
+in the Engineering model,
+the text editor takes primacy.
+There are implications with each approach.
+For example, if someone uses
+Word, LibreOffice Writer, or Google Docs,
+then they might rely on tracked changes and
+file naming schemes to manage drafts and versions of a manuscript.
+And these might be shared via a barrage of emails
+or synced via a shared Dropbox folder.
+If someone uses a text editor, though,
+then it might make sense to use Git and 
+a remote repository, like GitHub or GitLab,
+to manage versions.
+This latter approach might help with
+reproducibility issues.
+I'd encourage readers of this page
+to read his discussion of the issue.</p>
+
+<p>Aside from all these implications,
+when I get to work solo,
+I get to work in a way that feels really good to me
+because I get to use the tools I favor.
+That doesn't mean I can avoid all graphical
+or non-terminal applications and workflows,
+but I can avoid a lot of it
+as well as much of the Office model way of doing things.
+I still need a graphical web browser.
+I like and use 
+<a href="https://zotero.org/">Zotero</a>
+to manage bibliographic references and to store notes.
+Although I can read modern PDF
+and word processor documents
+on the command line,
+it's not an ideal way to read them,
+especially ones that contain
+figures, plots, and other graphics.
+So that means that I regularly use
+a graphical PDF reader, Firefox, and LibreOffice
+to read such files.</p>
+
+<p>When I work solo, oftentimes I start to write in ed(1).
+It's not just the standard editor,
+it's the grandparent of all distraction free editors.
+As a line editor, it's also really nice for editing and revising text.
+Eventually Vim takes over,
+but I'll revert to ed(1) to revise my writing.
+Vim and ed(1) share quite a few commands
+since the former descends from the latter.
+But Vim is a more modern tool,
+and as such,
+I use a variety of plugins
+to extend its functionality.
+The Vim plugins that I currently use to manage
+my research workflow and my academic writing include:</p>
+
+<dl>
+
+  <dt><a href="https://github.com/jalvesaq/Nvim-R">Nvim-R</a></dt>
+  <dd>Nvim-R turns Vim into an IDE for R.</dd>
+
+  <dt><a href="https://github.com/gaalcaras/ncm-R">ncm-R</a></dt>
+  <dd>ncm-R adds R autocompletion.</dd>
+
+  <dt><a href="https://github.com/airblade/vim-gutter">vim-gutter</a></dt>
+  <dd>vim-gutter adds Git functionality. I don't use it on my laptop because it
+  causes noticeable delays, but it works well on my desktop.</dd>
+
+  <dt><a href="https://github.com/godlygeek/tabular">tabular</a></dt>
+  <dd>tabular filters and aligns text, especially markdown formatted tables.</dd>
+
+  <dt><a href="https://github.com/jalvesaq/zotcite">zotcite</a></dt>
+  <dd>zotcite inserts notes and citations and generates bibliographies from
+  Zotero.</dd>
+
+  <dt><a href="https://github.com/junegunn/goyo.vim">goyo.vim</a></dt>
+  <dd>goyo.vim converts Vim into an even more distraction free writing
+  interface. It centers the text on the screen and adds padding around
+  the text.</dd>
+
+  <dt><a href="https://github.com/junegunn/limelight.vim">limelight.vim</a></dt>
+  <dd>limelight.vim highlights the current line and supplements the goyo.vim plugin.</dd>
+
+  <dt><a href="https://github.com/reedes/vim-pencil">vim-pencil</a></dt>
+  <dd>vim-pencil enhances the markdown experience.</dd>
+
+  <dt><a href="https://github.com/reedes/vim-wordy">vim-wordy</a></dt>
+  <dd>vim-wordy checks word usage problems.</dd>
+
+  <dt><a href="https://github.com/Ron89/thesaurus_query.vim">thesaurus_query.vim</a></dt>
+  <dd>thesaurus_query.vim provides a thesaurus.</dd>
+
+</dl>
+
+<p>The Vim and R integration (nvim-R) took some adjustment
+when I started using it,
+and I still use a cheatsheet to help,
+but that's mostly because I don't use it every day.
+Getting the <em>zotcite</em> plugin
+figured out and configured
+took a couple of hours,
+but it was worth it.</p>
+
+<p>With these tools in place,
+I can write papers in markdown,
+maybe insert code and results directly from R
+if I'm using R,
+and add Zotero keys for inserting references
+using the zotcite plugin.
+When I'm ready,
+I can render the markdown file,
+generate the bibliography and in-text citations,
+and so forth
+using <a href="https://pandoc.org/">pandoc</a>.</p>
+
+<p>This is what a manuscript might look like in Vim
+using zotcite, markdown,
+and some <a href="https://yaml.org/">YAML</a>.</p>
+
+<pre>
+<code>
+---
+title: Title of paper
+author:
+  - First Name Last Name
+keywords: [keyword1, keyword2]
+abstract: |
+  This is the abstract.
+
+  This is the second paragraph in the abstract.
+published: true
+---
+
+# Introduction
+
+This is a sample manuscript. To add a **parenthetical name and year as an
+in-text citation**, surround the Zotero key with square brackets
+[@author_name].
+
+# Methods
+
+To add a **parenthetical name (year) as an in-text citation**, simply insert
+the Zotero key @author_name.
+</code>
+</pre>
+
+<p>To convert markdown with citations using APA format,
+I use the Bash script below.
+It took me a bit of time to figure out how to default to the APA format.
+Turns out all I had to do was point to an <em>apa.csl</em> file
+(<a href="https://citationstyles.org/">Citation Style Language</a>),
+which fortunately is part of the desktop Zotero installation.</p> 
+
+<pre>
+<code>
+#!/usr/bin/bash
+
+makeapa () {
+  local sourcefile="$1"
+  local zotfile="${HOME}/.vim/plugged/zotcite/python3/zotref.py"
+  local apafile="${HOME}/Zotero/styles/apa.csl"
+  pandoc "${sourcefile}" -s -o \
+    $(basename -s md "$sourcefile")html -F\
+    "${zotfile}" --citeproc --csl "${apafile}"
+}
+</code>
+</pre>
+
+<p>With this setup, I can keep my data, my manuscript, my code, and whatever else I need in a single directory that's versioned with Git.</p>
+
+<p>This all being stated, I have yet to be able to use such a <em>pure</em> Engineering model workflow. But maybe one day soon.</p>
+
+</section>
+
+<footer>
+
+<p>Unless otherwise attributed, the views, thoughts, and opinions expressed on
+this site belong solely to the site owner, C. Sean Burns, and not to the site
+owner's employer or any other related entity.</p>
+
+<p>Copyright by C. Sean Burns, 2019. Last modified:
+<time datetime="2022-02-19">2022-02-19</time>.</p>
+
+</footer>
+
+</body>
+</html>
