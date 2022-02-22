@@ -15,7 +15,8 @@ nav {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   justify-items: center;
   background-color: #950740;
-  padding: 5px 0 5px 0;
+  padding: 7px 0 7px 0;
+  font-size: 1.4em;
 }
 
 nav a {
