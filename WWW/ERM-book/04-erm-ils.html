@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The ERM and the ILS - Electronic Resource Management</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro-erm-libraries.html"><strong aria-hidden="true">1.</strong> Electronic Resource Management in Libraries</a></li><li class="chapter-item expanded "><a href="p1-er-librarians.html"><strong aria-hidden="true">2.</strong> Part 1: Electronic Resource Librarians</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01-the-erm-librarian.html"><strong aria-hidden="true">2.1.</strong> The ERM Librarian</a></li><li class="chapter-item expanded "><a href="02-desperately-seeking-erm-librarian.html"><strong aria-hidden="true">2.2.</strong> Desparately Seeking an ERM Librarian</a></li><li class="chapter-item expanded "><a href="03-constant-disruption.html"><strong aria-hidden="true">2.3.</strong> Constant Disruption</a></li></ol></li><li class="chapter-item expanded "><a href="p2-technologies-standards.html"><strong aria-hidden="true">3.</strong> Part 2: Technologies and Standards</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="04-erm-ils.html" class="active"><strong aria-hidden="true">3.1.</strong> The ERM and the ILS</a></li><li class="chapter-item expanded "><a href="05-standardizing-erm.html"><strong aria-hidden="true">3.2.</strong> Standardizing ERM</a></li><li class="chapter-item expanded "><a href="06-interoperability.html"><strong aria-hidden="true">3.3.</strong> Interoperability</a></li><li class="chapter-item expanded "><a href="07-electronic-access.html"><strong aria-hidden="true">3.4.</strong> Electronic Access</a></li></ol></li><li class="chapter-item expanded "><a href="p3-processes-contexts.html"><strong aria-hidden="true">4.</strong> Part 3: Processes and Contexts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="08-workflow.html"><strong aria-hidden="true">4.1.</strong> The ERM Workflow</a></li><li class="chapter-item expanded "><a href="09-markets-economics.html"><strong aria-hidden="true">4.2.</strong> Markets and Economics of Electronic Resources</a></li><li class="chapter-item expanded "><a href="10-licensing-basics.html"><strong aria-hidden="true">4.3.</strong> Licensing Basics</a></li><li class="chapter-item expanded "><a href="11-licensing-and-negotiating.html"><strong aria-hidden="true">4.4.</strong> Licensing and Negotiating</a></li><li class="chapter-item expanded "><a href="12-acquisitions-collection-development.html"><strong aria-hidden="true">4.5.</strong> Acquisitions and Collection and Development</a></li></ol></li><li class="chapter-item expanded "><a href="p4-patrons.html"><strong aria-hidden="true">5.</strong> Part 4: Patrons</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="13-user-experience.html"><strong aria-hidden="true">5.1.</strong> User Experience</a></li><li class="chapter-item expanded "><a href="14-evaluation-statistics.html"><strong aria-hidden="true">5.2.</strong> Evaluation and Measurement</a></li><li class="chapter-item expanded "><a href="15-security-privacy.html"><strong aria-hidden="true">5.3.</strong> Security and Privacy</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Electronic Resource Management</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="erm-and-ils"><a class="header" href="#erm-and-ils">ERM and ILS</a></h1>
+<p>This week we will be learning about ERM and ILS software. First off, what are these?</p>
+<h2 id="ils-the-integrated-library-system"><a class="header" href="#ils-the-integrated-library-system">ILS, the Integrated Library System</a></h2>
+<p><strong>ILS</strong> is an acronym for an <strong>integrated library system</strong>. We've also been introduced to the term <strong>library services platform (LSP)</strong>. Our discussions of the ILS this week are relevant to those types of an ILS that may also be an LSP, which are increasingly more common these days.</p>
+<p>Regardless, each of you are familiar with an ILS/LSP from a user perspective and some of you are familiar with these systems from a librarian perspective. In your lifetimes, you have used an OPAC (online public access catalog) or a <strong>discovery</strong> interface, you have likely conducted a search for a serial, and you have most definitely borrowed a print book from a library. These are the kinds of kinds of functions that an ILS provides for library users.</p>
+<p>An ILS also provides an administrative interface that librarians use to manage those processes. This interface includes functions to manage acquisitions, cataloging, circulation, and serials, and the OPAC, where the interfaces to these in the ILS are referred to as <strong>modules</strong>. You should read about these modules in the open source ILS called <a href="http://docs.evergreen-ils.org/">Evergreen</a> by sifting through some of Evergreen's documentation.</p>
+<p>Hence, the ILS generally provides two separate interfaces:</p>
+<ul>
+<li>an <strong>administrative interface</strong> to be used by librarians to manage the tasks per the modules</li>
+<li>a <strong>public interface</strong> for patrons to access the works of a library</li>
+</ul>
+<p>Tasks that an ILS provides include modules that cover:</p>
+<p>Administrative:</p>
+<ul>
+<li><a href="http://docs.evergreen-ils.org/reorg/3.2/acquisitions/">Acquisitions</a></li>
+<li><a href="http://docs.evergreen-ils.org/reorg/3.2/cataloging/">Cataloging</a></li>
+<li><a href="http://docs.evergreen-ils.org/reorg/3.2/circulation/">Circulation</a></li>
+<li><a href="http://docs.evergreen-ils.org/reorg/3.2/serials/">Serials</a></li>
+</ul>
+<p>Public:</p>
+<ul>
+<li><a href="http://docs.evergreen-ils.org/reorg/3.2/opac/">OPAC</a> interface</li>
+<li><a href="https://scholarship.rollins.edu/as_facpub/138/">Discovery</a> interface </li>
+</ul>
+<p>An ILS is therefore, as Stephen Salmon stated in 1975, a non-traditional way of doing traditional things, such as &quot;acquisitions, cataloging, and circulation,&quot; but which is now fairly traditional! Some librarians who would work with an ILS include:</p>
+<ol>
+<li>Reference: who use the OPAC or discovery interface</li>
+<li>Cataloging and Technical Services: who use the cataloging and serial's modules and perhaps also the acquisition's module</li>
+<li>Circulation: who would use the circulation module</li>
+</ol>
+<ul>
+<li>Interlibrary Loan department: if such a department exists because the library is big enough to have one, they would also use the circulation module</li>
+</ul>
+<p>All of those librarians might use multiple modules of the ILS, but might predominately use one module more frequently than others in their day-to-day work. For example, when I worked in reference at a small academic library, I used the Millennium ILS to check out books to users, to fix borrowing issues, and to search for works in the OPAC. Later I used the cataloging module when I moved to technical services. However, what a librarian uses frequently depends on the organizational structure of a library. As our reading by Miller, Sharp, and Jones (2014) show, the rise in electronic resources has vastly influenced the ways librarians structure their organizations, whose structure was originally informed by the dictates of a &quot;print-based world&quot;. In those structures, librarians may either hold positions where their work is streamlined and focused on one task, such as collections, or on multiple tasks.</p>
+<p>To learn more about ILS, and current iterations that we now call LSPs, see the following links:</p>
+<ul>
+<li>Product: <a href="https://knowledge.exlibrisgroup.com/campusM/Product_Documentation/Custom_Integrations_(Sample)/Ex_Libris_Alma_and_Primo_(Library)">Ex Libres Alma and Primo</a></li>
+<li>Product: <a href="https://www.iii.com/products/encore/">Encore</a></li>
+<li>Product: <a href="https://www.ebsco.com/products/ebsco-discovery-service">EBSCO Discovery Service</a></li>
+<li>Resource: <a href="https://journals.ala.org/ltr/issue/download/509/259">Library Services Platforms: A Maturing Genre of Products / Marshall Breeding</a></li>
+<li>Resource: <a href="https://guides.cuny.edu/LSPImplementation">A broad overview of the migration the Aleph ILS to the Alma LSP</a></li>
+</ul>
+<h2 id="erm-the-electronic-resource-management-system"><a class="header" href="#erm-the-electronic-resource-management-system">ERM, the Electronic Resource Management System</a></h2>
+<p>ERM is an acronym for <em>electronic resource management</em> system. Its function is born out of the need to manage digital assets and provide users with access to those assets. An ERM may or may not be integrated, as one product, with a library's ILS software. ERM software is primarily a behind the scenes software. Similar to the ILS, ERM software is generally divided into modules that focus the librarian's work on particular duties and allow librarians to create work flows and knowledge management systems. In an ERM like the open source <a href="http://coral-erm.org/modules/">CORAL system</a>, the modules includes:</p>
+<ul>
+<li><a href="http://coral-erm.org/resources/">Resources</a>: a module &quot;provides a robust database for tracking data related to your organization's resources ...&quot; and &quot;provides a customizable workflow tool that can be used to track, assign, and complete workflow tasks.&quot;</li>
+<li><a href="http://coral-erm.org/licensing/">Licensing</a>: a module for a &quot;flexible document management system&quot; that provides options to manage licensing agreements and to automate parts of the process.</li>
+<li><a href="http://coral-erm.org/organizations/">Organizations</a>: this module acts as a type of advanced directory to manage the various organizations that impact or are involved in the management of electronic resources, including &quot;publishers, vendors, consortia, and more.&quot;</li>
+<li><a href="http://coral-erm.org/usage-statistics/">Usage Statistics</a>: a module providing librarians with usage statistics of digital assets by platform and by publisher. Supports COUNTER and SUSHI. We'll cover COUNTER and SUSHI later in the semester, but as a preamble:
+<ul>
+<li><a href="https://www.projectcounter.org/about/counter-for-libraries/">COUNTER</a> &quot;sets and maintains the standard known as the Code of Practice and ensures that publishers and vendors submit annually to a rigorous independent audit&quot;, and,</li>
+<li><a href="https://www.niso.org/standards-committees/sushi">SUSHI</a> is a type of protocol to automate collecting data on usage statistics.</li>
+</ul>
+</li>
+<li><a href="http://coral-erm.org/management/">Management</a>: this module provides a document management system aimed at &quot;storing documents, such as policies, processes, and procedures, related to the overall management of electronic resources&quot;.</li>
+</ul>
+<p>In our readings this week, we have three articles that speak to ILS and ERM software as well as the relationship between the two, and an additional article that offers organizational context. The first reading, by Miller, Sharp, and Jones (2014) provides some context by describing a case study (the literature review is also helpful) that shows how electronic resources have impacted organizational structure, job titles, budgets, and more. The article by Anderson (2014) lists and describes various ERM solutions. As I mentioned in a previous lecture, electronic resources is a fast moving area, and even though this article (or chapter) is a handful of years old, some products are no longer available, have been merged into others, or sold off. Still, the article is helpful in describing:</p>
+<ul>
+<li>the role of vendors in the ERM market</li>
+<li>the importance and rise of open source ERMs as well as the mark that various homegrown solutions have made</li>
+<li>related software that plays a role, including:
+<ul>
+<li>Discovery: federated and indexed</li>
+<li>Integrated library systems</li>
+<li>Interlibrary loan software</li>
+<li>Link resolvers</li>
+<li>Ticket management software</li>
+</ul>
+</li>
+</ul>
+<p>In the article by Wang &amp; Dawes (2012), the authors describe the &quot;next generation integrated library system&quot;, which should meet a few criteria that include the ability to merge ILS software with ERM software, the latter having come into creation because of the lack of development among ILS systems, which were stagnating and not responding to changing work flows and work formats (i.e., print to electronic) at the time. But around the time the article was published, more ILS and ERM software began moving to the cloud, as was common among many software markets. This changed the game, too, because it placed a bigger burden on software companies to maintain development of the work.</p>
+<p>Despite the technical aspects of these solutions, at its basic, both ILS and ERM software solutions focus on managing assets (books, serials, <a href="https://archives.yale.edu/subjects/33488">realia</a>, etc) so that librarians can organize and users and librarians can retrieve them. There's no requirement to use any solution offered by a library vendor, and that's the point of the Wilson (2011) article, which shows how regular software can be used to function as a homegrown solution for creating and implementing an ERM work flow.</p>
+<p>In this week's forum, I'll introduce you to the Evergreen ILS and to the CORAL ERM solution and to its various modules and how they work. Be sure to open the transcript for this lecture in order to visit the links, especially the documentation. I ask that you log into these two services using the instructions on their sites. This will help you get some hands-on experience with them and also demystify what each do.</p>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<p>Anderson, E. K. (2014). Chapter 4: Electronic Resource Management Systems and Related Products. Library Technology Reports, 50(3), 30–42. Retrieved from <a href="https://journals.ala.org/index.php/ltr/article/view/4491">https://journals.ala.org/index.php/ltr/article/view/4491</a></p>
+<p>Hosburgh, N. (2016). Approaching discovery as part of a library service platform. In K. Varnum (Ed.), Exploring Discovery: The Front Door to your Library’s Licensed and Digitized Content. (pp. 15-25). Chicago, IL: ALA Editions. <a href="https://scholarship.rollins.edu/as_facpub/138/">https://scholarship.rollins.edu/as_facpub/138/</a></p>
+<p>Miller, L. N., Sharp, D., &amp; Jones, W. (2014). 70% and Climbing: E-Resources, Books, and Library Restructuring. Collection Management, 39(2–3), 110–126. <a href="https://doi.org/10.1080/01462679.2014.901200">https://doi.org/10.1080/01462679.2014.901200</a></p>
+<p>Salmon, S. R. (1975). Library automation systems. New York: Marcel Dekker.</p>
+<p>Wang, Y., &amp; Dawes, T. A. (2012). The Next Generation Integrated Library System: A Promise Fulfilled? Information Technology and Libraries, 31(3), 76–84. <a href="https://doi.org/10.6017/ital.v31i3.1914">https://doi.org/10.6017/ital.v31i3.1914</a></p>
+<p>Wilson, K. (2011). Beyond Library Software: New Tools for Electronic Resources Management. Serials Review, 37(4), 294–304.
+<a href="https://doi.org/10.1080/00987913.2011.10765404">https://doi.org/10.1080/00987913.2011.10765404</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="p2-technologies-standards.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="05-standardizing-erm.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="p2-technologies-standards.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="05-standardizing-erm.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

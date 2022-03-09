@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Constant Disruption - Electronic Resource Management</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro-erm-libraries.html"><strong aria-hidden="true">1.</strong> Electronic Resource Management in Libraries</a></li><li class="chapter-item expanded "><a href="p1-er-librarians.html"><strong aria-hidden="true">2.</strong> Part 1: Electronic Resource Librarians</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01-the-erm-librarian.html"><strong aria-hidden="true">2.1.</strong> The ERM Librarian</a></li><li class="chapter-item expanded "><a href="02-desperately-seeking-erm-librarian.html"><strong aria-hidden="true">2.2.</strong> Desparately Seeking an ERM Librarian</a></li><li class="chapter-item expanded "><a href="03-constant-disruption.html" class="active"><strong aria-hidden="true">2.3.</strong> Constant Disruption</a></li></ol></li><li class="chapter-item expanded "><a href="p2-technologies-standards.html"><strong aria-hidden="true">3.</strong> Part 2: Technologies and Standards</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="04-erm-ils.html"><strong aria-hidden="true">3.1.</strong> The ERM and the ILS</a></li><li class="chapter-item expanded "><a href="05-standardizing-erm.html"><strong aria-hidden="true">3.2.</strong> Standardizing ERM</a></li><li class="chapter-item expanded "><a href="06-interoperability.html"><strong aria-hidden="true">3.3.</strong> Interoperability</a></li><li class="chapter-item expanded "><a href="07-electronic-access.html"><strong aria-hidden="true">3.4.</strong> Electronic Access</a></li></ol></li><li class="chapter-item expanded "><a href="p3-processes-contexts.html"><strong aria-hidden="true">4.</strong> Part 3: Processes and Contexts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="08-workflow.html"><strong aria-hidden="true">4.1.</strong> The ERM Workflow</a></li><li class="chapter-item expanded "><a href="09-markets-economics.html"><strong aria-hidden="true">4.2.</strong> Markets and Economics of Electronic Resources</a></li><li class="chapter-item expanded "><a href="10-licensing-basics.html"><strong aria-hidden="true">4.3.</strong> Licensing Basics</a></li><li class="chapter-item expanded "><a href="11-licensing-and-negotiating.html"><strong aria-hidden="true">4.4.</strong> Licensing and Negotiating</a></li><li class="chapter-item expanded "><a href="12-acquisitions-collection-development.html"><strong aria-hidden="true">4.5.</strong> Acquisitions and Collection and Development</a></li></ol></li><li class="chapter-item expanded "><a href="p4-patrons.html"><strong aria-hidden="true">5.</strong> Part 4: Patrons</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="13-user-experience.html"><strong aria-hidden="true">5.1.</strong> User Experience</a></li><li class="chapter-item expanded "><a href="14-evaluation-statistics.html"><strong aria-hidden="true">5.2.</strong> Evaluation and Measurement</a></li><li class="chapter-item expanded "><a href="15-security-privacy.html"><strong aria-hidden="true">5.3.</strong> Security and Privacy</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Electronic Resource Management</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="constant-disruption"><a class="header" href="#constant-disruption">Constant Disruption</a></h1>
+<p>The first listed reading we have this week is by Marshall Breeding. Astute observers will note Breeding is one of the first cited in the two additional readings we have this week. We will read more from Breeding later in the semester, but I bring him up now because he oversees a website titled <a href="https://librarytechnology.org/">Library Technology Guides</a> at librarytechnology.org. If you would like to keep abreast of the recent news on the electronic resource industry, Breeding's website should be at the top of your list.</p>
+<p>Breeding's <em>What is ERM?</em> article is a good one to start the week. He provides a nice outline of the various components of electronic resources, and he provides some historical context for those components.</p>
+<p>One caveat, though: while all the articles on our list this week are focused on academic libraries, the terms, concepts, and processes described in these articles are relevant to other areas of librarianship such as public librarianship, school media librarianship, and so forth. Differences in processes and in some details will arise due to organizational or other contextual differences among these library types. Organizationally, for example, public libraries are connected to municipalities, county governments, state libraries, and to public library consortia. This presents unique organizational challenges, and it highlights the fact that municipal, county, or state laws will define how some processes must be handled and who must handle them. The same is true for public schools, and in such cases, school boards and school districts will likely be involved. Contextual differences that shape electronic resource management include user communities. An academic library serves its students, faculty, staff, and perhaps the public to some degree. However, a public library serves its local community. Such differences will shape ERM workflows and other choices, like the chosen vendors and publishers. For example, academic libraries will require more scholarly sources, and public libraries provide more ebooks and audiobooks and less e-journals. This means that you might find services like OverDrive/Libby offered by public libraries but not in academic, and that you will rarely find more advanced scholarly resources in public libraries. These differences in needs, due to different communities, will change the emphasis on some aspects of the ERM work flow.</p>
+<p>Another reason why our reading lists lean toward the academic setting is because academic librarians publish more about electronic resources and public librarians publish very little. For example, I conducted a search in <strong>LISTA</strong> with the following query, which returned just three results.</p>
+<pre><code>(DE &quot;ELECTRONIC information resources management&quot;)  AND  (DE &quot;PUBLIC libraries&quot;)
+</code></pre>
+<p>It does not get much better if I expand the query to include some additional thesauri terms. This query returns only six results:</p>
+<pre><code>(DE &quot;PUBLIC librarians&quot; OR DE &quot;PUBLIC librarianship&quot; OR DE &quot;PUBLIC libraries&quot;) AND  (DE &quot;ELECTRONIC resource librarians&quot; OR  DE &quot;ELECTRONIC information resources management&quot;)
+</code></pre>
+<p>However, if I focus that query on academic libraries, then the results increase substantially. The following query returns 51 hits:</p>
+<pre><code>(DE &quot;ELECTRONIC information resources management&quot;)  AND  (DE &quot;ACADEMIC libraries&quot;)
+</code></pre>
+<p>And this query returns 82 results:</p>
+<pre><code>(DE &quot;ACADEMIC librarians&quot; OR DE &quot;ACADEMIC librarianship&quot; OR DE &quot;ACADEMIC libraries&quot;) AND  (DE &quot;ELECTRONIC resource librarians&quot; OR  DE &quot;ELECTRONIC information resources management&quot;)
+</code></pre>
+<p>We could continue to explore <strong>LISTA</strong> or other databases for relevant material, but you get the picture. There simply isn't a lot of material on electronic resource management from the public library perspective, and a quick search in the school media sphere mirrors this issue, too. The following search return zero results:</p>
+<pre><code>(DE &quot;LIBRARY media specialists&quot;)  AND  (DE &quot;ELECTRONIC information resources management&quot;)
+</code></pre>
+<p>If you go into public librarianship or school media librarianship, I'd encourage you to publish on electronic resources. It would greatly benefit your peers and those of us who teach courses like this.</p>
+<p>Back to Breeding. I understand some terms Breeding uses and the technologies he describes might be foreign right now. I am not rehashing or summarizing these articles here because I want to discuss them on the boards, but let me spend some time providing some additional background information and highlighting some things to look for in these three articles.</p>
+<p>Librarians started to migrate to electronic resource management in the 1970s. Breeding mentions this. This is when it happened en masse, but the seeds were planted well before this. I published <a href="https://muse.jhu.edu/article/534487">a paper</a> a few years ago that provides a historical account of the first library automation project, which took place in the 1930s with <a href="https://en.wikipedia.org/wiki/Punched_card">Hollerith punched cards</a>. By the 1960s, the primary use of computers was to manage circulation, and in the late 60s and early 70s, library automation focused on managing patron records. In the early 1970s, tools became available to manage and search bibliographic records. Hence, computers were first used mostly to manage the circulation of books, then patron records, which allowed patrons to check out works electronically, and then we had the ability to search for works. If a work of interest was located using these tools, the work could be retrieved from the shelves or ordered via interlibrary loan by snail mail. Full text search came much later with the introduction of better storage media, like CD-ROMs, and saw major growth with the introduction of the web in the early 1990s, which at its heart is nothing more than a big document retrieval system.</p>
+<p>In the process of migrating from print to electronic, all sorts of things had to change, but all that change rests on the major premise of librarianship: <em>to provide access by organizing information in order to retrieve information</em>. Although you may have often heard that libraries are ancient entities, libraries and librarianship as we understand them today did not modernize until the 1920s and 1930s. It was then that some in the profession began to hone in on the major complexities and challenges, social and technological, involved in <strong>organizing</strong> and <strong>retrieving</strong> information in order to provide <strong>access</strong>. The challenges with organizing and retrieving information that they identified nearly 100 years ago were indeed major and problematic, but fortuitous, because it gave rise to what we now called <em>library science</em>, the rigorous study of libraries, librarianship, collections, users, communities, and so forth.</p>
+<p>Yet consider when those people laid the groundwork for a library science nearly 100 years ago, librarians only managed print and the primary means of accessing print collections was through a physical building. With the introduction of computer systems in the 1960s and with better networking technologies in the 1980s and 1990s, issues with organizing and retrieving information grew exponentially, and indeed, this exponential increase in complex issues launched an entire new field, what we now call <em>information science</em>.</p>
+<p>All right, back to the ground level. Let me highlight some key terms in Breeding's article. They include:</p>
+<ul>
+<li>Finding aids</li>
+<li>Knowledge bases</li>
+<li>OpenURL link resolvers</li>
+<li>ERM systems</li>
+<li>Library service platforms</li>
+<li>Integrated library systems (ILS)</li>
+</ul>
+<p>Unless you already have some solid experience with these things, and even after reading Breeding's nice article, these terms may still be abstract. So, this week, you have two major tasks:</p>
+<ol>
+<li>Find real, practical examples. Pick one or two of the above terms and see how they work in practice. Then come back here and tell us what you found. Use the articles to help you locate actual products or examples.</li>
+<li>Locate how these terms appear in either the Cote and Ostergaard (2017) article or the Fu and Carmen (2015). Note other terms that may appear in those two articles and comment on the role they play in the ERM work flow and the migration process.</li>
+</ol>
+<p>As you work on this task, I ask that you pay attention to the emphasis on work flow. The idea of a <strong>work flow</strong> is a major theme in this course because it is a major part of electronic resource management. We'll come back to the idea over and over this semester. Also, as we read the Cote and Ostergaard and the Fu and Carmen articles, we will learn about how migrating to new systems is a major, expensive, and time-consuming project, and one of the great things about these two articles is that it documents the work flows used in these migrations. If you become involved some day in a migration process, you should use articles like these to assist you and to help you make evidence-based decisions about what you need to accomplish. And like what these authors have done, I'd encourage you to document and publish what you learned. In the print era, there were some cases where librarians had to migrate to new systems, too. For example, some research libraries in the U.S. started by classifying collections using the Dewey Decimal Classification system, but then began to convert to the Library of Congress Classification system. This was no small task, but it was also not that common. Today, migration is big business in the library world (see Breeding's site for other examples) because the technology changes fast and because there are a number of competing electronic resource management products that librarians can choose for their communities, which they might be inclined to do if the migration provides an advantage to their users, communities, and themselves.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="02-desperately-seeking-erm-librarian.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="p2-technologies-standards.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="02-desperately-seeking-erm-librarian.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="p2-technologies-standards.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

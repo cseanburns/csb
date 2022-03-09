@@ -1,0 +1,981 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Electronic Resource Management</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro-erm-libraries.html"><strong aria-hidden="true">1.</strong> Electronic Resource Management in Libraries</a></li><li class="chapter-item expanded "><a href="p1-er-librarians.html"><strong aria-hidden="true">2.</strong> Part 1: Electronic Resource Librarians</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01-the-erm-librarian.html"><strong aria-hidden="true">2.1.</strong> The ERM Librarian</a></li><li class="chapter-item expanded "><a href="02-desperately-seeking-erm-librarian.html"><strong aria-hidden="true">2.2.</strong> Desparately Seeking an ERM Librarian</a></li><li class="chapter-item expanded "><a href="03-constant-disruption.html"><strong aria-hidden="true">2.3.</strong> Constant Disruption</a></li></ol></li><li class="chapter-item expanded "><a href="p2-technologies-standards.html"><strong aria-hidden="true">3.</strong> Part 2: Technologies and Standards</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="04-erm-ils.html"><strong aria-hidden="true">3.1.</strong> The ERM and the ILS</a></li><li class="chapter-item expanded "><a href="05-standardizing-erm.html"><strong aria-hidden="true">3.2.</strong> Standardizing ERM</a></li><li class="chapter-item expanded "><a href="06-interoperability.html"><strong aria-hidden="true">3.3.</strong> Interoperability</a></li><li class="chapter-item expanded "><a href="07-electronic-access.html"><strong aria-hidden="true">3.4.</strong> Electronic Access</a></li></ol></li><li class="chapter-item expanded "><a href="p3-processes-contexts.html"><strong aria-hidden="true">4.</strong> Part 3: Processes and Contexts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="08-workflow.html"><strong aria-hidden="true">4.1.</strong> The ERM Workflow</a></li><li class="chapter-item expanded "><a href="09-markets-economics.html"><strong aria-hidden="true">4.2.</strong> Markets and Economics of Electronic Resources</a></li><li class="chapter-item expanded "><a href="10-licensing-basics.html"><strong aria-hidden="true">4.3.</strong> Licensing Basics</a></li><li class="chapter-item expanded "><a href="11-licensing-and-negotiating.html"><strong aria-hidden="true">4.4.</strong> Licensing and Negotiating</a></li><li class="chapter-item expanded "><a href="12-acquisitions-collection-development.html"><strong aria-hidden="true">4.5.</strong> Acquisitions and Collection and Development</a></li></ol></li><li class="chapter-item expanded "><a href="p4-patrons.html"><strong aria-hidden="true">5.</strong> Part 4: Patrons</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="13-user-experience.html"><strong aria-hidden="true">5.1.</strong> User Experience</a></li><li class="chapter-item expanded "><a href="14-evaluation-statistics.html"><strong aria-hidden="true">5.2.</strong> Evaluation and Measurement</a></li><li class="chapter-item expanded "><a href="15-security-privacy.html"><strong aria-hidden="true">5.3.</strong> Security and Privacy</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Electronic Resource Management</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="electronic-resource-management-in-libraries"><a class="header" href="#electronic-resource-management-in-libraries">Electronic Resource Management in Libraries</a></h1>
+<p>Author: C. Sean Burns<br />
+Date: 2022-03-08<br />
+Email: <a href="sean.burns@uky.edu">sean.burns@uky.edu</a><br />
+Twitter: <a href="https://twitter.com/cseanburns">@cseanburns</a></p>
+<p>This short book is based on a series of lectures for my course on electronic resource management.</p>
+<p>Note: more to come</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="electronic-resource-librarians"><a class="header" href="#electronic-resource-librarians">Electronic Resource Librarians</a></h1>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>Electronic resource librarians ...</p>
+<p>Note: Write part introduction.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-erm-librarian"><a class="header" href="#the-erm-librarian">The ERM Librarian</a></h1>
+<h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
+<p>In this week's lecture, I will:</p>
+<ul>
+<li>provide examples of electronic resources,</li>
+<li>frame the topic of this course, and</li>
+<li>discuss the readings.</li>
+</ul>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<p>This semester we're learning about electronic resources and about how to manage them. We begin first by outlining the kinds of things that are electronic resources. <a href="http://www.worldcat.org/oclc/940697515">Karin Wikoff</a> (2011) outlines the major categories, and these include:</p>
+<ul>
+<li>databases
+<ul>
+<li>A&amp;I databases (abstracting and indexing) / bibliographic databases</li>
+<li>full text databases</li>
+<li>journal collections, like Project Muse or JSTOR</li>
+<li>specialized and hybrid databases, like chemical databases, genetic
+databases, stock and business databases</li>
+<li>primary source databases, like original newspaper databases, oral
+histories, and like</li>
+</ul>
+</li>
+<li>e-journals
+<ul>
+<li>open access or proprietary, and the issues associated with these types</li>
+</ul>
+</li>
+<li>e-books
+<ul>
+<li>one note about e-books---here the technology is rather complex and
+differentiated depending on the copyright status, the file type (PDF, ePUB,
+TXT, etc.), the purpose or genre (textbook, fiction or non-fiction, etc.).
+In many cases, e-books are software applications and not just plain or
+marked up text, and they also vary by platform or the application
+interacting with the text, which offer different types of functionality.</li>
+</ul>
+</li>
+<li>linking technologies, e.g., where metadata is embedded in a URL and is sent
+across networks, these include:
+<ul>
+<li>Z39.50</li>
+<li>OpenURL</li>
+<li>Federated search</li>
+</ul>
+</li>
+</ul>
+<p>The promise of linking technologies is that it allows an authenticated user to start off in one system, like an OPAC, and expand a query to other systems without going out and initiating searches in those other systems. This is unlike, and more complicated, than our experience on the open web, where we might start off on one system, like Google, and then migrate to another system, like Google Scholar, simply by clicking on links. For example, a user starts off at WorldCat.org and finds a book that's available at a nearby library. The user only needs to click on the local library link and be transferred to that library's OPAC. If that works (it doesn't always), then the user may submit a request to pick up the book, and that involves additional actions, including logging into the user's library. </p>
+<h2 id="framing"><a class="header" href="#framing">Framing</a></h2>
+<p>As you surmise from the above list, electronic resources are a major part of any library, whether academic, public, school, or special. And that reminds me: if you are enrolled in the ICT program, you may find that the course will help you understand how libraries work and help you be a better user of information and of a library's resources. There are also some parts of the course, like negotiation and usability, that you may find relevant; however, do note that this course is focused on librarianship.</p>
+<p>The need to manage electronic resources and incorporate them into a library work flow is of utter importance. This will be much of what we'll discuss and learn about this semester. And it will be complicated. The print only era of libraries was difficult enough for many reasons, but managing print and using print resources was comparably a more linear process. Electronic resources have raised the ante. And that is to be expected: just think, civilizations have had 500 years to develop and solve print technology, yet we've had only about four or five decades of experience with digital technology. We're a long way off from settling on anything stable and we still face challenges and frustrations that are not simply technical in nature.</p>
+<h2 id="our-readings-the-nature-of-erm-librarianship"><a class="header" href="#our-readings-the-nature-of-erm-librarianship">Our Readings: The nature of ERM librarianship</a></h2>
+<p>Our readings this week provide nice introductions to electronic resource librarianship and help frame this entire course. The first article by <a href="https://doi.org/10.1080/07317131.2017.1385286">Stachokas</a> surveys part of the history of this specialist librarian role and then reports on a study of the work the electronic resource librarian performs today and where she or he is likely to work in the library. We'll discuss this in our forum.</p>
+<p>In the second article, <a href="https://doi.org/10.1080/1941126X.2016.1164555">Hulseberg</a> uses the field of technical communication (TC) to interpret the field of electronic resource librarianship. Hulseberg takes the view that an electronic resource librarian is, perhaps among other things, a technical communicator. This is much different from being someone who simply helps patrons with their technical problems. Rather, this is someone who completes advanced work in documenting and reporting technical processes.</p>
+<p>Hulseberg highlights four important themes about ERM: an interesting theme to me is <em>Theme Two: Collaborating in a</em> <strong>web of relationships</strong>. When I was an undergraduate, I imagined the job that I wanted would be one involving connecting people in different silos to each other and helping them communicate, which is often harder than it sounds. It turns out electronic resource librarianship is about this work. However, the other themes are just as important, and in particular, theme four, about jurisdiction, highlights one of the major disruptive acts on librarianship in the last thirty or forty years.</p>
+<p>Consider, for example, that most people, researchers and scholars included, use non-library provided resources to locate information. Additionally, more works, scholarly and non-scholarly, are freely and publicly available as open access or like. Jointly, this means, perhaps, that the library, academic, public, and more, is hypothetically becoming dis-intermediated as a result of people using sites like Google Scholar to retrieve works freely available on the web. As a result, what becomes of the core jurisdiction of the librarian? And of the electronic resource librarian, in particular? In concrete terms: a <a href="https://doi.org/10.1108/JD-03-2018-0047">recent paper</a> reported that researchers in their survey stated they use Google Scholar 83% of the time and EBSCOhost 29% of the time to find relevant material. That raises questions, strategic and technical ones, about the role of the librarian and library.</p>
+<p>The third article, by <a href="https://doi.org/10.1016/j.lisr.2016.02.002">Zhu</a>, places an entirely different theoretical lens on what it means to be an electronic resource librarian. Here Zhu posits that the licensing aspect of electronic resource management has had a major influence on ER librarianship identity. We spend some time this semester discussing licensing because it informs a fundamental aspect of the work of electronic resource management. One reason why Zhu's findings are insightful is because of the nature of electronic resources and the problems with copyright law, which is brutish in dealing with digital works. Copyright law, historically, has provided librarians with their most important legal justification for collecting works (see <a href="https://search.copyright.gov/search?utf8=%E2%9C%93&amp;affiliate=copyright&amp;sort_by=&amp;query=%22first+sale+doctrine%22">First Sale Doctrion</a>), and while no one could prove a counterfactual like this, it could be that if the internet and the web had been created before the modern library, then libraries might not exist, because such a legal justification would not have existed. However, libraries exist and the introduction of digital and electronic resources has resulted in substantial disruptions, organizational changes, and other issues. I'll ask you to discuss the details of Zhu's article on the boards.</p>
+<p>Stachokas, Hulseberg, and Zhu present the historical and environmental forces that have shaped these views of this work and these identities, and they each discuss important themes that function as evidence of these identities. In your discussions this week, focus on these themes and how you make sense of it all. In conclusion, this semester we'll be exposed to a number of new technologies that an electronic resource librarian deals with and also the implications of those technologies on the social aspects of our work. These aspects include our work flows, our organizational structures, our measurement activities, design and usability, security, access, licensing and negotiating.</p>
+<h2 id="discussion-questions"><a class="header" href="#discussion-questions">Discussion Questions</a></h2>
+<p>As we start to address all of this, I want us to consider two questions:</p>
+<ol>
+<li>
+<p>How do we manage all of this electronic stuff? Not only does it include complicated technology and has an impact on our patrons, but it involves of different sorts of librarians.</p>
+</li>
+<li>
+<p>What exactly is an electronic resource librarian? I like this basic question because, due to perhaps representations in the media (movies, TV shows, books) and the interactions we've had with librarians in our lifetimes, we all have pretty well-defined, whether accurate, images of what reference or cataloging librarians are. But what about an electronic resource librarian? This is something different, right? And it's not likely to be a position that's ever really captured and presented publicly.</p>
+</li>
+</ol>
+<p>Keep this these questions in consideration when you read the material this week.</p>
+<p>See you on the boards.</p>
+<h2 id="additional-references"><a class="header" href="#additional-references">Additional References</a></h2>
+<p>Klitzing, N., Hoekstra, R., &amp; Strijbos, J-W. (2019). Literature practices: Processes leading up to a citation. <em>Journal of Documentation, 75</em>(1). https://doi.org/10.1108/JD-03-2018-0047</p>
+<p>Wikoff, K. (2011). Electronics Resources Management in the Academic Library: A Professional Guide. ABC-CLIO. http://www.worldcat.org/oclc/940697515</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="desperately-seeking-an-erm-librarian"><a class="header" href="#desperately-seeking-an-erm-librarian">Desperately Seeking an ERM Librarian</a></h1>
+<h2 id="introduction-2"><a class="header" href="#introduction-2">Introduction</a></h2>
+<p>Class, in this week's lecture, I will:</p>
+<ul>
+<li>help frame the readings for this week </li>
+<li>discuss the readings, and</li>
+<li>list some questions to guide our discussion for the week.</li>
+</ul>
+<p>Our goal this week is to understand how the job of electronic resource management has changed throughout the years and to develop an idea about where we are headed as we go forward.</p>
+<h3 id="frame-the-readings"><a class="header" href="#frame-the-readings">Frame the Readings</a></h3>
+<p>This week we read two articles that analyze electronic resource librarian job advertisements. You will also see that in the reading list for this week, I also provide a link to the NASIG core competencies page for electronic resource librarianship. It might be helpful to review this page before you engage the readings so that you have the right background knowledge ahead of time.</p>
+<p>These readings are of interest since they capture a description of electronic resource librarianship that is continually evolving. They are not dated even though electronic resource management is constantly evolving with the technology. There are too many social, political, and economic conditions that have stayed about the same and these fixed conditions fix the work of the ERM librarian, who is, nevertheless, adapting to new technologies and work flows. Our Murdoch reading makes this point.</p>
+<p>Thus, though the technology has advanced (or at least changed), the descriptions and duties of ER jobs are still on the mark. I posted links to current job announcements in the discussion forum to help support this argument. The job announcements were emailed via the SERIALST email list and are not current job openings, but they were current within the last three years. To stay current about the position overall, about the specific duties involved, I encourage you to bookmark and stay abreast of relevant journals in the area. In addition to the two titles we're reading this week, pay attention and bookmark the <a href="https://www.tandfonline.com/toc/wacq20/current">Journal of Electronic Resources Librarianship</a>.</p>
+<h3 id="discuss-the-readings"><a class="header" href="#discuss-the-readings">Discuss the Readings</a></h3>
+<p>A big change since 2012, when Harnett's research ends, is that technology has moved to the cloud, and we manage less technology on on-site servers, where those servers might be managed by library IT (or other IT). This has had substantial implications and I think we should hypothesize about what they may be. One implication is libraries will require fewer local, advanced IT skill sets on hand because the work of installing, maintaining, and updating the software will reside on remote systems hosted by the vendors instead of at on-site locations. Although I state this as a hypothesis, we already know that this statement rings true for some of you. This isn't necessarily a good or bad thing---at the very least it indicates a shift in the skills needed by librarians and not necessarily a loss. Along those lines, we can state another hypothesis: it could mean other skill sets become more dominant. Specifically, hosted software means the software isn't purchased but leased, and leasing involves outside vendors who must have the technological skill sets need to manage the technology. But it also means negotiations between librarians and those vendors. Thus, the kind of work that may increase, as more software is hosted on the cloud, might be the kind of work requiring strong communication skills, strong negotiating skills, a good understanding of how licensing works as more is licensed, a good understanding of copyright and contract law work, a good understanding of how electronic resource collections work and interoperate across platforms, and more. However, again, this can be complicated. Last year there was an email on the SERIALT listserv by a librarian that asked whether librarians have retained or hold negotiating and contract signing powers, and the responses were mixed. Some librarians had the jurisdiction but many had lost it. Even under this scenario, though, technological understanding is still necessary in order to negotiate the best deal for a library's stakeholders and to acquire the best and most seamless product needed by library users.</p>
+<p>Even though IT continues to be outsourced, this doesn't mean that we can become lax in our understanding of how the technology works---that which requires a thorough understanding of the <em>electronic</em> in electronic resources---just as we can't become lax in how librarianship works even though librarians answer fewer reference questions than they did in previous years (i.e., you still need to know how to respond systematically and thoroughly to research and reference questions). What I mean is that, in order to communicate this topic well, to negotiate well, and to sign licenses that are beneficial to our stakeholders, it helps to understand and be adept at the tech so that we are not bamboozled in those negotiations. Also, if something goes wrong, like with the link resolver technology, we have to learn how to identify the likely culprit; that is, whether the technological issue is the link resolver technology and not something else, like the OPAC technology.</p>
+<p>This week I want you to think about these job advertisement studies in relation to what you know now about electronic resources as well as in relation to the kinds of advertisements you've seen since whenever you started paying attention to them. By the time this lecture is released you may have seen some job ads sent out on the <a href="https://www.nasig.org/SERIALST">SERIALST</a> mailing list that I've asked you to subscribe to this semester (and as mentioned above, in case none have been forwarded while you've been subscribed, I'll share some that I've seen). Some of you may be graduating soon and are looking for employment. If so, feel free to comment on your experience with such advertisements. In essence, think about where you see yourself in these advertisements and how they impact you. Alternatively, some of you already have jobs in libraries---those may be considered also, in hindsight.</p>
+<p>Although you may have only learned about these technologies that are discussed in these readings in the abstract, as many of you have noted in your course introductions, it might be the case that most of you haven't had a chance to learn the electronic resource back ends, that doesn't disqualify you from our attempts to start reflecting on this part of librarianship. As library users of these technologies, you have gathered enough abstract knowledge to know enough, and when you add to this front end knowledge (that is, your use of these technologies as students, users, etc.), you have enough to be capable of adding some self-context. In short, this is the second part of our exercise in self-reflection; it's an attempt to flush out how we have internalized the information we'll learn this semester and convert it into knowledge that we can use as librarians or as information professionals, writ-large. Just a hint of what's to come in the future, we will use and get some exposure to electronic resource management software in an upcoming week.</p>
+<h3 id="questions-for-discussion"><a class="header" href="#questions-for-discussion">Questions for Discussion</a></h3>
+<p>We'll soon move away from reflective questions and get our hands dirty with specific technologies, licensing, etc., but for now let's reflect on the following questions:</p>
+<ul>
+<li>Where do you think you stand in comparison to ERM job ads and to <a href="https://www.nasig.org/Competencies-Eresources">NASIG Core Competencies</a>?
+<ul>
+<li>Where are you strong?</li>
+<li>Where would you like to improve?</li>
+</ul>
+</li>
+<li>What can you (and we, as a course community) do to help each of you
+get there?
+<ul>
+<li>What's your path?</li>
+<li>What can you practice?</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="constant-disruption"><a class="header" href="#constant-disruption">Constant Disruption</a></h1>
+<p>The first listed reading we have this week is by Marshall Breeding. Astute observers will note Breeding is one of the first cited in the two additional readings we have this week. We will read more from Breeding later in the semester, but I bring him up now because he oversees a website titled <a href="https://librarytechnology.org/">Library Technology Guides</a> at librarytechnology.org. If you would like to keep abreast of the recent news on the electronic resource industry, Breeding's website should be at the top of your list.</p>
+<p>Breeding's <em>What is ERM?</em> article is a good one to start the week. He provides a nice outline of the various components of electronic resources, and he provides some historical context for those components.</p>
+<p>One caveat, though: while all the articles on our list this week are focused on academic libraries, the terms, concepts, and processes described in these articles are relevant to other areas of librarianship such as public librarianship, school media librarianship, and so forth. Differences in processes and in some details will arise due to organizational or other contextual differences among these library types. Organizationally, for example, public libraries are connected to municipalities, county governments, state libraries, and to public library consortia. This presents unique organizational challenges, and it highlights the fact that municipal, county, or state laws will define how some processes must be handled and who must handle them. The same is true for public schools, and in such cases, school boards and school districts will likely be involved. Contextual differences that shape electronic resource management include user communities. An academic library serves its students, faculty, staff, and perhaps the public to some degree. However, a public library serves its local community. Such differences will shape ERM workflows and other choices, like the chosen vendors and publishers. For example, academic libraries will require more scholarly sources, and public libraries provide more ebooks and audiobooks and less e-journals. This means that you might find services like OverDrive/Libby offered by public libraries but not in academic, and that you will rarely find more advanced scholarly resources in public libraries. These differences in needs, due to different communities, will change the emphasis on some aspects of the ERM work flow.</p>
+<p>Another reason why our reading lists lean toward the academic setting is because academic librarians publish more about electronic resources and public librarians publish very little. For example, I conducted a search in <strong>LISTA</strong> with the following query, which returned just three results.</p>
+<pre><code>(DE &quot;ELECTRONIC information resources management&quot;)  AND  (DE &quot;PUBLIC libraries&quot;)
+</code></pre>
+<p>It does not get much better if I expand the query to include some additional thesauri terms. This query returns only six results:</p>
+<pre><code>(DE &quot;PUBLIC librarians&quot; OR DE &quot;PUBLIC librarianship&quot; OR DE &quot;PUBLIC libraries&quot;) AND  (DE &quot;ELECTRONIC resource librarians&quot; OR  DE &quot;ELECTRONIC information resources management&quot;)
+</code></pre>
+<p>However, if I focus that query on academic libraries, then the results increase substantially. The following query returns 51 hits:</p>
+<pre><code>(DE &quot;ELECTRONIC information resources management&quot;)  AND  (DE &quot;ACADEMIC libraries&quot;)
+</code></pre>
+<p>And this query returns 82 results:</p>
+<pre><code>(DE &quot;ACADEMIC librarians&quot; OR DE &quot;ACADEMIC librarianship&quot; OR DE &quot;ACADEMIC libraries&quot;) AND  (DE &quot;ELECTRONIC resource librarians&quot; OR  DE &quot;ELECTRONIC information resources management&quot;)
+</code></pre>
+<p>We could continue to explore <strong>LISTA</strong> or other databases for relevant material, but you get the picture. There simply isn't a lot of material on electronic resource management from the public library perspective, and a quick search in the school media sphere mirrors this issue, too. The following search return zero results:</p>
+<pre><code>(DE &quot;LIBRARY media specialists&quot;)  AND  (DE &quot;ELECTRONIC information resources management&quot;)
+</code></pre>
+<p>If you go into public librarianship or school media librarianship, I'd encourage you to publish on electronic resources. It would greatly benefit your peers and those of us who teach courses like this.</p>
+<p>Back to Breeding. I understand some terms Breeding uses and the technologies he describes might be foreign right now. I am not rehashing or summarizing these articles here because I want to discuss them on the boards, but let me spend some time providing some additional background information and highlighting some things to look for in these three articles.</p>
+<p>Librarians started to migrate to electronic resource management in the 1970s. Breeding mentions this. This is when it happened en masse, but the seeds were planted well before this. I published <a href="https://muse.jhu.edu/article/534487">a paper</a> a few years ago that provides a historical account of the first library automation project, which took place in the 1930s with <a href="https://en.wikipedia.org/wiki/Punched_card">Hollerith punched cards</a>. By the 1960s, the primary use of computers was to manage circulation, and in the late 60s and early 70s, library automation focused on managing patron records. In the early 1970s, tools became available to manage and search bibliographic records. Hence, computers were first used mostly to manage the circulation of books, then patron records, which allowed patrons to check out works electronically, and then we had the ability to search for works. If a work of interest was located using these tools, the work could be retrieved from the shelves or ordered via interlibrary loan by snail mail. Full text search came much later with the introduction of better storage media, like CD-ROMs, and saw major growth with the introduction of the web in the early 1990s, which at its heart is nothing more than a big document retrieval system.</p>
+<p>In the process of migrating from print to electronic, all sorts of things had to change, but all that change rests on the major premise of librarianship: <em>to provide access by organizing information in order to retrieve information</em>. Although you may have often heard that libraries are ancient entities, libraries and librarianship as we understand them today did not modernize until the 1920s and 1930s. It was then that some in the profession began to hone in on the major complexities and challenges, social and technological, involved in <strong>organizing</strong> and <strong>retrieving</strong> information in order to provide <strong>access</strong>. The challenges with organizing and retrieving information that they identified nearly 100 years ago were indeed major and problematic, but fortuitous, because it gave rise to what we now called <em>library science</em>, the rigorous study of libraries, librarianship, collections, users, communities, and so forth.</p>
+<p>Yet consider when those people laid the groundwork for a library science nearly 100 years ago, librarians only managed print and the primary means of accessing print collections was through a physical building. With the introduction of computer systems in the 1960s and with better networking technologies in the 1980s and 1990s, issues with organizing and retrieving information grew exponentially, and indeed, this exponential increase in complex issues launched an entire new field, what we now call <em>information science</em>.</p>
+<p>All right, back to the ground level. Let me highlight some key terms in Breeding's article. They include:</p>
+<ul>
+<li>Finding aids</li>
+<li>Knowledge bases</li>
+<li>OpenURL link resolvers</li>
+<li>ERM systems</li>
+<li>Library service platforms</li>
+<li>Integrated library systems (ILS)</li>
+</ul>
+<p>Unless you already have some solid experience with these things, and even after reading Breeding's nice article, these terms may still be abstract. So, this week, you have two major tasks:</p>
+<ol>
+<li>Find real, practical examples. Pick one or two of the above terms and see how they work in practice. Then come back here and tell us what you found. Use the articles to help you locate actual products or examples.</li>
+<li>Locate how these terms appear in either the Cote and Ostergaard (2017) article or the Fu and Carmen (2015). Note other terms that may appear in those two articles and comment on the role they play in the ERM work flow and the migration process.</li>
+</ol>
+<p>As you work on this task, I ask that you pay attention to the emphasis on work flow. The idea of a <strong>work flow</strong> is a major theme in this course because it is a major part of electronic resource management. We'll come back to the idea over and over this semester. Also, as we read the Cote and Ostergaard and the Fu and Carmen articles, we will learn about how migrating to new systems is a major, expensive, and time-consuming project, and one of the great things about these two articles is that it documents the work flows used in these migrations. If you become involved some day in a migration process, you should use articles like these to assist you and to help you make evidence-based decisions about what you need to accomplish. And like what these authors have done, I'd encourage you to document and publish what you learned. In the print era, there were some cases where librarians had to migrate to new systems, too. For example, some research libraries in the U.S. started by classifying collections using the Dewey Decimal Classification system, but then began to convert to the Library of Congress Classification system. This was no small task, but it was also not that common. Today, migration is big business in the library world (see Breeding's site for other examples) because the technology changes fast and because there are a number of competing electronic resource management products that librarians can choose for their communities, which they might be inclined to do if the migration provides an advantage to their users, communities, and themselves.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="technologies-and-standards"><a class="header" href="#technologies-and-standards">Technologies and Standards</a></h1>
+<h2 id="introduction-3"><a class="header" href="#introduction-3">Introduction</a></h2>
+<p>Note: Write part introduction.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="erm-and-ils"><a class="header" href="#erm-and-ils">ERM and ILS</a></h1>
+<p>This week we will be learning about ERM and ILS software. First off, what are these?</p>
+<h2 id="ils-the-integrated-library-system"><a class="header" href="#ils-the-integrated-library-system">ILS, the Integrated Library System</a></h2>
+<p><strong>ILS</strong> is an acronym for an <strong>integrated library system</strong>. We've also been introduced to the term <strong>library services platform (LSP)</strong>. Our discussions of the ILS this week are relevant to those types of an ILS that may also be an LSP, which are increasingly more common these days.</p>
+<p>Regardless, each of you are familiar with an ILS/LSP from a user perspective and some of you are familiar with these systems from a librarian perspective. In your lifetimes, you have used an OPAC (online public access catalog) or a <strong>discovery</strong> interface, you have likely conducted a search for a serial, and you have most definitely borrowed a print book from a library. These are the kinds of kinds of functions that an ILS provides for library users.</p>
+<p>An ILS also provides an administrative interface that librarians use to manage those processes. This interface includes functions to manage acquisitions, cataloging, circulation, and serials, and the OPAC, where the interfaces to these in the ILS are referred to as <strong>modules</strong>. You should read about these modules in the open source ILS called <a href="http://docs.evergreen-ils.org/">Evergreen</a> by sifting through some of Evergreen's documentation.</p>
+<p>Hence, the ILS generally provides two separate interfaces:</p>
+<ul>
+<li>an <strong>administrative interface</strong> to be used by librarians to manage the tasks per the modules</li>
+<li>a <strong>public interface</strong> for patrons to access the works of a library</li>
+</ul>
+<p>Tasks that an ILS provides include modules that cover:</p>
+<p>Administrative:</p>
+<ul>
+<li><a href="http://docs.evergreen-ils.org/reorg/3.2/acquisitions/">Acquisitions</a></li>
+<li><a href="http://docs.evergreen-ils.org/reorg/3.2/cataloging/">Cataloging</a></li>
+<li><a href="http://docs.evergreen-ils.org/reorg/3.2/circulation/">Circulation</a></li>
+<li><a href="http://docs.evergreen-ils.org/reorg/3.2/serials/">Serials</a></li>
+</ul>
+<p>Public:</p>
+<ul>
+<li><a href="http://docs.evergreen-ils.org/reorg/3.2/opac/">OPAC</a> interface</li>
+<li><a href="https://scholarship.rollins.edu/as_facpub/138/">Discovery</a> interface </li>
+</ul>
+<p>An ILS is therefore, as Stephen Salmon stated in 1975, a non-traditional way of doing traditional things, such as &quot;acquisitions, cataloging, and circulation,&quot; but which is now fairly traditional! Some librarians who would work with an ILS include:</p>
+<ol>
+<li>Reference: who use the OPAC or discovery interface</li>
+<li>Cataloging and Technical Services: who use the cataloging and serial's modules and perhaps also the acquisition's module</li>
+<li>Circulation: who would use the circulation module</li>
+</ol>
+<ul>
+<li>Interlibrary Loan department: if such a department exists because the library is big enough to have one, they would also use the circulation module</li>
+</ul>
+<p>All of those librarians might use multiple modules of the ILS, but might predominately use one module more frequently than others in their day-to-day work. For example, when I worked in reference at a small academic library, I used the Millennium ILS to check out books to users, to fix borrowing issues, and to search for works in the OPAC. Later I used the cataloging module when I moved to technical services. However, what a librarian uses frequently depends on the organizational structure of a library. As our reading by Miller, Sharp, and Jones (2014) show, the rise in electronic resources has vastly influenced the ways librarians structure their organizations, whose structure was originally informed by the dictates of a &quot;print-based world&quot;. In those structures, librarians may either hold positions where their work is streamlined and focused on one task, such as collections, or on multiple tasks.</p>
+<p>To learn more about ILS, and current iterations that we now call LSPs, see the following links:</p>
+<ul>
+<li>Product: <a href="https://knowledge.exlibrisgroup.com/campusM/Product_Documentation/Custom_Integrations_(Sample)/Ex_Libris_Alma_and_Primo_(Library)">Ex Libres Alma and Primo</a></li>
+<li>Product: <a href="https://www.iii.com/products/encore/">Encore</a></li>
+<li>Product: <a href="https://www.ebsco.com/products/ebsco-discovery-service">EBSCO Discovery Service</a></li>
+<li>Resource: <a href="https://journals.ala.org/ltr/issue/download/509/259">Library Services Platforms: A Maturing Genre of Products / Marshall Breeding</a></li>
+<li>Resource: <a href="https://guides.cuny.edu/LSPImplementation">A broad overview of the migration the Aleph ILS to the Alma LSP</a></li>
+</ul>
+<h2 id="erm-the-electronic-resource-management-system"><a class="header" href="#erm-the-electronic-resource-management-system">ERM, the Electronic Resource Management System</a></h2>
+<p>ERM is an acronym for <em>electronic resource management</em> system. Its function is born out of the need to manage digital assets and provide users with access to those assets. An ERM may or may not be integrated, as one product, with a library's ILS software. ERM software is primarily a behind the scenes software. Similar to the ILS, ERM software is generally divided into modules that focus the librarian's work on particular duties and allow librarians to create work flows and knowledge management systems. In an ERM like the open source <a href="http://coral-erm.org/modules/">CORAL system</a>, the modules includes:</p>
+<ul>
+<li><a href="http://coral-erm.org/resources/">Resources</a>: a module &quot;provides a robust database for tracking data related to your organization's resources ...&quot; and &quot;provides a customizable workflow tool that can be used to track, assign, and complete workflow tasks.&quot;</li>
+<li><a href="http://coral-erm.org/licensing/">Licensing</a>: a module for a &quot;flexible document management system&quot; that provides options to manage licensing agreements and to automate parts of the process.</li>
+<li><a href="http://coral-erm.org/organizations/">Organizations</a>: this module acts as a type of advanced directory to manage the various organizations that impact or are involved in the management of electronic resources, including &quot;publishers, vendors, consortia, and more.&quot;</li>
+<li><a href="http://coral-erm.org/usage-statistics/">Usage Statistics</a>: a module providing librarians with usage statistics of digital assets by platform and by publisher. Supports COUNTER and SUSHI. We'll cover COUNTER and SUSHI later in the semester, but as a preamble:
+<ul>
+<li><a href="https://www.projectcounter.org/about/counter-for-libraries/">COUNTER</a> &quot;sets and maintains the standard known as the Code of Practice and ensures that publishers and vendors submit annually to a rigorous independent audit&quot;, and,</li>
+<li><a href="https://www.niso.org/standards-committees/sushi">SUSHI</a> is a type of protocol to automate collecting data on usage statistics.</li>
+</ul>
+</li>
+<li><a href="http://coral-erm.org/management/">Management</a>: this module provides a document management system aimed at &quot;storing documents, such as policies, processes, and procedures, related to the overall management of electronic resources&quot;.</li>
+</ul>
+<p>In our readings this week, we have three articles that speak to ILS and ERM software as well as the relationship between the two, and an additional article that offers organizational context. The first reading, by Miller, Sharp, and Jones (2014) provides some context by describing a case study (the literature review is also helpful) that shows how electronic resources have impacted organizational structure, job titles, budgets, and more. The article by Anderson (2014) lists and describes various ERM solutions. As I mentioned in a previous lecture, electronic resources is a fast moving area, and even though this article (or chapter) is a handful of years old, some products are no longer available, have been merged into others, or sold off. Still, the article is helpful in describing:</p>
+<ul>
+<li>the role of vendors in the ERM market</li>
+<li>the importance and rise of open source ERMs as well as the mark that various homegrown solutions have made</li>
+<li>related software that plays a role, including:
+<ul>
+<li>Discovery: federated and indexed</li>
+<li>Integrated library systems</li>
+<li>Interlibrary loan software</li>
+<li>Link resolvers</li>
+<li>Ticket management software</li>
+</ul>
+</li>
+</ul>
+<p>In the article by Wang &amp; Dawes (2012), the authors describe the &quot;next generation integrated library system&quot;, which should meet a few criteria that include the ability to merge ILS software with ERM software, the latter having come into creation because of the lack of development among ILS systems, which were stagnating and not responding to changing work flows and work formats (i.e., print to electronic) at the time. But around the time the article was published, more ILS and ERM software began moving to the cloud, as was common among many software markets. This changed the game, too, because it placed a bigger burden on software companies to maintain development of the work.</p>
+<p>Despite the technical aspects of these solutions, at its basic, both ILS and ERM software solutions focus on managing assets (books, serials, <a href="https://archives.yale.edu/subjects/33488">realia</a>, etc) so that librarians can organize and users and librarians can retrieve them. There's no requirement to use any solution offered by a library vendor, and that's the point of the Wilson (2011) article, which shows how regular software can be used to function as a homegrown solution for creating and implementing an ERM work flow.</p>
+<p>In this week's forum, I'll introduce you to the Evergreen ILS and to the CORAL ERM solution and to its various modules and how they work. Be sure to open the transcript for this lecture in order to visit the links, especially the documentation. I ask that you log into these two services using the instructions on their sites. This will help you get some hands-on experience with them and also demystify what each do.</p>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<p>Anderson, E. K. (2014). Chapter 4: Electronic Resource Management Systems and Related Products. Library Technology Reports, 50(3), 30–42. Retrieved from <a href="https://journals.ala.org/index.php/ltr/article/view/4491">https://journals.ala.org/index.php/ltr/article/view/4491</a></p>
+<p>Hosburgh, N. (2016). Approaching discovery as part of a library service platform. In K. Varnum (Ed.), Exploring Discovery: The Front Door to your Library’s Licensed and Digitized Content. (pp. 15-25). Chicago, IL: ALA Editions. <a href="https://scholarship.rollins.edu/as_facpub/138/">https://scholarship.rollins.edu/as_facpub/138/</a></p>
+<p>Miller, L. N., Sharp, D., &amp; Jones, W. (2014). 70% and Climbing: E-Resources, Books, and Library Restructuring. Collection Management, 39(2–3), 110–126. <a href="https://doi.org/10.1080/01462679.2014.901200">https://doi.org/10.1080/01462679.2014.901200</a></p>
+<p>Salmon, S. R. (1975). Library automation systems. New York: Marcel Dekker.</p>
+<p>Wang, Y., &amp; Dawes, T. A. (2012). The Next Generation Integrated Library System: A Promise Fulfilled? Information Technology and Libraries, 31(3), 76–84. <a href="https://doi.org/10.6017/ital.v31i3.1914">https://doi.org/10.6017/ital.v31i3.1914</a></p>
+<p>Wilson, K. (2011). Beyond Library Software: New Tools for Electronic Resources Management. Serials Review, 37(4), 294–304.
+<a href="https://doi.org/10.1080/00987913.2011.10765404">https://doi.org/10.1080/00987913.2011.10765404</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="standardizing-terms-for-electronic-resource-management"><a class="header" href="#standardizing-terms-for-electronic-resource-management">Standardizing Terms for Electronic Resource Management</a></h1>
+<p>Awhile ago now, I conducted some historical research on a librarian named Ralph Parker. Inspired by technological advances in automation, specifically the use of the punched cards and machines, Parker began to apply this technology to library circulation processes in the 1930s and thus became the first person to automate part of the library's work flow. By the mid-1960s, Parker's decades long pursuit of library automation led to some major advances, including the founding of <a href="https://www.oclc.org/">OCLC</a>. Meanwhile, the punched card system he continued to develop eventually led to massive increases in circulation and better service to patrons. In the mid-60s he wrote the following about the installation and launch of a new punched card system to help automate circulation:</p>
+<blockquote>
+<p>To the delight of the patrons it requires only four seconds to check out materials (as cited in Burns, 2014).</p>
+</blockquote>
+<p>I think about that quote often. When I read that in his annual report in the archives at the University of Missouri, I could feel his giddiness with these results. Until this achievement, when a patron borrowed an item from the library, the process involved completing multiple forms in order to be sure that accurate records were kept. Accurate record keeping is important. Libraries need to protect their collections but also provide access to them. As stated in the <a href="https://hdl.handle.net/2027/mdp.39015027387052">Circulation work in public libraries / Jennie M. Flexner (1927)</a>:</p>
+<blockquote>
+<p>it is necessary that the library have control of these circulating books in several ways. It [the library] must know where they are, it must lay down rules to see that thoughtless people do not retain the books in their possession unfairly, and it must provide means for securing their prompt return. These and many other considerations combine to make it necessary for the [ circulation ] department to install and maintain very efficient methods to control the circulation of books, which are commonly known as routines (p. 6).</p>
+</blockquote>
+<p>What were those routines in the 1930s and thenabouts? Why was Parker so excited about his system taking only four seconds to check out a work? Well, two routines are important for circulation. The first involves membership and the second involves charging or checking out works.</p>
+<p>Membership: First, if the patron was not yet a member of a library, then they had to register to become one; hence, the first routine was to check their membership and register them as borrowers if they were not yet a member or if their membership had expired. If this was a public library, then the process might vary a bit depending if the member was an adult or a youth (or <em>juveniles</em> in the lingo of the time). Regardless, this routine basically involved completing an application card, creating a member record and filing that away for the library's use, and then giving the borrower a card of their own, i.e., their <strong>borrower's card</strong>.</p>
+<p>Charging: Once membership status was confirmed or created, then the circulation librarian employed a system to <strong>charge</strong> books to the borrower. Several systems had been employed up through the late 1920s, including the <strong>ledger system</strong>, the <strong>dummy system</strong>, the <strong>temporary slip system</strong>, the <strong>permanent slip or card system</strong>, the <strong>Browne system</strong>, and eventually the <a href="https://www.merriam-webster.com/dictionary/Newark%20charging%20system">Newark charging system</a> (see <a href="https://hdl.handle.net/2027/mdp.39015027387052">Flexner, p. 73 and on for details</a>). Assuming the librarian in the 1930s used the Newark system, when a book was to be checked out, the librarian needed to enter the details on a &quot;book card, a date slip and a book pocket for each book&quot; (Flexner, 1927, p. 78). Flexner goes on to outline the process:</p>
+<blockquote>
+<p>The date slip is pasted opposite the pocket at the back of the book. The date which indicates when the book is due to be returned or when issued is stamped on each of three records, the reader's card, the book card and the date slip. The borrower's number is copied opposite the date on the book card. The date on the date slip indicates at once the file in which the book card is to be found, and the [librarian] assistant is able to discharge the book and release the borrower immediately on the return of the volume (Flexner, 1927, pp. 78-79).</p>
+</blockquote>
+<p>In essence, circulating books or works to patrons involved a lot of paperwork, and you can imagine that it might be prone to error. However, the number of systems at the time show that the processes and routines were increasingly becoming standardized, and standardization is a necessary pre-requisite to automation. </p>
+<p>Parker's achievement in automation eventually improved the library experience for patrons as well as the librarians at the circulation desk, and indirectly their colleagues throughout the library. That is, once circulation standards stabilized, and once technology like punched cards became available generally, then it became possible to automate this process for the library. And this was good; the effects were that automation increased circulation and that an automated circulation process <a href="https://en.wikipedia.org/wiki/S._R._Ranganathan">saved the time of the reader</a>, four seconds to be exact!</p>
+<p>This is all to say that standards and technology go hand and hand and that the details matter when thinking about standards. How does this relationship work? Standards enable multiple groups of competing interests to form consensus around how technology should work, and when this happens, multiple parties receive payoffs at the expense of any single party acquiring a monopoly. This is true for the design of screwdrivers, the width of railroad tracks, the temperature scale, and certainly also to how information is managed and exchanged. The internet and the web wouldn't exist or definitely not exist as we know it if not for the standardization of the Internet Protocol (IP), the Transmission Control Protocol (TCP), the Hypertext Transfer Protocol (HTTP), and other internet and web related technologies that enable the internet and the web to work for so many users regardless of the operating system and the hardware they use.</p>
+<p>Our first article this week is written by Pat Harris and covers the basic reasons for the existence of <a href="http://www.niso.org/">NISO</a> (the <em>National Information Standards Organization</em>) and the kinds of standards NISO is responsible for maintaining and creating. These standards are directly related to libraries and fall under <a href="https://www.niso.org/welcome-to-niso">three broad categories</a> related to <strong>Information Creation &amp; Curation</strong>, <strong>Information Discovery &amp; Interchange</strong>, and <strong>Information Policy &amp; Analysis</strong>. There are standards that touch on bibliographic information, indexing, abstracting, controlled vocabularies, and many other library important issues. If you have not before paid attention to NISO, you might now start seeing more references to the organization and the standards it publishes, especially because the international library community has worked closely with NISO to develop standards for various aspects of library work.</p>
+<p>Another historical note: As Harris elaborates in the article, NISO came into existence in the mid-1930s. This was about the same time that Ralph Parker began working on his punched card system. Not long before this, in the late 1920s, the first library science graduate program launched at the University of Chicago, and in the early 1930s, the first research based journal started, <em>The Library Quarterly</em>. We often hear how long libraries have existed, and it's true that there were quite a few accomplishments before the 1930s, but it is this time period (for these and a number of other reasons) that marks the modern era of libraries.</p>
+<p>We also are not simply interested in standardizing things like the forms used to catalog and charge a book, to create member records, to draw up a license for an electronic resource, as we'll discuss later in the semester. We are also interested in standardizing, as Flexner would say, &quot;routines&quot;, processes, or workflows. Thus, our additional readings are on TERMS, or Techniques for Electronic Resource Management. TERMS is not a true standard, but more of a <em>de facto</em> standard that helps outline the electronic resource management work flow. It was developed in order for librarians or others dealing with electronic resources to come to a consensus on the processes of electronic resource management. Version 1 of TERMS is described by the TERMS authors in the <em>Library Technology Reports</em> readings of chapters 1-8. Although it has been replaced by a <a href="http://6terms.tumblr.com/">newer version</a>, it still functions as a thorough introduction to the ERM work flow and provides guidance and suggestions on all aspects of electronic resource management. For example, in <a href="https://journals.ala.org/index.php/ltr/article/view/4738/5647">chapter 7</a> of the LTS report on TERMS version 1, the authors provide very helpful information on the importance of working with providers or vendors in case of cancellation of a resource. They write:</p>
+<blockquote>
+<p>Do not burn any bridges! Many resources have postcancellation access, which means you need to keep up a working relationship with suppliers; this might also incur a platform access fee going forward, so this needs to be budgeted for in future years. Review the license to fully understand what your postcancellation rights to access may be. In addition, you may resubscribe to the resources in future years. Content is bought and sold by publishers and vendors. Therefore, you may end up back with your original vendor a year or two down the line!</p>
+</blockquote>
+<p>Some of this material is repeated in version 2 of TERMS, but version 2 was created in order to address changes in the world and to include more input from the community. Version 2 also includes a slightly modified outline, and <a href="https://library2.hud.ac.uk/blogs/terms/announcing-terms-ver2-0/terms-ver2-0-introduction/">includes the following parts</a>:</p>
+<ol>
+<li>Investigating new content for purchase or addition</li>
+<li>Acquiring new content</li>
+<li>Implementation</li>
+<li>Ongoing evaluation and access, and annual review</li>
+<li>Cancellation and replacement review</li>
+<li>Preservation</li>
+</ol>
+<p>At the same link just provided, they also write about this new version:</p>
+<blockquote>
+<p>In addition to the works mentioned or cited in the original TERMS report, much has been written in the past few years that can help the overwhelmed or incoming electronic resources librarian manage their daily workflow. In the end, however, most of the challenges facing the management of electronic resources is directly related to workflow management. How we manage these challenging or complex resources is more important than what we do, because how we do it informs how successful and how meaningful the work is, and how well it completes our goal of getting access to patrons who want to use these resources.</p>
+</blockquote>
+<p>As such, the outline and the content described in these two versions of TERMS is very much centered on the ERM work flow. TERMS is essentially a guide and framework for thinking on the different aspects of the electronic resource life-cycle within the library, and helps provide librarians with a set of questions and points of investigation. For example, let's consider Term item 1, which is to investigate new content for purchase or addition. In a presentation by the <a href="http://eprints.hud.ac.uk/id/eprint/19420/">Emery and Stone (2014)</a>, they suggest that this involves the following steps, partly paraphrased:</p>
+<ul>
+<li>outline what you want to achieve</li>
+<li>create a specification document</li>
+<li>assemble the right team</li>
+<li>review the market and literature and set up trial</li>
+<li>speak with suppliers and vendors</li>
+<li>make a decision (Emery and Stone, slide 12, 2014)</li>
+</ul>
+<p>Emery and Stone provide other examples, and the TERMS listed in this slide are from the first version. TERM 6, PRESERVATION, was added in version 2, and TERMS 4 and 5 from version 1 were joined together. There is a link to these <a href="http://eprints.hud.ac.uk/id/eprint/19420/">slides</a>, with further examples, in the transcript of this lecture, as well as the citation.</p>
+<p>This week you have a two part exercise:</p>
+<p><strong>First</strong>, you will visit the NISO website and search for documentation on a standard, recommended practices, or technical reports and post about it. The differences between these publications follows:</p>
+<p><strong>Technical reports:</strong></p>
+<blockquote>
+<p>NISO Technical Reports provide useful information about a particular topic, but do not make specific recommendations about practices to follow. They are thus &quot;descriptive&quot; rather than &quot;prescriptive&quot; in nature. Proposed standards that do not result in consensus may get published as technical reports.</p>
+</blockquote>
+<p><strong>Recommended Practices:</strong></p>
+<blockquote>
+<p>NISO Recommended Practices are &quot;best practices&quot; or &quot;guidelines&quot; for methods, materials, or practices in order to give guidance to the user. These documents usually represent a leading edge, exceptional model, or proven industry practice. All elements of Recommended Practices are discretionary and may be used as stated or modified by the user to meet specific needs.</p>
+</blockquote>
+<p>And <strong>Published and Approved NISO Standards</strong> are the final, approved definitions that have been achieved by a consensus of the community.</p>
+<p>See <a href="https://www.niso.org/niso-io/2014/03/state-standards">https://www.niso.org/niso-io/2014/03/state-standards</a></p>
+<p><strong>Second</strong>, after reading about TERMS, try to place these TERMS in additional electronic resource management context. Please draw from your experience last week using the ILS and ERM software, from the readings, your personal work experience in a library, if you have that, or use your imagination. Specifically, it would be interesting if you could pick out aspects of systems like Coral and Folio that appear to facilitate standardized workflows.</p>
+<p>I am requiring a lot of reading this week because these readings capture the specifics of the ERM work flow, and understanding them will help you get started and attain success in this position. The Rinck article is a good interview with the authors of TERMS. Consider this optional reading, but its still worthy of your time.</p>
+<p>Burns, C.S. (2014). Academic libraries and automation. A historical reflection on Ralph Halstead Parker. portal: Libraries and the Academy, 14(1), 87-102. <a href="http://muse.jhu.edu/article/534487">http://muse.jhu.edu/article/534487</a></p>
+<p>Open access copy: <a href="http://uknowledge.uky.edu/slis_facpub/6/">http://uknowledge.uky.edu/slis_facpub/6/</a></p>
+<p>Emery, J., &amp; Stone, G. (2014). Techniques for Electronic Resource Management (TERMS): From coping to best practices. In 2014 AALL Annual Meeting and Conference, 12-15 July 2014, Henry B. Gonzalez Convention Center, San Antonio, TX. <a href="http://eprints.hud.ac.uk/id/eprint/19420/">http://eprints.hud.ac.uk/id/eprint/19420/</a></p>
+<p><strong>Sources for NISO tasks:</strong></p>
+<ul>
+<li>NISO: Recommended Practices: <a href="https://www.niso.org/explore/type?type=11">https://www.niso.org/explore/type?type=11</a></li>
+<li>NISO: Technical Reports: <a href="https://www.niso.org/explore/type?type=21">https://www.niso.org/explore/type?type=21</a></li>
+<li>NISO: Standards: <a href="https://www.niso.org/publications">https://www.niso.org/publications</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="interoperability"><a class="header" href="#interoperability">Interoperability</a></h1>
+<p><strong>Note to self:</strong> see content at bottom to incorporate into next year's lecture.</p>
+<hr />
+<p>This week we cover interoperability and link resolvers.</p>
+<p>Before this discussion gets complicated, remember that the fundamental idea of link resolvers is that link resolvers resolve links. They are a technical solution to help users of electronic resources access the full text in a library's collection based on a citation discovered in a search result, an article's list of references, or wherever else the link resolver might show up. It is meant to work for all items in a library's collection. Its reason for existence is for items that are pay-walled or for items that are inaccessible via the open web. Link resolvers are also used to acquire access through some other means, like inter-library loan, and though its use is motivated by electronic resources, it can identify resources that are located in the library stacks since such items will have a link (or a URL) in the online catalog or discovery system.</p>
+<p>To get an idea of how they work, let's imagine a search in <em>Google Scholar</em>, and as a result of this search, we have identified a non-open-access article that we wish to retrieve from the library's electronic resources. If you have made <em>Google Scholar</em> aware that you are affiliated with a specific library and if the library uses a link resolver service, then:</p>
+<ol>
+<li>The metadata about the article will be extracted from <em>Google Scholar</em>, or the <em>source</em>, and this will be added to</li>
+<li>the metadata about the institution (administrative metadata, like an institutional ID number).</li>
+<li>The metadata is converted into a URL query that queries the library's collections, and</li>
+<li>the user is then presented with <em>target</em> options (or taken directly to the work) for retrieving the article, and the options may include full text access from various and possibly multiple vendors or publishers, information about the physical location (e.g., on the shelves) if it exists, or options to request the work through inter-library loan. Ideally, it will lead the user directly to the full text.</li>
+</ol>
+<p>[ Show how to make <em>Google Scholar</em> aware of your affiliation ]</p>
+<p>See <a href="https://web.archive.org/web/20140419201741/http://lj.libraryjournal.com:80/2004/04/ljarchives/the-lure-of-linking/#LinkResolver">Link Resolver 101</a> for additional details and this historical piece on <a href="https://web.archive.org/web/20140419201741/http://lj.libraryjournal.com:80/2004/04/ljarchives/the-lure-of-linking/">link resolvers</a>.</p>
+<p>Consider a basic keyword search in <em>Google Scholar</em> for the term <code>electronic resources</code>. One of the first items listed in the results page is to an article titled &quot;Electronic resources: access and usage at Ashesi University College.&quot; If we've gone to <em>Google Scholar's</em> settings, and added your library to the <strong>Library Links</strong> list, then we should see a <strong>View Now @ UK</strong> link to the right of your search result list. This indicates the likelihood, although there could be an error, that the article is available through UK Libraries, in my case, or another library in another person's case.</p>
+<p>Let's compare the URL that <em>Google Scholar</em> provides to access the first result with the URL via the <strong>View Now @ UK</strong> link. We can examine both URLs by right-clicking them and decomposing them into their components.</p>
+<p>The URL for the direct source is:</p>
+<pre><code>https://www.emerald.com/insight/content/doi/10.1108/10650740510632208/full/html
+</code></pre>
+<p>This URL contains the following components:</p>
+<ul>
+<li>https:// : indicates the secure hypertext protocol</li>
+<li>www      : indicates the subdomain</li>
+<li>emerald.com : indicates the first and second level domain names</li>
+<li>/insight/content/doi : the general location in the directory on the emerald.com server that contains this article</li>
+<li>/10.1108/10650740510632208 : also part of the location in the directory on emerald.com, but in this case, this is location is more unique to the journal and the article</li>
+<li>/full/html : more location about where the item is located on emerald.com</li>
+</ul>
+<p>The DOI for this article is specifically <code>10.1108/10650740510632208</code> and is composed of a <a href="https://www.doi.org/doi_handbook/2_Numbering.html">prefix and suffix</a>. The prefix includes the following elements:</p>
+<ul>
+<li>10 : this is the directory indicator</li>
+<li>1108 : the registrant code for this specific journal</li>
+</ul>
+<p>The suffix refers to the following element:</p>
+<ul>
+<li>10650740510632208 : a character string (in this case, of numbers) that refers to the article. This string is created by the registrant</li>
+</ul>
+<p>When we view the <strong>View Now @ UK</strong> link, we see what's called a <a href="https://en.wikipedia.org/wiki/Query_string">query string</a>. A query string is a part of the URL that contains (metadata) fields or parameters and values for those parameters, and it begins with the first ampersand and after the letter <em>q</em> in the URL. Each additional parameter begins after each ampersand. In the following query string, I start each newline with a new parameter and end it with its value just to make the URL components easier to see:</p>
+<pre><code>https://scholar.google.com/scholar?
+output=instlink&amp;
+q=info:Sj_9YmD0RWYJ:scholar.google.com/&amp;
+hl=en&amp;
+as_sdt=0,18&amp;
+scillfp=9038251622808028378&amp;
+oi=lle
+</code></pre>
+<p>According to a source that describes <a href="https://serpapi.com/google-scholar-api">Google Scholar's API</a>, some of the parameters above mean the following things:</p>
+<ul>
+<li>output: &quot;Parameter defines the final output you want. It can be set to json (default) to get a structured JSON of the results, or html to get the raw html retrieved.&quot; Here, <strong>instlink</strong> refers to <strong>institional link</strong>, but that's a guess.</li>
+<li>q: &quot;Parameter defines the query you want to search. You can also use helpers in your query such as: author:, or source:&quot; Here, my guess is that this refers to Google Scholar's own citation ID for this work.</li>
+<li>hl: &quot;Parameter defines the language to use for the Google search. It's a two-letter language code.&quot;</li>
+<li>as_sdt: &quot;Parameter can be used either as a search type or a filter.&quot; Here the 18 refers to Kentucky, but the 0 part, I believe, indicates that the query <a href="https://serpapi.com/google-scholar-courts">should not return results</a> from court cases.</li>
+</ul>
+<p>Due to those parameters, if we click on that <strong>View Now @ UK</strong> link, we are now transported to UK's discovery service, <em>Primo</em>, by <em>Ex Libris</em>. This means that the URL is the effective point of data exchange between Google Scholar and UK's resources.</p>
+<p>In our example, there is only one service that provides access to this work, and that means the Primo hands off our query to UK Library's proxy service, <strong>EZProxy</strong>, which takes us to a copy of that full text.</p>
+<p>But if more resources provided access, like both EBSCOhost and ProQuests databases, we would stop on Primo and be offered to select which database we would like to view the full text.</p>
+<p>In our case, since we only have one option, the Primo to EZProxy transfer happens quickly, and but I was able to save the Primo URL. If we investigate this URL, we see that it's an OpenURL link, and we can see the fields and values and identify the metadata (I have decomposed the URL for readability). The percent signs and numbers in the title field use <a href="https://en.wikipedia.org/wiki/Percent-encoding">Percent-encoding</a>, and they convert characters that are URL unfriendly, like empty spaces between words, to something that URLs can handle and parse. See <a href="https://www.w3schools.com/tags/ref_urlencode.asp">this page</a> for a table of UTF-8 percent-encodings and the characters they match:</p>
+<pre><code>https://saalck-uky.primo.exlibrisgroup.com/discovery/openurl?
+institution=01SAA_UKY&amp;
+vid=01SAA_UKY:UKY&amp;
+aulast=Dadzie&amp;
+id=doi:10.1108%2F10650740510632208&amp;
+auinit=PS&amp;
+atitle=Electronic%20resources%20access%20and%20usage%20at%20Ashesi%20University%20College&amp;
+sid=google
+</code></pre>
+<p>The link resolver technology works and translates the metadata as needed for the appropriate service.</p>
+<p>We can see another instance of this within Primo itelf. Here I search for the phrase <code>electronic resources</code> and then filter by WorldCat options. The first option is a work titled <strong>Electronic Resources. Selection and bibliographic control.</strong> This is not available via UK Libraries, and so I would have to request the item through interlibrary loan. If I do that for the main campus, then the URL becomes this. Note that these are essentially metadata elements and that some elements are empty even though they are present in the URL:</p>
+<pre><code>https://lib.uky.edu/ILLiad/illiad.dll?
+Action=10&amp;
+Form=30&amp;
+rft.genre=book&amp;
+rft.au=Pattie%2C+Ling-yuh+W.&amp;
+rft.title=&amp;
+rft.title=Electronic+resources.+Selection+and+bibliographic+control&amp;
+rft.stitle=&amp;
+rft.atitle=&amp;
+rft.date=&amp;
+rft.month=&amp;
+rft.volume=&amp;
+rft.issue=&amp;
+rft.number=&amp;
+rft.epage=&amp;
+rft.spage=&amp;
+rft.edition=&amp;
+rft.isbn=1000111849&amp;
+rft.eisbn=&amp;
+rft.au=Pattie,&amp;
+rft.auinit=L&amp;
+rft.pub=CRC+Press&amp;
+rft.publisher=&amp;
+rft.place=Boca+Raton&amp;
+rft.doi=&amp;
+rfe_dat=1196192673&amp;
+rfr_id=
+</code></pre>
+<p>Here's an example for an article via Primo and ILL:</p>
+<pre><code>https://lib.uky.edu/ILLiad/illiad.dll?
+Action=10&amp;
+Form=30&amp;
+rft.genre=article&amp;
+rft.title=Decision+support+systems.&amp;
+rft.stitle=Decision+support+systems&amp;
+rft.atitle=A+systems+thinking+framework+for+knowledge+management&amp;
+rft.jtitle=Decision+support+systems.&amp;
+rft.au=Rubenstein-Montano%2C+B&amp;
+rft.date=2001&amp;
+rft.month=5&amp;
+rft.volume=31&amp;
+rft.issue=1&amp;
+rft.number=&amp;
+rft.spage=5&amp;
+rft.epage=16&amp;
+rft.edition=&amp;
+rft.issn=0167-9236&amp;
+rft.eissn=1873-5797&amp;
+rft.aulast=Rubenstein-Montano&amp;
+rft.aufirst=B&amp;
+rft.auinit=B&amp;
+rft.pub=Elsevier+Science+Publishers+BV+%28North+Holland%29&amp;
+rft.pubdate=1985-c1999.&amp;
+rft.pubyear=&amp;
+rft.publisher=Elsevier+Science+Publishers+BV+%28North+Holland%29&amp;
+rft.place=Amsterdam%2C+the+Netherlands+%3A&amp;
+rft.doi=10.1016%2FS0167-9236%2800%2900116-0&amp;
+rfe_dat=11804282&amp;
+rfr_id=google
+</code></pre>
+<p>This all works because the various publishers and vendors, and their associated applications, have agreed to use this technology.</p>
+<p>Let's consider an example a database that a library subscribes to, like EBCOHost's <em>Academic Search Complete (ASC)</em>. I search for the term <code>knowledge management</code>. ASC is an abstracting and indexing, bibliographic database that provides access to some full text articles on its own platform, whereas <em>Google Scholar</em> links to full text, only if it is freely available on the web, or links to them via a link resolver, if the <em>Google Scholar</em> user has set this up in their settings, and the <a href="https://scholar.google.com/intl/en/scholar/libraries.html">library has also configured this on their side</a>.</p>
+<p>For those bibliographic records that are not available as full text in ASC, the link resolver used by UK Libraries will display an option underneath the bibliographic record in the ASC results or it will display after clicking the full display option of the record. Here we see the link resolver in action in the form of the <strong>View Now @ UK</strong> button. Clicking that will open the link resolver menu, and we will see a list of options for accessing the full text of the article. If the article is available full text in the library, like through a different database. If not, there should be options for requesting the item through inter-library loan or options for accessing the item in the library's physical collections if the library has the item in the stacks.</p>
+<h2 id="link-resolvers-in-practice"><a class="header" href="#link-resolvers-in-practice">Link Resolvers in Practice</a></h2>
+<p>Our readings this week by Kasprowski (2012) and by Chisari et al. (2017) discuss link resolver technology and methods to evaluate link resolver technology. It may not be necessary to learn how to hack your way through the OpenURL syntax or other aspects of link resolver URL formatting, but it is a good idea to acquire a basic understanding of how the URLs work in this process.</p>
+<p>Let me re-emphasize that the key way that link resolvers work is by embedding citation metadata within the link resolver URL, including administrative metadata. This is another reason to have high quality metadata for our records, as our readings note. By implication, if we find, perhaps by an email from a library patron, that a link has broken in this process, it might be that the metadata is incorrect or has changed in some important way. Knowing the parts of this process aids us in deciphering possible errors that exist when the technology breaks.</p>
+<p>For this week, I'll provide a link to <em>ExLibres Alma</em> link resolver documentation, which is the link resolver product used by UK Libraries. Let's discuss this documentation in the forum. I want you to find and explain other instances of link resolvers. Be sure to provide links to these examples and articulate ways the technology can be evaluated.</p>
+<p><strong>Documentation to read and discuss:</strong></p>
+<p><a href="https://knowledge.exlibrisgroup.com/Alma/Product_Materials/050Alma_FAQs/E-Resource_Management/Link_Resolver%2C_Usage">Link Resolver, Usage</a></p>
+<h2 id="additional-information"><a class="header" href="#additional-information">Additional information</a></h2>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc3986#page-16">URL syntax components</a></li>
+<li><a href="https://www.url-encode-decode.com/">URL Encode / Decode Percent Encoding</a></li>
+<li><a href="https://scholar.google.com/intl/en/scholar/libraries.html">How Google Scholar works with libraries</a></li>
+<li><a href="https://help.oclc.org/Metadata_Services/WorldShare_Collection_Manager/Choose_your_Collection_Manager_workflow/Knowledge_base_collections/Use_collection_data_with_other_services/Surface_your_materials_in_Google_Scholar">Surface your materials in Google Scholar (OCLC)</a></li>
+</ul>
+<h1 id="to-incorporate-into-the-fall-2022-lecture"><a class="header" href="#to-incorporate-into-the-fall-2022-lecture">To incorporate into the fall 2022 lecture:</a></h1>
+<h2 id="openurl"><a class="header" href="#openurl">OpenURL</a></h2>
+<p>My university's library uses <a href="https://en.wikipedia.org/wiki/OpenURL">OpenURL</a> and Primo/Alma's discovery service/link resolver to request sources via various bibliographic databases. Or more accurately, the university library uses Primo/Alma, which uses an OpenURL compatible link resolver.</p>
+<p>Basically, the technology is meant to help library users gain access to a library's (usually paywalled) electronic resources (or locate items in the catalog). E.g., if you're searching on Google Scholar and you see a <strong>View Now @ [YOUR LIBRARY]</strong> link next to a search result, and you click on that link, then you are using, or triggering, a link resolver to request the source. As a library user, you have to add your institution in Google Scholar via their <a href="https://scholar.google.com/scholar_settings?sciifh=1&amp;hl=en&amp;as_sdt=0,18#2">settings</a>, but if you're using a bibliographic or citation database directly provided by your library, then it should be available by default.</p>
+<p>Because OpenURL compatible link resolver technology is partly based on <a href="https://en.wikipedia.org/wiki/Query_string">query strings</a>, it's fun to glean all sorts of information by examining the URL: the query string component that contains the metadata for the source but also the base component that contains the vendor and institutional information and also the URL type. Namely, it turns out that Primo/Alma uses two URL types to request resources: a search URL and an OpenURL. At my institution, the base search URL looks like this:</p>
+<pre><code>https://saalck-uky.primo.exlibrisgroup.com/discovery/search?
+</code></pre>
+<p>The base OpenURL differs just a bit (see the end of the URL):</p>
+<pre><code>https://saalck-uky.primo.exlibrisgroup.com/discovery/openurl?
+</code></pre>
+<p>The base search URL appears when searching the university's online catalog (or discovery service). However, the OpenURL appears only in transit between the original resource and before reaching the final source; e.g., after clicking on a <strong>View Now @</strong> link and before being redirected to the full text version of the article that might be available at the original location (an open access location) or via the proxy location (e.g., <a href="https://en.wikipedia.org/wiki/EZproxy">EZproxy</a>). Because the redirect happens quickly, I had to quickly copy my institution's specific OpenURL when I clicked on a <strong>View Now</strong> link before it redirected to the EZproxy page.</p>
+<p>My students often identify great problems to solve or are the source of great ideas. One of my students in my <a href="https://github.com/cseanburns/electronic_resource_mgmt">electronic resource management class</a> noticed that <a href="https://www.zotero.org/">Zotero</a> has a <a href="https://www.zotero.org/support/locate">locate menu</a> that uses OpenURL resolvers to look up items in a library. By default, Zotero uses WorldCat, but it can use a specific institution's OpenURL resolver, too. I had completely forgotten about this. I think I stopped trying to use it years ago because the WorldCat default stopped working. Anyway, when I investigated, I noticed that my institution wasn't available via Zotero or listed on their page of <a href="https://www.zotero.org/support/locate/openurl_resolvers">OpenURL resolvers</a>.</p>
+<p>At the time, I didn't know what my institution's exact OpenURL was, but I was able to figure it out by comparing the syntax and values from other Primo URLs listed on Zotero's page of OpenURL resolvers and because I had just written a lecture on link resolvers. So by comparing OpenURLs and by using the info from my lecture, where I had discussed the components of link resolver URLs, I was able to derive my institution's specific OpenURL (base component plus institutional info), which is:</p>
+<pre><code>https://saalck-uky.primo.exlibrisgroup.com/discovery/openurl?institution=01SAA_UKY&amp;vid=01SAA_UKY:UKY
+</code></pre>
+<p>I added that to Zotero, and it worked, and then I posted the OpenURL info to Zotero's forum, and they've added it to their OpenURL resolver page. That's pretty cool.</p>
+<p>If anyone who comes across this post and is curious about how to add this info to Zotero, <a href="https://library.sacredheart.edu/zotero/advanced/usingLibraryLookup">another library</a> has created a video on this. The directions cover adding a specific OpenURL to Zotero and on how to use Zotero's Library Lookup functionality.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="electronic-access"><a class="header" href="#electronic-access">Electronic Access</a></h1>
+<p>As I've stated in previous lecture, <strong>Access</strong> is the paramount principle of librarianship, and all other issues, from censorship to information retrieval or to usability, within LIS, are on some level derived from or framed by that principle of <strong>Access</strong>.</p>
+<p>This week, then, we devote ourselves to a discussion of <strong>electronic access</strong>, and it is helpful to begin with Samples and Healy (2014), who provide a nice framework for thinking about managing electronic access. They include two broad categories, <em>proactive troubleshooting</em> and <em>reactive troubleshooting</em> of access.</p>
+<ul>
+<li>proactive troubleshooting of access: &quot;defined as troubleshooting access problems before they are identified by a patron&quot;. Some examples include:
+<ul>
+<li>&quot;letting public-facing library staff know about planned database downtime&quot;</li>
+<li>&quot;doing a complete inventory to make sure that every database paid for is in fact 'turned on'</li>
+</ul>
+</li>
+<li>reactive troubleshoot of access: &quot;defined as troubleshooting access issues as problems are identified and reported by a patron&quot;. Some examples include:
+<ul>
+<li>&quot;fixing broken links&quot;</li>
+<li>&quot;fixing incorrect coverage date ranges in the catalog&quot;</li>
+<li>&quot;patron education about accessing full text&quot;</li>
+</ul>
+</li>
+</ul>
+<p>The goal here, as suggested by Samples and Healy (2014), is to maximize proactive troubleshooting and to minimize reactive troubleshooting. Or, to prevent problems from happening. Samples and Healy's report is a great example of why we call the field <em>library science</em>. The purpose of making librarianship a science was based on a need to rigorize librarianship, to systematically study the problems of libraries, and to generalize solutions based on systematic study. The project they describe does that nicely. The authors identified a problem that had grown &quot;organically,&quot; collected and analyzed data, and then generalized from it by outlining a &quot;detailed workflow&quot; to &quot;improve the timeliness and accuracy of electronic resource work.&quot; Practically, studies like this promise to improve productivity and better work flows that foster job and patron satisfaction. It could also help librarians identify the kinds of software solutions that will align with their workflows and patron information behaviors. If interested, you might want to read a recent article in the <em>Journal of Electronic Resource Librarianship</em> about the impact of Covid-19 on electronic resource management. Six authors individually describe access issues at their respective institutions and show how issues of pricing, acquisitions, training, user expectations, and budgets affect electronic access. It is good to read articles like this in light of the framework provided by Samples and Healy (2014) because stories like these, about this impact of the pandemic on electronic access, could help guide us in developing proactive troubleshooting procedures that will minimize issues in the future, pandemic or not, at our own institutions.</p>
+<p>Lowe, R. A., Chirombo, F., Coogan, J. F., Dodd, A., Hutchinson, C., &amp; Nagata, J. (2021). Electronic Resources Management in the Time of COVID-19: Challenges and Opportunities Experienced by Six Academic Libraries. <em>Journal of Electronic Resources Librarianship, 33</em>(3), 215–223.
+https://doi.org/10.1080/1941126X.2021.1949162</p>
+<p>Back to Samples and Healy (2014), who say something important against a common assumption about electronic resources, particularly those provided by vendors:</p>
+<blockquote>
+<p>The impression that once a resource is acquired, it is then just 'accessible' belies the actual, shifting nature of electronic resources, where continual changes in URLs, domain names, or incompatible metadata causes articles and ebooks to be available one day, but not the next.</p>
+</blockquote>
+<p>Hence, unlike a printed work from the long ago print-only era that, once cataloged, may be shelved for decades or longer without major problems of access, electronic resources require constant and active attention to maintain accessibility to them. Ebooks, for example, can create metadata problems. Often what's important about scholarly ebooks, in particular, are the chapters they include, and hence metadata describing ebook components is important, along with providing links to those chapters in discovery systems. This difference between item-level cataloging and title-level cataloging, as Samples and Healy describe, can lead to confusing and problematic results when considering different genres and what those genres contain. Or, note that they discuss how a series of links are involved starting from the source of discovery, e.g., an OPAC, to the retrieved item, and how difficult it might be in determining which of these links and which of those services is broken when access becomes problematic.</p>
+<p>Let me highlight a few key findings from their report:</p>
+<ul>
+<li>Workflows: why does this keep coming up? It's because workflows help automate a process---simplify and smooth out what needs to be done, and because this is only possible when things are standardized.</li>
+<li>Staffing: we'll discuss this more in a future forum, but part of the problem here is that ERM has had a major impact on organizational structure, but one where different libraries have responded differently. This lack of organizational standardization has its benefits regarding overall management practices and cultures, but it also has huge drawbacks---and that's the difficulty in establishing effective, generalized workflows that include key participants, and to minimize as many dependencies on any one person.</li>
+<li>Tracking: if there's no tracking, there's no method to systematically identify patterns in problems. And if that's not possible, then there's no method to solve those problems proactively. It's just all reactive, and reactive troubleshooting, as Samples and Healy indicate, results in poor patron experiences. We'll discuss tracking when we during the week on Evaluation and Statistics.</li>
+</ul>
+<p>I like the Carter and Traill (2017) article because we commonly get the line that discovery systems are a great solution to all the disparate discipline based resources that librarians subscribe to in order to search their collections. Or, if we do think about problems with such systems, we are often presented with a basic information retrieval problem, such that the larger the collection to search, the more likely a relevant item will get lost in the mix. But as Carter and Traill (2017) point out, these discovery systems also tend to reveal access problems as they are used. The authors provide a checklist, as a result of their analysis, to track issues and improve existing workflows.</p>
+<p>The Buhler and Cataldo (2016) article provides an important reminder that the mission of the electronic resource librarian is to serve the patron. This should remind us that the internet and the web have flattened genres, and have made it difficult to distinguish among things like magazine articles, news articles, journal articles, encyclopedia articles, ebooks, etc. Though the Buhler and Cataldo (2016) reading is student-focused, other studies have hinted at the same issue they describe across other populations. It's important, if possible, to recognize these issues as ERM librarians and work to resolve them in the ways that you would be able to.</p>
+<p>I grew up with some understanding of the differences between an encyclopedia article, a journal article, a magazine article, a newspaper article, a chapter in a book, a handbook, an index, a dictionary, etc. because I grew up with the printed versions and because these were tangible things that looked different. Today, a traditional first year college student was born around the year 2003 and grew up reading around the turn of the first decade. The problem this raises is that although electronic resources are electronic or digital, they are still based on genres that originated in the print age, yet they lack the physical characteristics that help distinguish one from the other. E.g., what's the difference between a longer <em>NY Times</em> article (traditionally a newspaper article) and an article in the <em>New Yorker</em> (traditionally a magazine article) today? Aside from some aesthetic differences between the two, they are both web pages, and it's not altogether obvious, based on any kind of cursory examination, that we can tell, as regular users, that they're entirely different genres. However, there are important informational differences between the two, how they were written, how they were edited, who they were written by that might still lead us to consider them as different genres. Even <em>Wikipedia</em> articles pose this problem. Citing an encyclopedia article was never an accepted practice, but this was only true for general encyclopedias. It was generally okay to cite articles from special encyclopedias because they focused on limited subject matters like specific areas of art, music, science, culture, and were usually more in-depth in their coverage. Examples include the <em>Encyclopedia of GIS</em>, the <em>Encyclopedia of Evolution</em>, <em>The Kentucky African American Encyclopedia</em>, <em>The Encyclopedia of Virtual Art Carving Toraja--Indonesia</em>, and so forth. There are some studies that show that <em>Wikipedia</em> does provide that kind of in-depth coverage of some subject matters, thus helping to flatten the encyclopedia genre, too.</p>
+<p>The flattening holds true for things like <em>Google</em>. The best print analogy for <em>Google</em> is that of an index, which was used to locate keywords that would point to source material. See the links in the discussion post for examples. The main difference between these indexes and <em>Google</em> is that the indexes were produced to cover specific publications, like a newspaper, or specific areas, like the <em>Social Science Citation Index</em> or the <em>Science Citation Index</em>, both of which are actual, documented, historical precursors to <em>Google</em> and to <em>Google Scholar</em>. But, today, these search engines are erroneously considered source material (e.g, &quot;I found it on Google&quot;). Few, I think, would have considered a print index as source material, but rather as a <strong>reference</strong> item, since it <em>referred</em> users to sources. Now it's all mixed up, but who can blame anyone.</p>
+<p>Let's discuss all of this on the board.</p>
+<ul>
+<li><a href="https://photos.app.goo.gl/6wqu02M7OQzyJnCG2">Photos of the New York Times Index</a></li>
+<li><a href="https://photos.app.goo.gl/JpnqxzZ44dhM06cq2">Photos of the Newspaper Index for the Washington Post</a></li>
+<li><a href="https://photos.app.goo.gl/Y5ronALog63zIxwr1">Photos of the Reader's Guide to Periodical Literature</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="part-3-processes-and-contexts"><a class="header" href="#part-3-processes-and-contexts">Part 3: Processes and Contexts</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="workflow"><a class="header" href="#workflow">Workflow</a></h1>
+<p>If all goes according to plan, this week's readings on electronic resource management and on workflow analysis should help put prior material into context and act as a bridge to the material we will discuss in much of the remaining weeks of the semester.</p>
+<p>In the first three weeks of the semester, we learned about and discussed:</p>
+<ul>
+<li>what it means to be a librarian who oversees or is a part of electronic resource management,</li>
+<li>what kinds of criteria are sought for in new hires, and</li>
+<li>why electronic resources have introduced so much <em>constant disruption</em> across libraries.</li>
+</ul>
+<p>This latter point is largely due to, among other things, the fact that the print-era involved largely (or at least more so) a linear process of collection management that was fundamentally altered with the introduction of electronic resources.</p>
+<p>Then we discussed the differences between:</p>
+<ul>
+<li>electronic resource management software and</li>
+<li>integrated library system software. </li>
+</ul>
+<p>We also learned about:</p>
+<ul>
+<li>technical and workflow standards</li>
+</ul>
+<p>And we discussed:</p>
+<ul>
+<li>why both types of the above standards are important,</li>
+<li>why interoperability is required, and</li>
+<li>what happens when access to electronic resources break.</li>
+</ul>
+<p>This week things will start to make connections at a faster pace. In the first Anderson article (chapter 2), we gain a clearer idea of what a knowledge base is and how it works, and we learn more about how integrated library systems and ERM systems work together (or fail to). We also dip our toes into newer topics like licensing, COUNTER, and SUSHI, which we'll cover in greater detail in the next few weeks.</p>
+<p>In the second Anderson article (chapter 3), we learn how to take careful consideration of a library's work flow before selecting which ERM software to purchase. This is why workflow based standards are important, even if they are not true technical standards. We do this because we select systems based on the needs of the librarians, which may be vastly different across libraries, and which must rely on different aspects of the overall process. As you read this chapter, I want you to keep in mind the Samples and Healy article from the previous week's reading.</p>
+<p>As hinted at in these readings, especially in the section on acquisitions, budget, subscription, and purchasing in chapter two but also in the multiple discussions about the role vendors play in electronic resource management, the market and the economics of this area of librarianship weigh heavily on everyday realities. We will follow up on this next week when we begin to read more about the market and the economics of electronic resources. For example, in our Anderson readings this week, we learn about the CORE recommended practice (RP), or the <a href="https://www.niso.org/standards-committees/core-cost-resource-exchange">Cost of Resource Exchange</a>, that was developed by NISO. CORE brings together three aspects of our previous discussions: software, funds, and interoperability. Here the CORE RP describes how the ILS and ERM systems can communicate the costs of electronic resources between each other. Its existence hints at the pressures librarians have had in having to deal with complex budget issues. Although this is not touched on in these articles, the current pandemic will make these issues more complicated for libraries.</p>
+<p>While we spent time discussing technical standards, we also learned about TERMS, an attempt to standardize the language and processes involved with electronic resource management. We see more connections in this week's readings. Aside from the CORE standard, we learn more about standard attempts at licensing, and the <em>COUNTER</em> and <em>SUSHI</em> statistic-related standards, which provide standards for the communication, collection, presentation, and the formatting of usage statistics for electronic resources such as ebooks, journals, databases, and more.</p>
+<p>We have also discussed interoperability, and what it takes for multiple systems to connect and transfer content between each other. We primarily discussed this with respect to link resolver technology, and we did this not just because we should know about link resolvers as important components of electronic resource management, but also because link resolvers are a good example of the kind of work that is involved for systems to communicate properly. There are other forms of interoperability, though, and coming back to <a href="https://www.niso.org/standards-committees/core-cost-resource-exchange">CORE</a> again, the Anderson article (chapter 2) provides a link to a white paper titled, <a href="https://old.diglib.org/standards/ERMI_Interop_Report_20080108.pdf">White Paper on Interoperability between Acquisitions Modules of Integrated Library Systems and Electronic Resource Management Systems</a>, and this paper defines the 13 data elements that were determined to be desired in any exchange between ILS software and ERM software for these software to communicate usefully with each other. By that, I mean, the data points enable meaningful use of both the ILS software and the ERM software, and include:</p>
+<ul>
+<li>purchase order number</li>
+<li>price</li>
+<li>start/end dates</li>
+<li>vendor</li>
+<li>vendor ID</li>
+<li>invoice number</li>
+<li>fund code</li>
+<li>invoice date</li>
+<li>selector</li>
+<li>vendor contact information</li>
+<li>purchase order note</li>
+<li>line item note</li>
+<li>invoice note (White Paper ...)</li>
+</ul>
+<p>That white paper contains example and worthwhile use cases and stories from major libraries, and these cases are rather helpful reads. You are not required to read this paper, but I urge you to skim through it to get a sense of how standards are created through a process of comparing and contrasting and coordinating needs and contexts among different entities. The link is in the transcript but also in the reading, as well as the link to the actual <a href="https://www.niso.org/standards-committees/core-cost-resource-exchange">CORE protocol</a>:</p>
+<p>I really like our two readings by Anderson because they are illustrative of the whole ERM process. If you are able, visit the issue these two readings are from and read the other chapters that Anderson has written.</p>
+<p>In short, this week's topic will also, if all goes well, help provide a foundation for the remaining weeks, when we will learn about and discuss things like licensing and negotiation and evaluation and statistics in more detail. Think of this week as a transition between the first part of the semester and what happens next.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="market-and-economics"><a class="header" href="#market-and-economics">Market and Economics</a></h1>
+<h2 id="copyright-and-budgets"><a class="header" href="#copyright-and-budgets">Copyright and Budgets</a></h2>
+<p>This week we're reading a piece on the ebook market (Sanchez, 2015), and one on the academic journal market (Bosch, Albee, &amp; Henderson, 2018). We'll learn how each impacts library budgets.</p>
+<p>To understand Sanchez's article, we need to address some copyright topics. In the next part of this lecture, I'll discuss copyright, the first sale doctrine, and show how digital works have disrupted some basic ways that libraries function. The article by Bosch, Albee, and Henderson discusses a similar case among academic libraries, but with academic or scholarly journals as the focal point. I'll address some of the citation metrics they discuss.</p>
+<h3 id="copyright"><a class="header" href="#copyright">Copyright</a></h3>
+<p>Copyright law grants a monopoly to the person or corporate owner of an intellectual property. That is, the copyright owner has exclusive rights over the material that they own, where <em>they</em> could be a person or an organizational entity. Section 106 of the law grants copyright owners the following rights:</p>
+<blockquote>
+<p>(1) to reproduce the copyrighted work in copies or phonorecords;</p>
+<p>(2) to prepare derivative works based upon the copyrighted work;</p>
+<p>(3) to distribute copies or phonorecords of the copyrighted work to the public by sale or other transfer of ownership, or by rental, lease, or lending;</p>
+<p>(4) in the case of literary, musical, dramatic, and choreographic works, pantomimes, and motion pictures and other audiovisual works, to perform the copyrighted work publicly;</p>
+<p>(5) in the case of literary, musical, dramatic, and choreographic works, pantomimes, and pictorial, graphic, or sculptural works, including the individual images of a motion picture or other audiovisual work, to display the copyrighted work publicly; and</p>
+<p>(6) in the case of sound recordings, to perform the copyrighted work publicly by means of a digital audio transmission.</p>
+</blockquote>
+<p>Source: <a href="https://www.copyright.gov/title17/92chap1.html#106">Copyright Section 106</a></p>
+<p>These exclusive rights are all encompassing, and intentionally designed to allow copyright owners a monopoly of their property. In principle and under some constraints, this is a good thing. However, there are some implications that we should consider.</p>
+<p>In short, if those exclusive rights were followed without limitations, then it would mean that the exchange of money for a work between a copyright holder and a buyer for something like a printed book or a DVD would not entail a transfer of ownership of that physical copy; that is, it would not allow the buyer of the physical item any distribution rights of the item once the first exchange has been made. Under such a scenario, libraries would be able to buy physical books but would not be able to lend them.</p>
+<p>The <a href="https://www.copyright.gov/docs/resaleroyalty/">First Sale Doctrine</a> helps avoid the issue granted by the full-blown list of exclusive rights granted by copyright ownership. Because of the first sale doctrine, made a precedent in the early 20th century and then <a href="http://www.copyright.gov/title17/92chap1.html#109">codified into law in 1976</a>, you, I, or a library may buy a physical copy of a work, like a book, a DVD, a painting, and literally own that specific copy. First sale doctrine does not grant us reproduction rights, as they are listed in Section 106 of the copyright law, but it does allow us to distribute the singular, physical representation or embodiment of the work that we have purchased. Thus, this first sale doctrine is why libraries were able to thrive throughout the 20th century, lend material, and preserve it. More mundanely, it's also why I can buy a book at a bookstore and later give it away or sell it to someone after I've finished it.</p>
+<p>The digital medium makes things messier, as it tends to do. There are two big reasons for this. First, digital works are not subject to the same distributions constraints that physical works are subject to, and the first sale doctrine is about distribution rights and not reproduction rights. If I have a physical copy of some book and give you my copy of that book, then I no longer have that copy. However, if I have a copy of a digital file, then as we all know, it's relatively trivial for me to share that file with you without losing access to my own copy. Since digital works can be copied and distributed without anyone losing access to their copies or even to the original, the First Sale Doctrine does not apply. In the digital space, there are far fewer limitations on supply, including on lending.</p>
+<p>Second, many digital works are like software, or at least, they are fully intertwined with the software needed to display them. This is true for all kinds of documents, like HTML pages, which need a web browser or text editor to read them and perhaps also other technologies, like JavaScript; or audio files, which need some a media player to listen to them. But let's consider ebooks as an example. Ebooks arrive in all shapes and sizes. Project Gutenberg distributes ebooks that are in the public domain and in various file formats that include plain text documents that have no presentation markup like bold, italics, and like, HTML documents with markup, XML documents like EPUB, and then also PDFs and others. Why so many file formats? Text is text, right, and in the print space, a book is simply printed on a page, even if it's sometimes printed on different sized pages or using different type settings. But these various markups exist because they each offer technological or presentational advantages and are often tied to specific pieces of software.</p>
+<p>This is especially true for proprietary file formats, like the ones that Amazon created for use only on Kindles, or the popular MP3 file format for audio recordings that only recently became patent free. While file formats like these may not be necessarily counted as software, depending on how we define software, but more like data structures, it is certainly true that file formats and the specific software applications that display can be completely intertwined. If you are old enough, you may remember the headaches caused with files created as <strong>.doc</strong> in some early version of Microsoft Word that later failed to display properly in a future Microsoft Word version or in some other word document software. WordPerfect 5.1 was a popular word processing applications in the 1990s, and it's not clear if files created with that application, or other popular word processing applications at that time, would open today, <a href="http://www.columbia.edu/%7Eem36/wpdos/wptoword.html">at least without intervention</a>.</p>
+<p>In short, these complexities introduce obstacles to the first sale doctrine and raise other copyright issues because of the connection to software, which is also often copyrighted. The result is that copyright holders and publishers have little financial interest in selling actual digital copies of works, since they cannot prevent future distribution without special technologies, and instead are more motivated to license material and sometimes explicitly tie that material to specific pieces of software and hardware, like the Kindle, which would have to be bought, and that adds additional expense.</p>
+<p>What does this mean for libraries in the digital age? It means that libraries buy less and rent or license more, and renting means that they continually pay for something for as long as they want access to it. As Sanchez (2015) puts it, &quot;At its simplest, this takes the form of paying x dollars per year per title during the length of the contract.&quot; When the total supply of works increases, e.g., the total number of published books increases, as they do each year, then it means renting more and more without ever completely acquiring. When budgets are cut or are stagnant, this ultimately means a decline in the collection a library has to offer, or if not a decline in the collection, then cuts in some other areas of a library, like the number of librarians or other staff. This is the conundrum that Sanchez raises in his article.</p>
+<p>If that alone were the issue, maybe librarians could discern other sustainable ways to proceed, but Sanchez raises additional issues and questions: what if publishers raise the prices for digital content at an annual rate faster than what they already raise for print content (reasonable assumption)? If so, does that mean that librarians will be able to afford fewer titles, digital or print, unless they raise their budgets, and, as they weed, how would that impact the physical space of the library? See figure 2.3, specifically, from Sanchez's article. The plot shows just how much could be lost and how little gained if the forecasts Sanchez discusses come true.</p>
+<p>Keep all of this in mind as you process Sanchez's article. You can even connect it to some discussions you've already had about accessing digital content. Specifically, there are many ways to put constraints on the supply of an item in the digital landscape, as opposed to limiting supply in the physical space, which include fewer methods. That is, it's relatively easy for publishers and others to restrict the supply of physical works. They simply have to limit how many of those physical works are manufactured (e.g., the number of print runs). But given the nature of digital content, restricting supply is driven by the technologies available to do so, and since there are so many publishers and distribution points, then each one of these points will often create their own unique type of constraint on the supply. The result is that there will be a number of confusing methods implemented to limit constraint, even if these limitations are marketed as selling points. In practice, this may mean that only a limited number of people may &quot;check&quot; out a work from a library at one time, or access a database at one time, and so forth. Thus, the budget issue has an impact on access and usability.</p>
+<p>As a bonus, the last time I taught this course, I reached out to Joseph Sanchez and interviewed him. Please enjoy the interview! It's long but it was a very fun exchange.</p>
+<p>Read more about copyright:</p>
+<p><a href="https://www.copyright.gov/title17/92chap1.html">https://www.copyright.gov/title17/92chap1.html</a></p>
+<p>Although ebooks likely represent the biggest impact on public library budgets, academic libraries are largely concerned with scholarly journals. Like Sanchez (2015), Bosch, Albee, &amp; Henderson (2018) show that the major issue here is that academic library budgets are declining or holding flat, even though prices continue to increase for journal titles and though the number of published articles increase. This raises an interesting phenomenon---that although researchers are hurt by the lack of access to research, researchers are also part of the cause of the increase simply because they continue to publish more and more. Ironically, the result of that rate of increase is less access for many.</p>
+<p>The authors also note that part of the drive to publish includes a drive to publish in so-called <em>prestigious</em> journal titles, where <em>prestigious</em> is determined by how well cited the title is. The authors refer to a few citation-based metrics that the research community uses to determine prestige. These include the long-established <em>Impact Factor</em>, which can be examined in the <em>Journal Citation Reports</em> (JCR) provided by Clarivate Analytics, as well as newer ones, such as the <em>Eigenfactor</em> and the <em>Article Influence Score</em>, which can also be examined in JCR (the eigenfactor.org site is not well updated, at the time of this writing).</p>
+<p>One motivation for using a citation metric as the basis of evaluating journal titles is because citation metrics indicate, at some level, the use of the title. That is, a citation to an article in a journal title means, ideally, that the authors citing that article have read the article. Historically, when Eugene Garfield invented the <em>Impact Factor</em>, it was partly so as a tool for librarians to use in collection management because he recognized this use-based theory of citations.</p>
+<p>However, citation metrics should never be the sole or even primary tool for such purposes, though. While they may provide good information, there are many caveats. First, there are different fields of research, and some fields cite at different rates and at different volumes than other fields, and also for different reasons. This is why, in Table 5 of the Bosch, Albee, and Henderson (2018) article, the cost per cite for journals in the Philosophy &amp; Religion category are so much higher that the cost per cite of titles in other categories. Authors in P&amp;R simply have different citation and publishing behaviors than authors in other categories. Second, citations do not capture all uses of a journal. For example, there are many journal titles that I might use in my courses but may not use in my research, and this is true for other faculty, yet citation metrics won't reflect that kind of use. The authors refer to <em>altmetrics</em>, which was invented to help capture additional non-citing uses of scholarly products, but altmetrics is still in its infancy and is largely dependent on data sources and scholarly behavior that are problematic themselves. Third, there are various issues with the metrics themselves. The <em>Impact Factor</em> is based on a calculation that is outdated and not a very appropriate statistical measure. The other calculations were created to address that but may have other problems. And four, the use of the metrics, regardless of which one, tends to drive publishing behavior---such that journal titles with higher metrics tend to attract more submissions and more attention, thus driving more citations to them. Thus, citation based metrics are comparable to a kind of capitalist economic system where, as the sociologist of science Robert Merton noted, <a href="http://www.garfield.library.upenn.edu/merton/matthew1.pdf">the richer get richer (in citations) and the poor get poorer</a>. The issue then is that prestige, defined in this way, does not necessarily indicate quality---just use.</p>
+<p>The authors also discuss some issues with <em>Gold Open Access</em> and the idea that Gold OA may compound the cost problem. This is where authors pay a publication fee, or an article processing charge (APC), once a manuscript has been submitted and accepted by a journal (there are other types of Gold OA cost models). We can do a quick off the cuff and rough calculation to see why this might compound the problem. As an example, <em>PLOS ONE</em> is one of the largest gold OA journals and charges an <a href="https://www.plos.org/publication-fees">APC of $1,695 USD</a> (that's $100 more than it cost about a year ago). In 2018, 32 papers were published in PLOS ONE that included at least one author from the University of Kentucky, totaling $51,040 in APCs for the 50 total institutions that were associated with these papers. Thus, this amounts to about $1020 per institution, paid for by the authors and not libraries. For UK authors, this also amounts to over $32,640 spent on APCs (32 * $1020). This is about $27K more than the average price of the most expensive category, Chemistry, as reported in Table 1 of the reading. I'll leave it at that.</p>
+<p>In a follow-up video, I'll demonstrate some tools used to examine the discussed metrics.</p>
+<h2 id="references-1"><a class="header" href="#references-1">References</a></h2>
+<p>Bosch, S., Albee, B., &amp; Henderson, K. (2018). Death by 1,000 Cuts. Library Journal, 143(7), 28–33.</p>
+<p>Sanchez, J. (2015). Chapter 2. Forecasting Public Library E-content Costs. Library Technology Reports, 51(8), 9–15. Retrieved from <a href="https://journals.ala.org/index.php/ltr/article/view/5833">https://journals.ala.org/index.php/ltr/article/view/5833</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="licensing-basics"><a class="header" href="#licensing-basics">Licensing Basics</a></h1>
+<p>This week we start two week's of discussion on licensing. Licensing is at the top of the list of most important aspects of electronic resource management. We start our coverage now because it was necessary to learn about the technical and the economic aspects of ERM work as a prerequisite.</p>
+<p>First, we should not that there is a hierarchical difference between <a href="https://www.copyright.gov/">copyright law</a> and contract law. In short, although copyright is a kind of <a href="https://www.copyright.gov/what-is-copyright/">temporary <em>right</em></a> (ante public domain status), unlike other types of rights (e.g., legal or civil rights), it is a <em>right</em> that can be transferred or sold by way of a contract. Contract law, thus, supersedes copyright law.</p>
+<p>For example, <a href="https://www.esports.law/blog/licensing-agreements-components-and-concerns">licensing agreements</a> offer copyright or intellectual property owners a contractual framework. This framework functions as a contractual agreement among two or more parties, and it enables the parties involved to participate, within some range of time (all contracts must have starting and ending dates), in an owner's intellectual property under certain conditions. Librarians enter into licensing agreements of all kinds. The types of things that are licensed include bibliographic databases, ILS/ERM software, and of course, e-content. Unfortunately, regarding the latter, entering a licensing agreement for e-content means that libraries do not own that content but only have access for a period of time, as defined in the contract. This is unlike print works, which fall under the first-sale doctrine. That is, once a library ones, for example, a physical book, it owns it for as long as they want to or can own it. Basically, the existence of a licensing agreement between a library and an intellectual property owner entails lack of ownership of the <em>item</em> (think of item as defined by the <em>Functional Requirements for Bibliographic Records</em> <a href="https://www.loc.gov/cds/downloads/FRBR.PDF">FRBR</a> model).</p>
+<p>The readings are pretty straightforward, but let's preview some basics, which are nicely outlined in Weir (2016) (not in the reading but referenced below):</p>
+<ul>
+<li>There are two general types of licensing agreements:
+<ul>
+<li><strong>End user agreements</strong> are generally the kind that people accept when they use some kind of software or some service.</li>
+<li><strong>Site agreements</strong> are the kinds of agreements librarians get involved in when they negotiate for things like databases. Here, <em>site</em> refers to the organizational entity.</li>
+</ul>
+</li>
+<li>There are several important parts of a standard license. They include:
+<ul>
+<li><strong>Introductions</strong>: this includes information about the licensee and the licensor, date information, some information about payments and the schedule.</li>
+<li><strong>Definitions</strong>: this section defines the major terms of the contract. Weir includes, as examples, the licensee, the licensor, authorized user, user population, and whether the contract entails a single or multi-user site.</li>
+<li><strong>Access</strong>: This covers topics such as IP authentication and proxy access.</li>
+<li><strong>Acceptable use</strong>: Included here are issues related to downloading, storage, print rights, interlibrary loan (ILL), and preservation.</li>
+<li><strong>Prohibited use</strong>: What cannot people do: download restrictions, etc.</li>
+<li><strong>Responsibilities</strong>: What the licensee's (the library) responsibilities. Be careful about accepting responsibility for actions that the library would have a difficult time monitoring. Then also, what are the licensor's responsibilities. This might include topics such as 24 hour access.</li>
+<li><strong>Term and terminations</strong>: Details about the terms of the contract and how the contract may be terminated. Be aware that many libraries are attached to either municipal, county, or state governments and must adhere to relevant laws.</li>
+<li>Various provisions</li>
+</ul>
+</li>
+</ul>
+<p>As an example, the California Digital Library, via the University of California, provides a <a href="https://cdlib.org/resources/vendors/license-agreement-checklist/">checklist</a> and a copy of their standard license agreement.</p>
+<p>The checklist covers four main sections and is well worth a read:</p>
+<ul>
+<li>Content and Access</li>
+<li>Licensing</li>
+<li>Business</li>
+<li>Management</li>
+</ul>
+<p>We have three additional readings this week. One of the readings covers SERU: A Shared Electronic Resource Understanding, by NISO. We also have a short article by Regan that provides some guidelines on becoming competent on licensing.</p>
+<p><a href="https://groups.niso.org/apps/group_public/download.php/8593/RP-7-2012_SERU.pdf">SERU</a>, <a href="https://www.niso.org/standards-committees/seru">Shared Electronic Resource Understanding</a>, is a NISO collaborative document that helped standardize some aspects of the licensing process and can be used as &quot;an alternative to a license agreement&quot; if a provider and a library agrees to use it. Like the standard licensing structure that Weir (2016) outlines, SERU includes parts that describe use, inappropriate use, access, and more but also posits other stipulations, such as confidentiality and privacy.</p>
+<p>The other reading is the <a href="https://www.nasig.org/Core-Competencies">NASIG Core Competencies for Electronic Resources Librarians</a>. We have already visited this, and although it doesn't specifically cover licensing, I added it to this week's reading list for a couple of reasons. First, it's a reminder that when we talk about electronic resource management, we talk about a comprehensive list of responsibilities, skills, technologies, and more, and I need to keep this on our radar. Second, because the Regan reading specifically mentions these competencies, and I thought it would good to reintroduce them here.</p>
+<p>This week, after reading the material, I want you to focus on the Regan article and some of the questions raised there. Regan raises important questions about the licensing process, about effective communication, and about advocacy. I want you to comment on these issues, and I want you to answer some questions that Regan raises. You can do that by searching the web and library websites. In fact, at the beginning of the semester I asked you to subscribe to the SERIALST email list. It's now time to draw upon that and any discussions you've seen in those lists that are related. You can usually search the archives of those lists, especially since traffic has been a bit light recently. Regan mentions some other sources, such as <a href="http://liblicense.crl.edu/">LIBLICENSE</a> and <a href="https://www.copyrightlaws.com/">copyrightlaws.com</a>. Any of these are fair game for our discussions, but the latter is a commercial entity that provides material and tutorials for a kind of tuition. It might be useful to know about it, but explore only if you want. However, LIBLICENSE provides model licenses as well as links to <a href="http://liblicense.crl.edu/licensing-information/model-license/">additional model licences</a>, including the above mentioned California Digital Library Standard License Agreement. The LIBLICENSE model license includes even more details, such as types of authorized uses, and details that include provisions on:</p>
+<ul>
+<li>course reserves</li>
+<li>course packs</li>
+<li>electronic links</li>
+<li>scholarly sharing</li>
+<li>scholarly citation</li>
+<li>text and data mining</li>
+</ul>
+<h2 id="references-2"><a class="header" href="#references-2">References</a></h2>
+<p>Regan, S. (2015). Lassoing the Licensing Beast: How Electronic Resources Librarians Can Build Competency and Advocate for Wrangling Electronic Content Licensing. The Serials Librarian, 68(1–4), 318–324. <a href="https://doi.org/10.1080/0361526X.2015.1026225">https://doi.org/10.1080/0361526X.2015.1026225</a></p>
+<p>Weir, R. O. (2012). Licensing Electronic Resources and Contract Negotiation. In R. O. Weir (Ed.), Managing electronic resources: a LITA guide. Chicago: ALA TechSource, an imprint of the American Library Association.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="licensing-and-negotiating"><a class="header" href="#licensing-and-negotiating">Licensing and Negotiating</a></h1>
+<p>Since we are watching a long video again and also have a solid number of readings, I will keep this lecture short.</p>
+<p>Let's talk about Abbie Brown, first. In her talk, note that she highlights the middle ground on:</p>
+<ul>
+<li>principled negotiation</li>
+<li>assertive communicators</li>
+</ul>
+<p>She also discusses, based on her experience, some stereotypes that get in the way of negotiating. These include:</p>
+<ul>
+<li>Librarian stereotypes: Years ago, I was at a dinner with a friend of mine and their family when my friend mentioned me going to library school. The father of my friend then said, &quot;isn't that women's work?&quot; So the existence of this stereotype is true, and if applicable to you, I hope you do not have to deal with it. My advice is to stick with Abbie Brown's suggestion to focus on principled negotiation and assertive communication. And if you're judged based on other stereotypes, please don't tolerate it.</li>
+<li>Library stereotypes: libraries are major players in the economy and have important economic buying power. Know that you come from a position of power.</li>
+<li>Vendors stereotypes: these are just as incorrect. As Brown notes, the people who work for vendors often have Master's degrees from library science programs. In fact, I went to library school with people who now work for vendors, and students in this class have and do work for vendors. These people are certainly aware of the complexities surrounding libraries and librarians and the values that librarians uphold. So you often will have a lot of mutual understanding from the start and should not necessarily have to assume any baseline antagonism.</li>
+<li>In the end, try work against any and all of these stereotypes. I think that if you do this, then it will reduce a lot of anxiety that we might carry with us when we go to the negotiating table.</li>
+</ul>
+<p>I like that also that Abbie Brown stresses the importance of building and maintaining relationships:</p>
+<ul>
+<li>Focus from the beginning on building and maintaining a good relationship with your vendor. There are benefits to this, as Abbie Brown lists.</li>
+</ul>
+<p>Brown's practical suggestions:</p>
+<ul>
+<li>talk through things, with colleagues and vendors</li>
+<li>write well and succinctly, and put in writing (and be careful what you put in writing)</li>
+<li>I know that some of you have already had hesitations about the licensing agreements we've discussed already. Brown covers this in some detail and in real world ways and discusses how, e.g., SERU, is not always used but is still helpful to have out there as a point of reference.</li>
+</ul>
+<p>In addition to Brown's talk, we also read a few articles. The Smith and Hartnett article provides a nice real world example of the negotiating process that includes a work flow around licensing (again, the workflow!). Remember, document everything and revisit your documentation. That's how formalized checklists come into being and why they're useful. Having a workflow in place around licensing will help make your work more efficient and help ensure that all bases are covered.</p>
+<p>The Dygert and Barrett article covers the specifics of licensing---what to look for, what shouldn't be given away, how to negotiate principally, and more. Likewise, the Dunie article gets into the specifics of the negotiation process and includes definitions of terms, business models, and strategies.</p>
+<p>This week will not necessarily prepare us to become negotiators. The main point I want to make this week is this: if you find yourself in a position where one of your job responsibilities is to negotiate with vendors for e-resources (or for anything else), then come back to these sources of information and spend additional time studying them and taking notes on them. Sources like these, and others like them in the literature, will prepare you if you study them.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="acquisitions-and-collections-development"><a class="header" href="#acquisitions-and-collections-development">Acquisitions and Collections Development</a></h1>
+<p>Class, this week we discuss aspects of collection development and acquisitions, which is a complex problem for electronic resources. To rehash, in the print-only days, acquiring resources was a <em>more-than-it-is-now</em> linear process. Librarians became aware of an item, sought reviews of the item, possibly collected the item, described it, and then shelved it. And maybe, depending on the type of the library, weeded it from the collection at some point in the years to come during their regular course of collection assessment.</p>
+<p>There are additional vectors to be aware of with electronic resources. First, libraries may or may not necessarily own digital works, but different subscription services require different kinds of contracts, as we have learned. Second, electronic resources (ebooks, journal articles, databases, etc.) require different handling and disseminating processes due to technological and licensing barriers. Martin et al. (2009) truly nail the issue in their article where they write that:</p>
+<blockquote>
+<p>As much as we would like to think our primary concerns about collecting are based on content, not format, e-resources have certainly challenged many long-established notions of how we buy, collect, preserve, and provide access to information (p. 217).</p>
+</blockquote>
+<p>Although a world where the format dictates so much makes an intriguing world, it can be problematic and worrisome. We think that content should be king, but we must ask, how does format either prevent or facilitate access? If you catch the implicit gotcha there, you can see that we're building a thread between acquisitions, collections development, and usability, which we'll learn more about latter in the semester.</p>
+<p>One thing about this week: in a collection development course, you would unquestionably focus on content and on the work that is involved creating a collection development policy (which I hope you do or spearhead if your library does not have one). I'll briefly discuss this soon. Those things are relevant to the acquisition and collection of e-resources. However, in a major way, one of the things you should take away from this week's reading is how much the management of electronic resources have impacted librarian work flows and how that has shaped, or reshaped, library organizational hierarchy. I'll provide an organizational chart for you to discuss, and we'll use it to discuss how electronic resources have shaped the organizational structure of the library.</p>
+<p>The Lamothe (2015) article is good in a different way. Lamothe finds that if electronic e-reference sources are collected and perpetually updated, then they get continually used. If it's a static e-resource (compare, e.g., to a resource pushed out in PDF, although it could be in HTML), then usage declines. I hope additional studies pursue this line of questioning because it raises questions about the expectations that our patrons have about our content; perhaps something about how <em>fresh</em> they expect that content should be, where such an expectation may have existed in different shape in prior years. It also suggests that a resource like Wikipedia has an advantage, since much of Wikipedia is regularly updated, or the site in general appears broadly so since many parts of it are continually updated.</p>
+<p>The Open Educational Resources (OER) issue is a hot topic these days. Textbook prices, as the article by England et al. (2017) notes, have skyrocketed in recent decades. Some textbooks cost hundreds of dollars, and the problem impacts both school and academic libraries. UK Libraries has a helpful page about Open Educational Resources. I'll provide a link here in the transcript and in the discussion prompt, and that page links to OER content for both types of libraries, including <a href="https://www.oercommons.org/">oercommons.org</a>. Explore this information, and discuss whether libraries ought to collect and acquire these resources  or (e.g., by adding records to them in their online public access catalogs or discovery systems), or should they not be involved at all? This seems like a <em>duh</em> kind of question, but libraries, public or academic, have not traditionally collected textbooks. Does this change the game for them as educational institutions?</p>
+<p>A quick note about the organizational charts. The chart that I created was based on my readings of librarian departmental reports written during the late 1950s and early 1960s by librarians at UK. These reports are held at the University of Kentucky's <a href="http://libraries.uky.edu/SC">Special Collections Research Center</a>, which is fortunately in the building next to mine on campus. Organizational charts have been around since the 1800s, but I am not sure when libraries started to create and use them, and I didn't see one in my research on the history of UK Libraries for this time period. Thus, I inferred the organizational structure based on the detailed reports written by the various department heads in the library at the time. When you compare my chart based on the past to the current one provided by UK Libraries, I think you will be intrigued by how much more complicated the current chart is today.</p>
+<p>This complexity is very interesting. The growth in electronic resources, associated technologies, and markets do not explain all of it: knowledge has become more specialized, and library organizational structure will reflect that; the student population has grown considerably since then, in size and heterogeneity, and library structure will reflect that; and the theory and praxis of library management has evolved throughout the decades, and library structure will reflect that. Other issues are at play, and it is certainly true that they are all interconnected, but I do think that technology and e-resources accounts for a large portion of what we see here, and I'm looking forward to reading what you have to say about this.</p>
+<p>Finally, I'd be guilty of a serious wrongdoing if I did not discuss the importance of having a collection development policy (CDP) and using that policy to guide the collection, acquisition, and assessment of electronic resources. I don't mean to overlap any discussions you may have had about this if you've had a collection management course, I only want to emphasize the importance of a CDP for e-resources. Unfortunately, not all libraries, even at major institutions, create or use a CDP, and if you end up working at one, then I'd highly encourage you to convince your colleagues of its importance. A CDP should define a collection, and then include most if not all the following topics:</p>
+<ul>
+<li>mission, vision, and values statement</li>
+<li>purpose of CDP statement (scope may be included here)</li>
+<li>selection criteria: this could be general but it could also include subsections that focus on specific populations, genres, resource types, and more</li>
+<li>assessment and maintenance criteria</li>
+<li>challenged materials criteria (esp important at public, K-12 libraries)</li>
+<li>weeding and/or replacement criteria</li>
+</ul>
+<p>Included in this transcript are links to two CDP policies, one from the <a href="https://www.lib.umd.edu/collections/policies/electronic-resources">University of Maryland</a> and one from the <a href="https://www.lexpublib.org/collection-development-policy">Lexington Public Library</a>. The Maryland CDP is not their main one but is a sub-CDP that focuses on electronic resources. The LPL policy is the main one for them, and although it does not include a long discussion of electronic resources, they are mentioned in the policy. Neither approach is wrong but are catered to the specific libraries and their purposes, communities, and vision statements. This week, I would like you to search on the web for more and to read through ones you find for how they discuss electronic resources.</p>
+<p><strong>Links:</strong></p>
+<ul>
+<li>UK Libraries Organizational Chart: <a href="http://libraries.uky.edu/forms/OrgChart.pdf">http://libraries.uky.edu/forms/OrgChart.pdf</a></li>
+<li>Open Educational Resources at UK: <a href="http://www.uky.edu/copyright/facultyresources/openeducationalresources">http://www.uky.edu/copyright/facultyresources/openeducationalresources</a></li>
+<li>OER Commons: <a href="https://www.oercommons.org/">https://www.oercommons.org/</a></li>
+</ul>
+<h2 id="references-3"><a class="header" href="#references-3">References</a></h2>
+<p>England, L., Foge, M., Harding, J., &amp; Miller, S. (2017). ERM Ideas &amp; Innovations. Journal of Electronic Resources Librarianship, 29(2), 110–116. <a href="https://doi.org/10.1080/1941126X.2017.1304767">https://doi.org/10.1080/1941126X.2017.1304767</a></p>
+<p>Lamothe, A. R. (2015). Comparing usage between dynamic and static e-reference collections. Collection Building, 34(3), 78–88. <a href="https://doi.org/10.1108/CB-04-2015-0006">https://doi.org/10.1108/CB-04-2015-0006</a></p>
+<p>Martin, H., Robles-Smith, K., Garrison, J., &amp; Way, D. (2009). Methods and Strategies for Creating a Culture of Collections Assessment at Comprehensive Universities. Journal of Electronic Resources Librarianship, 21(3–4), 213–236. <a href="https://doi.org/10.1080/19411260903466269">https://doi.org/10.1080/19411260903466269</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="patrons"><a class="header" href="#patrons">Patrons</a></h1>
+<h2 id="introduction-4"><a class="header" href="#introduction-4">Introduction</a></h2>
+<p>Note: Write part introduction.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="user-experience"><a class="header" href="#user-experience">User Experience</a></h1>
+<p><a href="https://www.youtube.com/watch?v=pQHX-SjgQvQ">Medieval helpdesk with subtitles</a></p>
+<p>Dickson-Deane and Chen (2018) write that &quot;user experience determines the quality of an interaction being used by an actor in order to achieve a specific outcome.&quot; Parush (2017) highlights relevant terms like <em>human-computer interaction (HCI)</em> and <em>usability</em>. Let's say then that HCI encompasses the entire domain of interaction between people and computers and how that interaction is designed, whereas <em>user experience (UX)</em> focuses on the quality of that interaction or an interaction with something (like a product). These are not precise definitions, and some might use the terms <em>UX</em> and <em>HCI</em> interchangeably. As ERM librarians, though, it is our job to focus on the quality of the patron's experience with our electronic services, and this entails understanding both the systems and technologies involved and the users interacting with these systems and technologies.</p>
+<p>Dickson-Deane and Chen (2018) outline the parameters that are involved with UX. Let me modify their example and frame it within the context of an ERM experience for a patron:</p>
+<ul>
+<li><strong>Actor</strong>: a user of the web resource, like a library website</li>
+<li><strong>Object</strong>: the web resource, or some part of it</li>
+<li><strong>Context</strong>: the setting. What's happening? What's the motivation for use? What's the background knowledge? What's the action?</li>
+<li><strong>User Interface</strong>: the tools made available by the object as well as the look and feel. More specifically, Parush (2017) states that &quot;the user interface mediates between the user and computer&quot; and it includes three basic components:
+<ul>
+<li><em>controls</em>: the tools used to control and interact with the system: buttons, menus, voice commands, keyboards, etc</li>
+<li><em>displays</em>: the information presented to the user or the hardware used to present the information: screens, speakers, etc.</li>
+<li><em>interactions and dialogues</em>: the exchange between the system and the user including the use of the controls and responding to feedback</li>
+</ul>
+</li>
+<li><strong>Interaction</strong>: what the actor is doing with the UI</li>
+<li><strong>(Intended/Expected/Prior) User experience</strong>: the intended or expected use of the object. The user's expectations based on prior use.</li>
+<li><strong>(Actual) User experience</strong>: the actions that took place; the actions that had to be modified based on unintended results.</li>
+</ul>
+<p>These parameters would be helpful for devising a UX study that involves observing patrons interacting with a system and then interviewing them to complete the details. Note that the same kind of systematic thinking can be applied to evaluate other user experiences, like those between a librarian and an electronic resource management system. Often the focus is on patron user experience, but it's just as important to evaluate UX for librarians and to consider UX when selecting an ERM system or an ILS system.</p>
+<p>In any case, these parameters help us step through and highlight the complicated process of interacting with a computer, generally, or a library resource, more specifically. As with many other topics we've discussed this semester, we can also incorporate these parameters into a workflow for evaluating UX. But, it is because of the complexities involved and a focus on the systems that Pennington (2015) argues for a more UX centered approach to library website design. To emphasize their case, think about your own state of knowledge of ERM before you started to take this course. For example, a number of you have explored in depth how link resolvers function, and your experience using them as patrons and your understanding of their technical aspects as librarians have provided you with a set of skills and experiences that make you more likely to identify the cause of a malfunction if you find one. But with the ability to suss out an issue, it becomes easier to solve, and the experience itself involves less anxiety. Most users and patrons of these systems will not have any technical knowledge of these systems, and when they break for them, their frustration with the <strong>experience</strong> might lead to unfortunate outcomes. For example, they may not retrieve the information they need; they may not reach out to a librarian; they might stop using the library's resources in preference for something of inferior quality; and so forth. We need to not forget that this happens, and if possible, to likewise design for such failures of a system (because they will fail). How might we, for instance, design an action to occur when a link resolver or a proxy server fails to identify and retrieve a work?</p>
+<p>Here's the crux. As you gain more skill and expertise with these systems, you will eventually lose the ability to see these systems as a novice user, and that distance will only grow over time. It is therefore, as Pennington (2015) argues, important to gather data from users. User experience research nurtures a user centered mindset.</p>
+<p>The second article by Pennington, Chapman, Fry, Deschenes, and McDonald (2016) is a contribution from four librarians with theoretical and practical suggestions for UX research. Both Pennington and Chapman note the best way to measure UX or detect UX issues is to conduct research with users (recall our conversations on proactive troubleshooting), but this isn't always possible due to financial, time, or other constraints. However, there is a wealth of research on UX and in the absence of the ability to conduct research, locating prior research and applying that research to your setting is paramount. Drawing from the literature, Chapman describes several important UX principles that include:</p>
+<ul>
+<li>chunking</li>
+<li>highlighting and prominence</li>
+<li>KISS</li>
+<li>choice simplification</li>
+<li>choice reduction</li>
+</ul>
+<p>In addition to user studies and prior research, libraries possess a wealth of data to explore and this data could provide a lot of insight. The same caveat applies that Chapman described: if only you have time to analyze the data. But Fry points out that you can access library data about location of user, device type, resource use, and more. (There are some privacy issues involved with this, and we'll talk about them at the end of the semester.) Furthermore, here's where the Browning (2015) article is helpful. Whereas Fry describes what we can learn from data about usage, Browning describes what we can learn from data about breakage. Both kinds of data can offer us a substantial understanding about user experience.</p>
+<p>If you can conduct a user study, then Deschenes offers helpful tips on recruiting users. Remember that the users that you recruit should be actual users of the systems. If you are interested in why some segments of the population do not use the library's resources, then that would be a different kind of study.</p>
+<p>I agree with McDonald that despite having around 30 or so years of experience with web-based electronic resources, more with other types of electronic resources that existed prior to the web and that were based on the then internet, on optical disks, etc., we are still in the throes of disruption. There's a lot yet to learn about design for the web, just like there's a lot of left to learn about how to design a home or office, and nothing will be settled for a while. Although I doubt if there will be any single dominate user experience or user interface, since there are many cultures and backgrounds and experiences, I'm fairly sure the low-hanging fruit problems will work out eventually. Remember though that 95% of the cause of all of this is due to copyright issues, which necessitate the entire electronic resource ecosystem and the complications that are introduced by having to work with vendors who work with different, but overlapping, publishers, etc. If something were to change about copyright, then it's a whole new ballgame.</p>
+<p>On a final note, you might be wondering how <em>information seeking</em> is related to <em>HCI</em> and to <em>UX</em>. Anytime we interact with a computer (broadly speaking) in order to seek information, then we have an overlap. But there are areas of non-overlap, too. We don't always use computers to look for information, and we don't always look for information on computers. <em>UX</em> is like this, too. <em>UX</em> is not always about computers but can be about user experience generally. I bring this up because if you do become involved with <em>UX</em> work at a library (or elsewhere), then I'd encourage you to refer also to the information seeking and related literature when it's appropriate to do so. Remember, it's all interconnected.</p>
+<h2 id="references-4"><a class="header" href="#references-4">References</a></h2>
+<p>Browning, S. (2015). Data, Data, Everywhere, nor Any Time to Think: DIY Analysis of E-Resource Access Problems. Journal of Electronic Resources Librarianship, 27(1), 26–34. <a href="https://doi.org/10.1080/1941126X.2015.999521">https://doi.org/10.1080/1941126X.2015.999521</a></p>
+<p>Dickson-Deane, C., &amp; Chen, H.-L. (Oliver). (2018). Understanding User Experience. In M. Khosrow-Pour (Ed.), <a href="http://services.igi-global.com.ezproxy.uky.edu/resolvedoi/resolve.aspx?doi=10.4018/978-1-5225-2255-3.ch661">http://services.igi-global.com.ezproxy.uky.edu/resolvedoi/resolve.aspx?doi=10.4018/978-1-5225-2255-3.ch661</a> (Fourth Edition, pp. 7599–7608). IGI Global. <a href="http://www.igi.global.com/chapter/understanding-user-experience/184455">http://www.igi.global.com/chapter/understanding-user-experience/184455</a></p>
+<p>Parush, A. (2017). Human-computer interaction. In S. G. Rogelberg (Ed.), The SAGE Encyclopedia of Industrial and Organizational Psychology (2nd edition, pp. 669–674). SAGE Publications, Inc. <a href="https://doi.org/10.4135/9781483386874.n229">https://doi.org/10.4135/9781483386874.n229</a></p>
+<p>Pennington, B. (2015). ERM UX: Electronic Resources Management and the User Experience. Serials Review, 41(3), 194–198. <a href="https://doi.org/10.1080/00987913.2015.1069527">https://doi.org/10.1080/00987913.2015.1069527</a></p>
+<p>Pennington, B., Chapman, S., Fry, A., Deschenes, A., &amp; McDonald, C. G. (2016). Strategies to Improve the User Experience. Serials Review, 42(1), 47–58. <a href="https://doi.org/10.1080/00987913.2016.1140614">https://doi.org/10.1080/00987913.2016.1140614</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="evaluation-and-statistics"><a class="header" href="#evaluation-and-statistics">Evaluation and Statistics</a></h1>
+<p>We've discussed problems this semester with defining terms, and we have learned that a lot of effort has been expended into standardizing them. We have also seen that the topics that we've covered---technologies, standards, access, usability, workflow, markets, licensing---are linked in some way. All this complexity makes the measurement of <em>usage</em> that much more complicated. The problem is that when electronic resources (or basically all activity on the web and internet) are accessed, a computer server somewhere keeps a log of that interaction. Having logs available makes it seem that we can have accurate data about usage, but it's not a guarantee, and the insight we may be able to glean is always difficult to acquire no matter how much data is available to us.</p>
+<p>Example web server access log entry (I've obfuscated the IP address and the website domain):</p>
+<pre><code>99.999.99.99 - - [21/Oct/2021:10:54:35 -0400] &quot;GET /favicon.ico HTTP/1.1&quot; 404 517 &quot;https://WEBSITE.edu/&quot; &quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0&quot;
+</code></pre>
+<p>Access log type data can be good data to explore, but we have to be mindful that all data has limitations, and that there are different ways to define what usage means. For example, the log snippet above indicates that I visited that link at that server, but does that mean that I really <strong>used</strong> that website even though I accessed it? Even if we can claim that I did, what kind of use was it? Can we tell? (We can actually learn quite a lot from web server access logs.)</p>
+<p>This week we learn about the efforts that have gone into standardizing usage metrics and usage reports via Project Counter. Also, we see a few examples of how usage data can help inform collection development and benefit the library in other ways. This is an important area of electronic resource librarianship, but it's also an area that may overlap with other parts of librarianship, such as systems librarianship or collection development. Here we might see job titles like <a href="https://www.google.com/search?&amp;q=library+systems+administrator">library systems administrator</a>.</p>
+<h2 id="project-counter"><a class="header" href="#project-counter">Project Counter</a></h2>
+<p>Project Counter is a Code of Practice that seeks to help provide more informative and consistent reporting of electronic resource usage. From <a href="https://www.projectcounter.org/code-of-practice-five-sections/introduction-to-counter-code-of-practice-release-5/">Project Counter</a>:</p>
+<blockquote>
+<p>Since its inception in 2002, COUNTER has been focused on providing a code of practice that helps ensure librarians have access to consistent, comparable, and credible usage reporting for their online scholarly information. COUNTER serves librarians, content providers, and others by facilitating the recording and exchange of online usage statistics. The COUNTER Code of Practice provides guidance on data elements to be measured and definitions of these data elements, as well as guidelines for output report content and formatting and requirements for data processing and auditing. To have their usage statistics and reports designated COUNTER compliant, content providers MUST provide usage statistics that conform to the current Code of Practice.</p>
+</blockquote>
+<p>Thus, these reports were designed to help solve a problem that will likely never completely be solved, but it's still an important and useful effort. The main goal of Counter is to provide usage reports, and the reports, for version 5 of Counter, cover four major areas:</p>
+<ul>
+<li>Platforms</li>
+<li>Databases</li>
+<li>Titles</li>
+<li>Items</li>
+</ul>
+<p>And you can see which reports these four replace in <a href="https://www.projectcounter.org/2448-2/">a table in Appendix B of the Code of Practice</a>.</p>
+<p><a href="https://www.projectcounter.org/code-of-practice-five-sections/foreword/">Counter 5</a> was designed to include better reporting consistency, better clarity of metrics that measure usage activity, better views of the data, and more. In order to clarify the purpose of Counter, let's review the introduction to the <a href="https://www.projectcounter.org/code-of-practice-five-sections/introduction-to-counter-code-of-practice-release-5/">Code of Practice</a>, which articulates the purpose, scope, application, and more of Counter.</p>
+<p>[ Note: Review the Introduction to the Code of Practice ]</p>
+<h2 id="readings"><a class="header" href="#readings">Readings</a></h2>
+<p><a href="http://doi.org/10.1080/0361526X.2017.1391153">Pesch (2017)</a> provides a helpful introduction to the history of Project Counter and the migration from Counter version 4 to version 5. Table 1 in Pesch describes the four major reports. Most of the reports are self-explanatory. Database, Title, and Item reports cover what they describe, but Platform reports might be less obvious. These reports include usage metrics at the broadest level and of things like EBSCOhost databases, ProQuest databases, SAGE resources, Web of Science databases, and so on. These reports come into play when users/patrons search in the overall platform but not in any single database provided by the platform. For example, UK Libraries subscribes to the ProQuest Databases and for us, that includes <a href="https://www.proquest.com/databases/advanced?accountid=11836">35 primary databases</a>. Users can search many at the same time or search any single one. The same holds for platforms like EBSCOhost, Web of Science, and others. This is the platform level.</p>
+<p>The <a href="https://doi.org/10.1080/0361526X.2016.1165783">Scott (2016)</a> article provides a nice use case for how Counter reports can inform collection development. We've talked a bit about the <em>Big Deal</em> packages that more libraries are trying to move away from because such deals often include access to titles that are not used or not relevant to a library community. Here Scott shows that it might be possible to avoid subscribing to some services using this data, but it's also important to closely read through and understand the problems associated with interlibrary loan, the metrics, and other limitations described in the Conclusion section of this article.</p>
+<p>We move away from Project Counter with the <a href="https://doi.org/10.5860/crl12-406">Stone and Ramsden (2013)</a> article. I wanted to introduce this article because it highlights how metrics can be used to assess the value of a library, which is often underestimated by administration but constantly required in order to garner the resources needed to improve or sustain a library's resources. Here Stone and Ramsden investigate the correlation (not causation) between library usage and student retention. Increasing the latter is the Holy Grail of college and universities. If this were a public library report, it might be interesting to see how well electronic library usage correlates to continued usage and how such a correlation might result in various outcomes defined by the library. One nice thing about the Stone and Ramsden article is that it does not depend on quantitative metrics alone but supports its findings through qualitative research. There's only so much a usage metric can say.</p>
+<p>Finally, I would like you to be aware of the <a href="https://code4lib.org/"><em>code{4}lib</em> journal</a> and this article by <a href="https://journal.code4lib.org/articles/10589">Zou</a> is pretty cool. Although this article overlaps with some security issues, a topic that we'll cover in our last week of the semester, the article also provides a way of thinking outside the box about the metrics that you'll have access to as an electronic resource librarian. Here, Zou describes a process of taking EZproxy logs (compare the example entry with the web server entry I included above) and turning them into something useful and dynamic by incorporating some additional technologies. Recall that <a href="https://www.oclc.org/en/ezproxy.html">EZproxy</a> is software that authenticates users and provides access given that authentication. We use EZproxy at UK whenever we access a paywalled journal article. That is, you've noticed the <strong>ezproxy.uky.edu</strong> string in any URL for a journal that you've accessed via UK Libraries' installation of EZproxy, and the URL <code>https://login.ezproxy.uky.edu/login</code> is the log in URL. Zou specifically references <a href="https://web.archive.org/web/20210716020704/https://acrl.ala.org/techconnect/post/analyzing-ezproxy-logs/">the standard way</a> of analyzing these logs (take a look at the page at that link), which can be insightful and helpful, but Zou's method makes the analysis of these logs more visual and real-time. The main weakness with Zou's method is that it seems to me to be highly dependent on Zou doing the work. If Zou leaves their library, then this customized analysis might not last. Still, it's good to know that if you have an interest in developing skills with systems administration, with various other technologies, and with some basic scripting language, this kind of thing, and more, is possible.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="privacy-and-security"><a class="header" href="#privacy-and-security">Privacy and Security</a></h1>
+<p>Breeding starts off with <a href="https://journals.ala.org/index.php/ltr/article/view/5973/7606">Chapter 1</a> from <a href="https://journals.ala.org/index.php/ltr/issue/view/549">this week's reading</a> of <a href="https://journals.ala.org/">Library Technology Reports</a> with the following statement:</p>
+<blockquote>
+<p>Libraries have a long tradition of taking extraordinary measures to ensure the privacy of those who use their facilities and access their materials.</p>
+</blockquote>
+<p>This is mostly true but not entirely so. When I was an undergraduate, I remember going to the library to look for books on a sensitive topic. I saw a book on the shelves that looked relevant, and when I pulled it off the shelf and opened it, I noticed that a friend of mine had checked the book out before me because their name was written on the due date card in their handwriting. Even though I had grown up with these due date cards in library books, it had never occurred to me before then how these cards could pose a problem with privacy. At the time, I decided not to check out that book because of that issue.</p>
+<p>We might be comforted in thinking that the kind of information that was supposedly revealed to me in the book that my friend had checked out, and that I had opened, is the kind of information that would not scale up easily. It was a serendipitous event that involved me looking for a book on the same topic and then just happening to pick the one book that my friend had used. It's not likely, then, that this might pose a big problem at scale.</p>
+<p>However, let's think of that information in that due date card as metadata, and then ask, how could we use it? The sociologist Kieren Healy did that kind of thing with membership lists from colonial times. He showed that using limited data like the one I found in that book, some important things could be discovered. For example, <a href="https://kieranhealy.org/blog/archives/2013/06/09/using-metadata-to-find-paul-revere/">Healy</a> imagined that if the British had access to simple social network analysis tools back in 1772, they could have identified that Paul Revere was a patriot and then have used that information to prevent or interfere with the American Revolution. I encourage you to read his blog entry and his <a href="https://kieranhealy.org/blog/archives/2013/06/11/following-up-on-paul-revere/">follow-up reflection</a> because it is a neat <em>what-if</em> hypothetical case study.</p>
+<p>Most libraries in North America have replaced due date slips with bar codes, and while this has removed the problem above, the overall migration from paper-based workflows to electronic ones have raised other problems. Not long after the Patriot Act was passed after 9/11, FBI agents ordered a Connecticut librarian to <a href="https://www.courant.com/opinion/op-ed/hc-op-librarians-stand-up-to-patriot-act-again-20160927-story.html">&quot;identify patrons who had used library computers online at a specific time one year earlier&quot;</a>. Per the law, the librarians involved were placed under a gag order, which prevented them from speaking out. This led to a lawsuit against the then US Attorney General. Eventually the librarians were released from their gag order and allowed to discuss the event.</p>
+<p>There are occasionally big, dramatic cases like the one described above, but privacy and security issues are often much more mundane but still quite important. Since many users of libraries of all types visit library homepages, then encrypting all the web/internet traffic is important. A year and a half ago, the <a href="https://www.zdnet.com/article/browsers-to-block-access-to-https-sites-using-tls-1-0-and-1-1-starting-this-month/">major web browsers announced</a> that they would no longer support Transport Layer Security (TLS) protocol versions 1.1 or earlier, and that any site that had not yet migrated to TLS version 1.2 or above will not be accessible. TLS is used to encrypt web traffic. This news came out in early March 2020, and the browsers postponed blocking these sites because of the pandemic. But the migration went into affect a few months later, and as you can see in the screenshot below, for a while I had to enable an insecure connection to libraries.uky.edu in Firefox if I wanted to visit it. When I enabled it, then my activity on libraries.uky.edu was potentially visible to others under certain conditions. Note, however, that once I sign into my library account, I'm transferred to Primo's cloud service, and then to UK's OAuth page to log in. These parts of the encryption chain are fairly strong. So it's only activity specifically on libraries.uky.edu that was not good at the time.</p>
+<p><img src="uklibrariesTLSversion.png" alt="UK Libraries TLS Version Block in Firefox" /></p>
+<p>In Chapter 1 of this week's reading, Breeding does a nice job introducing a variety of technologies and policies that are related to security and privacy. There are important technological things to consider, like web traffic encryption. There are also important policy considerations, too, like how third party vendors implement privacy and security mechanisms (like the Primo example above). Note that the <a href="https://www.niso.org/publications/rp-7-2012-seru">SERU</a> recommended practice has a section dedicated to Confidentiality and Privacy. In case you work at a library that does not use SERU, this is how SERU can be useful to you. It can inform us of the kinds of provisions that a library ought to have in a license if the default provisions a vendor proposes do not include the necessary components.</p>
+<p>In Chapter 2, Breeding reports on the state of privacy and security protections among a selection of ERM vendors. I should note that although this article is only four years old, this area moves fast and it's likely that the problems that Breeding identifies with some implementations have been fixed in recent years. As I noted, since browsers like Chrome, Firefox, Edge, and Safari have grown stricter about enforcing encryption, web services have complied by adhering to better security standards. Chapter 3 covers the same issue from the library's perspectives. Here is where improvements are much less likely to be seen. For example, a number of library sites use Google Analytics to track site usage and other metrics, but this means that our actions, albeit somewhat anonymized, on these library sites are being collected and stored by Google (or some other analytic service). Also, many websites, library websites included, use fonts that are hosted on other servers, but doing so means that these can be tracked, too (see my the access log entry above as a basic example). There's a trade-off, though. If we want to learn more about how users interact with the site in order to improve usability and accessibility, then we have to have some of this data. Here's where a privacy policy might come into play.</p>
+<p>Thus, I point to a <a href="https://journal.code4lib.org/articles/15340">controversial article</a> that was published on the <em>code4lib</em> journal last year. I'd highly encourage you to peruse the article as well as <a href="https://journal.code4lib.org/articles/15340#comment-2744977">the comments at the bottom of the page</a>:</p>
+<p>(Demo library connection in Firefox web developer settings)</p>
+<p>Please read the articles closely, and let's have an open discussion.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>

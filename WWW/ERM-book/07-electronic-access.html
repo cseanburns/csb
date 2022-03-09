@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Electronic Access - Electronic Resource Management</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro-erm-libraries.html"><strong aria-hidden="true">1.</strong> Electronic Resource Management in Libraries</a></li><li class="chapter-item expanded "><a href="p1-er-librarians.html"><strong aria-hidden="true">2.</strong> Part 1: Electronic Resource Librarians</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01-the-erm-librarian.html"><strong aria-hidden="true">2.1.</strong> The ERM Librarian</a></li><li class="chapter-item expanded "><a href="02-desperately-seeking-erm-librarian.html"><strong aria-hidden="true">2.2.</strong> Desparately Seeking an ERM Librarian</a></li><li class="chapter-item expanded "><a href="03-constant-disruption.html"><strong aria-hidden="true">2.3.</strong> Constant Disruption</a></li></ol></li><li class="chapter-item expanded "><a href="p2-technologies-standards.html"><strong aria-hidden="true">3.</strong> Part 2: Technologies and Standards</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="04-erm-ils.html"><strong aria-hidden="true">3.1.</strong> The ERM and the ILS</a></li><li class="chapter-item expanded "><a href="05-standardizing-erm.html"><strong aria-hidden="true">3.2.</strong> Standardizing ERM</a></li><li class="chapter-item expanded "><a href="06-interoperability.html"><strong aria-hidden="true">3.3.</strong> Interoperability</a></li><li class="chapter-item expanded "><a href="07-electronic-access.html" class="active"><strong aria-hidden="true">3.4.</strong> Electronic Access</a></li></ol></li><li class="chapter-item expanded "><a href="p3-processes-contexts.html"><strong aria-hidden="true">4.</strong> Part 3: Processes and Contexts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="08-workflow.html"><strong aria-hidden="true">4.1.</strong> The ERM Workflow</a></li><li class="chapter-item expanded "><a href="09-markets-economics.html"><strong aria-hidden="true">4.2.</strong> Markets and Economics of Electronic Resources</a></li><li class="chapter-item expanded "><a href="10-licensing-basics.html"><strong aria-hidden="true">4.3.</strong> Licensing Basics</a></li><li class="chapter-item expanded "><a href="11-licensing-and-negotiating.html"><strong aria-hidden="true">4.4.</strong> Licensing and Negotiating</a></li><li class="chapter-item expanded "><a href="12-acquisitions-collection-development.html"><strong aria-hidden="true">4.5.</strong> Acquisitions and Collection and Development</a></li></ol></li><li class="chapter-item expanded "><a href="p4-patrons.html"><strong aria-hidden="true">5.</strong> Part 4: Patrons</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="13-user-experience.html"><strong aria-hidden="true">5.1.</strong> User Experience</a></li><li class="chapter-item expanded "><a href="14-evaluation-statistics.html"><strong aria-hidden="true">5.2.</strong> Evaluation and Measurement</a></li><li class="chapter-item expanded "><a href="15-security-privacy.html"><strong aria-hidden="true">5.3.</strong> Security and Privacy</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Electronic Resource Management</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="electronic-access"><a class="header" href="#electronic-access">Electronic Access</a></h1>
+<p>As I've stated in previous lecture, <strong>Access</strong> is the paramount principle of librarianship, and all other issues, from censorship to information retrieval or to usability, within LIS, are on some level derived from or framed by that principle of <strong>Access</strong>.</p>
+<p>This week, then, we devote ourselves to a discussion of <strong>electronic access</strong>, and it is helpful to begin with Samples and Healy (2014), who provide a nice framework for thinking about managing electronic access. They include two broad categories, <em>proactive troubleshooting</em> and <em>reactive troubleshooting</em> of access.</p>
+<ul>
+<li>proactive troubleshooting of access: &quot;defined as troubleshooting access problems before they are identified by a patron&quot;. Some examples include:
+<ul>
+<li>&quot;letting public-facing library staff know about planned database downtime&quot;</li>
+<li>&quot;doing a complete inventory to make sure that every database paid for is in fact 'turned on'</li>
+</ul>
+</li>
+<li>reactive troubleshoot of access: &quot;defined as troubleshooting access issues as problems are identified and reported by a patron&quot;. Some examples include:
+<ul>
+<li>&quot;fixing broken links&quot;</li>
+<li>&quot;fixing incorrect coverage date ranges in the catalog&quot;</li>
+<li>&quot;patron education about accessing full text&quot;</li>
+</ul>
+</li>
+</ul>
+<p>The goal here, as suggested by Samples and Healy (2014), is to maximize proactive troubleshooting and to minimize reactive troubleshooting. Or, to prevent problems from happening. Samples and Healy's report is a great example of why we call the field <em>library science</em>. The purpose of making librarianship a science was based on a need to rigorize librarianship, to systematically study the problems of libraries, and to generalize solutions based on systematic study. The project they describe does that nicely. The authors identified a problem that had grown &quot;organically,&quot; collected and analyzed data, and then generalized from it by outlining a &quot;detailed workflow&quot; to &quot;improve the timeliness and accuracy of electronic resource work.&quot; Practically, studies like this promise to improve productivity and better work flows that foster job and patron satisfaction. It could also help librarians identify the kinds of software solutions that will align with their workflows and patron information behaviors. If interested, you might want to read a recent article in the <em>Journal of Electronic Resource Librarianship</em> about the impact of Covid-19 on electronic resource management. Six authors individually describe access issues at their respective institutions and show how issues of pricing, acquisitions, training, user expectations, and budgets affect electronic access. It is good to read articles like this in light of the framework provided by Samples and Healy (2014) because stories like these, about this impact of the pandemic on electronic access, could help guide us in developing proactive troubleshooting procedures that will minimize issues in the future, pandemic or not, at our own institutions.</p>
+<p>Lowe, R. A., Chirombo, F., Coogan, J. F., Dodd, A., Hutchinson, C., &amp; Nagata, J. (2021). Electronic Resources Management in the Time of COVID-19: Challenges and Opportunities Experienced by Six Academic Libraries. <em>Journal of Electronic Resources Librarianship, 33</em>(3), 215–223.
+https://doi.org/10.1080/1941126X.2021.1949162</p>
+<p>Back to Samples and Healy (2014), who say something important against a common assumption about electronic resources, particularly those provided by vendors:</p>
+<blockquote>
+<p>The impression that once a resource is acquired, it is then just 'accessible' belies the actual, shifting nature of electronic resources, where continual changes in URLs, domain names, or incompatible metadata causes articles and ebooks to be available one day, but not the next.</p>
+</blockquote>
+<p>Hence, unlike a printed work from the long ago print-only era that, once cataloged, may be shelved for decades or longer without major problems of access, electronic resources require constant and active attention to maintain accessibility to them. Ebooks, for example, can create metadata problems. Often what's important about scholarly ebooks, in particular, are the chapters they include, and hence metadata describing ebook components is important, along with providing links to those chapters in discovery systems. This difference between item-level cataloging and title-level cataloging, as Samples and Healy describe, can lead to confusing and problematic results when considering different genres and what those genres contain. Or, note that they discuss how a series of links are involved starting from the source of discovery, e.g., an OPAC, to the retrieved item, and how difficult it might be in determining which of these links and which of those services is broken when access becomes problematic.</p>
+<p>Let me highlight a few key findings from their report:</p>
+<ul>
+<li>Workflows: why does this keep coming up? It's because workflows help automate a process---simplify and smooth out what needs to be done, and because this is only possible when things are standardized.</li>
+<li>Staffing: we'll discuss this more in a future forum, but part of the problem here is that ERM has had a major impact on organizational structure, but one where different libraries have responded differently. This lack of organizational standardization has its benefits regarding overall management practices and cultures, but it also has huge drawbacks---and that's the difficulty in establishing effective, generalized workflows that include key participants, and to minimize as many dependencies on any one person.</li>
+<li>Tracking: if there's no tracking, there's no method to systematically identify patterns in problems. And if that's not possible, then there's no method to solve those problems proactively. It's just all reactive, and reactive troubleshooting, as Samples and Healy indicate, results in poor patron experiences. We'll discuss tracking when we during the week on Evaluation and Statistics.</li>
+</ul>
+<p>I like the Carter and Traill (2017) article because we commonly get the line that discovery systems are a great solution to all the disparate discipline based resources that librarians subscribe to in order to search their collections. Or, if we do think about problems with such systems, we are often presented with a basic information retrieval problem, such that the larger the collection to search, the more likely a relevant item will get lost in the mix. But as Carter and Traill (2017) point out, these discovery systems also tend to reveal access problems as they are used. The authors provide a checklist, as a result of their analysis, to track issues and improve existing workflows.</p>
+<p>The Buhler and Cataldo (2016) article provides an important reminder that the mission of the electronic resource librarian is to serve the patron. This should remind us that the internet and the web have flattened genres, and have made it difficult to distinguish among things like magazine articles, news articles, journal articles, encyclopedia articles, ebooks, etc. Though the Buhler and Cataldo (2016) reading is student-focused, other studies have hinted at the same issue they describe across other populations. It's important, if possible, to recognize these issues as ERM librarians and work to resolve them in the ways that you would be able to.</p>
+<p>I grew up with some understanding of the differences between an encyclopedia article, a journal article, a magazine article, a newspaper article, a chapter in a book, a handbook, an index, a dictionary, etc. because I grew up with the printed versions and because these were tangible things that looked different. Today, a traditional first year college student was born around the year 2003 and grew up reading around the turn of the first decade. The problem this raises is that although electronic resources are electronic or digital, they are still based on genres that originated in the print age, yet they lack the physical characteristics that help distinguish one from the other. E.g., what's the difference between a longer <em>NY Times</em> article (traditionally a newspaper article) and an article in the <em>New Yorker</em> (traditionally a magazine article) today? Aside from some aesthetic differences between the two, they are both web pages, and it's not altogether obvious, based on any kind of cursory examination, that we can tell, as regular users, that they're entirely different genres. However, there are important informational differences between the two, how they were written, how they were edited, who they were written by that might still lead us to consider them as different genres. Even <em>Wikipedia</em> articles pose this problem. Citing an encyclopedia article was never an accepted practice, but this was only true for general encyclopedias. It was generally okay to cite articles from special encyclopedias because they focused on limited subject matters like specific areas of art, music, science, culture, and were usually more in-depth in their coverage. Examples include the <em>Encyclopedia of GIS</em>, the <em>Encyclopedia of Evolution</em>, <em>The Kentucky African American Encyclopedia</em>, <em>The Encyclopedia of Virtual Art Carving Toraja--Indonesia</em>, and so forth. There are some studies that show that <em>Wikipedia</em> does provide that kind of in-depth coverage of some subject matters, thus helping to flatten the encyclopedia genre, too.</p>
+<p>The flattening holds true for things like <em>Google</em>. The best print analogy for <em>Google</em> is that of an index, which was used to locate keywords that would point to source material. See the links in the discussion post for examples. The main difference between these indexes and <em>Google</em> is that the indexes were produced to cover specific publications, like a newspaper, or specific areas, like the <em>Social Science Citation Index</em> or the <em>Science Citation Index</em>, both of which are actual, documented, historical precursors to <em>Google</em> and to <em>Google Scholar</em>. But, today, these search engines are erroneously considered source material (e.g, &quot;I found it on Google&quot;). Few, I think, would have considered a print index as source material, but rather as a <strong>reference</strong> item, since it <em>referred</em> users to sources. Now it's all mixed up, but who can blame anyone.</p>
+<p>Let's discuss all of this on the board.</p>
+<ul>
+<li><a href="https://photos.app.goo.gl/6wqu02M7OQzyJnCG2">Photos of the New York Times Index</a></li>
+<li><a href="https://photos.app.goo.gl/JpnqxzZ44dhM06cq2">Photos of the Newspaper Index for the Washington Post</a></li>
+<li><a href="https://photos.app.goo.gl/Y5ronALog63zIxwr1">Photos of the Reader's Guide to Periodical Literature</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="06-interoperability.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="p3-processes-contexts.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="06-interoperability.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="p3-processes-contexts.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
