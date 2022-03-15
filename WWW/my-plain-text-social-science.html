@@ -284,9 +284,11 @@ makeapa () {
   local zotfile="${HOME}/.vim/plugged/zotcite/python3/zotref.py"
   local apafile="${HOME}/Zotero/styles/apa.csl"
   pandoc "${sourcefile}" -s -o \
-    $(basename -s md "$sourcefile")html -F\
+    "$(basename -s md "$sourcefile")"html -F\
     "${zotfile}" --citeproc --csl "${apafile}"
 }
+
+makeapa "$@"
 </code>
 </pre>
 
