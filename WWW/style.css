@@ -39,7 +39,7 @@ header {
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  flex-direction: column;
+  gap: 1rem;
 }
 
 .automation {
@@ -54,6 +54,10 @@ section h1 {
 
 section h2, h3, p, dl {
   padding: 0 0.5rem 0 0.5rem;
+}
+
+section p {
+  font-size: 1.1rem;
 }
 
 section ol {
@@ -74,7 +78,7 @@ article p {
 
 #section4 {
   border-radius: 25px;
-  background-color: #e5e4e2;
+  background-color: #e6eef5;
 }
 
 #about {
