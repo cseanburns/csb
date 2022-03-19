@@ -1,7 +1,8 @@
 html {
   font-family: arial, sans-serif;
   font-size: 100%;
-  background-color: #ffffff;
+  color: #1a1a1a;
+  background-color: #fdfdfd;
 }
 
 body {
@@ -13,13 +14,13 @@ nav {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   justify-items: center;
-  background-color: #ffffff;
+  background-color: #fdfdfd;
   padding: 7px 0 7px 0;
   font-size: 1.4em;
 }
 
 nav a {
-  color: black;
+  color: #1a1a1a;
   text-decoration-line: none;
 }
 
@@ -68,7 +69,7 @@ section {
 }
 
 article {
-  border-bottom: 1px dotted #000;
+  border-bottom: 1px dotted #1a1a1a;
 }
 
 article p {
@@ -84,12 +85,22 @@ article p {
   font-size: 1.1rem;
 }
 
-h2, h3 {
-  scroll-margin-top: 3ex; /* places h2 element just below the top of the window */
+h2, h3 { 
+  /* places h2 element just below the top of the window */
+  scroll-margin-top: 3ex;
 }
 
 p, li {
   line-height: 1.25rem;
+}
+
+a {
+  color: #1a1a1a;
+}
+
+a:visited {
+  color: #1a1a1a;
+  text-decoration: dotted;
 }
 
 .bold {
@@ -97,7 +108,7 @@ p, li {
 }
 
 blockquote {
-    border-left: 1px solid #000;
+    border-left: 1px solid #1a1a1a;
     padding-left: 0.5rem; 
 }
 
@@ -110,31 +121,31 @@ pre {
   line-height: 1.25rem;
   font-size: 1.1rem;
   background-color: #1a1a1d;
-  color: #ffffff;
+  color: #fdfdfd;
   padding: 1% 0 0 1%;
   overflow: scroll;
 }
 
 p > code {
   background-color: #1a1a1d;
-  color: #ffffff;
+  color: #fdfdfd;
   padding: 0 3px 0 3px;
 }
 
 aside {
-  border-left: 5px solid black;
+  border-left: 5px solid #1a1a1a;
   background-color: #e6eef5;
-  color: #000000;
+  color: #1a1a1a;
   padding: 5px;
 }
 
 footer {
   padding: 10px 5px 10px 0;
-  background-color: #ffffff;
-  color: black;
+  background-color: #fdfdfd;
+  color: #1a1a1a;
 }
 
 footer p:nth-child(1) {
-  border-top: 1px solid black;
+  border-top: 1px solid #1a1a1a;
   padding-top: 5px;
 }
