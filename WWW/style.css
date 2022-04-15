@@ -20,7 +20,6 @@ nav {
 }
 
 nav a {
-  color: #1a1a1a;
   text-decoration-line: none;
 }
 
@@ -85,22 +84,22 @@ article p {
   font-size: 1.1rem;
 }
 
+h1, dt {
+  color: MidnightBlue;
+}
+
 h2, h3 { 
   /* places h2 element just below the top of the window */
   scroll-margin-top: 3ex;
+  color: MidnightBlue;
 }
 
 p, li {
   line-height: 1.25rem;
 }
 
-a {
-  color: #1a1a1a;
-}
-
 a:visited {
-  color: #1a1a1a;
-  text-decoration: dotted;
+  color: blue;
 }
 
 .bold {
