@@ -1,222 +1,210 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en">
     <head>
-        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Licensing and Negotiating - Electronic Resource Management</title>
-
-
-        <!-- Custom HTML head -->
-        
+        <title>Licensing and Negotiating - </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="favicon.svg">
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
         <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-        <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
-        <!-- Custom theme stylesheets -->
+        <!-- Custom theme -->
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
+        <script src="store.js"></script>
 
     </head>
-    <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
-            try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
-
-                if (theme.startsWith('"') && theme.endsWith('"')) {
-                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
-                }
-
-                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
-                }
-            } catch (e) { }
-        </script>
-
+    <body class="light">
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
-            var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-            if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
-            html.classList.remove('light')
-            html.classList.add(theme);
-            html.classList.add('js');
+            var theme = store.get('mdbook-theme');
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            var sidebar = store.get('mdbook-sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="intro-erm-libraries.html"><strong aria-hidden="true">1.</strong> Electronic Resource Management in Libraries</a></li><li class="chapter-item expanded "><a href="p1-er-librarians.html"><strong aria-hidden="true">2.</strong> Part 1: Electronic Resource Librarians</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01-the-erm-librarian.html"><strong aria-hidden="true">2.1.</strong> The ERM Librarian</a></li><li class="chapter-item expanded "><a href="02-desperately-seeking-erm-librarian.html"><strong aria-hidden="true">2.2.</strong> Desparately Seeking an ERM Librarian</a></li><li class="chapter-item expanded "><a href="03-constant-disruption.html"><strong aria-hidden="true">2.3.</strong> Constant Disruption</a></li></ol></li><li class="chapter-item expanded "><a href="p2-technologies-standards.html"><strong aria-hidden="true">3.</strong> Part 2: Technologies and Standards</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="04-erm-ils.html"><strong aria-hidden="true">3.1.</strong> The ERM and the ILS</a></li><li class="chapter-item expanded "><a href="05-standardizing-erm.html"><strong aria-hidden="true">3.2.</strong> Standardizing ERM</a></li><li class="chapter-item expanded "><a href="06-interoperability.html"><strong aria-hidden="true">3.3.</strong> Interoperability</a></li><li class="chapter-item expanded "><a href="07-electronic-access.html"><strong aria-hidden="true">3.4.</strong> Electronic Access</a></li></ol></li><li class="chapter-item expanded "><a href="p3-processes-contexts.html"><strong aria-hidden="true">4.</strong> Part 3: Processes and Contexts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="08-workflow.html"><strong aria-hidden="true">4.1.</strong> The ERM Workflow</a></li><li class="chapter-item expanded "><a href="09-markets-economics.html"><strong aria-hidden="true">4.2.</strong> Markets and Economics of Electronic Resources</a></li><li class="chapter-item expanded "><a href="10-licensing-basics.html"><strong aria-hidden="true">4.3.</strong> Licensing Basics</a></li><li class="chapter-item expanded "><a href="11-licensing-and-negotiating.html" class="active"><strong aria-hidden="true">4.4.</strong> Licensing and Negotiating</a></li><li class="chapter-item expanded "><a href="12-acquisitions-collection-development.html"><strong aria-hidden="true">4.5.</strong> Acquisitions and Collection and Development</a></li></ol></li><li class="chapter-item expanded "><a href="p4-patrons.html"><strong aria-hidden="true">5.</strong> Part 4: Patrons</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="13-user-experience.html"><strong aria-hidden="true">5.1.</strong> User Experience</a></li><li class="chapter-item expanded "><a href="14-evaluation-statistics.html"><strong aria-hidden="true">5.2.</strong> Evaluation and Measurement</a></li><li class="chapter-item expanded "><a href="15-security-privacy.html"><strong aria-hidden="true">5.3.</strong> Security and Privacy</a></li></ol></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
-        </nav>
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="./intro-erm-libraries.html">Electronic Resource Management in Libraries</a></li><li><a href="./p1-er-librarians.html"><strong>1.</strong> Electronic Resource Librarians</a></li><li><ul class="section"><li><a href="./01-the-erm-librarian.html"><strong>1.1.</strong> The ERM Librarian</a></li><li><a href="./02-desperately-seeking-erm-librarian.html"><strong>1.2.</strong> Desparately Seeking an ERM Librarian</a></li><li><a href="./03-constant-disruption.html"><strong>1.3.</strong> Constant Disruption</a></li></ul></li><li><a href="./p2-technologies-standards.html"><strong>2.</strong> Technologies and Standards</a></li><li><ul class="section"><li><a href="./04-erm-ils.html"><strong>2.1.</strong> The ERM and the ILS</a></li><li><a href="./05-standardizing-erm.html"><strong>2.2.</strong> Standardizing ERM</a></li><li><a href="./06-interoperability.html"><strong>2.3.</strong> Interoperability</a></li><li><a href="./07-electronic-access.html"><strong>2.4.</strong> Electronic Access</a></li></ul></li><li><a href="./p3-processes-contexts.html"><strong>3.</strong> Processes and Contexts</a></li><li><ul class="section"><li><a href="./08-workflow.html"><strong>3.1.</strong> The ERM Workflow</a></li><li><a href="./09-markets-economics.html"><strong>3.2.</strong> Markets and Economics of Electronic Resources</a></li><li><a href="./10-licensing-basics.html"><strong>3.3.</strong> Licensing Basics</a></li><li><a href="./11-licensing-and-negotiating.html" class="active"><strong>3.4.</strong> Licensing and Negotiating</a></li><li><a href="./12-acquisitions-collection-development.html"><strong>3.5.</strong> Acquisitions and Collection and Development</a></li></ul></li><li><a href="./p4-patrons.html"><strong>4.</strong> Patrons</a></li><li><ul class="section"><li><a href="./13-user-experience.html"><strong>4.1.</strong> User Experience</a></li><li><a href="./14-evaluation-statistics.html"><strong>4.2.</strong> Evaluation and Measurement</a></li><li><a href="./15-security-privacy.html"><strong>4.3.</strong> Security and Privacy</a></li></ul></li></ul>
+        </div>
 
         <div id="page-wrapper" class="page-wrapper">
 
-            <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+            <div class="page" tabindex="-1">
+                
+                <div id="menu-bar" class="menu-bar">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
-                        </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                        </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
-                        </button>
+                        <i id="sidebar-toggle" class="fa fa-bars" title="Toggle sidebar"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush" title="Change theme"></i>
                     </div>
 
-                    <h1 class="menu-title">Electronic Resource Management</h1>
+                    <h1 class="menu-title"></h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                        <a href="print.html">
+                            <i id="print-button" class="fa fa-print" title="Print this book"></i>
                         </a>
-
                     </div>
                 </div>
-
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                    </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
-                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script>
 
                 <div id="content" class="content">
-                    <main>
-                        <h1 id="licensing-and-negotiating"><a class="header" href="#licensing-and-negotiating">Licensing and Negotiating</a></h1>
-<p>Since we are watching a long video again and also have a solid number of readings, I will keep this lecture short.</p>
-<p>Let's talk about Abbie Brown, first. In her talk, note that she highlights the middle ground on:</p>
+                    <a class="header" href="./11-licensing-and-negotiating.html#licensing-and-negotiating" id="licensing-and-negotiating"><h1>Licensing and Negotiating</h1></a>
+<p>Since we are watching a long video again and also have a solid number of
+readings, I will keep this lecture short.</p>
+<p>Let's talk about Abbie Brown, first. In her talk, note that she highlights the
+middle ground on:</p>
 <ul>
 <li>principled negotiation</li>
 <li>assertive communicators</li>
 </ul>
-<p>She also discusses, based on her experience, some stereotypes that get in the way of negotiating. These include:</p>
+<p>She also discusses, based on her experience, some stereotypes that get in the
+way of negotiating. These include:</p>
 <ul>
-<li>Librarian stereotypes: Years ago, I was at a dinner with a friend of mine and their family when my friend mentioned me going to library school. The father of my friend then said, &quot;isn't that women's work?&quot; So the existence of this stereotype is true, and if applicable to you, I hope you do not have to deal with it. My advice is to stick with Abbie Brown's suggestion to focus on principled negotiation and assertive communication. And if you're judged based on other stereotypes, please don't tolerate it.</li>
-<li>Library stereotypes: libraries are major players in the economy and have important economic buying power. Know that you come from a position of power.</li>
-<li>Vendors stereotypes: these are just as incorrect. As Brown notes, the people who work for vendors often have Master's degrees from library science programs. In fact, I went to library school with people who now work for vendors, and students in this class have and do work for vendors. These people are certainly aware of the complexities surrounding libraries and librarians and the values that librarians uphold. So you often will have a lot of mutual understanding from the start and should not necessarily have to assume any baseline antagonism.</li>
-<li>In the end, try work against any and all of these stereotypes. I think that if you do this, then it will reduce a lot of anxiety that we might carry with us when we go to the negotiating table.</li>
+<li>Librarian stereotypes: Years ago, I was at a dinner with a friend of mine and
+their family when my friend mentioned me going to library school. The father
+of my friend then said, &quot;isn't that women's work?&quot; So the existence of this
+stereotype is true, and if applicable to you, I hope you do not have to deal
+with it. My advice is to stick with Abbie Brown's suggestion to focus on
+principled negotiation and assertive communication. And if you're judged
+based on other stereotypes, please don't tolerate it.</li>
+<li>Library stereotypes: libraries are major players in the economy and have
+important economic buying power. Know that you come from a position of power.</li>
+<li>Vendors stereotypes: these are just as incorrect. As Brown notes, the people
+who work for vendors often have Master's degrees from library science
+programs. In fact, I went to library school with people who now work for
+vendors, and students in this class have and do work for vendors. These
+people are certainly aware of the complexities surrounding libraries and
+librarians and the values that librarians uphold. So you often will have a
+lot of mutual understanding from the start and should not necessarily have to
+assume any baseline antagonism.</li>
+<li>In the end, try work against any and all of these stereotypes. I think that
+if you do this, then it will reduce a lot of anxiety that we might carry with
+us when we go to the negotiating table.</li>
 </ul>
-<p>I like that also that Abbie Brown stresses the importance of building and maintaining relationships:</p>
+<p>I like that also that Abbie Brown stresses the importance of building and
+maintaining relationships:</p>
 <ul>
 <li>Focus from the beginning on building and maintaining a good relationship with your vendor. There are benefits to this, as Abbie Brown lists.</li>
 </ul>
 <p>Brown's practical suggestions:</p>
 <ul>
 <li>talk through things, with colleagues and vendors</li>
-<li>write well and succinctly, and put in writing (and be careful what you put in writing)</li>
-<li>I know that some of you have already had hesitations about the licensing agreements we've discussed already. Brown covers this in some detail and in real world ways and discusses how, e.g., SERU, is not always used but is still helpful to have out there as a point of reference.</li>
+<li>write well and succinctly, and put in writing (and be careful what you put in
+writing)</li>
+<li>I know that some of you have already had hesitations about the licensing
+agreements we've discussed already. Brown covers this in some detail and in
+real world ways and discusses how, e.g., SERU, is not always used but is
+still helpful to have out there as a point of reference.</li>
 </ul>
-<p>In addition to Brown's talk, we also read a few articles. The Smith and Hartnett article provides a nice real world example of the negotiating process that includes a work flow around licensing (again, the workflow!). Remember, document everything and revisit your documentation. That's how formalized checklists come into being and why they're useful. Having a workflow in place around licensing will help make your work more efficient and help ensure that all bases are covered.</p>
-<p>The Dygert and Barrett article covers the specifics of licensing---what to look for, what shouldn't be given away, how to negotiate principally, and more. Likewise, the Dunie article gets into the specifics of the negotiation process and includes definitions of terms, business models, and strategies.</p>
-<p>This week will not necessarily prepare us to become negotiators. The main point I want to make this week is this: if you find yourself in a position where one of your job responsibilities is to negotiate with vendors for e-resources (or for anything else), then come back to these sources of information and spend additional time studying them and taking notes on them. Sources like these, and others like them in the literature, will prepare you if you study them.</p>
+<p>In addition to Brown's talk, we also read a few articles. The Smith and
+Hartnett article provides a nice real world example of the negotiating process
+that includes a work flow around licensing (again, the workflow!). Remember,
+document everything and revisit your documentation. That's how formalized
+checklists come into being and why they're useful. Having a workflow in place
+around licensing will help make your work more efficient and help ensure that
+all bases are covered.</p>
+<p>The Dygert and Barrett article covers the specifics of licensing---what to look
+for, what shouldn't be given away, how to negotiate principally, and more.
+Likewise, the Dunie article gets into the specifics of the negotiation process
+and includes definitions of terms, business models, and strategies.</p>
+<p>This week will not necessarily prepare us to become negotiators. The main point
+I want to make this week is this: if you find yourself in a position where one
+of your job responsibilities is to negotiate with vendors for e-resources (or
+for anything else), then come back to these sources of information and spend
+additional time studying them and taking notes on them. Sources like these, and
+others like them in the literature, will prepare you if you study them.</p>
 
-                    </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="10-licensing-basics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-
-                            <a rel="next" href="12-acquisitions-collection-development.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-
-                        <div style="clear: both"></div>
-                    </nav>
                 </div>
-            </div>
 
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="10-licensing-basics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                <!-- Mobile navigation buttons -->
+                
+                    <a rel="prev" href="./10-licensing-basics.html" class="mobile-nav-chapters previous" title="Previous chapter">
                         <i class="fa fa-angle-left"></i>
                     </a>
+                
 
-                    <a rel="next" href="12-acquisitions-collection-development.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                
+                    <a rel="next" href="./12-acquisitions-collection-development.html" class="mobile-nav-chapters next" title="Next chapter">
                         <i class="fa fa-angle-right"></i>
                     </a>
-            </nav>
+                
+
+            </div>
+
+            
+                <a href="./10-licensing-basics.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="./12-acquisitions-collection-development.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
 
         </div>
 
 
-
-
-        <script type="text/javascript">
-            window.playground_copyable = true;
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
         </script>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        
 
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
 
-        <!-- Custom JS scripts -->
+        
 
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
 
     </body>
 </html>

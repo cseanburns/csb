@@ -1,160 +1,110 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en">
     <head>
-        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>The ERM Workflow - Electronic Resource Management</title>
-
-
-        <!-- Custom HTML head -->
-        
+        <title>The ERM Workflow - </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="favicon.svg">
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
         <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-        <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
-        <!-- Custom theme stylesheets -->
+        <!-- Custom theme -->
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
+        <script src="store.js"></script>
 
     </head>
-    <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
-            try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
-
-                if (theme.startsWith('"') && theme.endsWith('"')) {
-                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
-                }
-
-                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
-                }
-            } catch (e) { }
-        </script>
-
+    <body class="light">
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
-            var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-            if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
-            html.classList.remove('light')
-            html.classList.add(theme);
-            html.classList.add('js');
+            var theme = store.get('mdbook-theme');
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            var sidebar = store.get('mdbook-sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="intro-erm-libraries.html"><strong aria-hidden="true">1.</strong> Electronic Resource Management in Libraries</a></li><li class="chapter-item expanded "><a href="p1-er-librarians.html"><strong aria-hidden="true">2.</strong> Part 1: Electronic Resource Librarians</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01-the-erm-librarian.html"><strong aria-hidden="true">2.1.</strong> The ERM Librarian</a></li><li class="chapter-item expanded "><a href="02-desperately-seeking-erm-librarian.html"><strong aria-hidden="true">2.2.</strong> Desparately Seeking an ERM Librarian</a></li><li class="chapter-item expanded "><a href="03-constant-disruption.html"><strong aria-hidden="true">2.3.</strong> Constant Disruption</a></li></ol></li><li class="chapter-item expanded "><a href="p2-technologies-standards.html"><strong aria-hidden="true">3.</strong> Part 2: Technologies and Standards</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="04-erm-ils.html"><strong aria-hidden="true">3.1.</strong> The ERM and the ILS</a></li><li class="chapter-item expanded "><a href="05-standardizing-erm.html"><strong aria-hidden="true">3.2.</strong> Standardizing ERM</a></li><li class="chapter-item expanded "><a href="06-interoperability.html"><strong aria-hidden="true">3.3.</strong> Interoperability</a></li><li class="chapter-item expanded "><a href="07-electronic-access.html"><strong aria-hidden="true">3.4.</strong> Electronic Access</a></li></ol></li><li class="chapter-item expanded "><a href="p3-processes-contexts.html"><strong aria-hidden="true">4.</strong> Part 3: Processes and Contexts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="08-workflow.html" class="active"><strong aria-hidden="true">4.1.</strong> The ERM Workflow</a></li><li class="chapter-item expanded "><a href="09-markets-economics.html"><strong aria-hidden="true">4.2.</strong> Markets and Economics of Electronic Resources</a></li><li class="chapter-item expanded "><a href="10-licensing-basics.html"><strong aria-hidden="true">4.3.</strong> Licensing Basics</a></li><li class="chapter-item expanded "><a href="11-licensing-and-negotiating.html"><strong aria-hidden="true">4.4.</strong> Licensing and Negotiating</a></li><li class="chapter-item expanded "><a href="12-acquisitions-collection-development.html"><strong aria-hidden="true">4.5.</strong> Acquisitions and Collection and Development</a></li></ol></li><li class="chapter-item expanded "><a href="p4-patrons.html"><strong aria-hidden="true">5.</strong> Part 4: Patrons</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="13-user-experience.html"><strong aria-hidden="true">5.1.</strong> User Experience</a></li><li class="chapter-item expanded "><a href="14-evaluation-statistics.html"><strong aria-hidden="true">5.2.</strong> Evaluation and Measurement</a></li><li class="chapter-item expanded "><a href="15-security-privacy.html"><strong aria-hidden="true">5.3.</strong> Security and Privacy</a></li></ol></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
-        </nav>
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="./intro-erm-libraries.html">Electronic Resource Management in Libraries</a></li><li><a href="./p1-er-librarians.html"><strong>1.</strong> Electronic Resource Librarians</a></li><li><ul class="section"><li><a href="./01-the-erm-librarian.html"><strong>1.1.</strong> The ERM Librarian</a></li><li><a href="./02-desperately-seeking-erm-librarian.html"><strong>1.2.</strong> Desparately Seeking an ERM Librarian</a></li><li><a href="./03-constant-disruption.html"><strong>1.3.</strong> Constant Disruption</a></li></ul></li><li><a href="./p2-technologies-standards.html"><strong>2.</strong> Technologies and Standards</a></li><li><ul class="section"><li><a href="./04-erm-ils.html"><strong>2.1.</strong> The ERM and the ILS</a></li><li><a href="./05-standardizing-erm.html"><strong>2.2.</strong> Standardizing ERM</a></li><li><a href="./06-interoperability.html"><strong>2.3.</strong> Interoperability</a></li><li><a href="./07-electronic-access.html"><strong>2.4.</strong> Electronic Access</a></li></ul></li><li><a href="./p3-processes-contexts.html"><strong>3.</strong> Processes and Contexts</a></li><li><ul class="section"><li><a href="./08-workflow.html" class="active"><strong>3.1.</strong> The ERM Workflow</a></li><li><a href="./09-markets-economics.html"><strong>3.2.</strong> Markets and Economics of Electronic Resources</a></li><li><a href="./10-licensing-basics.html"><strong>3.3.</strong> Licensing Basics</a></li><li><a href="./11-licensing-and-negotiating.html"><strong>3.4.</strong> Licensing and Negotiating</a></li><li><a href="./12-acquisitions-collection-development.html"><strong>3.5.</strong> Acquisitions and Collection and Development</a></li></ul></li><li><a href="./p4-patrons.html"><strong>4.</strong> Patrons</a></li><li><ul class="section"><li><a href="./13-user-experience.html"><strong>4.1.</strong> User Experience</a></li><li><a href="./14-evaluation-statistics.html"><strong>4.2.</strong> Evaluation and Measurement</a></li><li><a href="./15-security-privacy.html"><strong>4.3.</strong> Security and Privacy</a></li></ul></li></ul>
+        </div>
 
         <div id="page-wrapper" class="page-wrapper">
 
-            <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+            <div class="page" tabindex="-1">
+                
+                <div id="menu-bar" class="menu-bar">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
-                        </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                        </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
-                        </button>
+                        <i id="sidebar-toggle" class="fa fa-bars" title="Toggle sidebar"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush" title="Change theme"></i>
                     </div>
 
-                    <h1 class="menu-title">Electronic Resource Management</h1>
+                    <h1 class="menu-title"></h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                        <a href="print.html">
+                            <i id="print-button" class="fa fa-print" title="Print this book"></i>
                         </a>
-
                     </div>
                 </div>
-
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                    </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
-                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script>
 
                 <div id="content" class="content">
-                    <main>
-                        <h1 id="workflow"><a class="header" href="#workflow">Workflow</a></h1>
-<p>If all goes according to plan, this week's readings on electronic resource management and on workflow analysis should help put prior material into context and act as a bridge to the material we will discuss in much of the remaining weeks of the semester.</p>
+                    <a class="header" href="./08-workflow.html#workflow" id="workflow"><h1>Workflow</h1></a>
+<p>If all goes according to plan, this week's readings on electronic resource
+management and on workflow analysis should help put prior material into context
+and act as a bridge to the material we will discuss in much of the remaining
+weeks of the semester.</p>
 <p>In the first three weeks of the semester, we learned about and discussed:</p>
 <ul>
 <li>what it means to be a librarian who oversees or is a part of electronic resource management,</li>
 <li>what kinds of criteria are sought for in new hires, and</li>
 <li>why electronic resources have introduced so much <em>constant disruption</em> across libraries.</li>
 </ul>
-<p>This latter point is largely due to, among other things, the fact that the print-era involved largely (or at least more so) a linear process of collection management that was fundamentally altered with the introduction of electronic resources.</p>
+<p>This latter point is largely due to, among other things, the fact that the
+print-era involved largely (or at least more so) a linear process of collection
+management that was fundamentally altered with the introduction of electronic
+resources.</p>
 <p>Then we discussed the differences between:</p>
 <ul>
 <li>electronic resource management software and</li>
-<li>integrated library system software. </li>
+<li>integrated library system software.</li>
 </ul>
 <p>We also learned about:</p>
 <ul>
@@ -166,11 +116,58 @@
 <li>why interoperability is required, and</li>
 <li>what happens when access to electronic resources break.</li>
 </ul>
-<p>This week things will start to make connections at a faster pace. In the first Anderson article (chapter 2), we gain a clearer idea of what a knowledge base is and how it works, and we learn more about how integrated library systems and ERM systems work together (or fail to). We also dip our toes into newer topics like licensing, COUNTER, and SUSHI, which we'll cover in greater detail in the next few weeks.</p>
-<p>In the second Anderson article (chapter 3), we learn how to take careful consideration of a library's work flow before selecting which ERM software to purchase. This is why workflow based standards are important, even if they are not true technical standards. We do this because we select systems based on the needs of the librarians, which may be vastly different across libraries, and which must rely on different aspects of the overall process. As you read this chapter, I want you to keep in mind the Samples and Healy article from the previous week's reading.</p>
-<p>As hinted at in these readings, especially in the section on acquisitions, budget, subscription, and purchasing in chapter two but also in the multiple discussions about the role vendors play in electronic resource management, the market and the economics of this area of librarianship weigh heavily on everyday realities. We will follow up on this next week when we begin to read more about the market and the economics of electronic resources. For example, in our Anderson readings this week, we learn about the CORE recommended practice (RP), or the <a href="https://www.niso.org/standards-committees/core-cost-resource-exchange">Cost of Resource Exchange</a>, that was developed by NISO. CORE brings together three aspects of our previous discussions: software, funds, and interoperability. Here the CORE RP describes how the ILS and ERM systems can communicate the costs of electronic resources between each other. Its existence hints at the pressures librarians have had in having to deal with complex budget issues. Although this is not touched on in these articles, the current pandemic will make these issues more complicated for libraries.</p>
-<p>While we spent time discussing technical standards, we also learned about TERMS, an attempt to standardize the language and processes involved with electronic resource management. We see more connections in this week's readings. Aside from the CORE standard, we learn more about standard attempts at licensing, and the <em>COUNTER</em> and <em>SUSHI</em> statistic-related standards, which provide standards for the communication, collection, presentation, and the formatting of usage statistics for electronic resources such as ebooks, journals, databases, and more.</p>
-<p>We have also discussed interoperability, and what it takes for multiple systems to connect and transfer content between each other. We primarily discussed this with respect to link resolver technology, and we did this not just because we should know about link resolvers as important components of electronic resource management, but also because link resolvers are a good example of the kind of work that is involved for systems to communicate properly. There are other forms of interoperability, though, and coming back to <a href="https://www.niso.org/standards-committees/core-cost-resource-exchange">CORE</a> again, the Anderson article (chapter 2) provides a link to a white paper titled, <a href="https://old.diglib.org/standards/ERMI_Interop_Report_20080108.pdf">White Paper on Interoperability between Acquisitions Modules of Integrated Library Systems and Electronic Resource Management Systems</a>, and this paper defines the 13 data elements that were determined to be desired in any exchange between ILS software and ERM software for these software to communicate usefully with each other. By that, I mean, the data points enable meaningful use of both the ILS software and the ERM software, and include:</p>
+<p>This week things will start to make connections at a faster pace. In the first
+Anderson article (chapter 2), we gain a clearer idea of what a knowledge base
+is and how it works, and we learn more about how integrated library systems and
+ERM systems work together (or fail to). We also dip our toes into newer topics
+like licensing, COUNTER, and SUSHI, which we'll cover in greater detail in the
+next few weeks.</p>
+<p>In the second Anderson article (chapter 3), we learn how to take careful
+consideration of a library's work flow before selecting which ERM software to
+purchase. This is why workflow based standards are important, even if they are
+not true technical standards. We do this because we select systems based on the
+needs of the librarians, which may be vastly different across libraries, and
+which must rely on different aspects of the overall process. As you read this
+chapter, I want you to keep in mind the Samples and Healy article from the
+previous week's reading.</p>
+<p>As hinted at in these readings, especially in the section on acquisitions,
+budget, subscription, and purchasing in chapter two but also in the multiple
+discussions about the role vendors play in electronic resource management, the
+market and the economics of this area of librarianship weigh heavily on
+everyday realities. We will follow up on this next week when we begin to read
+more about the market and the economics of electronic resources. For example,
+in our Anderson readings this week, we learn about the CORE recommended
+practice (RP), or the <a href="https://www.niso.org/standards-committees/core-cost-resource-exchange">Cost of Resource Exchange</a>, that was
+developed by NISO. CORE brings together three aspects of our previous
+discussions: software, funds, and interoperability. Here the CORE RP describes
+how the ILS and ERM systems can communicate the costs of electronic resources
+between each other. Its existence hints at the pressures librarians have had in
+having to deal with complex budget issues. Although this is not touched on in
+these articles, the current pandemic will make these issues more complicated
+for libraries.</p>
+<p>While we spent time discussing technical standards, we also learned about
+TERMS, an attempt to standardize the language and processes involved with
+electronic resource management. We see more connections in this week's
+readings. Aside from the CORE standard, we learn more about standard attempts
+at licensing, and the <em>COUNTER</em> and <em>SUSHI</em> statistic-related standards, which
+provide standards for the communication, collection, presentation, and the
+formatting of usage statistics for electronic resources such as ebooks,
+journals, databases, and more.</p>
+<p>We have also discussed interoperability, and what it takes for multiple systems
+to connect and transfer content between each other. We primarily discussed this
+with respect to link resolver technology, and we did this not just because we
+should know about link resolvers as important components of electronic resource
+management, but also because link resolvers are a good example of the kind of
+work that is involved for systems to communicate properly. There are other
+forms of interoperability, though, and coming back to <a href="https://www.niso.org/standards-committees/core-cost-resource-exchange">CORE</a>
+again, the Anderson article (chapter 2) provides a link to a white paper
+titled, <a href="https://old.diglib.org/standards/ERMI_Interop_Report_20080108.pdf">White Paper on Interoperability between Acquisitions Modules of
+Integrated Library Systems and Electronic Resource Management
+Systems</a>, and this paper defines the 13 data elements that were
+determined to be desired in any exchange between ILS software and ERM software
+for these software to communicate usefully with each other. By that, I mean,
+the data points enable meaningful use of both the ILS software and the ERM
+software, and include:</p>
 <ul>
 <li>purchase order number</li>
 <li>price</li>
@@ -186,57 +183,75 @@
 <li>line item note</li>
 <li>invoice note (White Paper ...)</li>
 </ul>
-<p>That white paper contains example and worthwhile use cases and stories from major libraries, and these cases are rather helpful reads. You are not required to read this paper, but I urge you to skim through it to get a sense of how standards are created through a process of comparing and contrasting and coordinating needs and contexts among different entities. The link is in the transcript but also in the reading, as well as the link to the actual <a href="https://www.niso.org/standards-committees/core-cost-resource-exchange">CORE protocol</a>:</p>
-<p>I really like our two readings by Anderson because they are illustrative of the whole ERM process. If you are able, visit the issue these two readings are from and read the other chapters that Anderson has written.</p>
-<p>In short, this week's topic will also, if all goes well, help provide a foundation for the remaining weeks, when we will learn about and discuss things like licensing and negotiation and evaluation and statistics in more detail. Think of this week as a transition between the first part of the semester and what happens next.</p>
+<p>That white paper contains example and worthwhile use cases and stories from
+major libraries, and these cases are rather helpful reads. You are not required
+to read this paper, but I urge you to skim through it to get a sense of how
+standards are created through a process of comparing and contrasting and
+coordinating needs and contexts among different entities. The link is in the
+transcript but also in the reading, as well as the link to the actual <a href="https://www.niso.org/standards-committees/core-cost-resource-exchange">CORE
+protocol</a>:</p>
+<p>I really like our two readings by Anderson because they are illustrative of the
+whole ERM process. If you are able, visit the issue these two readings are from
+and read the other chapters that Anderson has written.</p>
+<p>In short, this week's topic will also, if all goes well, help provide a
+foundation for the remaining weeks, when we will learn about and discuss things
+like licensing and negotiation and evaluation and statistics in more detail.
+Think of this week as a transition between the first part of the semester and
+what happens next.</p>
 
-                    </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="p3-processes-contexts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-
-                            <a rel="next" href="09-markets-economics.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-
-                        <div style="clear: both"></div>
-                    </nav>
                 </div>
-            </div>
 
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="p3-processes-contexts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                <!-- Mobile navigation buttons -->
+                
+                    <a rel="prev" href="./p3-processes-contexts.html" class="mobile-nav-chapters previous" title="Previous chapter">
                         <i class="fa fa-angle-left"></i>
                     </a>
+                
 
-                    <a rel="next" href="09-markets-economics.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                
+                    <a rel="next" href="./09-markets-economics.html" class="mobile-nav-chapters next" title="Next chapter">
                         <i class="fa fa-angle-right"></i>
                     </a>
-            </nav>
+                
+
+            </div>
+
+            
+                <a href="./p3-processes-contexts.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="./09-markets-economics.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
 
         </div>
 
 
-
-
-        <script type="text/javascript">
-            window.playground_copyable = true;
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
         </script>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        
 
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
 
-        <!-- Custom JS scripts -->
+        
 
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
 
     </body>
 </html>

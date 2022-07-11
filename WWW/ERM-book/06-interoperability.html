@@ -1,163 +1,139 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en">
     <head>
-        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Interoperability - Electronic Resource Management</title>
-
-
-        <!-- Custom HTML head -->
-        
+        <title>Interoperability - </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="favicon.svg">
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
         <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-        <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
-        <!-- Custom theme stylesheets -->
+        <!-- Custom theme -->
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
+        <script src="store.js"></script>
 
     </head>
-    <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
-            try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
-
-                if (theme.startsWith('"') && theme.endsWith('"')) {
-                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
-                }
-
-                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
-                }
-            } catch (e) { }
-        </script>
-
+    <body class="light">
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
-            var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-            if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
-            html.classList.remove('light')
-            html.classList.add(theme);
-            html.classList.add('js');
+            var theme = store.get('mdbook-theme');
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            var sidebar = store.get('mdbook-sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="intro-erm-libraries.html"><strong aria-hidden="true">1.</strong> Electronic Resource Management in Libraries</a></li><li class="chapter-item expanded "><a href="p1-er-librarians.html"><strong aria-hidden="true">2.</strong> Part 1: Electronic Resource Librarians</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01-the-erm-librarian.html"><strong aria-hidden="true">2.1.</strong> The ERM Librarian</a></li><li class="chapter-item expanded "><a href="02-desperately-seeking-erm-librarian.html"><strong aria-hidden="true">2.2.</strong> Desparately Seeking an ERM Librarian</a></li><li class="chapter-item expanded "><a href="03-constant-disruption.html"><strong aria-hidden="true">2.3.</strong> Constant Disruption</a></li></ol></li><li class="chapter-item expanded "><a href="p2-technologies-standards.html"><strong aria-hidden="true">3.</strong> Part 2: Technologies and Standards</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="04-erm-ils.html"><strong aria-hidden="true">3.1.</strong> The ERM and the ILS</a></li><li class="chapter-item expanded "><a href="05-standardizing-erm.html"><strong aria-hidden="true">3.2.</strong> Standardizing ERM</a></li><li class="chapter-item expanded "><a href="06-interoperability.html" class="active"><strong aria-hidden="true">3.3.</strong> Interoperability</a></li><li class="chapter-item expanded "><a href="07-electronic-access.html"><strong aria-hidden="true">3.4.</strong> Electronic Access</a></li></ol></li><li class="chapter-item expanded "><a href="p3-processes-contexts.html"><strong aria-hidden="true">4.</strong> Part 3: Processes and Contexts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="08-workflow.html"><strong aria-hidden="true">4.1.</strong> The ERM Workflow</a></li><li class="chapter-item expanded "><a href="09-markets-economics.html"><strong aria-hidden="true">4.2.</strong> Markets and Economics of Electronic Resources</a></li><li class="chapter-item expanded "><a href="10-licensing-basics.html"><strong aria-hidden="true">4.3.</strong> Licensing Basics</a></li><li class="chapter-item expanded "><a href="11-licensing-and-negotiating.html"><strong aria-hidden="true">4.4.</strong> Licensing and Negotiating</a></li><li class="chapter-item expanded "><a href="12-acquisitions-collection-development.html"><strong aria-hidden="true">4.5.</strong> Acquisitions and Collection and Development</a></li></ol></li><li class="chapter-item expanded "><a href="p4-patrons.html"><strong aria-hidden="true">5.</strong> Part 4: Patrons</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="13-user-experience.html"><strong aria-hidden="true">5.1.</strong> User Experience</a></li><li class="chapter-item expanded "><a href="14-evaluation-statistics.html"><strong aria-hidden="true">5.2.</strong> Evaluation and Measurement</a></li><li class="chapter-item expanded "><a href="15-security-privacy.html"><strong aria-hidden="true">5.3.</strong> Security and Privacy</a></li></ol></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
-        </nav>
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="./intro-erm-libraries.html">Electronic Resource Management in Libraries</a></li><li><a href="./p1-er-librarians.html"><strong>1.</strong> Electronic Resource Librarians</a></li><li><ul class="section"><li><a href="./01-the-erm-librarian.html"><strong>1.1.</strong> The ERM Librarian</a></li><li><a href="./02-desperately-seeking-erm-librarian.html"><strong>1.2.</strong> Desparately Seeking an ERM Librarian</a></li><li><a href="./03-constant-disruption.html"><strong>1.3.</strong> Constant Disruption</a></li></ul></li><li><a href="./p2-technologies-standards.html"><strong>2.</strong> Technologies and Standards</a></li><li><ul class="section"><li><a href="./04-erm-ils.html"><strong>2.1.</strong> The ERM and the ILS</a></li><li><a href="./05-standardizing-erm.html"><strong>2.2.</strong> Standardizing ERM</a></li><li><a href="./06-interoperability.html" class="active"><strong>2.3.</strong> Interoperability</a></li><li><a href="./07-electronic-access.html"><strong>2.4.</strong> Electronic Access</a></li></ul></li><li><a href="./p3-processes-contexts.html"><strong>3.</strong> Processes and Contexts</a></li><li><ul class="section"><li><a href="./08-workflow.html"><strong>3.1.</strong> The ERM Workflow</a></li><li><a href="./09-markets-economics.html"><strong>3.2.</strong> Markets and Economics of Electronic Resources</a></li><li><a href="./10-licensing-basics.html"><strong>3.3.</strong> Licensing Basics</a></li><li><a href="./11-licensing-and-negotiating.html"><strong>3.4.</strong> Licensing and Negotiating</a></li><li><a href="./12-acquisitions-collection-development.html"><strong>3.5.</strong> Acquisitions and Collection and Development</a></li></ul></li><li><a href="./p4-patrons.html"><strong>4.</strong> Patrons</a></li><li><ul class="section"><li><a href="./13-user-experience.html"><strong>4.1.</strong> User Experience</a></li><li><a href="./14-evaluation-statistics.html"><strong>4.2.</strong> Evaluation and Measurement</a></li><li><a href="./15-security-privacy.html"><strong>4.3.</strong> Security and Privacy</a></li></ul></li></ul>
+        </div>
 
         <div id="page-wrapper" class="page-wrapper">
 
-            <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+            <div class="page" tabindex="-1">
+                
+                <div id="menu-bar" class="menu-bar">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
-                        </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                        </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
-                        </button>
+                        <i id="sidebar-toggle" class="fa fa-bars" title="Toggle sidebar"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush" title="Change theme"></i>
                     </div>
 
-                    <h1 class="menu-title">Electronic Resource Management</h1>
+                    <h1 class="menu-title"></h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                        <a href="print.html">
+                            <i id="print-button" class="fa fa-print" title="Print this book"></i>
                         </a>
-
                     </div>
                 </div>
-
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                    </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
-                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script>
 
                 <div id="content" class="content">
-                    <main>
-                        <h1 id="interoperability"><a class="header" href="#interoperability">Interoperability</a></h1>
+                    <a class="header" href="./06-interoperability.html#interoperability" id="interoperability"><h1>Interoperability</h1></a>
 <p><strong>Note to self:</strong> see content at bottom to incorporate into next year's lecture.</p>
 <hr />
 <p>This week we cover interoperability and link resolvers.</p>
-<p>Before this discussion gets complicated, remember that the fundamental idea of link resolvers is that link resolvers resolve links. They are a technical solution to help users of electronic resources access the full text in a library's collection based on a citation discovered in a search result, an article's list of references, or wherever else the link resolver might show up. It is meant to work for all items in a library's collection. Its reason for existence is for items that are pay-walled or for items that are inaccessible via the open web. Link resolvers are also used to acquire access through some other means, like inter-library loan, and though its use is motivated by electronic resources, it can identify resources that are located in the library stacks since such items will have a link (or a URL) in the online catalog or discovery system.</p>
-<p>To get an idea of how they work, let's imagine a search in <em>Google Scholar</em>, and as a result of this search, we have identified a non-open-access article that we wish to retrieve from the library's electronic resources. If you have made <em>Google Scholar</em> aware that you are affiliated with a specific library and if the library uses a link resolver service, then:</p>
+<p>Before this discussion gets complicated, remember that the fundamental idea of
+link resolvers is that link resolvers resolve links. They are a technical
+solution to help users of electronic resources access the full text in a
+library's collection based on a citation discovered in a search result, an
+article's list of references, or wherever else the link resolver might show up.
+It is meant to work for all items in a library's collection. Its reason for
+existence is for items that are pay-walled or for items that are inaccessible
+via the open web. Link resolvers are also used to acquire access through some
+other means, like inter-library loan, and though its use is motivated by
+electronic resources, it can identify resources that are located in the library
+stacks since such items will have a link (or a URL) in the online catalog or
+discovery system.</p>
+<p>To get an idea of how they work, let's imagine a search in <em>Google Scholar</em>,
+and as a result of this search, we have identified a non-open-access article
+that we wish to retrieve from the library's electronic resources. If you have
+made <em>Google Scholar</em> aware that you are affiliated with a specific library and
+if the library uses a link resolver service, then:</p>
 <ol>
-<li>The metadata about the article will be extracted from <em>Google Scholar</em>, or the <em>source</em>, and this will be added to</li>
-<li>the metadata about the institution (administrative metadata, like an institutional ID number).</li>
-<li>The metadata is converted into a URL query that queries the library's collections, and</li>
-<li>the user is then presented with <em>target</em> options (or taken directly to the work) for retrieving the article, and the options may include full text access from various and possibly multiple vendors or publishers, information about the physical location (e.g., on the shelves) if it exists, or options to request the work through inter-library loan. Ideally, it will lead the user directly to the full text.</li>
+<li>The metadata about the article will be extracted from <em>Google Scholar</em>, or
+the <em>source</em>, and this will be added to</li>
+<li>the metadata about the institution (administrative metadata, like an
+institutional ID number).</li>
+<li>The metadata is converted into a URL query that queries the library's
+collections, and</li>
+<li>the user is then presented with <em>target</em> options (or taken directly to the
+work) for retrieving the article, and the options may include full text
+access from various and possibly multiple vendors or publishers, information
+about the physical location (e.g., on the shelves) if it exists, or options
+to request the work through inter-library loan. Ideally, it will lead the
+user directly to the full text.</li>
 </ol>
 <p>[ Show how to make <em>Google Scholar</em> aware of your affiliation ]</p>
-<p>See <a href="https://web.archive.org/web/20140419201741/http://lj.libraryjournal.com:80/2004/04/ljarchives/the-lure-of-linking/#LinkResolver">Link Resolver 101</a> for additional details and this historical piece on <a href="https://web.archive.org/web/20140419201741/http://lj.libraryjournal.com:80/2004/04/ljarchives/the-lure-of-linking/">link resolvers</a>.</p>
-<p>Consider a basic keyword search in <em>Google Scholar</em> for the term <code>electronic resources</code>. One of the first items listed in the results page is to an article titled &quot;Electronic resources: access and usage at Ashesi University College.&quot; If we've gone to <em>Google Scholar's</em> settings, and added your library to the <strong>Library Links</strong> list, then we should see a <strong>View Now @ UK</strong> link to the right of your search result list. This indicates the likelihood, although there could be an error, that the article is available through UK Libraries, in my case, or another library in another person's case.</p>
-<p>Let's compare the URL that <em>Google Scholar</em> provides to access the first result with the URL via the <strong>View Now @ UK</strong> link. We can examine both URLs by right-clicking them and decomposing them into their components.</p>
+<p>See <a href="https://web.archive.org/web/20140419201741/http://lj.libraryjournal.com:80/2004/04/ljarchives/the-lure-of-linking/#LinkResolver">Link Resolver 101</a> for additional details and this historical
+piece on <a href="https://web.archive.org/web/20140419201741/http://lj.libraryjournal.com:80/2004/04/ljarchives/the-lure-of-linking/">link resolvers</a>.</p>
+<p>Consider a basic keyword search in <em>Google Scholar</em> for the term <code>electronic resources</code>. One of the first items listed in the results page is to an article
+titled &quot;Electronic resources: access and usage at Ashesi University College.&quot;
+If we've gone to <em>Google Scholar's</em> settings, and added your library to the
+<strong>Library Links</strong> list, then we should see a <strong>View Now @ UK</strong> link to the
+right of your search result list. This indicates the likelihood, although there
+could be an error, that the article is available through UK Libraries, in my
+case, or another library in another person's case.</p>
+<p>Let's compare the URL that <em>Google Scholar</em> provides to access the first result
+with the URL via the <strong>View Now @ UK</strong> link. We can examine both URLs by
+right-clicking them and decomposing them into their components.</p>
 <p>The URL for the direct source is:</p>
 <pre><code>https://www.emerald.com/insight/content/doi/10.1108/10650740510632208/full/html
 </code></pre>
@@ -166,20 +142,32 @@
 <li>https:// : indicates the secure hypertext protocol</li>
 <li>www      : indicates the subdomain</li>
 <li>emerald.com : indicates the first and second level domain names</li>
-<li>/insight/content/doi : the general location in the directory on the emerald.com server that contains this article</li>
-<li>/10.1108/10650740510632208 : also part of the location in the directory on emerald.com, but in this case, this is location is more unique to the journal and the article</li>
+<li>/insight/content/doi : the general location in the directory on the
+emerald.com server that contains this article</li>
+<li>/10.1108/10650740510632208 : also part of the location in the directory on
+emerald.com, but in this case, this is location is more unique to the journal
+and the article</li>
 <li>/full/html : more location about where the item is located on emerald.com</li>
 </ul>
-<p>The DOI for this article is specifically <code>10.1108/10650740510632208</code> and is composed of a <a href="https://www.doi.org/doi_handbook/2_Numbering.html">prefix and suffix</a>. The prefix includes the following elements:</p>
+<p>The DOI for this article is specifically <code>10.1108/10650740510632208</code> and is
+composed of a <a href="https://www.doi.org/doi_handbook/2_Numbering.html">prefix and suffix</a>. The prefix includes the
+following elements:</p>
 <ul>
 <li>10 : this is the directory indicator</li>
 <li>1108 : the registrant code for this specific journal</li>
 </ul>
 <p>The suffix refers to the following element:</p>
 <ul>
-<li>10650740510632208 : a character string (in this case, of numbers) that refers to the article. This string is created by the registrant</li>
+<li>10650740510632208 : a character string (in this case, of numbers) that refers
+to the article. This string is created by the registrant</li>
 </ul>
-<p>When we view the <strong>View Now @ UK</strong> link, we see what's called a <a href="https://en.wikipedia.org/wiki/Query_string">query string</a>. A query string is a part of the URL that contains (metadata) fields or parameters and values for those parameters, and it begins with the first ampersand and after the letter <em>q</em> in the URL. Each additional parameter begins after each ampersand. In the following query string, I start each newline with a new parameter and end it with its value just to make the URL components easier to see:</p>
+<p>When we view the <strong>View Now @ UK</strong> link, we see what's called a <a href="https://en.wikipedia.org/wiki/Query_string">query
+string</a>. A query string is a part of the URL that contains
+(metadata) fields or parameters and values for those parameters, and it begins
+with the first ampersand and after the letter <em>q</em> in the URL. Each additional
+parameter begins after each ampersand. In the following query string, I start
+each newline with a new parameter and end it with its value just to make the
+URL components easier to see:</p>
 <pre><code>https://scholar.google.com/scholar?
 output=instlink&amp;
 q=info:Sj_9YmD0RWYJ:scholar.google.com/&amp;
@@ -188,17 +176,34 @@ as_sdt=0,18&amp;
 scillfp=9038251622808028378&amp;
 oi=lle
 </code></pre>
-<p>According to a source that describes <a href="https://serpapi.com/google-scholar-api">Google Scholar's API</a>, some of the parameters above mean the following things:</p>
+<p>According to a source that describes <a href="https://serpapi.com/google-scholar-api">Google Scholar's
+API</a>, some of the parameters above mean the following
+things:</p>
 <ul>
 <li>output: &quot;Parameter defines the final output you want. It can be set to json (default) to get a structured JSON of the results, or html to get the raw html retrieved.&quot; Here, <strong>instlink</strong> refers to <strong>institional link</strong>, but that's a guess.</li>
 <li>q: &quot;Parameter defines the query you want to search. You can also use helpers in your query such as: author:, or source:&quot; Here, my guess is that this refers to Google Scholar's own citation ID for this work.</li>
 <li>hl: &quot;Parameter defines the language to use for the Google search. It's a two-letter language code.&quot;</li>
 <li>as_sdt: &quot;Parameter can be used either as a search type or a filter.&quot; Here the 18 refers to Kentucky, but the 0 part, I believe, indicates that the query <a href="https://serpapi.com/google-scholar-courts">should not return results</a> from court cases.</li>
 </ul>
-<p>Due to those parameters, if we click on that <strong>View Now @ UK</strong> link, we are now transported to UK's discovery service, <em>Primo</em>, by <em>Ex Libris</em>. This means that the URL is the effective point of data exchange between Google Scholar and UK's resources.</p>
-<p>In our example, there is only one service that provides access to this work, and that means the Primo hands off our query to UK Library's proxy service, <strong>EZProxy</strong>, which takes us to a copy of that full text.</p>
-<p>But if more resources provided access, like both EBSCOhost and ProQuests databases, we would stop on Primo and be offered to select which database we would like to view the full text.</p>
-<p>In our case, since we only have one option, the Primo to EZProxy transfer happens quickly, and but I was able to save the Primo URL. If we investigate this URL, we see that it's an OpenURL link, and we can see the fields and values and identify the metadata (I have decomposed the URL for readability). The percent signs and numbers in the title field use <a href="https://en.wikipedia.org/wiki/Percent-encoding">Percent-encoding</a>, and they convert characters that are URL unfriendly, like empty spaces between words, to something that URLs can handle and parse. See <a href="https://www.w3schools.com/tags/ref_urlencode.asp">this page</a> for a table of UTF-8 percent-encodings and the characters they match:</p>
+<p>Due to those parameters, if we click on that <strong>View Now @ UK</strong> link, we are now
+transported to UK's discovery service, <em>Primo</em>, by <em>Ex Libris</em>. This means that
+the URL is the effective point of data exchange between Google Scholar and UK's
+resources.</p>
+<p>In our example, there is only one service that provides access to this work,
+and that means the Primo hands off our query to UK Library's proxy service,
+<strong>EZProxy</strong>, which takes us to a copy of that full text.</p>
+<p>But if more resources provided access, like both EBSCOhost and ProQuests
+databases, we would stop on Primo and be offered to select which database we
+would like to view the full text.</p>
+<p>In our case, since we only have one option, the Primo to EZProxy transfer
+happens quickly, and but I was able to save the Primo URL. If we investigate
+this URL, we see that it's an OpenURL link, and we can see the fields and
+values and identify the metadata (I have decomposed the URL for readability).
+The percent signs and numbers in the title field use
+<a href="https://en.wikipedia.org/wiki/Percent-encoding">Percent-encoding</a>, and they convert characters that are URL
+unfriendly, like empty spaces between words, to something that URLs can handle
+and parse. See <a href="https://www.w3schools.com/tags/ref_urlencode.asp">this page</a> for a table of UTF-8 percent-encodings and
+the characters they match:</p>
 <pre><code>https://saalck-uky.primo.exlibrisgroup.com/discovery/openurl?
 institution=01SAA_UKY&amp;
 vid=01SAA_UKY:UKY&amp;
@@ -208,8 +213,15 @@ auinit=PS&amp;
 atitle=Electronic%20resources%20access%20and%20usage%20at%20Ashesi%20University%20College&amp;
 sid=google
 </code></pre>
-<p>The link resolver technology works and translates the metadata as needed for the appropriate service.</p>
-<p>We can see another instance of this within Primo itelf. Here I search for the phrase <code>electronic resources</code> and then filter by WorldCat options. The first option is a work titled <strong>Electronic Resources. Selection and bibliographic control.</strong> This is not available via UK Libraries, and so I would have to request the item through interlibrary loan. If I do that for the main campus, then the URL becomes this. Note that these are essentially metadata elements and that some elements are empty even though they are present in the URL:</p>
+<p>The link resolver technology works and translates the metadata as needed for
+the appropriate service.</p>
+<p>We can see another instance of this within Primo itelf. Here I search for the
+phrase <code>electronic resources</code> and then filter by WorldCat options. The first
+option is a work titled <strong>Electronic Resources. Selection and bibliographic
+control.</strong> This is not available via UK Libraries, and so I would have to
+request the item through interlibrary loan. If I do that for the main campus,
+then the URL becomes this. Note that these are essentially metadata elements
+and that some elements are empty even though they are present in the URL:</p>
 <pre><code>https://lib.uky.edu/ILLiad/illiad.dll?
 Action=10&amp;
 Form=30&amp;
@@ -270,87 +282,172 @@ rft.doi=10.1016%2FS0167-9236%2800%2900116-0&amp;
 rfe_dat=11804282&amp;
 rfr_id=google
 </code></pre>
-<p>This all works because the various publishers and vendors, and their associated applications, have agreed to use this technology.</p>
-<p>Let's consider an example a database that a library subscribes to, like EBCOHost's <em>Academic Search Complete (ASC)</em>. I search for the term <code>knowledge management</code>. ASC is an abstracting and indexing, bibliographic database that provides access to some full text articles on its own platform, whereas <em>Google Scholar</em> links to full text, only if it is freely available on the web, or links to them via a link resolver, if the <em>Google Scholar</em> user has set this up in their settings, and the <a href="https://scholar.google.com/intl/en/scholar/libraries.html">library has also configured this on their side</a>.</p>
-<p>For those bibliographic records that are not available as full text in ASC, the link resolver used by UK Libraries will display an option underneath the bibliographic record in the ASC results or it will display after clicking the full display option of the record. Here we see the link resolver in action in the form of the <strong>View Now @ UK</strong> button. Clicking that will open the link resolver menu, and we will see a list of options for accessing the full text of the article. If the article is available full text in the library, like through a different database. If not, there should be options for requesting the item through inter-library loan or options for accessing the item in the library's physical collections if the library has the item in the stacks.</p>
-<h2 id="link-resolvers-in-practice"><a class="header" href="#link-resolvers-in-practice">Link Resolvers in Practice</a></h2>
-<p>Our readings this week by Kasprowski (2012) and by Chisari et al. (2017) discuss link resolver technology and methods to evaluate link resolver technology. It may not be necessary to learn how to hack your way through the OpenURL syntax or other aspects of link resolver URL formatting, but it is a good idea to acquire a basic understanding of how the URLs work in this process.</p>
-<p>Let me re-emphasize that the key way that link resolvers work is by embedding citation metadata within the link resolver URL, including administrative metadata. This is another reason to have high quality metadata for our records, as our readings note. By implication, if we find, perhaps by an email from a library patron, that a link has broken in this process, it might be that the metadata is incorrect or has changed in some important way. Knowing the parts of this process aids us in deciphering possible errors that exist when the technology breaks.</p>
-<p>For this week, I'll provide a link to <em>ExLibres Alma</em> link resolver documentation, which is the link resolver product used by UK Libraries. Let's discuss this documentation in the forum. I want you to find and explain other instances of link resolvers. Be sure to provide links to these examples and articulate ways the technology can be evaluated.</p>
+<p>This all works because the various publishers and vendors, and their associated
+applications, have agreed to use this technology.</p>
+<p>Let's consider an example a database that a library subscribes to, like
+EBCOHost's <em>Academic Search Complete (ASC)</em>. I search for the term <code>knowledge management</code>. ASC is an abstracting and indexing, bibliographic database that
+provides access to some full text articles on its own platform, whereas <em>Google
+Scholar</em> links to full text, only if it is freely available on the web, or
+links to them via a link resolver, if the <em>Google Scholar</em> user has set this up
+in their settings, and the <a href="https://scholar.google.com/intl/en/scholar/libraries.html">library has also configured this on their
+side</a>.</p>
+<p>For those bibliographic records that are not available as full text in ASC, the
+link resolver used by UK Libraries will display an option underneath the
+bibliographic record in the ASC results or it will display after clicking the
+full display option of the record. Here we see the link resolver in action in
+the form of the <strong>View Now @ UK</strong> button. Clicking that will open the link
+resolver menu, and we will see a list of options for accessing the full text of
+the article. If the article is available full text in the library, like through
+a different database. If not, there should be options for requesting the item
+through inter-library loan or options for accessing the item in the library's
+physical collections if the library has the item in the stacks.</p>
+<a class="header" href="./06-interoperability.html#link-resolvers-in-practice" id="link-resolvers-in-practice"><h2>Link Resolvers in Practice</h2></a>
+<p>Our readings this week by Kasprowski (2012) and by Chisari et al. (2017)
+discuss link resolver technology and methods to evaluate link resolver
+technology. It may not be necessary to learn how to hack your way through the
+OpenURL syntax or other aspects of link resolver URL formatting, but it is a
+good idea to acquire a basic understanding of how the URLs work in this
+process.</p>
+<p>Let me re-emphasize that the key way that link resolvers work is by embedding
+citation metadata within the link resolver URL, including administrative
+metadata. This is another reason to have high quality metadata for our records,
+as our readings note. By implication, if we find, perhaps by an email from a
+library patron, that a link has broken in this process, it might be that the
+metadata is incorrect or has changed in some important way. Knowing the parts
+of this process aids us in deciphering possible errors that exist when the
+technology breaks.</p>
+<p>For this week, I'll provide a link to <em>ExLibres Alma</em> link resolver
+documentation, which is the link resolver product used by UK Libraries. Let's
+discuss this documentation in the forum. I want you to find and explain other
+instances of link resolvers. Be sure to provide links to these examples and
+articulate ways the technology can be evaluated.</p>
 <p><strong>Documentation to read and discuss:</strong></p>
 <p><a href="https://knowledge.exlibrisgroup.com/Alma/Product_Materials/050Alma_FAQs/E-Resource_Management/Link_Resolver%2C_Usage">Link Resolver, Usage</a></p>
-<h2 id="additional-information"><a class="header" href="#additional-information">Additional information</a></h2>
+<a class="header" href="./06-interoperability.html#additional-information" id="additional-information"><h2>Additional information</h2></a>
 <ul>
 <li><a href="https://tools.ietf.org/html/rfc3986#page-16">URL syntax components</a></li>
 <li><a href="https://www.url-encode-decode.com/">URL Encode / Decode Percent Encoding</a></li>
 <li><a href="https://scholar.google.com/intl/en/scholar/libraries.html">How Google Scholar works with libraries</a></li>
 <li><a href="https://help.oclc.org/Metadata_Services/WorldShare_Collection_Manager/Choose_your_Collection_Manager_workflow/Knowledge_base_collections/Use_collection_data_with_other_services/Surface_your_materials_in_Google_Scholar">Surface your materials in Google Scholar (OCLC)</a></li>
 </ul>
-<h1 id="to-incorporate-into-the-fall-2022-lecture"><a class="header" href="#to-incorporate-into-the-fall-2022-lecture">To incorporate into the fall 2022 lecture:</a></h1>
-<h2 id="openurl"><a class="header" href="#openurl">OpenURL</a></h2>
-<p>My university's library uses <a href="https://en.wikipedia.org/wiki/OpenURL">OpenURL</a> and Primo/Alma's discovery service/link resolver to request sources via various bibliographic databases. Or more accurately, the university library uses Primo/Alma, which uses an OpenURL compatible link resolver.</p>
-<p>Basically, the technology is meant to help library users gain access to a library's (usually paywalled) electronic resources (or locate items in the catalog). E.g., if you're searching on Google Scholar and you see a <strong>View Now @ [YOUR LIBRARY]</strong> link next to a search result, and you click on that link, then you are using, or triggering, a link resolver to request the source. As a library user, you have to add your institution in Google Scholar via their <a href="https://scholar.google.com/scholar_settings?sciifh=1&amp;hl=en&amp;as_sdt=0,18#2">settings</a>, but if you're using a bibliographic or citation database directly provided by your library, then it should be available by default.</p>
-<p>Because OpenURL compatible link resolver technology is partly based on <a href="https://en.wikipedia.org/wiki/Query_string">query strings</a>, it's fun to glean all sorts of information by examining the URL: the query string component that contains the metadata for the source but also the base component that contains the vendor and institutional information and also the URL type. Namely, it turns out that Primo/Alma uses two URL types to request resources: a search URL and an OpenURL. At my institution, the base search URL looks like this:</p>
+<a class="header" href="./06-interoperability.html#to-incorporate-into-the-fall-2022-lecture" id="to-incorporate-into-the-fall-2022-lecture"><h1>To incorporate into the fall 2022 lecture:</h1></a>
+<a class="header" href="./06-interoperability.html#openurl" id="openurl"><h2>OpenURL</h2></a>
+<p>My university's library uses <a href="https://en.wikipedia.org/wiki/OpenURL">OpenURL</a>
+and Primo/Alma's discovery service/link resolver to request sources via various
+bibliographic databases. Or more accurately, the university library uses
+Primo/Alma, which uses an OpenURL compatible link resolver.</p>
+<p>Basically, the technology is meant to help library users gain access to a
+library's (usually paywalled) electronic resources (or locate items in the
+catalog). E.g., if you're searching on Google Scholar and you see a <strong>View Now
+@ [YOUR LIBRARY]</strong> link next to a search result, and you click on that link,
+then you are using, or triggering, a link resolver to request the source. As a
+library user, you have to add your institution in Google Scholar via their
+<a href="https://scholar.google.com/scholar_settings?sciifh=1&amp;hl=en&amp;as_sdt=0,18#2">settings</a>,
+but if you're using a bibliographic or citation database directly provided by
+your library, then it should be available by default.</p>
+<p>Because OpenURL compatible link resolver technology is partly based on <a href="https://en.wikipedia.org/wiki/Query_string">query
+strings</a>, it's fun to glean all
+sorts of information by examining the URL: the query string component that
+contains the metadata for the source but also the base component that contains
+the vendor and institutional information and also the URL type. Namely, it
+turns out that Primo/Alma uses two URL types to request resources: a search URL
+and an OpenURL. At my institution, the base search URL looks like this:</p>
 <pre><code>https://saalck-uky.primo.exlibrisgroup.com/discovery/search?
 </code></pre>
 <p>The base OpenURL differs just a bit (see the end of the URL):</p>
 <pre><code>https://saalck-uky.primo.exlibrisgroup.com/discovery/openurl?
 </code></pre>
-<p>The base search URL appears when searching the university's online catalog (or discovery service). However, the OpenURL appears only in transit between the original resource and before reaching the final source; e.g., after clicking on a <strong>View Now @</strong> link and before being redirected to the full text version of the article that might be available at the original location (an open access location) or via the proxy location (e.g., <a href="https://en.wikipedia.org/wiki/EZproxy">EZproxy</a>). Because the redirect happens quickly, I had to quickly copy my institution's specific OpenURL when I clicked on a <strong>View Now</strong> link before it redirected to the EZproxy page.</p>
-<p>My students often identify great problems to solve or are the source of great ideas. One of my students in my <a href="https://github.com/cseanburns/electronic_resource_mgmt">electronic resource management class</a> noticed that <a href="https://www.zotero.org/">Zotero</a> has a <a href="https://www.zotero.org/support/locate">locate menu</a> that uses OpenURL resolvers to look up items in a library. By default, Zotero uses WorldCat, but it can use a specific institution's OpenURL resolver, too. I had completely forgotten about this. I think I stopped trying to use it years ago because the WorldCat default stopped working. Anyway, when I investigated, I noticed that my institution wasn't available via Zotero or listed on their page of <a href="https://www.zotero.org/support/locate/openurl_resolvers">OpenURL resolvers</a>.</p>
-<p>At the time, I didn't know what my institution's exact OpenURL was, but I was able to figure it out by comparing the syntax and values from other Primo URLs listed on Zotero's page of OpenURL resolvers and because I had just written a lecture on link resolvers. So by comparing OpenURLs and by using the info from my lecture, where I had discussed the components of link resolver URLs, I was able to derive my institution's specific OpenURL (base component plus institutional info), which is:</p>
+<p>The base search URL appears when searching the university's online catalog (or
+discovery service). However, the OpenURL appears only in transit between the
+original resource and before reaching the final source; e.g., after clicking on
+a <strong>View Now @</strong> link and before being redirected to the full text version of
+the article that might be available at the original location (an open access
+location) or via the proxy location (e.g.,
+<a href="https://en.wikipedia.org/wiki/EZproxy">EZproxy</a>). Because the redirect happens
+quickly, I had to quickly copy my institution's specific OpenURL when I clicked
+on a <strong>View Now</strong> link before it redirected to the EZproxy page.</p>
+<p>My students often identify great problems to solve or are the source of great
+ideas. One of my students in my <a href="https://github.com/cseanburns/electronic_resource_mgmt">electronic resource management
+class</a> noticed that
+<a href="https://www.zotero.org/">Zotero</a> has a <a href="https://www.zotero.org/support/locate">locate
+menu</a> that uses OpenURL resolvers to
+look up items in a library. By default, Zotero uses WorldCat, but it can use a
+specific institution's OpenURL resolver, too. I had completely forgotten about
+this. I think I stopped trying to use it years ago because the WorldCat default
+stopped working. Anyway, when I investigated, I noticed that my institution
+wasn't available via Zotero or listed on their page of <a href="https://www.zotero.org/support/locate/openurl_resolvers">OpenURL
+resolvers</a>.</p>
+<p>At the time, I didn't know what my institution's exact OpenURL was, but I was
+able to figure it out by comparing the syntax and values from other Primo URLs
+listed on Zotero's page of OpenURL resolvers and because I had just written a
+lecture on link resolvers. So by comparing OpenURLs and by using the info from
+my lecture, where I had discussed the components of link resolver URLs, I was
+able to derive my institution's specific OpenURL (base component plus
+institutional info), which is:</p>
 <pre><code>https://saalck-uky.primo.exlibrisgroup.com/discovery/openurl?institution=01SAA_UKY&amp;vid=01SAA_UKY:UKY
 </code></pre>
-<p>I added that to Zotero, and it worked, and then I posted the OpenURL info to Zotero's forum, and they've added it to their OpenURL resolver page. That's pretty cool.</p>
-<p>If anyone who comes across this post and is curious about how to add this info to Zotero, <a href="https://library.sacredheart.edu/zotero/advanced/usingLibraryLookup">another library</a> has created a video on this. The directions cover adding a specific OpenURL to Zotero and on how to use Zotero's Library Lookup functionality.</p>
+<p>I added that to Zotero, and it worked, and then I posted the OpenURL info to
+Zotero's forum, and they've added it to their OpenURL resolver page. That's
+pretty cool.</p>
+<p>If anyone who comes across this post and is curious about how to add this info
+to Zotero, <a href="https://library.sacredheart.edu/zotero/advanced/usingLibraryLookup">another
+library</a>
+has created a video on this. The directions cover adding a specific OpenURL to
+Zotero and on how to use Zotero's Library Lookup functionality.</p>
 
-                    </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="05-standardizing-erm.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-
-                            <a rel="next" href="07-electronic-access.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-
-                        <div style="clear: both"></div>
-                    </nav>
                 </div>
-            </div>
 
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="05-standardizing-erm.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                <!-- Mobile navigation buttons -->
+                
+                    <a rel="prev" href="./05-standardizing-erm.html" class="mobile-nav-chapters previous" title="Previous chapter">
                         <i class="fa fa-angle-left"></i>
                     </a>
+                
 
-                    <a rel="next" href="07-electronic-access.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                
+                    <a rel="next" href="./07-electronic-access.html" class="mobile-nav-chapters next" title="Next chapter">
                         <i class="fa fa-angle-right"></i>
                     </a>
-            </nav>
+                
+
+            </div>
+
+            
+                <a href="./05-standardizing-erm.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="./07-electronic-access.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
 
         </div>
 
 
-
-
-        <script type="text/javascript">
-            window.playground_copyable = true;
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
         </script>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        
 
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
 
-        <!-- Custom JS scripts -->
+        
 
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
 
     </body>
 </html>
