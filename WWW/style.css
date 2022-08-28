@@ -10,13 +10,17 @@ body {
   margin: 20px;
 }
 
+a {
+  color: #00898b;
+}
+
 nav {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   justify-items: center;
   background-color: #fdfdfd;
   padding: 7px 0 7px 0;
-  font-size: 1.4em;
+  font-size: 1.15em;
 }
 
 nav a {
@@ -48,6 +52,10 @@ header {
   grid-template-columns: repeat(auto-fill, minmax(720px, 1fr));
 }
 */
+
+h1, h2, h3 {
+  
+}
 
 section h1 {
   text-align: center;
@@ -87,13 +95,15 @@ article p {
 }
 
 h1, dt {
-  color: MidnightBlue;
+  /* color: MidnightBlue; */
+  color: #a420f6;
 }
 
 h2, h3 { 
   /* places h2 element just below the top of the window */
   scroll-margin-top: 3ex;
-  color: MidnightBlue;
+/*  color: MidnightBlue; */
+  color: #a420f6;
 }
 
 p, li {
@@ -101,7 +111,7 @@ p, li {
 }
 
 a:visited {
-  color: blue;
+  color: #006464;
 }
 
 .bold {
