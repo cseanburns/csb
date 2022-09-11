@@ -1,8 +1,8 @@
 html {
   font-family: arial, sans-serif;
   font-size: 100%;
-  color: #cbcccd;
-  background-color: #000000;
+  color: #FFD7AF;
+  background-color: #262626;
 }
 
 body {
@@ -116,14 +116,14 @@ pre {
   line-height: 1.15rem;
   font-size: .85rem;
   background-color: #16181c;
-  color: #cbcccd;
+  color: #FFD7AF;
   padding: 1% 0 0 1%;
   overflow: scroll;
 }
 
 p > code {
   background-color: #000000;
-  color: #cbcccd;
+  color: #FFD7AF;
   padding: 0 3px 0 3px;
 }
 
@@ -134,7 +134,7 @@ pre, code {
 aside {
   border-left: 5px solid #1a1a1a;
   background-color: #16181c;
-  color: #cbcccd;
+  color: #FFD7AF;
   padding: 5px;
 }
 
