@@ -1,5 +1,6 @@
 html {
-  font-family: arial, sans-serif;
+  /*font-family: arial, sans-serif;*/
+  font-family: georgia, serif;
   font-size: 100%;
 }
 
@@ -29,6 +30,7 @@ blockquote p {
 pre {
   padding: 1% 0 0 1%;
   overflow: scroll;
+  font-family: monospace, sans-serif;
 }
 
 aside {
