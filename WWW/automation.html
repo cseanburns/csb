@@ -15,33 +15,21 @@
   <body>
 
 <header>
-<p>GitHub: <a href="https://github.com/cseanburns">@cseanburns</a>
-| ORCID: <a href="https://orcid.org/0000-0001-8695-3643">0000-0001-8695-3643</a>
-| The Text RSS <a href="https://cseanburns.net/WWW/index.xml">feed</a></p>
+<nav>
+  <p>Main Site Links: <a href="index.html">Home</a> |
+  <a href="WWW/research.html">Research</a> |
+  <a href="WWW/about.html">About</a></p>
+</nav>
 </header>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="WWW/index.html">The Text</a>
-  <a href="WWW/bookshelf.html">Bookshelf</a>
-  <a href="WWW/research.html">Research</a>
-  <a href="WWW/about.html">About</a>
-</nav>
-
-<section>
 <h1>Site Automation w/ Scripts</h1>
-<hr>
 
 <p>This site started off with a pretty simple design and site structure, but then I started posting to the <em>The Text</em> on a regular basis, and that led me to want to automate that process. Then things got complicated, and that led me to want to complicate things more.</p>
 
 <p>So to automate posting to <em>The Text</em>, I ended up writing a series of shell scripts that are kind of funny to me. They're funny because they're just a hodgepodge of utilities and other oddities. I could have written these scripts in a more coherent way, if I had worked on that, but I was playing around with <code>ed</code> a lot, so I thought, why not use <code>ed</code> a lot in the scripts. But also <code>sed</code>, etc.</p>
 
 <p>The scripts below are subject to change, but I keep <a href="https://github.com/cseanburns/personal_website/tree/master/scripts">updated copies on GitHub</a>. In the meantime, here's my automation process:</p>
-</section>
-<hr>
 
-<div class="automation">
-<section> 
 <h2>makepost</h2>
 
 <p>I use markdown to write posts for <em>The Text</em>. To convert
@@ -56,9 +44,7 @@ makepost () {
     $(basename -s md "$sourcefile")html
 }
 </code></pre>
-</section>
 
-<section> 
 <h2>make-article</h2>
 <p>After I create the HTML file using the <code>makepost</code> function, I need to process this file. For each file (post) I add some special <em>id</em> attributes and some extra HTML elements. To add these things, I mostly use a <em>heredoc</em> with <code>ed</code> commands:</p>
 
@@ -108,9 +94,7 @@ $a
 wq
 EOF
 </code></pre>
-</section>
 
-<section> 
 <h2>insert-article</h2>
 <p>Even though the above script modifies the HTML file, it's still a standalone file, and I need to add it to the main <strong>index.html</strong> file. It also needs to be placed in a certain position of that file, which is exactly 36 lines in. I don't like having that hard-coded, but I'll fix that later. Anyway, to insert the post into its place, I use <code>sed</code>:</p>
 
@@ -131,9 +115,7 @@ target_file="$HOME/workspace/personal_website/WWW/index.html"
 
 sed -i "36 r ${post}" "${target_file}" 
 </code></pre>
-</section>
 
-<section> 
 <h2>WWW-toc-generator</h2>
 <p>Now that the new post has been inserted into its proper place in that file, I parse it to create an entry for the table of contents that I have for the <em>The Text</em> posts. I do that with <code>grep</code> and <code>sed</code>:</p>
 
@@ -169,9 +151,7 @@ sed -i "/ol reversed/ a $(cat tmp.html)" "${thetext_file}"
 # Cleanup
 trash tmp.html
 </code></pre>
-</section>
  
-<section> 
 <h2>make-rss</h2>
 <p>I added a RSS feed at some point, and of course I didn't want to manually write RSS entries for each new post. This is my script to automate that process instead.</p>
 <p>One of the cool things about writing this script was that I got to learn about <em>lookahead</em> and <em>lookbehind</em> assertions using GNU <code>grep</code>. The documentation for these is in the <code>man pcre</code> (Perl-compatible regular expressions) page. This script is the wildest of them all, and for the first time in my life, it makes me think <code>perl</code> might be fun to learn.</p>
@@ -250,9 +230,7 @@ ed -s tmp.xml &lt;&lt; EOF
 wq
 EOF
 </code></pre>
-</section>
 
-<section> 
 <h2>insert-xml</h2>
 <p>The above script only generates the XML entry. It doesn't insert that entry into the <strong>index.xml</strong> file for the RSS feed. I have this script for that:</p>
 
@@ -281,9 +259,7 @@ EOF
 mv new.xml "${target_file}" 
 rm tmp.xml 
 </code></pre>
-</section>
 
-<section> 
 <h2>sendpost</h2>
 <p>Finally, I can deploy the updated files to the server:</p>
 
@@ -298,17 +274,13 @@ sendpost () {
   scp "$basedir/WWW/index.xml" "$sub_directory"
 }
 </code></pre>
-</section>
-</div>
 
 <p>I'll continue to bake these scripts until they're more polished, but for now, it does the job, and I'm  good with that.</p>
 
 <footer>
-
 <p>Unless otherwise attributed, the views, thoughts, and opinions expressed on this site belong solely to the site owner, C. Sean Burns, and not to the site owner's employer or any other related entity.</p>
 
 <p>Copyright by C. Sean Burns, 2019. Last modified: <time datetime="2022-04-15">2022-04-15</time>.</p>
-
 </footer>
 
 </body>

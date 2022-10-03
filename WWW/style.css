@@ -1,8 +1,6 @@
 html {
   font-family: arial, sans-serif;
   font-size: 100%;
-  color: #FFD7AF;
-  background-color: #262626;
 }
 
 body {
@@ -10,92 +8,9 @@ body {
   margin: 20px;
 }
 
-header {
-  text-align: center;
-}
-
-nav {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  justify-items: center;
-  padding: 7px 0 7px 0;
-  font-size: 1.15em;
-}
-
-nav a {
-  text-decoration-line: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-}
-
-/*
-.automation {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(720px, 1fr));
-}
-*/
-
-section h1 {
-  text-align: center;
-}
-
-section h2, h3, p, dl {
-  padding: 0 0.5rem 0 0.5rem;
-}
-
-section p {
-  font-size: 1.1rem;
-}
-
-section ol {
-  padding-left: 3rem; 
-}
-
-section {
-  font-size: 1.1rem;
-}
-
-article {
-  border-bottom: 1px dotted #1a1a1a;
-}
-
-article p {
-  font-size: 1.1rem;
-}
-
-#about {
-  font-size: 1.1rem;
-}
-
-h1, dt {
-  color: #cbcccd;
-}
-
 h2, h3 { 
   /* places h2 element just below the top of the window */
   scroll-margin-top: 3ex;
-  color: #cbcccd;
-}
-
-p, li {
-  line-height: 1.25rem;
-}
-
-a {
-  color: #00ba7c;
-}
-
-a:visited {
-  color: #00ba7c;
 }
 
 .bold {
@@ -103,38 +18,21 @@ a:visited {
 }
 
 blockquote {
-    border-left: 1px solid #1a1a1a;
+    border-left: 1px solid #000;
     padding-left: 0.5rem; 
 }
 
 blockquote p {
     display: inline;
-    line-height: 1.5rem;
 }
 
 pre {
-  line-height: 1.15rem;
-  font-size: .85rem;
-  background-color: #16181c;
-  color: #FFD7AF;
   padding: 1% 0 0 1%;
   overflow: scroll;
 }
 
-p > code {
-  background-color: #000000;
-  color: #FFD7AF;
-  padding: 0 3px 0 3px;
-}
-
-pre, code {
-  padding-bottom: 10px;
-}
-
 aside {
-  border-left: 5px solid #1a1a1a;
-  background-color: #16181c;
-  color: #FFD7AF;
+  border-left: 5px solid #000;
   padding: 5px;
 }
 
@@ -143,6 +41,6 @@ footer {
 }
 
 footer p:nth-child(1) {
-  border-top: 1px solid #cbcccd;
+  border-top: 1px solid #000;
   padding-top: 5px;
 }
