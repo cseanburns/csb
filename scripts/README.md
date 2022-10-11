@@ -1,8 +1,19 @@
 # README
 
-This directory contains several scripts that I use to process the site and copy it to the remote server once I've written a new post.
+This directory contains several scripts
+that I use to process the site and
+copy it to the remote server
+once I've written a new post.
 
-Eventually I'll compose a wrapper script that includes all of them. But these scripts are still fairly fresh or freshly revised, and I should work out any bugs before I take it to that level. Until then, run the scripts in the order below:
+Eventually I'll compose a
+wrapper script that
+includes all of them.
+But these scripts are still
+fairly fresh or freshly revised, and
+I should work out any bugs
+before I take it to that level.
+Until then,
+run the scripts in the order below:
 
 ```
 makepost post-name.md
@@ -14,7 +25,8 @@ insert-xml
 sendpost
 ```
 
-Both ``makepost`` and ``sendpost`` are currently stored in my **.bash_functions** file:
+Both ``makepost`` and ``sendpost`` are
+currently stored in my **.bash_functions** file:
 
 ```
 # Convert markdown to HTML without smart formatting
