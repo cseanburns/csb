@@ -4,7 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Acquisitions and Collection and Development - Electronic Resource Management</title>
+
+
         <!-- Custom HTML head -->
+        
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Lectures on the management of library electronic resources">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,25 +19,28 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -50,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -62,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -83,7 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -113,6 +119,7 @@
                         <a href="https://github.com/cseanburns/electronic_resource_mgmt" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -126,8 +133,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -138,128 +146,291 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="acquisitions-and-collections-development"><a class="header" href="#acquisitions-and-collections-development">Acquisitions and Collections Development</a></h1>
-<p>Note:
-Add resources:
-https://openstax.org/subjects</p>
-<p>Class, this week we discuss aspects of collection development and acquisitions,
-which is a complex problem for electronic resources. To rehash, in the
-print-only days, acquiring resources was a <em>more-than-it-is-now</em> linear
-process. Librarians became aware of an item, sought reviews of the item,
-possibly collected the item, described it, and then shelved it. And maybe,
-depending on the type of the library, weeded it from the collection at some
-point in the years to come during their regular course of collection
-assessment.</p>
-<p>There are additional vectors to be aware of with electronic resources. First,
-libraries may or may not necessarily own digital works, but different
-subscription services require different kinds of contracts, as we have learned.
-Second, electronic resources (ebooks, journal articles, databases, etc.)
-require different handling and disseminating processes due to technological and
-licensing barriers. Martin et al. (2009) truly nail the issue in their article
-where they write that:</p>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>Collection development and acquisitions
+is a complex problem for
+electronic resources.
+To rehash, in the print-only days,
+acquiring resources was a
+<em>more-than-it-is-now</em> linear process.
+Librarians became aware of an item,
+sought reviews of the item,
+possibly collected the item,
+described it, and then shelved it.
+And maybe, depending on the
+type of the library,
+weeded it from the collection
+at some future date 
+during their regular
+course of collection assessment.</p>
+<p>The above is a simplistic take, but
+there are additional vectors
+to be aware of with electronic resources.
+First, as we have learned,
+libraries may or, more likely,
+may not own digital works,
+and different subscription services
+require different kinds of contracts.
+Second, electronic resources
+(ebooks, journal articles, databases, etc.)
+require different handling and disseminating
+procedures due to differences in
+technologies and licenses.
+<a href="https://doi.org/10.1080/19411260903466269">Martin et al. (2009)</a>
+pinpoint the issue
+when they write that:</p>
 <blockquote>
-<p>As much as we would like to think our primary concerns about collecting are
-based on content, not format, e-resources have certainly challenged many
-long-established notions of how we buy, collect, preserve, and provide access
-to information (p. 217).</p>
+<p>As much as we would like to think our primary concerns
+about collecting are based on content, not <strong>format</strong>
+[emphasis added], e-resources have certainly challenged
+many long-established notions of how we buy, collect,
+preserve, and provide access to information (p. 217).</p>
 </blockquote>
-<p>Although a world where the format dictates so much makes an intriguing world,
-it can be problematic and worrisome. We think that content should be king, but
-we must ask, how does format either prevent or facilitate access? If you catch
-the implicit gotcha there, you can see that we're building a thread between
-acquisitions, collections development, and usability, which we'll learn more
-about latter in the semester.</p>
-<p>One thing about this week: in a collection development course, you would
-unquestionably focus on content and on the work that is involved creating a
-collection development policy (which I hope you do or spearhead if your library
-does not have one). I'll briefly discuss this soon. Those things are relevant
-to the acquisition and collection of e-resources. However, in a major way, one
-of the things you should take away from this week's reading is how much the
-management of electronic resources have impacted librarian work flows and how
-that has shaped, or reshaped, library organizational hierarchy. I'll provide an
-organizational chart for you to discuss, and we'll use it to discuss how
-electronic resources have shaped the organizational structure of the library.</p>
-<p>The Lamothe (2015) article is good in a different way. Lamothe finds that if
-electronic e-reference sources are collected and perpetually updated, then they
-get continually used. If it's a static e-resource (compare, e.g., to a resource
-pushed out in PDF, although it could be in HTML), then usage declines. I hope
-additional studies pursue this line of questioning because it raises questions
-about the expectations that our patrons have about our content; perhaps
-something about how <em>fresh</em> they expect that content should be, where such an
-expectation may have existed in different shape in prior years. It also
-suggests that a resource like Wikipedia has an advantage, since much of
-Wikipedia is regularly updated, or the site in general appears broadly so since
-many parts of it are continually updated.</p>
-<p>The Open Educational Resources (OER) issue is a hot topic these days. Textbook
-prices, as the article by England et al. (2017) notes, have skyrocketed in
-recent decades. Some textbooks cost hundreds of dollars, and the problem
-impacts both school and academic libraries. UK Libraries has a helpful page
-about Open Educational Resources. I'll provide a link here in the transcript
-and in the discussion prompt, and that page links to OER content for both types
-of libraries, including <a href="https://www.oercommons.org/">oercommons.org</a>. Explore this information, and
-discuss whether libraries ought to collect and acquire these resources  or
-(e.g., by adding records to them in their online public access catalogs or
-discovery systems), or should they not be involved at all? This seems like a
-<em>duh</em> kind of question, but libraries, public or academic, have not
-traditionally collected textbooks. Does this change the game for them as
+<h2 id="collection-development"><a class="header" href="#collection-development">Collection Development</a></h2>
+<p>Although a world where the
+format dictates so much makes
+an intriguing world,
+it can be problematic and worrisome.
+We think that content should be king and
+that &quot;collection managers should focus
+on the content of the information provided,
+regardless of the actual form in which the
+information arrives&quot;
+<a href="https://doi.org/10.1016/0099-1333(94)90043-4">(Harloe &amp; Budd, 1994, p. 83)</a>.
+We have already learned that some
+<a href="09-markets-economics.html">formats cost more</a>,
+but we must also ask,
+how does format (or <em>form</em>) either prevent
+or facilitate access?
+If you catch the implicit gotcha there,
+you can see that a thread
+connects acquisitions,
+collections development, and usability,
+the latter which we'll learn more
+about later in this work.</p>
+<p>In a collection development course,
+you would unquestionably focus on
+content and on the work that
+is involved creating a
+collection development policy (CDP),
+which I hope you do or
+spearhead if your library does not have one.
+Content and CDPs are relevant
+to the acquisition, collection, and
+management of e-resources.
+However, in a major way,
+it is also important to understand
+how the management of electronic resources
+have impacted librarian work flows and
+how that has shaped, or re-<strong>formed</strong>,
+library organizational hierarchy.</p>
+<h3 id="organizational-hierarchy"><a class="header" href="#organizational-hierarchy">Organizational Hierarchy</a></h3>
+<p>A quick note about the organizational hierarchy.
+Such hierarchies are often graphically
+presented in organizational charts.
+I developed an organizational chart
+based on my readings of librarian
+departmental reports written during
+the late 1950s and early 1960s
+by librarians at the University of Kentucky, and thus,
+well before electronic resources took over.
+These departmental reports are
+archived at the University of Kentucky's
+<a href="http://libraries.uky.edu/SC">Special Collections Research Center</a>.
+Organizational charts have been
+around since the 1800s, but
+I am not sure when libraries started to
+create and use them, and
+I didn't see one in my research
+on UK Libraries for this time period.
+Thus, I inferred an organizational structure
+based on the detailed reports written
+by the various department heads in the
+library at the time (<em>See Fig. 1</em>).
+When you compare my chart based on the past
+to the most <a href="https://web.archive.org/web/20190722033735/https://libraries.uky.edu/forms/OrgChart.pdf">recent one provided by UK Libraries</a>
+(see aside below),
+it's clear that additional complexities
+have been added.</p>
+<figure>
+<img src="images/1950s60sorgchartUKlibraries.png"
+alt="Organizational chart UK Libraries late 50s / early 60s"
+title="Organizational chart UK Libraries late 50s / early 60s">
+<figcaption>
+Fig. 1. This is a derived organizational chart based on
+annual reports of University of Kentucky
+departmental head librarians. Research is based on reports
+held at the UK Library's Special Collections Research
+Center. 
+</figcaption>
+</figure>
+<blockquote>
+<p>Aside: The most recent organizational chart for UK
+Libraries is from 2019. Much has changed since then,
+including a new Dean, but the general idea should hold
+about the complexity of the modern library.</p>
+</blockquote>
+<p>This complexity is very interesting.
+The growth in electronic resources,
+associated technologies, and markets
+do not explain all of it:
+knowledge has become more specialized, and
+library organizational structure reflects that;
+student populations have grown
+considerably since then,
+in size and heterogeneity, and
+library structure will reflect that; and
+the theory and praxis of library management
+has evolved throughout the decades, and
+library structure will reflect that.
+Other issues are at play, and
+it is certainly true that
+they are all interconnected.
+However, I do think that
+technology and e-resources
+account for a large portion of
+the increasing complexity
+that we see here in the difference
+between these two organizational charts
+at different times of the Library's history.</p>
+<p>But again, consider the influence of format.
+<a href="https://doi.org/10.1108/CB-04-2015-0006">Lamothe (2015)</a> finds
+that if electronic e-reference sources
+are collected and perpetually updated,
+then they get continually used.
+If it's a static e-resource,
+then usage declines.
+I hope additional studies pursue
+this line of questioning
+because it raises questions about the
+expectations that patrons have about content;
+perhaps something about how <em>fresh</em>
+they expect that content should be.
+It also suggests that a resource
+like Wikipedia has an advantage,
+since many articles on Wikipedia
+are regularly updated (although not all),
+and that might lead to a perception
+of Wikipedia as <em>fresh</em>,
+relative to what is in a library's
+collection.</p>
+<h2 id="open-educational-resources"><a class="header" href="#open-educational-resources">Open Educational Resources</a></h2>
+<p>Let's switch topics to discuss
+Open Educational Resources (OER),
+which is a hot topic these days.
+Textbook prices,
+<a href="https://doi.org/10.1080/1941126X.2017.1304767">England et al. (2017)</a> notes,
+have skyrocketed in recent decades.
+It's suggested that college students budget
+<a href="https://research.collegeboard.org/media/pdf/trends-in-college-pricing-student-aid-2022.pdf">up to $1,240 per year in books and supplies</a>,
+and <a href="https://www.statista.com/statistics/741558/us-public-school-textbook-expenditure/">public elementary and secondary schools</a>
+expend nearly 2.5 billion
+dollars per year on textbooks.
+In response, libraries have
+notably moved to highlight
+open educational resources at some level.
+For example,
+UK Libraries provides resources about
+<a href="https://www.uky.edu/copyright/facultyresources/openeducationalresources">Open Educational Resources</a> and
+provide a LibGuide on <a href="https://libguides.uky.edu/c.php?g=222941&amp;p=6722485">OER</a>.</p>
+<p>Sites such as <a href="https://www.oercommons.org/">oercommons.org</a>,
+<a href="https://openstax.org/">openstax</a>, <a href="https://libretexts.org/">LibreTexts</a>,
+and others function as digital
+libraries of open access educational resources.
+The idea is to eliminate these
+exhorbitant costs,
+which put great burdens on taxpayers,
+families, and students who pay for them,
+by providing high quality,
+open access textbooks and other
+educational resources.</p>
+<p>Most of these resources are,
+I believe,
+pushed to faculty to replace
+proprietary textbooks.
+However, it's useful to ask 
+whether libraries ought to collect
+and acquire these resources,
+which would involve promoting
+OER at a whole other level.
+For example, librarians could
+catalog OER items and
+add records for them in their
+catalogs or discovery systems
+(see <a href="https://doi.org/10.1177/0961000611435253">Hill &amp; Bossaller, 2012</a>
+for a comparable discussion).
+Or should libraries not be involved at all?
+This seems like a
+<em>duh</em> kind of question, but libraries,
+public or academic,
+have not traditionally collected textbooks.
+So, should they?
+Would this change their fundamental mission?
+Would it change the game for them as
 educational institutions?</p>
-<p>A quick note about the organizational charts. The chart that I created was
-based on my readings of librarian departmental reports written during the late
-1950s and early 1960s by librarians at UK. These reports are held at the
-University of Kentucky's <a href="http://libraries.uky.edu/SC">Special Collections Research Center</a>, which
-is fortunately in the building next to mine on campus. Organizational charts
-have been around since the 1800s, but I am not sure when libraries started to
-create and use them, and I didn't see one in my research on the history of UK
-Libraries for this time period. Thus, I inferred the organizational structure
-based on the detailed reports written by the various department heads in the
-library at the time. When you compare my chart based on the past to the current
-one provided by UK Libraries, I think you will be intrigued by how much more
-complicated the current chart is today.</p>
-<p>This complexity is very interesting. The growth in electronic resources,
-associated technologies, and markets do not explain all of it: knowledge has
-become more specialized, and library organizational structure will reflect
-that; the student population has grown considerably since then, in size and
-heterogeneity, and library structure will reflect that; and the theory and
-praxis of library management has evolved throughout the decades, and library
-structure will reflect that. Other issues are at play, and it is certainly true
-that they are all interconnected, but I do think that technology and
-e-resources accounts for a large portion of what we see here, and I'm looking
-forward to reading what you have to say about this.</p>
-<p>Finally, I'd be guilty of a serious wrongdoing if I did not discuss the
-importance of having a collection development policy (CDP) and using that
-policy to guide the collection, acquisition, and assessment of electronic
-resources. I don't mean to overlap any discussions you may have had about this
-if you've had a collection management course, I only want to emphasize the
-importance of a CDP for e-resources. Unfortunately, not all libraries, even at
-major institutions, create or use a CDP, and if you end up working at one, then
-I'd highly encourage you to convince your colleagues of its importance. A CDP
-should define a collection, and then include most if not all the following
-topics:</p>
+<h2 id="collection-development-policies-of-electronic-resources"><a class="header" href="#collection-development-policies-of-electronic-resources">Collection Development Policies of Electronic Resources</a></h2>
+<p>Finally, I'd be guilty of a
+serious wrongdoing if I did
+not discuss the importance of having
+a collection development policy (CDP) and
+using that policy to guide the collection,
+acquisition, and assessment
+of electronic resources.
+I want to emphasize the
+importance of a CDP for e-resources.
+Unfortunately, not all libraries,
+even at major institutions,
+create or use a CDP.
+If you end up working at such a library,
+I highly encourage you to
+convince your colleagues of its importance.
+A CDP should define a collection, and
+then include most if not
+all the following topics:</p>
 <ul>
 <li>mission, vision, and values statement</li>
 <li>purpose of CDP statement (scope may be included here)</li>
-<li>selection criteria: this could be general but it could also include
-subsections that focus on specific populations, genres, resource types, and
-more</li>
+<li>selection criteria: this could be general but it could
+also include subsections that focus on specific
+populations, genres, resource types, and more</li>
 <li>assessment and maintenance criteria</li>
-<li>challenged materials criteria (esp important at public, K-12 libraries)</li>
+<li>challenged materials criteria (esp important at public,
+K-12 libraries)</li>
 <li>weeding and/or replacement criteria</li>
 </ul>
-<p>Included in this transcript are links to two CDP policies, one from the
-<a href="https://www.lib.umd.edu/collections/policies/electronic-resources">University of Maryland</a> and one from the <a href="https://www.lexpublib.org/collection-development-policy">Lexington Public
-Library</a>. The Maryland CDP is not their main one but is a sub-CDP
-that focuses on electronic resources. The LPL policy is the main one for them,
-and although it does not include a long discussion of electronic resources,
-they are mentioned in the policy. Neither approach is wrong but are catered to
-the specific libraries and their purposes, communities, and vision statements.
-This week, I would like you to search on the web for more and to read through
-ones you find for how they discuss electronic resources.</p>
-<p><strong>Links:</strong></p>
-<ul>
-<li>UK Libraries Organizational Chart: <a href="http://libraries.uky.edu/forms/OrgChart.pdf">http://libraries.uky.edu/forms/OrgChart.pdf</a></li>
-<li>Open Educational Resources at UK: <a href="http://www.uky.edu/copyright/facultyresources/openeducationalresources">http://www.uky.edu/copyright/facultyresources/openeducationalresources</a></li>
-<li>OER Commons: <a href="https://www.oercommons.org/">https://www.oercommons.org/</a></li>
-</ul>
-<h2 id="references"><a class="header" href="#references">References</a></h2>
+<p>It can be helpful to see how
+libraries treat electronic resources
+in those that have policies that
+include them.
+The following two CDP policies,
+one from the
+<a href="https://library.louisiana.edu/about-us/policies-procedures/e-resources-serials-management">University of Louisiana (UL)</a> and
+one from the
+<a href="https://www.lexpublib.org/collection-development-policy">Lexington Public Library (LPL)</a>.
+do contain sections on electronic resources.
+The UL CDP is not their
+main policy but a sub-CDP that
+focuses on electronic resources.
+The LPL's policy is their main policy.
+Although it does not include a
+long discussion of electronic resources,
+electronic resources are mentioned.
+Neither approach is wrong because each
+are catered to the specific libraries and their
+purposes, communities, and vision statements.</p>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>This section addressed collection development
+of electronic resources,
+how the format of electronic resources
+influences workflows,
+how electronic resources influences
+organizational hierarchies,
+how the movement to make educational
+resources open has extended to
+libraries, and
+how collection development policies
+address electronic resources.</p>
+<h2 id="readings--references"><a class="header" href="#readings--references">Readings / References</a></h2>
 <p>England, L., Foge, M., Harding, J., &amp; Miller, S. (2017). ERM Ideas &amp;
 Innovations. Journal of Electronic Resources Librarianship, 29(2), 110–116.
 <a href="https://doi.org/10.1080/1941126X.2017.1304767">https://doi.org/10.1080/1941126X.2017.1304767</a></p>
@@ -270,6 +441,15 @@ collections. Collection Building, 34(3), 78–88.
 Strategies for Creating a Culture of Collections Assessment at Comprehensive
 Universities. Journal of Electronic Resources Librarianship, 21(3–4), 213–236.
 <a href="https://doi.org/10.1080/19411260903466269">https://doi.org/10.1080/19411260903466269</a></p>
+<h2 id="additional-references"><a class="header" href="#additional-references">Additional References</a></h2>
+<p>Harloe, B., &amp; Budd, J. M. (1994). Collection development and
+scholarly communication in the era of electronic access. <em>The
+Journal of Academic Librarianship, 20</em>(2), 83–87.
+<a href="https://doi.org/10.1016/0099-1333(94)90043-4">https://doi.org/10.1016/0099-1333(94)90043-4</a></p>
+<p>Hill, H., &amp; Bossaller, J. (2013). Public library use of free
+e-resources. Journal of Librarianship and Information
+Science, 45(2), 103–112.
+<a href="https://doi.org/10.1177/0961000611435253">https://doi.org/10.1177/0961000611435253</a></p>
 
                     </main>
 
@@ -278,9 +458,11 @@ Universities. Journal of Electronic Resources Librarianship, 21(3–4), 213–23
                             <a rel="prev" href="11-licensing-and-negotiating.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="p4-patrons.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -290,6 +472,7 @@ Universities. Journal of Electronic Resources Librarianship, 21(3–4), 213–23
                     <a rel="prev" href="11-licensing-and-negotiating.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="p4-patrons.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -297,16 +480,24 @@ Universities. Journal of Electronic Resources Librarianship, 21(3–4), 213–23
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js" charset="utf-8"></script>
+        <script src="mark.min.js" charset="utf-8"></script>
+        <script src="searcher.js" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" charset="utf-8"></script>
+        <script src="highlight.js" charset="utf-8"></script>
+        <script src="book.js" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+
+
     </body>
 </html>
