@@ -146,126 +146,323 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="evaluation-and-statistics"><a class="header" href="#evaluation-and-statistics">Evaluation and Statistics</a></h1>
-<p>We've discussed problems this semester with defining terms, and we have learned
-that a lot of effort has been expended into standardizing them. We have also
-seen that the topics that we've covered---technologies, standards, access,
-usability, workflow, markets, licensing---are linked in some way. All this
-complexity makes the measurement of <em>usage</em> that much more complicated. The
-problem is that when electronic resources (or basically all activity on the web
-and internet) are accessed, a computer server somewhere keeps a log of that
-interaction. Having logs available makes it seem that we can have accurate data
-about usage, but it's not a guarantee, and the insight we may be able to glean
-is always difficult to acquire no matter how much data is available to us.</p>
-<p>Example web server access log entry (I've obfuscated the IP address and the
-website domain):</p>
-<pre><code>99.999.99.99 - - [21/Oct/2021:10:54:35 -0400] &quot;GET /favicon.ico HTTP/1.1&quot; 404 517 &quot;https://WEBSITE.edu/&quot; &quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0&quot;
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>We've discussed problems 
+with defining terms, and
+we have learned that much
+effort has been expended
+into standardizing them.
+We have also seen that the
+topics that we've covered---technologies,
+standards, access, usability, workflow,
+markets, licensing---are
+linked in some way.
+All this complexity makes the
+measurement of <em>usage</em> that
+much more complicated.
+The complication arises when
+electronic resources
+(or basically all activity on the web
+and internet) are accessed from client machines,
+a computer server somewhere
+keeps a log of that access.
+Having logs available makes
+it seem that we can have
+accurate data about usage,
+but it's not a guarantee, and
+the insight we may glean
+is always difficult to acquire no
+matter how much data is available to us.</p>
+<blockquote>
+<pre><code>999.999.999.999 - - [18/Nov/2022:04:40:38 +0000] &quot;GET /index.html HTTP/1.1&quot; 200 494 &quot;-&quot; &quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:107.0) Gecko/20100101 Firefox/107.0&quot;
 </code></pre>
-<p>Access log type data can be good data to explore, but we have to be mindful
-that all data has limitations, and that there are different ways to define what
-usage means. For example, the log snippet above indicates that I visited that
-link at that server, but does that mean that I really <strong>used</strong> that website
-even though I accessed it? Even if we can claim that I did, what kind of use
-was it? Can we tell? (We can actually learn quite a lot from web server access
-logs.)</p>
-<p>This week we learn about the efforts that have gone into standardizing usage
-metrics and usage reports via Project Counter. Also, we see a few examples of
-how usage data can help inform collection development and benefit the library
-in other ways. This is an important area of electronic resource librarianship,
-but it's also an area that may overlap with other parts of librarianship, such
-as systems librarianship or collection development. Here we might see job
+<p>Example web server access log entry,
+with obfuscated IP address.
+Simply by visiting a site,
+the web server is able to log
+the client's IP address, the timestamp,
+the page the client requested,
+the client's operating system type and version,
+and the client's web browser type and version.</p>
+</blockquote>
+<p>Access log data like above can be
+good data to explore, but
+we have to be mindful that all
+data has limitations, and
+that there are different ways
+to define what usage means.
+For example, the log snippet above
+indicates that I visited that
+a page named <em>index.html</em> on that server, but
+does that mean that I really
+<strong>used</strong> that website even though
+I accessed it?
+Even if we can claim that I did,
+what kind of use was it?
+Can we tell?
+(We can actually learn quite
+a lot from web server access logs, and
+there is software, like Google Analytics,
+that would be able
+to collect additional usage data.)</p>
+<p>As with other things we have discussed,
+there have been efforts to standardize
+electronic resource usage.
+It's an important process because
+usage data informs
+collection development and
+benefits the library in other ways.
+Discussions about usage do belong
+to the domain of electronic resource librarianship,
+but it also overlaps with
+other areas of librarianship,
+such as systems librarianship or
+collection development.
+Here we might see job
 titles like <a href="https://www.google.com/search?&amp;q=library+systems+administrator">library systems administrator</a>.</p>
 <h2 id="project-counter"><a class="header" href="#project-counter">Project Counter</a></h2>
-<p>Project Counter is a Code of Practice that seeks to help provide more
-informative and consistent reporting of electronic resource usage. From
-<a href="https://www.projectcounter.org/code-of-practice-five-sections/introduction-to-counter-code-of-practice-release-5/">Project Counter</a>:</p>
+<p>Project Counter is the primary attempt
+to standardize how usage is defined,
+measured, collected, and shared.
+It is a Code of Practice
+that provides informative and
+consistent reporting
+of electronic resource usage.
+From <a href="https://www.projectcounter.org/code-of-practice-five-sections/introduction-to-counter-code-of-practice-release-5/">Project Counter</a>:</p>
 <blockquote>
-<p>Since its inception in 2002, COUNTER has been focused on providing a code of
-practice that helps ensure librarians have access to consistent, comparable,
-and credible usage reporting for their online scholarly information. COUNTER
-serves librarians, content providers, and others by facilitating the
-recording and exchange of online usage statistics. The COUNTER Code of
-Practice provides guidance on data elements to be measured and definitions of
-these data elements, as well as guidelines for output report content and
-formatting and requirements for data processing and auditing. To have their
-usage statistics and reports designated COUNTER compliant, content providers
-MUST provide usage statistics that conform to the current Code of Practice.</p>
+<p>Since its inception in 2002, COUNTER has been focused on
+providing a code of practice that helps ensure librarians
+have access to consistent, comparable, and credible usage
+reporting for their online scholarly information. COUNTER
+serves librarians, content providers, and others by
+facilitating the recording and exchange of online usage
+statistics. The COUNTER Code of Practice provides guidance
+on data elements to be measured and definitions of these
+data elements, as well as guidelines for output report
+content and formatting and requirements for data
+processing and auditing. To have their usage statistics
+and reports designated COUNTER compliant, content
+providers MUST provide usage statistics that conform to
+the current Code of Practice.</p>
 </blockquote>
-<p>Thus, these reports were designed to help solve a problem that will likely
-never completely be solved, but it's still an important and useful effort. The
-main goal of Counter is to provide usage reports, and the reports, for version
-5 of Counter, cover four major areas:</p>
+<p>These reports were designed to
+solve a problem that will likely
+never completely be solved, but
+it's still an important and useful effort.
+The main goal of Counter is to provide
+usage reports, and the reports,
+for version 5 of Counter,
+cover four major areas:</p>
 <ul>
 <li>Platforms</li>
 <li>Databases</li>
 <li>Titles</li>
 <li>Items</li>
 </ul>
-<p>And you can see which reports these four replace in <a href="https://www.projectcounter.org/2448-2/">a table in Appendix B of
-the Code of Practice</a>.</p>
-<p><a href="https://www.projectcounter.org/code-of-practice-five-sections/foreword/">Counter 5</a> was designed to include better reporting consistency,
-better clarity of metrics that measure usage activity, better views of the
-data, and more. In order to clarify the purpose of Counter, let's review the
-introduction to the <a href="https://www.projectcounter.org/code-of-practice-five-sections/introduction-to-counter-code-of-practice-release-5/">Code of Practice</a>, which articulates the
-purpose, scope, application, and more of Counter.</p>
-<p>[ Note: Review the Introduction to the Code of Practice ]</p>
-<h2 id="readings"><a class="header" href="#readings">Readings</a></h2>
-<p><a href="http://doi.org/10.1080/0361526X.2017.1391153">Pesch (2017)</a> provides a helpful introduction to the history of
-Project Counter and the migration from Counter version 4 to version 5. Table 1
-in Pesch describes the four major reports. Most of the reports are
-self-explanatory. Database, Title, and Item reports cover what they describe,
-but Platform reports might be less obvious. These reports include usage metrics
-at the broadest level and of things like EBSCOhost databases, ProQuest
-databases, SAGE resources, Web of Science databases, and so on. These reports
-come into play when users/patrons search in the overall platform but not in any
-single database provided by the platform. For example, UK Libraries subscribes
-to the ProQuest Databases and for us, that includes <a href="https://www.proquest.com/databases/advanced?accountid=11836">35 primary
-databases</a>. Users can search many at the same time or search any single
-one. The same holds for platforms like EBSCOhost, Web of Science, and others.
+<p>And you can see which reports
+these four replace in
+<a href="https://www.projectcounter.org/2448-2/">a table in Appendix B of the Code of Practice</a>.</p>
+<p><a href="https://www.projectcounter.org/code-of-practice-five-sections/foreword/">Counter 5</a> was designed
+to include better reporting consistency,
+better clarity of metrics that
+measure usage activity,
+better views of the data, and more.
+In order to clarify the
+purpose of Counter,
+let's review the introduction to the
+<a href="https://www.projectcounter.org/code-of-practice-five-sections/introduction-to-counter-code-of-practice-release-5/">Code of Practice</a>,
+which articulates the purpose, scope,
+application, and more of Counter.</p>
+<p><a href="https://doi.org/10.1080/0361526X.2017.1391153">Pesch (2017)</a> provides a
+helpful introduction to the history of
+Project Counter and the migration
+from Counter version 4 to version 5.
+Table 1 in Pesch describes
+the four major reports.
+Most of the reports are self-explanatory.
+Database, Title, and Item reports
+cover what they describe,
+but Platform reports might
+be less obvious.
+These reports include usage metrics
+at the broadest level and of things
+like EBSCOhost databases, ProQuest databases,
+SAGE resources, Web of Science databases,
+and so on.
+These reports come into play when
+users/patrons search in the overall
+platform but not in any single database
+provided by the platform.
+For example, UK Libraries subscribes
+to the ProQuest Databases and for us,
+that includes <a href="https://www.proquest.com/databases/advanced?accountid=11836">35 primary databases</a>.
+Users can search many at the same time
+or search any single one.
+The same holds for platforms
+like EBSCOhost, Web of Science, and others.
 This is the platform level.</p>
-<p>The <a href="https://doi.org/10.1080/0361526X.2016.1165783">Scott (2016)</a> article provides a nice use case for how Counter
-reports can inform collection development. We've talked a bit about the <em>Big
-Deal</em> packages that more libraries are trying to move away from because such
-deals often include access to titles that are not used or not relevant to a
-library community. Here Scott shows that it might be possible to avoid
-subscribing to some services using this data, but it's also important to
-closely read through and understand the problems associated with interlibrary
-loan, the metrics, and other limitations described in the Conclusion section of
-this article.</p>
-<p>We move away from Project Counter with the <a href="https://doi.org/10.5860/crl12-406">Stone and Ramsden
-(2013)</a> article. I wanted to introduce this article because it
-highlights how metrics can be used to assess the value of a library, which is
-often underestimated by administration but constantly required in order to
-garner the resources needed to improve or sustain a library's resources. Here
-Stone and Ramsden investigate the correlation (not causation) between library
-usage and student retention. Increasing the latter is the Holy Grail of college
-and universities. If this were a public library report, it might be interesting
-to see how well electronic library usage correlates to continued usage and how
-such a correlation might result in various outcomes defined by the library. One
-nice thing about the Stone and Ramsden article is that it does not depend on
-quantitative metrics alone but supports its findings through qualitative
-research. There's only so much a usage metric can say.</p>
-<p>Finally, I would like you to be aware of the <a href="https://code4lib.org/"><em>code{4}lib</em> journal</a>
-and this article by <a href="https://journal.code4lib.org/articles/10589">Zou</a> is pretty cool. Although this article overlaps
-with some security issues, a topic that we'll cover in our last week of the
-semester, the article also provides a way of thinking outside the box about the
-metrics that you'll have access to as an electronic resource librarian. Here,
-Zou describes a process of taking EZproxy logs (compare the example entry with
-the web server entry I included above) and turning them into something useful
-and dynamic by incorporating some additional technologies. Recall that
-<a href="https://www.oclc.org/en/ezproxy.html">EZproxy</a> is software that authenticates users and provides access
-given that authentication. We use EZproxy at UK whenever we access a paywalled
-journal article. That is, you've noticed the <strong>ezproxy.uky.edu</strong> string in any
-URL for a journal that you've accessed via UK Libraries' installation of
-EZproxy, and the URL <code>https://login.ezproxy.uky.edu/login</code> is the log in URL.
-Zou specifically references <a href="https://web.archive.org/web/20210716020704/https://acrl.ala.org/techconnect/post/analyzing-ezproxy-logs/">the standard way</a> of analyzing these logs
-(take a look at the page at that link), which can be insightful and helpful,
-but Zou's method makes the analysis of these logs more visual and real-time.
-The main weakness with Zou's method is that it seems to me to be highly
-dependent on Zou doing the work. If Zou leaves their library, then this
-customized analysis might not last. Still, it's good to know that if you have
-an interest in developing skills with systems administration, with various
-other technologies, and with some basic scripting language, this kind of thing,
-and more, is possible.</p>
+<p><a href="https://doi.org/10.1080/0361526X.2016.1165783">Scott (2016)</a> illustrates
+a nice use case for how Counter
+reports can inform collection development.
+We've addressed the <em>Big Deal</em> packages
+that more libraries are trying to
+move away from because such
+deals often include access to titles
+that are not used or not relevant to a
+library community.
+Here Scott shows that it might
+be possible to avoid subscribing to
+some services using this data, but
+it's also important to closely read
+through and understand the
+problems associated with
+interlibrary loan, the metrics, and
+other limitations described
+in the Conclusion section of this article.</p>
+<h2 id="the-value-of-metrics"><a class="header" href="#the-value-of-metrics">The Value of Metrics</a></h2>
+<p>We move away from Project Counter with the
+<a href="https://doi.org/10.5860/crl12-406">Stone and Ramsden (2013)</a>.
+I introduce this article because it
+highlights how metrics can be used to
+assess the value of a library,
+which is often underestimated by
+administration but constantly
+required in order to garner the
+resources needed to improve or
+sustain a library's resources.
+Here Stone and Ramsden investigate
+the correlation (not causation)
+between library usage and student retention.
+Increasing the latter is the
+Holy Grail of college and universities.
+If this were a public library report,
+it might be interesting to see how well
+electronic library usage correlates
+to continued usage and how such a correlation
+might result in various outcomes
+defined by the library.
+One nice thing about the Stone and Ramsden
+article is that it does not depend on
+quantitative metrics alone but supports
+its findings through qualitative research.
+There's only so much a usage metric can say.</p>
+<h2 id="using-metrics"><a class="header" href="#using-metrics">Using Metrics</a></h2>
+<p>I would like you to be
+aware of the
+<a href="https://code4lib.org/"><em>code{4}lib</em> journal</a>
+and this article by <a href="https://journal.code4lib.org/articles/10589">Zou</a> is pretty cool.
+Although this article overlaps
+with some security issues,
+a topic that we'll cover
+in the final section,
+the article also provides a
+way of thinking outside the box about the
+metrics that you have access to as
+an electronic resource librarian.
+Here, Zou describes a process of taking
+EZproxy logs
+(compare the example entry with
+the web server entry I included above)
+and turning them into something useful
+and dynamic by incorporating
+some additional technologies.
+Recall that <a href="https://www.oclc.org/en/ezproxy.html">EZproxy</a> is
+software that authenticates
+users and provides access given
+that authentication.
+We use EZproxy at UK whenever
+we access a paywalled journal article.
+That is, you've noticed the
+<strong>ezproxy.uky.edu</strong> string in any URL for a
+journal that you've accessed via
+UK Libraries' installation of EZproxy, and
+the URL <code>https://login.ezproxy.uky.edu/login</code>
+is the log in URL.
+Zou specifically references
+<a href="https://web.archive.org/web/20210716020704/https://acrl.ala.org/techconnect/post/analyzing-ezproxy-logs/">the standard way</a>
+of analyzing these logs
+(take a look at the page at that link),
+which can be insightful and helpful,
+but Zou's method makes the analysis of
+these logs more visual and real-time.
+The main weakness with Zou's method
+is that it seems to me to be highly
+dependent on Zou doing the work.
+If Zou leaves their library,
+then this customized analysis might not last.
+Still, it's good to know that if you have
+an interest in developing skills with
+systems administration,
+with various other technologies,
+and with some basic scripting language,
+this kind of thing, and more, is possible.</p>
+<h2 id="getting-creative"><a class="header" href="#getting-creative">Getting Creative</a></h2>
+<p><a href="https://doi.org/10.1080/00987913.2017.1281788">Smith &amp; Arneson (2017)</a> detail
+very creative and fun ways to collect usage data
+about resource usage when vendors do not provide
+usage data.
+In the first part of this article,
+Smith describes how they analyzed
+their link resolver reports
+to infer what users were accessing
+in their collections.
+Arneson's section describes using a
+Linux file search utility called <code>grep</code>
+to construct search queries of the EZproxy logs
+and deduce usage of specific electronic resources. 
+Since both methods require sifting through
+log entries like the one I highlighted above,
+the process requires some sleuthing, testing,
+time, and patience.
+However, once figured out,
+the process and reports can easily be
+automated.</p>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>Librarians used a variety of techniques
+to collect usage data in the print era, but
+like many things we've learned about,
+electronic resources have complicated things.
+First, because more data is available about
+usage with electronic resources,
+before that data can be used,
+it has to be defined.
+Project Counter is an attempt to define
+what usage means and how to report it.</p>
+<p>Quantitative metrics should will never
+be able to provide a complete picture
+of how a library's collections are used, but
+they are an important part.
+Not only do they help librarians manage
+their collections,
+they also help librarians show proof 
+of their collection's importance to their
+communities.
+Furthermore, with a little
+skill, practice, and creativity,
+usage logs can also be used to build
+cool apps (Zou, 2015)
+or help fill in the gaps when
+vendors fall short in their requirements
+(Smith &amp; Arneson, 2017).</p>
+<h2 id="readings--references"><a class="header" href="#readings--references">Readings / References</a></h2>
+<p>Pesch, O. (2017). COUNTER Release 5: What’s New and What It
+Means to Libraries. <em>The Serials Librarian, 73</em>(3–4),
+195–207.
+<a href="https://doi.org/10.1080/0361526X.2017.1391153">https://doi.org/10.1080/0361526X.2017.1391153</a></p>
+<p>Scott, M. (2016). Predicting Use: COUNTER Usage Data Found
+to be Predictive of ILL Use and ILL Use to be Predictive of
+COUNTER Use. <em>Serials Librarian, 71</em>(1), 20–24.
+<a href="https://doi.org/10.1080/0361526X.2016.1165783">https://doi.org/10.1080/0361526X.2016.1165783</a></p>
+<p>Stone, G., &amp; Ramsden, B. (2013). Library impact data
+project: Looking for the link between library usage and
+student attainment. <em>College &amp; Research Libraries, 74</em>(6).
+<a href="https://doi.org/10.5860/crl12-406">http://doi.org/10.5860/crl12-406</a></p>
+<p>Zou, Q. (2015). A novel open source approach to monitor
+Ezproxy Users’ activities. <em>code{4}lib Journal, 29</em>.
+<a href="https://journal.code4lib.org/articles/10589">http://journal.code4lib.org/articles/10589</a></p>
+<p>Smith, K., &amp; Arneson, J. (2017). Determining usage when
+vendors do not provide data. <em>Serials Review, 43</em>(1), 46–50.
+<a href="https://doi.org/10.1080/00987913.2017.1281788">https://doi.org/10.1080/00987913.2017.1281788</a></p>
 
                     </main>
 
