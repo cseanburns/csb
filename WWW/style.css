@@ -1,13 +1,30 @@
 html {
   /*font-family: arial, sans-serif;*/
   font-family: georgia, serif;
-  font-size: 100%;
-  background: #fdf6e3;
+  font-size: 10vm;
+  background: #edf7f6;
+  /*background: #fdf6e3;*/
 }
 
 body {
   padding: 0;
   margin: 20px;
+}
+
+.container {
+  column-width: 25em;
+}
+
+h1 {
+  color: #fa625f;
+}
+
+h2 {
+  color: #005995;
+}
+
+h3 {
+  color: #600473;
 }
 
 h2, h3 { 
@@ -17,6 +34,11 @@ h2, h3 {
 
 .bold {
   font-weight: bold;
+}
+
+a {
+  color: black;
+  text-decoration: underline #000 dotted;
 }
 
 blockquote {
