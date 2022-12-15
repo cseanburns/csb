@@ -16,7 +16,7 @@ body {
   columns: 2 25em;
 }
 
-#gist {
+.gist {
   border-radius: 5px;
   padding: 10px;
   background-color: #b6c199;
@@ -26,34 +26,36 @@ body {
   margin-bottom: 10px;
 }
 
-#gist a {
+.gist a {
   color: black;
 }
 
-#research {
+.first {
   border-radius: 5px;
   padding: 10px;
+  margin-bottom: 10px;
   background-color: #fee36e;
   color: black;
   box-shadow: 0 4px 8px 0 gray;
   transition: 0.3s;
 }
 
-#research a {
+.first a {
   color: black;
 }
 
-#teaching {
+.second {
   break-inside: avoid;
   border-radius: 5px;
   padding: 10px;
+  margin-bottom: 10px;
   background-color: #7d94b5;
   color: #2a2a2a;
   box-shadow: 0 4px 8px 0 gray;
   transition: 0.3s;
 }
 
-#teaching a {
+.second a {
   color: white;
 }
 
