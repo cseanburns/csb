@@ -2,7 +2,8 @@ html {
   /*font-family: arial, sans-serif;*/
   font-family: georgia, serif;
   font-size: 10vm;
-  background: #edf7f6;
+  background: #525252;
+  color: white;
   /*background: #fdf6e3;*/
 }
 
@@ -12,19 +13,48 @@ body {
 }
 
 .container {
-  column-width: 25em;
+  columns: 2 25em;
 }
 
-h1 {
-  color: #fa625f;
+#gist {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #b6c199;
+  color: black;
+  box-shadow: 0 4px 8px 0 gray;
+  transition: 0.3s;
+  margin-bottom: 10px;
 }
 
-h2 {
-  color: #005995;
+#gist a {
+  color: black;
 }
 
-h3 {
-  color: #600473;
+#research {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fee36e;
+  color: black;
+  box-shadow: 0 4px 8px 0 gray;
+  transition: 0.3s;
+}
+
+#research a {
+  color: black;
+}
+
+#teaching {
+  break-inside: avoid;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #7d94b5;
+  color: #2a2a2a;
+  box-shadow: 0 4px 8px 0 gray;
+  transition: 0.3s;
+}
+
+#teaching a {
+  color: white;
 }
 
 h2, h3 { 
@@ -37,7 +67,7 @@ h2, h3 {
 }
 
 a {
-  color: black;
+  color: white;
   text-decoration: underline #000 dotted;
 }
 
