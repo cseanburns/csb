@@ -1,6 +1,6 @@
 html {
   /*font-family: arial, sans-serif;*/
-  font-family: georgia, serif;
+  font-family: verdana, sans-serif;
   font-size: 10vm;
   background: #525252;
   color: white;
@@ -57,6 +57,10 @@ body {
 
 .second a {
   color: white;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, sans-serif;
 }
 
 h2, h3 { 
