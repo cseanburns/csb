@@ -1,15 +1,19 @@
 html {
-  /*font-family: arial, sans-serif;*/
   font-family: verdana, sans-serif;
   font-size: 10vm;
-  background: #525252;
-  color: white;
+  background: white;
+  color: black;
   /*background: #fdf6e3;*/
 }
 
 body {
   padding: 0;
   margin: 20px;
+}
+
+nav a {
+  color: black;
+  text-decoration: underline #000 dotted;
 }
 
 .container {
@@ -19,22 +23,23 @@ body {
 .gist {
   border-radius: 5px;
   padding: 10px;
-  background-color: #b6c199;
-  color: black;
+  background-color: #490b3d;
+  color: white;
   box-shadow: 0 4px 8px 0 gray;
   transition: 0.3s;
   margin-bottom: 10px;
 }
 
 .gist a {
-  color: black;
+  color: white;
+  text-decoration: underline #fff dotted;
 }
 
 .first {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
-  background-color: #fee36e;
+  background-color: #bd1e51;
   color: black;
   box-shadow: 0 4px 8px 0 gray;
   transition: 0.3s;
@@ -49,14 +54,14 @@ body {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
-  background-color: #7d94b5;
+  background-color: #f1b814;
   color: #2a2a2a;
   box-shadow: 0 4px 8px 0 gray;
   transition: 0.3s;
 }
 
 .second a {
-  color: white;
+  color: black;
 }
 
 h1, h2, h3 {
@@ -98,10 +103,16 @@ aside {
 }
 
 footer {
-  padding: 10px 5px 10px 0;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #490b3d;
+  color: white;
+  box-shadow: 0 4px 8px 0 gray;
+  transition: 0.3s;
+  margin-bottom: 10px;
+
 }
 
 footer p:nth-child(1) {
-  border-top: 1px solid #000;
   padding-top: 5px;
 }
