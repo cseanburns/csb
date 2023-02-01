@@ -40,13 +40,13 @@ nav a {
   padding: 10px;
   margin-bottom: 10px;
   background-color: #bd1e51;
-  color: black;
+  color: white;
   box-shadow: 0 4px 8px 0 gray;
   transition: 0.3s;
 }
 
 .first a {
-  color: black;
+  color: white;
 }
 
 .second {
