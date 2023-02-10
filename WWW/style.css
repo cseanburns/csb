@@ -35,7 +35,7 @@ nav, footer {
 
 h1, h2, h3 {
   font-family: Georgia, sans-serif;
-  color: #00ff09;
+  color: #FCE400;
 }
 
 h2, h3 { 
@@ -48,8 +48,8 @@ h2, h3 {
 }
 
 a {
-  color: #00ff09;
-  text-decoration: underline #00ff09;
+  color: #FCE400;
+  text-decoration: underline #FCE400;
 }
 
 blockquote {
