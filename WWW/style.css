@@ -6,12 +6,11 @@ html {
 body {
   padding: 0;
   margin: auto;
-  background-color: #404040;
-  color: #fff;
-}
+  background-color: #faf7f4;
+  color: #333333;
+ }
 
-nav, footer {
-  color: #fff;
+ nav, footer {
   padding: 0 10px 0 10px;
 }
 
@@ -35,7 +34,6 @@ nav, footer {
 
 h1, h2, h3 {
   font-family: Georgia, sans-serif;
-  color: #FCE400;
 }
 
 h2, h3 { 
@@ -48,8 +46,8 @@ h2, h3 {
 }
 
 a {
-  color: #FCE400;
-  text-decoration: underline #FCE400;
+  color: #333333;
+  text-decoration: underline #333333;
 }
 
 blockquote {
