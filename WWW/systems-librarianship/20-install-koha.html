@@ -425,8 +425,13 @@ a2enmod cgi
 <pre><code>nano /etc/apache2/ports.conf 
 </code></pre>
 <p>And add:</p>
-<pre><code>Listen: 8080
+<pre><code>Listen 8080
 </code></pre>
+<p>Make sure Apache configuration changes are valid:</p>
+<pre><code>apachectl configtest
+</code></pre>
+<p>If you get an error message,
+trace the error in the file and line listed.</p>
 <p>Let's restart Apache2.</p>
 <pre><code>systemctl restart apache2
 </code></pre>
