@@ -8,7 +8,6 @@
 #
 # Usage: ./WWW-toc-generator
    
-readonly homepage="$HOME/workspace/personal_website/index.html"
 readonly thetext_file="$HOME/workspace/personal_website/WWW/index.html"
 
 # Get the title of the most recent The Text entry. Substitute the original
@@ -21,12 +20,8 @@ grep "h2 id=" "${thetext_file}" | head -n1 | \
     's/^/\<li\>/' -e\
     's/$/\<\/li\>/' > tmp.html
 
-# Add the new <li> entry to the top of the table of contents in ../index.html
-# and ../WWW/index.html 
-  # commented out line 27 because I removed the table of contents
-  # from the homepage
-# sed -i "/ol reversed/ a $(cat tmp.html)" "${homepage}"
+# Add the new <li> entry to the top of the TOC in ../WWW/index.html 
 sed -i "/ol reversed/ a $(cat tmp.html)" "${thetext_file}" 
 
 # Cleanup
-trash tmp.html
+#/usr/bin/rm tmp.html

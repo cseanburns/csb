@@ -3,7 +3,7 @@
 # Original date: 2022-01-28
 
 # Add new post into proper place of index.html file
-# Line 36 is always where new posts are added,
+# Line 218 is always where new posts are added,
 # until I change something above that line
 
 # Usage: ./insert_article post-name.html
@@ -12,4 +12,4 @@ readonly base_dir="$HOME/workspace/personal_website/WWW/markdown-posts/"
 readonly post="${base_dir}/$1"
 readonly target_file="$HOME/workspace/personal_website/WWW/index.html"
 
-sed -i "36 r ${post}" "${target_file}" 
+sed -i "218 r ${post}" "${target_file}" 
