@@ -6,3 +6,5 @@ makepost() {
   pandoc -f gfm -t html "$sourcefile" > \
     "$(basename -s md "$sourcefile")"html
 }
+
+makepost
