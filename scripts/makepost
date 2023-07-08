@@ -4,7 +4,8 @@
 makepost() {
   local sourcefile="$1"
   pandoc -f gfm -t html "$sourcefile" > \
-    "$(basename -s md "$sourcefile")"html
+    "$(basename -s .md "$sourcefile").html"
 }
 
-makepost
+makepost "$1"
+
