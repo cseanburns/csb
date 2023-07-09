@@ -1,45 +1,26 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # Original date: 2022-01-28
-
-# Run ``makepost`` (in .bash_functions) first.
-# ``makepost`` converts the markdown file into HTML.
-# The ed(1) heredoc below adds additional HTML elements, etc
-# to make the post ready for the WWW/index.html file.
+# Revised date: 2023-07-09
 
 # Usage: ./make_article post-name.html
 
 readonly base_dir="$HOME/workspace/personal_website/WWW/markdown-posts/"
 cd "${base_dir}" || exit
-post="$1"
+sourcefile="$1"
 
-ed -s "${base_dir}"/"${post}" << 'EOF'
-0i
-<article id="
-.
-1r !date +\%Y\%m\%d
-1,2j
-1a
-">
-.
-1,2j
-3s/[0-9]\">/\
-&\
+# add <article id> with date at line 1
+postdate=$(date +%Y%m%d)
+sed -i "1i\
+<article id=\"$postdate\">" "$sourcefile"
 
-.
-4r !date +\%Y-\%m-\%d
-4a
-<time datetime="
-.
-6a
-">
-.
-8s/<\/h3>/<\/time><\/h3>
-3,8j
-$a
-</article>
+# add <time datetime> with date within h3 element
+h3date=$(date +%B-%d-%Y)
+timedate=$(date +%Y-%m-%d)
+textdate=$(date "+%B %d, %Y")
+sed -i "2a\
+    <h3 id=\"$h3date\"><time datetime=\"$timedate\">$textdate</time></h3>" "$sourcefile" 
 
-.
-wq
-EOF
-
+# add </article> as the last line
+sed -i '$a\
+</article>' "$sourcefile"

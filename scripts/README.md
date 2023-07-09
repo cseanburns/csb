@@ -16,7 +16,7 @@ Until then,
 run the scripts in the order below:
 
 ```
-makepost post-name.md
+make-post post-name.md
 make-article post-name.html
 insert-article post-name.html
 WWW-toc-generator

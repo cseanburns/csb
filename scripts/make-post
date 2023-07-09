@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Convert markdown to HTML without smart formatting
+makepost() {
+    readonly base_dir="$HOME/workspace/personal_website/WWW/markdown-posts/"
+    cd "${base_dir}" || exit
+    local sourcefile="$1"
+    pandoc -f gfm -t html "$sourcefile" > \
+        "$(basename -s .md "$sourcefile").html"
+}
+
+makepost "$1"
