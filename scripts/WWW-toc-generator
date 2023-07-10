@@ -24,4 +24,4 @@ grep "h2 id=" "${thetext_file}" | head -n1 | \
 sed -i "/ol reversed/ a $(cat tmp.html)" "${thetext_file}" 
 
 # Cleanup
-#/usr/bin/rm tmp.html
+/usr/bin/rm $HOME/workspace/personal_website/scripts/tmp.html
