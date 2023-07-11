@@ -41,6 +41,7 @@ to monitor new posts.</p>
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#automake">Automake</a></li>
 <li><a href="WWW/index.html#summer-2023">Summer 2023</a></li>
 <li><a href="WWW/index.html#on-transitions">On Transitions</a></li>
 <li><a href="WWW/index.html#no-more-podcasts">No More Podcasts</a></li>
@@ -219,6 +220,14 @@ to monitor new posts.</p>
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20230710">
+<h2 id="automake">Automake</h2>
+<h3 id="July-10-2023"><time datetime="2023-07-10">July 10, 2023</time></h3>
+<p>I use a set of scripts to automate publishing to this page. For fun, I wrote the scripts using a lot of <code>ed</code> commands, and now I want to update the scripts using a more manageable language and workflow.</p>
+<p>I started reworking the scripts by asking ChatGPT to create a Python script to handle the process. The code it produced looked fine, on the surface, but I didn't give it a chance. Instead I thought I'd implement the existing Bash scripts with a Makefile. I described the list of scripts that I used to ChatGPT and asked it to create a Makefile for me. We went through several iterations, but it didn't pan out. To get a functional Makefile working, I realized that I would need to change how the project folders are organized and change how variables and arguments are used in the Bash scripts. As an aside, ChatGPT highly discouraged me from using <code>ed</code> commands (haha).</p>
+<p>In the end, I started rewriting the scripts using mostly <code>sed</code> commands. There's still some <code>ed</code> commands to scrub, but when I'm done, I should be able to write a simple Bash container script that will call the other scripts as dependencies.</p>
+<p>In the end, I asked ChatGPT 25 questions for this exercise. Even though it didn't pan out, it's a far more enjoyable process than conducting a bunch of web searches.</p>
+</article>
 
 <article id="20230625">
 <h2 id="summer-2023">Summer 2023</h2>
