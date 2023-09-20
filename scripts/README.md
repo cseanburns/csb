@@ -1,5 +1,36 @@
 # README
 
+The `post` script does the following work:
+
+- initializes variables
+- converts markdown file to html
+- adds metadata html elements to new html file
+- inserts new html file into WWW/index.html file
+- generates a new table of contents entry in WWW/index.html
+- uses the new HTML post to generate a new RSS entry
+- inserts the new RSS entry into WWW/index.xml
+- copies the updated pages to the remote server for publishing
+- cleans up
+
+The `post` script is a bit silly.
+I intentionally,
+for the fun of it,
+wanted to write a script that used
+a bunch of `ed(1)` commands.
+I like `ed(1)`.
+
+## archived-scripts folder
+
+The `post` script originated
+with a bunch of separate scripts
+that are no longer needed.
+These separate scripts have been moved
+to the archived-scripts folder.
+Below is a description of the workflow
+I used with these prior scripts.
+
+---
+
 This directory contains several scripts
 that I use to process the site and
 copy it to the remote server

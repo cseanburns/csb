@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-set -x
+## This script auto generates a new post, RSS entry, etc for The Text page.
+## Sep 20, 2023
 
 initialize_variables() {
     readonly md_dir="$HOME/workspace/personal_website/WWW/markdown-posts"
