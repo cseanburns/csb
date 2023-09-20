@@ -1,0 +1,146 @@
+#!/usr/bin/env bash
+
+set -x
+
+initialize_variables() {
+    readonly md_dir="$HOME/workspace/personal_website/WWW/markdown-posts"
+    readonly post_dir="$HOME/workspace/personal_website/WWW"
+    readonly md_file="${md_dir}/$1"
+    readonly post_file="${md_file%.md}.html"
+    readonly target_file="${post_dir}/index.html"
+    readonly rss_file="${post_dir}/index.xml"
+    readonly remote_dir="danoc:~/public_html/WWW/"
+}
+
+make_post() {
+    pandoc -f gfm -t html "${md_file}" -o "${post_file}"
+}
+
+make_article() {
+    # add <article id> with date at line 1
+    postdate=$(date +%Y%m%d)
+    sed -i "1i <article id=\"$postdate\">" "${post_file}"
+
+    # add <time datetime> with date within h3 element
+    h3date=$(date +%B-%d-%Y)
+    timedate=$(date +%Y-%m-%d)
+    textdate=$(date "+%B %d, %Y")
+    sed -i "2a <h3 id=\"$h3date\"><time datetime=\"$timedate\">$textdate</time></h3>" "${post_file}" 
+
+    # add </article> as the last line
+    sed -i '$a </article>' "$post_file"
+}
+
+insert_article() {
+    # Add HTML post to index.html file
+    sed -i "/<h2>Posts<\/h2>/r ${post_file}" "${target_file}" 
+}
+
+toc_generator() {
+    # Get the title of the most recent The Text entry. Substitute the original
+    # HTML tags for the ones needed for the <li> line in the table of contents
+    # in ../index.html
+    grep "h2 id=" "${target_file}" | head -n1 | \
+        sed -e 's/h2 id/a href/' -e\
+        's/h2/a/' -e\
+        's/\"/\"WWW\/index.html\#/' -e\
+        's/^/\<li\>/' -e\
+        's/$/\<\/li\>/' > "${md_dir}"/tmp.html
+
+    # Add the new <li> entry to the top of the TOC in ../WWW/index.html 
+    sed -i "/ol reversed/ a $(cat "${md_dir}"/tmp.html)" "${target_file}" 
+}
+
+make_rss() {
+    # Part 1: Get values
+    # Create a date for the <lastBuildDate> xml element.
+    rss_date="$(date -R)"
+    echo "${rss_date}" > "${md_dir}"/tmp.xml
+
+    # Extract title value for the most recent attempts entry from the index.html file.
+    grep 'h2 id=' "${target_file}" | head -n1 | grep -o -P '(?<=>).*(?=<)' >> "${md_dir}"/tmp.xml
+
+    # Insert a temporary blank line
+    printf "\n" >> "${md_dir}"/tmp.xml
+
+    # Create a link using the baseurl and the <h2> element from index.html.
+    printf "https://cseanburns.net/WWW/index.html#" >> "${md_dir}"/tmp.xml
+    grep 'h2 id=' "${target_file}" | head -n1 |  grep -o -P '(?<=").*(?=")' >> "${md_dir}"/tmp.xml
+
+    # Copy the date to a new line in order to create <lastBuildDate> and <pubDate> lines.
+    printf '1t4\nw\n' | ed -s "${md_dir}"/tmp.xml
+
+    # Delete the blank line.
+    printf '3d\nw\n' | ed -s "${md_dir}"/tmp.xml
+
+    # Copy link from above to use with the <guid> XML element
+    printf '3t4\nw\n' | ed -s "${md_dir}"/tmp.xml
+ 
+    ## Part 2: Add all of the XML tags for all the values above
+
+    sed -i '1 s/^/<lastBuildDate>/' "${md_dir}"/tmp.xml
+    sed -i '1 s/$/<\/lastBuildDate>/' "${md_dir}"/tmp.xml
+
+    sed -i '2 s/^/<title>/' "${md_dir}"/tmp.xml
+    sed -i '2 s/$/<\/title>/' "${md_dir}"/tmp.xml
+
+    sed -i '3 s/^/<link>/' "${md_dir}"/tmp.xml
+    sed -i '3 s/$/<\/link>/' "${md_dir}"/tmp.xml
+
+    sed -i '4 s/^/<pubDate>/' "${md_dir}"/tmp.xml
+    sed -i '4 s/$/<\/pubDate>/' "${md_dir}"/tmp.xml
+
+    sed -i '5 s/^/<guid>/' "${md_dir}"/tmp.xml
+    sed -i '5 s/$/<\/guid>/' "${md_dir}"/tmp.xml
+
+# Add the opening and closing <item> XML elements for the new entry block
+ed -s "${md_dir}"/tmp.xml << EOF
+2i
+<item>
+.
+6a
+</item>
+.
+wq
+EOF
+}
+
+insert_rss() {
+    cat "${md_dir}"/tmp.xml "${rss_file}" > "${md_dir}"/new.xml
+ed -s "${md_dir}"/new.xml << EOF
+1m15
+14d
+1,6m15
+8s/^/    /
+10,15s/^/        /
+11,14s/^/  /
+.
+wq
+EOF
+
+    mv "${md_dir}"/new.xml "${rss_file}" 
+}
+
+send_post() {
+    scp "${target_file}" "${remote_dir}"
+    scp "${rss_file}" "${remote_dir}"
+}
+
+cleanup() {
+    rm "${md_dir}/tmp.html"
+    rm "${md_dir}/tmp.xml"
+}
+
+main() {
+    initialize_variables "$1"
+    make_post
+    make_article
+    insert_article
+    toc_generator
+    make_rss
+    insert_rss
+    send_post
+    cleanup
+}
+
+main "$@"
