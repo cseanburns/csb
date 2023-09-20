@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Send The Text new posts to server
+ sendpost() {
+  local htmlfile="$HOME/workspace/personal_website/WWW/index.html"
+  local xmlfile="$HOME/workspace/personal_website/WWW/index.xml"
+  local remotedirectory="danoc:~/public_html/WWW/"
+  scp "$htmlfile" "$remotedirectory"
+  scp "$xmlfile" "$remotedirectory"
+}
+
+sendpost
