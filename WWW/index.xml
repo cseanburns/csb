@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Oct 2023 15:58:39 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 24 Oct 2023 16:55:58 -0400</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>FreeBSD on the Laptop</title>
+          <link>https://cseanburns.net/WWW/index.html#freebsd-on-the-laptop</link>
+          <pubDate>Tue, 24 Oct 2023 16:55:58 -0400</pubDate>
+          <guid>https://cseanburns.net/WWW/index.html#freebsd-on-the-laptop</guid>
+        </item>
         <item>
           <title>Learning and Identity</title>
           <link>https://cseanburns.net/WWW/index.html#learning-and-identity</link>
