@@ -1,6 +1,8 @@
 html {
-  font-family: verdana, sans-serif;
-  font-size: 100%;
+  font-family: monospace;
+  font-size: 125%;
+  letter-spacing: .05rem;
+  line-height: 1.5em;
 }
 
 body {
@@ -9,8 +11,8 @@ body {
   max-width: 100%;
   padding-right: 10px;
   padding-left: 1px;
-  background-color: #fff;
-  color: #000;
+  background-color: #1b1b1b;
+  color: #fff;
  }
 
 header {
@@ -35,12 +37,12 @@ h2, h3 {
 }
 
 a {
-  color: #333333;
-  text-decoration: underline #333333;
+  color: #fff;
+  text-decoration: underline #fff;
 }
 
 blockquote {
-    border-left: 1px solid #000;
+    border-left: 1px solid #1b1b1b;
     padding-left: 0.5rem; 
 }
 
@@ -55,7 +57,7 @@ pre {
 }
 
 aside {
-  border-left: 5px solid #000;
+  border-left: 5px solid #1b1b1b;
   padding: 5px;
 }
 
