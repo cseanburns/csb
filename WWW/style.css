@@ -1,18 +1,18 @@
 html {
   font-family: monospace;
-  font-size: 125%;
-  letter-spacing: .05rem;
+  font-size: 100%;
   line-height: 1.5em;
 }
 
 body {
   margin: auto;
-  width: 800px;
+  width: 700px;
   max-width: 100%;
   padding-right: 10px;
   padding-left: 1px;
   background-color: #1b1b1b;
   color: #fff;
+  font-size: 1.4rem;
  }
 
 header {
