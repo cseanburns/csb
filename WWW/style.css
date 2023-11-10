@@ -1,22 +1,33 @@
 html {
-  font-family: monospace;
+  font-family: "Courier New", monospace;
   font-size: 100%;
   line-height: 1.5em;
 }
 
 body {
   margin: auto;
-  width: 700px;
+  width: 900px;
   max-width: 100%;
   padding-right: 10px;
   padding-left: 1px;
-  background-color: #002100;
-  color:  #03EE03;
-  font-size: 1.4rem;
- }
+  background-color: #000000;
+  color: #dfccad;
+  font-size: 1rem;
+}
 
 header {
+  border-top: 1px solid #dfccad;
+  border-bottom: 1px solid #dfccad;
   margin: 0 5px 5px 5px;
+  text-align: center;
+  color: #dfccad;
+}
+
+header a {
+  color: #dfccad;
+  text-decoration: none #dfccad;
+  text-transform: uppercase;
+  font-size: .9rem;
 }
 
 header + section {
@@ -25,6 +36,10 @@ header + section {
 
 main section {
   margin: 5px;
+}
+
+h1, h2, h3, h4 {
+  color: #33ff33;
 }
 
 h2, h3 { 
@@ -37,13 +52,16 @@ h2, h3 {
 }
 
 a {
-  color: #fff;
-  text-decoration: underline #fff;
+  color: #d5ccad;
+  background-color: #000000;
+  text-decoration: underline #dfccad;
 }
 
 blockquote {
-    border-left: 1px solid #1b1b1b;
-    padding-left: 0.5rem; 
+    border-left: 1px solid #dfccad;
+    padding-left: 0.5rem;
+    color: #dfccad;
+    background-color: #000000;
 }
 
 blockquote p {
@@ -53,17 +71,23 @@ blockquote p {
 pre {
   padding: 1% 0 0 1%;
   overflow: scroll;
-  font-family: monospace, sans-serif;
+  background-color: #1c1c1c;
+  color: #33ff33;
 }
 
 aside {
-  border-left: 5px solid #1b1b1b;
+  border-left: 5px solid #dfccad;
   padding: 5px;
+}
+
+dt {
+  color: #dfccad;
 }
 
 footer {
   font-size: .8em;
   margin: 5px;
+  color: #dfccad;
 }
 
 footer p:nth-child(1) {
