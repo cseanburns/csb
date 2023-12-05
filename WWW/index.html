@@ -43,6 +43,7 @@ to monitor new posts.</p>
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#screen-recording">Screen Recording</a></li>
 <li><a href="WWW/index.html#on-classification-systems">On Classification Systems</a></li>
 <li><a href="WWW/index.html#an-insight">An Insight</a></li>
 <li><a href="WWW/index.html#reading-music">Reading Music</a></li>
@@ -242,6 +243,35 @@ to monitor new posts.</p>
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20231205">
+<h2 id="screen-recording">Screen Recording</h2>
+<h3 id="December-05-2023"><time datetime="2023-12-05">December 05, 2023</time></h3>
+<p>I need screen casting software to record videos for my classes. The
+problem is that I use the <a href="https://swaywm.org">Sway</a> window
+manager and Wayland, but ever since the switch from <a
+href="https://i3wm.org">i3</a> and X11, I have had trouble finding good
+screen recording software. OBS Studio is great, but it often crashes in
+Sway (but not in Gnome).</p>
+<p>I'd prefer to stay in Sway, and I found <code>wf-recorder</code>,
+which works great. However, sometimes I need to pause the video when I
+am recording. Since <code>wf-recorder</code> is a commandline program, I
+can't just hit the pause button.</p>
+<p>But, <strong>ctrl-z</strong> works perfectly! When I'm ready to
+unpause, I just type <code>fg</code> to bring it back up.</p>
+<p>I invoke <code>wf-recorder</code> as <code>screen_rec</code>, which
+saves the recording in my home <strong>Videos</strong> directory,
+<code>screen_rec</code> is called by the following function in my
+<strong>.bash_functions</strong> file:</p>
+<pre><code>screen_rec() {
+    if [ -x &quot;$(command -v wf-recorder)&quot; ] ; then
+        cd &quot;$HOME/Videos&quot; || { echo &quot;Videos directory not found&quot;; return; }
+        wf-recorder --audio
+    else
+        echo &quot;wf-recorder not found or not executable.&quot;
+        return
+    fi
+}</code></pre>
+</article>
 <article id="20231204">
 <h2 id="on-classification-systems">On Classification Systems</h2>
 <h3 id="December-04-2023"><time datetime="2023-12-04">December 04, 2023</time></h3>
