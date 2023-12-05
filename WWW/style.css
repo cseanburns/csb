@@ -75,6 +75,11 @@ pre {
   color: #33ff33;
 }
 
+code {
+  background-color: #1c1c1c;
+  color: #33ff33;
+}
+
 aside {
   border-left: 5px solid #dfccad;
   padding: 5px;
