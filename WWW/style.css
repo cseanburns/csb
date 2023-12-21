@@ -10,22 +10,18 @@ body {
   max-width: 100%;
   padding-right: 10px;
   padding-left: 1px;
-  background-color: #000000;
-  color: #dfccad;
   font-size: 1rem;
 }
 
 header {
-  border-top: 1px solid #dfccad;
-  border-bottom: 1px solid #dfccad;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
   margin: 0 5px 5px 5px;
   text-align: center;
-  color: #dfccad;
 }
 
 header a {
-  color: #dfccad;
-  text-decoration: none #dfccad;
+  text-decoration: none;
   text-transform: uppercase;
   font-size: .9rem;
 }
@@ -39,7 +35,7 @@ main section {
 }
 
 h1, h2, h3, h4 {
-  color: #33ff33;
+  font-family: sans-serif;
 }
 
 h2, h3 { 
@@ -52,16 +48,12 @@ h2, h3 {
 }
 
 a {
-  color: #d5ccad;
-  background-color: #000000;
-  text-decoration: underline #dfccad;
+  text-decoration: underline;
 }
 
 blockquote {
-    border-left: 1px solid #dfccad;
+    border-left: 1px solid;
     padding-left: 0.5rem;
-    color: #dfccad;
-    background-color: #000000;
 }
 
 blockquote p {
@@ -71,28 +63,23 @@ blockquote p {
 pre {
   padding: 1% 0 0 1%;
   overflow: scroll;
-  background-color: #1c1c1c;
-  color: #33ff33;
 }
 
 code {
-  background-color: #1c1c1c;
-  color: #33ff33;
 }
 
 aside {
-  border-left: 5px solid #dfccad;
+  border-left: 5px solid;
   padding: 5px;
 }
 
 dt {
-  color: #dfccad;
+  font-family: sans-serif;
 }
 
 footer {
   font-size: .8em;
   margin: 5px;
-  color: #972922;
 }
 
 footer p:nth-child(1) {
