@@ -63,9 +63,14 @@ blockquote p {
 pre {
   padding: 1% 0 0 1%;
   overflow: scroll;
+    background-color: #585858;
+    color: #00ff00;
 }
 
-code {
+p > code {
+    background-color: #585858;
+    color: #00ff00;
+    padding: 0 2px 0 2px;
 }
 
 aside {
