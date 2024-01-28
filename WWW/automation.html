@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A description of how I automated posting to cseanburns.net">
+    <meta name="description" content="A description of how I automated posting to cseanburns.github.io/csb">
     <link rel="stylesheet" href="./style.css">
     <title>Site Automation w/ Scripts</title>
     <link rel="icon" type="image/png" sizes="16x16" href="images/f16.png">
@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="72x72" href="images/f72.png">
     <link rel="icon" type="image/png" sizes="114x114" href="images/f114.png">
     <link rel="apple-touch-icon" sizes="144x144" href="images/f144.png">
-    <base href="https://cseanburns.net">
+    <base href="https://cseanburns.github.io/csb">
   </head>
 
   <body>
@@ -228,7 +228,7 @@ grep 'h2 id=' ../WWW/index.html | \
 printf "\n" &gt;&gt; tmp.xml
 
 # Create a link using the baseurl and the &lt;h2&gt; element from index.html.
-printf "https://cseanburns.net/WWW/index.html#" &gt;&gt; tmp.xml
+printf "https://cseanburns.github.io/csb/WWW/index.html#" &gt;&gt; tmp.xml
 grep 'h2 id=' ../WWW/index.html | \
   head -n1 | \
   grep -o -P '(?&lt;=").*(?=")' &gt;&gt; tmp.xml
