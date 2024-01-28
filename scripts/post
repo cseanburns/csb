@@ -4,8 +4,8 @@
 ## Sep 20, 2023
 
 initialize_variables() {
-    readonly md_dir="$HOME/workspace/personal_website/WWW/markdown-posts"
-    readonly post_dir="$HOME/workspace/personal_website/WWW"
+    readonly md_dir="$HOME/workspace/csb/WWW/markdown-posts"
+    readonly post_dir="$HOME/workspace/csb/WWW"
     readonly md_file="${md_dir}/$1"
     readonly post_file="${md_file%.md}.html"
     readonly target_file="${post_dir}/index.html"
