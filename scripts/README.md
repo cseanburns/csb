@@ -9,7 +9,7 @@ The `post` script does the following work:
 - generates a new table of contents entry in WWW/index.html
 - uses the new HTML post to generate a new RSS entry
 - inserts the new RSS entry into WWW/index.xml
-- copies the updated pages to the remote server for publishing
+- ~~copies the updated pages to the remote server for publishing~~
 - cleans up
 
 The `post` script is a bit silly.
