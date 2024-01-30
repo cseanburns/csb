@@ -2,6 +2,8 @@ html {
   font-family: "Courier New", monospace;
   font-size: 100%;
   line-height: 1.5em;
+  background-color: #1c1c1c;
+  color: #ffffff;
 }
 
 body {
@@ -14,7 +16,6 @@ body {
 }
 
 header {
-  border-bottom: 1px solid;
   margin: 0 5px 5px 5px;
   text-align: center;
 }
@@ -23,6 +24,10 @@ header a {
   text-decoration: none;
   text-transform: uppercase;
   font-size: .9rem;
+}
+
+nav a {
+    color: #ff0090;
 }
 
 header + section {
@@ -48,6 +53,7 @@ h2, h3 {
 
 a {
   text-decoration: underline;
+  color: #bbbbbb;
 }
 
 blockquote {
