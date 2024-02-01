@@ -2,7 +2,7 @@ html {
   font-family: "Courier New", monospace;
   font-size: 100%;
   line-height: 1.5em;
-  background-color: #1c1c1c;
+  background-color: #0f0f16;
   color: #ffffff;
 }
 
@@ -40,6 +40,7 @@ main section {
 
 h1, h2, h3, h4 {
   font-family: sans-serif;
+  color: #669aff;
 }
 
 h2, h3 { 
@@ -68,13 +69,13 @@ blockquote p {
 pre {
   padding: 1% 0 0 1%;
   overflow: scroll;
-    background-color: #585858;
-    color: #00ff00;
+    background-color: #1f2969;
+    color: #fff;
 }
 
 p > code {
     background-color: #585858;
-    color: #00ff00;
+    color: #fff;
     padding: 0 2px 0 2px;
 }
 
