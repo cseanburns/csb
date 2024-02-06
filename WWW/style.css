@@ -43,6 +43,15 @@ h1, h2, h3, h4 {
   color: #669aff;
 }
 
+h3 {
+    margin-left: 1em;
+}
+
+h3 + p {
+    margin-left: 1em;
+}
+
+
 h2, h3 { 
   /* places h2 element just below the top of the window */
   scroll-margin-top: 3ex;
