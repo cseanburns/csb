@@ -88,6 +88,12 @@ p > code {
     padding: 0 2px 0 2px;
 }
 
+li > code {
+    background-color: #585858;
+    color: #fff;
+    padding: 0 2px 0 2px;
+}
+
 aside {
   border-left: 5px solid;
   padding: 5px;
