@@ -53,8 +53,17 @@ h2, h3 {
 }
 
 a {
-  text-decoration: underline;
-  color: #000;
+    text-decoration: underline;
+    color: #ff0090;
+}
+
+a[href^="https://"] {
+    color: #000;
+}
+
+a[href^="https://"]::after {
+    content: "(↗)";
+    color: #000;
 }
 
 blockquote {
@@ -67,8 +76,8 @@ blockquote p {
 }
 
 pre {
-  padding: 1% 0 0 1%;
-  overflow: scroll;
+    padding: 1% 0 0 1%;
+    overflow: scroll;
     background-color: #1f2969;
     color: #fff;
 }
