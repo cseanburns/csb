@@ -923,7 +923,7 @@ EOF
 <p>It was time for a site redesign. I'm teaching a web development course this semester, and working on that course inspired me to do something fun with this site. It may be less attractive than the prior version, but I like the busy-ness of this new look. In fact, the goal for this current version was to mimic, at least on the front page, those old <em>Pennysaver</em>-like ad rags that were fun to skim through. I think those things were fun, in part, because they contained so little white space. They <em>screamed</em> abundance. I plan to add more on the front page to fully realize that look.</p>
 <p>I also updated my automation scripts (see <a href="https://github.com/cseanburns/personal_website/tree/master/scripts">GitHub repo</a>) for this site:</p>
 <p>I updated the <code>WWW-toc-generator</code> script because I have a table of contents in two locations now: the home page and this page. The script therefore needed to insert the most recent entry in both places.</p>
-<p>In the prior version of the <code>make-rss</code> script, I used the <a href="http://xmlstar.sourceforge.net/">xmlstarlet</a> program to parse and extract values for the RSS feed from this <strong>index.html</strong> file. It's bothered me to depend on <code>xmlstarlet</code>. It's a nice program, but I wanted to rely on the fundamentals. So I finally did some digging and figured out a way to use <code>GNU grep</code> to replace it. <code>make-rss</code> is still quite a wonky script, but it's more interesting now, I think.</p>
+<p>In the prior version of the <code>make-rss</code> script, I used the <a href="https://xmlstar.sourceforge.net/">xmlstarlet</a> program to parse and extract values for the RSS feed from this <strong>index.html</strong> file. It's bothered me to depend on <code>xmlstarlet</code>. It's a nice program, but I wanted to rely on the fundamentals. So I finally did some digging and figured out a way to use <code>GNU grep</code> to replace it. <code>make-rss</code> is still quite a wonky script, but it's more interesting now, I think.</p>
 <p>Finally, I crossed off a big item of my to-do list. In the past, my <code>make-rss</code> script would simply generate the XML I needed for my <strong>index.xml</strong> (RSS) file and store it in a temporary file. To use that XML, I'd manually insert it into the proper places in <strong>index.xml</strong>. I wrote a script, <code>insert-xml</code> that would automate that process. The script primarily contains <code>ed(1)</code> commands.</p>
 <p>Since I write these posts in separate, markdown files, the last item to accomplish before this site is fully automated is to write a script that will insert new posts in the proper place of this <strong>index.html</strong> file. Once I get around to that, whenever I write a new post, I will be able to type one command to process the site and copy it to the remote server. Almost there!</p>
 </article>
@@ -1272,7 +1272,7 @@ T-test  1.835857   13   two-sided  0.08935  [1.98, 2.22]  0.490653  1.015  0.397
 <h2 id="diff-ed-patch">diff, ed, patch</h2>
 <h3 id="august-13-2021"><time datetime="2021-08-13">August 13, 2021</time></h3>
 <p>Sometimes I like to do things using the old ways, largely because it’s sometimes interesting how thing were done a while back. But also because even though I write some scripts in R and Python, I’m not any kind of software developer and have not had any real training in computer science.</p>
-<p>This is all just to say that right now I’m learning a bit more about the <code>diff</code> command. I’ve used it quite a bit over the years to visually compare two or more text files, but I’ve never used it the way a programmer might use it; that is, by using it with the <code>patch</code> command or with an <code>ed</code> script. (I have, however, used <a href="http://pages.cs.wisc.edu/~plonka/sysadmin/article.html">RCS</a> to edit web pages on a multi-user <a href="https://netbsd.org/">NetBSD</a> based <a href="http://sdf.org/">public access UNIX system</a>. I remember how fun it was when I first had to use it back around 2004 or 2005.)</p>
+<p>This is all just to say that right now I’m learning a bit more about the <code>diff</code> command. I’ve used it quite a bit over the years to visually compare two or more text files, but I’ve never used it the way a programmer might use it; that is, by using it with the <code>patch</code> command or with an <code>ed</code> script. (I have, however, used <a href="https://pages.cs.wisc.edu/~plonka/sysadmin/article.html">RCS</a> to edit web pages on a multi-user <a href="https://netbsd.org/">NetBSD</a> based <a href="https://sdf.org/">public access UNIX system</a>. I remember how fun it was when I first had to use it back around 2004 or 2005.)</p>
 <p>Anyways, to use <code>ed</code> and <code>patch</code> with <code>diff</code>, let’s say there are two files: file1.py file2.py, and file2.py is a modification of file1.py.</p>
 <p>To merge them with <code>diff</code> and an <code>ed</code> script:</p>
 <pre><code>diff -e file1.py file2.py &gt; patch.ed
@@ -1630,7 +1630,7 @@ timer &quot;$1&quot;
 <h2 id="site-update">Site Update</h2>
 <h3 id="july-1-2021"><time datetime="2021-07-01">July 1, 2021</time></h3>
 <p>I updated this site's design again. This time I tried to mimic the kind of straightforward, minimally styled academic sites that were common in the earlier days of the web. It's a style that is easier to maintain and, for some reason, perhaps because of the simplicity, super pleasing to me.</p>
-<p>For this iteration, I was inspired by a computer science professor's site at <a href="http://homepage.cs.uiowa.edu/~jones/">http://homepage.cs.uiowa.edu/~jones/</a>, which was nice to stumble upon.</p>
+<p>For this iteration, I was inspired by a computer science professor's site at <a href="https://homepage.cs.uiowa.edu/~jones/">https://homepage.cs.uiowa.edu/~jones/</a>, which was nice to stumble upon.</p>
 </article>
 
 <article id="20210614">
@@ -1760,7 +1760,7 @@ t95 &lt;- t.test(tortillas, mu = 2.0, conf.level=0.95)
 <p>The open science goal here is not only to make the various research products accessible (i.e., open), but also to document the process from as near to the beginning of the project to the end. Documenting the process fosters reproducibility but also creates a kind of chain of custody (not in the legal sense of the term, though).</p>
 <p>The paper was published in <em>PLOS ONE</em> and is titled <a href="https://doi.org/10.1371/journal.pone.0234221">MEDLINE search retrieval issues: A longitudinal query analysis of five vendor platforms</a>. When submitting the manuscript, <em>PLOS</em> sent the preprint to <a href="https://www.biorxiv.org">bioRxiv</a>. The peer review process at <em>PLOS</em> resulted in a title change, so the preprint at bioRxiv is titled <a href="https://doi.org/10.1101/2020.05.22.110403">Methodological issues with search in MEDLINE: A longitudinal query analysis</a>. Eventually, I believe these two versions should be automatically linked to each other on their respective sites, but I don't see it yet (about a week after publication). But by linking them, it would facilitate the ability to see the changes that resulted from the review process.</p>
 <p>The code and the data are stored on GitHub. The repository for the project is titled <a href="https://github.com/cseanburns/medline-longitudinal">medline-longitudinal</a>. I used <a href="https://doi.org/10.5281/zenodo.4757516">Zenodo</a> to create DOIs for the GitHub repository. There are two DOIs for the project. The first one is the DOI for the project at the time I submitted the manuscript. The second DOI was created based on changes I made to the code based on peer review feedback. New DOIs for the Git repository are automatically created by Zenodo when I create a <a href="https://docs.github.com/en/github/administering-a-repository/managing-releases-in-a-repository">new release of the repository</a> on GiHub. The current, final DOI is <a href="https://doi.org/10.5281/zenodo.4757516">10.5281/zenodo.4757516</a>, and the prior DOI and repo version can be found on that Zenodo page.</p>
-<p>Outside of publishing the paper, other communicative products exist. This includes a short paper that I gave at a conference near the start of this project when it was still a work in progress. The short paper is titled <a href="http://hdl.handle.net/2142/105316">Codifying discrepancies among MEDLINE platforms to advance instruction and practice</a>. I also gave a talk in the Fall 2020 semester at my College about this project, and I deposited the slides to my institutional repository. The talk is titled <a href="https://uknowledge.uky.edu/slis_present/1">Functional search problems among MEDLINE databases</a>.</p>
+<p>Outside of publishing the paper, other communicative products exist. This includes a short paper that I gave at a conference near the start of this project when it was still a work in progress. The short paper is titled <a href="https://hdl.handle.net/2142/105316">Codifying discrepancies among MEDLINE platforms to advance instruction and practice</a>. I also gave a talk in the Fall 2020 semester at my College about this project, and I deposited the slides to my institutional repository. The talk is titled <a href="https://uknowledge.uky.edu/slis_present/1">Functional search problems among MEDLINE databases</a>.</p>
 <p>Finally, <em>PLOS</em> offered the ability to make my peer review history open for the paper. So all the peer review feedback and my responses are available on the <em>PLOS ONE</em> article page, and that article page also captures post-publication commentary, including any comments on social media and elsewhere. The bioRxiv preprint also displays any social media activity about the preprint.</p>
 <p>I'm following the same process with another project that I'm working on right now. I think it's worked well.</p>
 <p>My only wish is that I could submit non-Word submissions. I think journals should be able to take Markdown files, ODT (LibreOffice) files, or files created by research notebooks. This dominance of Word is annoying. Journals in my field often do accept LaTeX files, but it's been a while since I used LaTeX and I don't have much interest in taking it back up again.</p>
@@ -1828,7 +1828,7 @@ Stack Overflow. The answers helped me solve this issue:</p>
 <article id="20210413">
 <h2 id="the-aha-moment">The Aha Moment</h2>
 <h3 id="april-13-2021"><time datetime="2021-04-13">April 13, 2021</time></h3>
-<p>For several years I have been teaching a class on knowledge management, and I've based the course on a reading of Michael Polanyi's short book, <a href="http://www.worldcat.org/oclc/864737090">The Tacit Dimension</a>. In the process of teaching this course and reading other not so related literature, I developed a nascent thesis on a topic pertaining to open science and tacit knowing.</p>
+<p>For several years I have been teaching a class on knowledge management, and I've based the course on a reading of Michael Polanyi's short book, <a href="https://www.worldcat.org/oclc/864737090">The Tacit Dimension</a>. In the process of teaching this course and reading other not so related literature, I developed a nascent thesis on a topic pertaining to open science and tacit knowing.</p>
 <p>I wanted to explore this thesis this semester on my sabbatical. To do that, for the last few months I've been reading tons of literature. I've read much more Polanyi but also a good deal in the philosophy of science, on open science, information science, gestalt psychology, learning theory, educational technology, and more.</p>
 <p>This has been great and helpful, but if someone had asked me for a detailed outline of my thesis, I would only have been able to give a halfway account. I simply wasn't fully there.</p>
 <p>Then, in a perfect example of <a href="https://sandaerdelez.com/publications">serendipity</a> (an information encountering concept), I read an email that was mistakenly sent in response to an announcement on a small listserv that I follow. That email included a reference to a paper, which looked like it fit within the scope of my thesis. As I read the paper, my entire thesis opened up to me.</p>
@@ -1951,7 +1951,7 @@ time and patient with me, and I remain grateful for that.</p>
 laid back, funny, approachable, and humble. He delivered consistently engaging
 lectures on aesthetics, the self, Russian literature, ancient Greek thinking,
 Jewish philosophy, and more. I have a copy of the book he published, <a
-href="http://www.worldcat.org/oclc/18628648">The Moving Image: Immutability,
+href="https://www.worldcat.org/oclc/18628648">The Moving Image: Immutability,
 Metaphors, and the Time Clocks Tell</a>, and cited it in an article that was
 published this month. The book possesses all the earmarks of books that I love
 most. It draws from a swath of literature, literary and philosophical. It
@@ -2648,7 +2648,7 @@ is in i3, and for a desktop environment, it is a minimal and out of the way
 one, especially compared to others. For most of my workflow, though, there's
 something quite satisfying about the minimalism of a tiling window manager,
 which I first started using well over a decade ago when <a
-href="http://ratpoison.nongnu.org/">ratpoison</a> was my primary window
+href="https://ratpoison.nongnu.org/">ratpoison</a> was my primary window
 manager.</p>
 
 <p>I like minimalism so much, earlier today I switched to a virtual terminal to
@@ -4398,7 +4398,7 @@ procrastinating, it's also true that playing around with these settings or
 exploring some other part of my work flow can help me find my calm. For
 example, a few nights ago I felt a bit anxious about life things, and instead
 of watching some show or reading some book, I went to my laptop and read
-documentation on the <a href="http://mutt.org/">Mutt</a> email client, and
+documentation on the <a href="https://mutt.org/">Mutt</a> email client, and
 I was able to configure Mutt in a way that I had not thought was previously
 possible, even after using Mutt for something like 15 or so years. The end
 result was just calming. To get lost in the documentation, to read it closely,
@@ -4515,7 +4515,7 @@ alone on the first night and it was great. Even when we were all together, our
 phones didn't have a connection, and by the end of that week, the focus had
 begun to return as the world had begun to recede.</p> <p>I think this summer
 I'll re-read Erazim Kohák's wonderful book <a
-href="http://www.worldcat.org/oclc/29603308">The embers and the stars:
+href="https://www.worldcat.org/oclc/29603308">The embers and the stars:
 A philosophical inquiry into the moral sense of nature</a>. The book was gifted
 to me by one of my professors when I graduated college and became one of my
 favorite books, and I think it'll help equip me with the mental tools needed to
@@ -4649,8 +4649,8 @@ href="https://i3wm.org/">i3</a> window manager, after having used <a
 href="https://www.nongnu.org/ratpoison/">ratpoison</a> for years. I practically
 live in the terminal, and <a
 href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bash</a>, Vim, and <a
-href="http://www.mutt.org/">Mutt</a> are my primary applications. If I could
-only use <a href="http://w3m.sourceforge.net/">w3m</a> all of the time, I'd be
+href="https://www.mutt.org/">Mutt</a> are my primary applications. If I could
+only use <a href="https://w3m.sourceforge.net/">w3m</a> all of the time, I'd be
 even happier.</p>
 </article>
 </section>
