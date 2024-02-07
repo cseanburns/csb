@@ -2,14 +2,11 @@ html {
   font-family: "Courier New", monospace;
   font-size: 100%;
   line-height: 1.5em;
-  background-color: #0f0f16;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #0f0f16;
 }
 
 body {
-  margin: auto;
-  width: 900px;
-  max-width: 100%;
   padding-right: 10px;
   padding-left: 1px;
   font-size: 1rem;
@@ -17,7 +14,6 @@ body {
 
 header {
   margin: 0 5px 5px 5px;
-  text-align: center;
 }
 
 header a {
@@ -38,19 +34,14 @@ main section {
   margin: 5px;
 }
 
-h1, h2, h3, h4 {
+h1, h2 {
   font-family: sans-serif;
   color: #669aff;
 }
 
-h3 {
-    margin-left: 1em;
+h3, h4 {
+    color: darkblue;
 }
-
-h3 + p {
-    margin-left: 1em;
-}
-
 
 h2, h3 { 
   /* places h2 element just below the top of the window */
@@ -63,7 +54,7 @@ h2, h3 {
 
 a {
   text-decoration: underline;
-  color: #bbbbbb;
+  color: #000;
 }
 
 blockquote {
