@@ -25,18 +25,6 @@
 <section>
 <h1>Notes</h1>
 
-<p>I used to use Octopress and then Dokuwiki
-to keep notes on various topics I study.
-I've developed different work flows in more receny years,
-but wanted to preserve these notes on this site.</p>
-
-<p>Most of the notes were saved
-in DokuWiki syntax.
-I use <code>pandoc</code> to convert them to HTML.
-In some cases,
-such as with the notes on R,
-I found it better to convert
-my notes to Markdown and then to HTML.</p>
 
 <h2>Base R Notes</h2>
 
@@ -52,15 +40,6 @@ my notes to Markdown and then to HTML.</p>
 <li><a href="NOTES/multiple-regression.html">Multiple Regression Example in R</a></li>
 </ol>
 
-<p>I converted these notes from Markdown to HTML
-with the following command:</p>
-
-<pre>
-<code>
-pandoc -f markdown -t html --mathml file.md -s -o file.html
-</code>
-</pre>
-
 </section>
 
 <section>
@@ -71,6 +50,38 @@ pandoc -f markdown -t html --mathml file.md -s -o file.html
   <ol>
     <li><a href="NOTES/library-quarterly-notes.html"><i>Notes on The Library Quarterly</i></a></li>
   </ol>
+
+</section>
+
+<section>
+  <h2>Comment on Note Conversion</h2>
+
+  <p>I used Octopress and then Dokuwiki
+  to keep notes on various topics I study.
+  I've developed different work flows in more recent years,
+  but wanted to preserve these notes on this site.</p>
+
+  <p>Most of the notes were saved
+  in DokuWiki syntax.
+  I use <code>pandoc</code>
+  to convert them from DokuWiki to HTML.
+  In some cases,
+  such as with the notes on R,
+  I found it better to convert
+  my notes to Markdown and then to HTML.</p>
+
+  <h3>Converting R Notes</h3>
+
+  <p>I converted these notes from Markdown to HTML
+  with the following command:</p>
+
+  <pre>
+  <code>
+  pandoc -f markdown -t html --mathml file.md -s -o file.html
+  </code>
+  </pre>
+
+  <h3>Converting General DokuWiki Notes</h3>
 
   <p>I converted these notes from DokuWiki syntax to HTML with the following command:</p>
 
