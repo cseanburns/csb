@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="C. Sean Burns" />
+  <meta name="keywords" content="base-R, ANOVA" />
+  <title>ANOVA Examples in R</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      <!-- margin: 0 auto; -->
+      <!-- max-width: 36em; -->
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ANOVA Examples in R</h1>
+<p class="author">C. Sean Burns</p>
+<p class="date">02-20-2024</p>
+</header>
+<!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="#anova-examples">ANOVA Examples</a>
+<ul>
+<li><a href="#one-way-anova">One way ANOVA</a>
+<ul>
+<li><a href="#effect-size-omega2">Effect Size
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ω</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\omega^2</annotation></semantics></math></a></li>
+</ul></li>
+<li><a href="#two-way-anova">Two-Way ANOVA</a></li>
+</ul></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2 id="anova-examples">ANOVA Examples</h2>
+<p>Examples adapted from the following work:</p>
+<p>Pagano, R. R. (2002). <em>Understanding statistics in the behavioral
+sciences</em> (6th ed.). Belmont, CA: Wadsworth.</p>
+<h3 id="one-way-anova">One way ANOVA</h3>
+<p>From pages 357 - 360.</p>
+<p>The null hypothesis:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>m</mi><msub><mi>u</mi><mn>1</mn></msub><mo>=</mo><mi>m</mi><msub><mi>u</mi><mn>2</mn></msub><mo>=</mo><mi>m</mi><msub><mi>u</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">H_0: mu_1 = mu_2 = mu_3</annotation></semantics></math><br />
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>1</mn></msub><mo>:</mo></mrow><annotation encoding="application/x-tex">H_1:</annotation></semantics></math>
+At least two means differ.</p>
+<p>The data in grouped, tabular format:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Group 1</th>
+<th>Group 2</th>
+<th>Group 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>8</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>7</td>
+<td>14</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>5</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>10</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<p>Create the data:</p>
+<pre><code>x  &lt;- c(2,3,7,2,6,10,8,7,5,10,10,13,14,13,15)
+g  &lt;- c(rep(&quot;group1&quot;, 5), rep(&quot;group2&quot;, 5), rep(&quot;group3&quot;, 5))
+xg &lt;- data.frame(x,g)</code></pre>
+<p>Examine the data:</p>
+<pre><code>    x      g
+1   2 group1
+2   3 group1
+3   7 group1
+4   2 group1
+5   6 group1
+6  10 group2
+7   8 group2
+8   7 group2
+9   5 group2
+10 10 group2
+11 10 group3
+12 13 group3
+13 14 group3
+14 13 group3
+15 15 group3</code></pre>
+<p>Run the test:</p>
+<pre><code>fit.1 &lt;- aov(x ~ g, data = xg)
+summary(fit.1)
+            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+g            2  203.3   101.7   22.59 8.54e-05 ***
+Residuals   12   54.0     4.5                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
+<h4 id="effect-size-omega2">Effect Size
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ω</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\omega^2</annotation></semantics></math></h4>
+<p>Calculate size of effect (p. 367):</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>ω</mi><mn>2</mn></msup><mo>=</mo><mfrac><mrow><mi>S</mi><msub><mi>S</mi><mi>B</mi></msub><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mi>s</mi><mi>w</mi><mn>2</mn></msubsup></mrow><mrow><mi>S</mi><msub><mi>S</mi><mi>T</mi></msub><mo>+</mo><msubsup><mi>s</mi><mi>w</mi><mn>2</mn></msubsup></mrow></mfrac></mrow><annotation encoding="application/x-tex">\omega^2 = \frac{SS_B - (k - 1)s_w^2}{SS_T + s_w^2}</annotation></semantics></math></p>
+<p>Where:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msub><mi>S</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">SS_B</annotation></semantics></math>:
+Sum of Squares Between (Sum Sq of <em>g</em> in R summary output)</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>:
+Number of groups</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>s</mi><mi>w</mi><mn>2</mn></msubsup><annotation encoding="application/x-tex">s_w^2</annotation></semantics></math>:
+Within-groups variance (Mean Sq of <em>Residuals</em> in R summary
+output)</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msub><mi>S</mi><mi>T</mi></msub></mrow><annotation encoding="application/x-tex">SS_T</annotation></semantics></math>:
+Sum of Squares Total (Not shown in R summary output; add Sum Sq
+values)</li>
+</ul>
+<p>Found this function to compute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ω</mi><mn>2</mn></msup><annotation encoding="application/x-tex">\omega^2</annotation></semantics></math>
+on StackOverflow:</p>
+<p>https://stats.stackexchange.com/questions/2962/omega-squared-for-measure-of-effect-in-r</p>
+<pre><code>omega_sq &lt;- function(aovm){
+  sum_stats &lt;- summary(aovm)[[1]]
+  SSm &lt;- sum_stats[[&quot;Sum Sq&quot;]][1]
+  SSr &lt;- sum_stats[[&quot;Sum Sq&quot;]][2]
+  DFm &lt;- sum_stats[[&quot;Df&quot;]][1]
+  MSr &lt;- sum_stats[[&quot;Mean Sq&quot;]][2]
+  W2 &lt;- (SSm-DFm*MSr)/(SSm+SSr+MSr)
+  return(W2)
+}</code></pre>
+<p>Then run the function on the model:</p>
+<pre><code>omega_sq(fit.1)
+[1] 0.7422024</code></pre>
+<h3 id="two-way-anova">Two-Way ANOVA</h3>
+<p>There are three null hypotheses in a two-way ANOVA:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+<em>Main Effect A (Rows)</em>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mrow><mi>a</mi><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>μ</mi><mrow><mi>a</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\mu_{a1} = \mu_{a2}</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+<em>Main Effect B (Columns)</em>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>μ</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub><mo>=</mo><msub><mi>μ</mi><mrow><mi>b</mi><mn>3</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\mu_{b1} = \mu_{b2} = \mu_{b3}</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math>
+<em>Interaction Effect A:B</em>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mrow><msub><mi>a</mi><mn>1</mn></msub><msub><mi>b</mi><mn>1</mn></msub></mrow></msub><mo>=</mo><msub><mi>μ</mi><mrow><msub><mi>a</mi><mn>1</mn></msub><msub><mi>b</mi><mn>3</mn></msub></mrow></msub><mo>=</mo><msub><mi>μ</mi><mrow><msub><mi>a</mi><mn>2</mn></msub><msub><mi>b</mi><mn>1</mn></msub></mrow></msub><mo>=</mo><msub><mi>μ</mi><mrow><msub><mi>a</mi><mn>2</mn></msub><msub><mi>b</mi><mn>2</mn></msub></mrow></msub><mo>=</mo><msub><mi>μ</mi><mrow><msub><mi>a</mi><mn>2</mn></msub><msub><mi>b</mi><mn>3</mn></msub></mrow></msub></mrow><annotation encoding="application/x-tex">\mu_{a_1b_1} = \mu_{a_1b_3} = \mu_{a_2b_1} = \mu_{a_2b_2} = \mu_{a_2b_3}</annotation></semantics></math></li>
+</ul>
+<p>The data in grouped, tabular format:</p>
+<pre><code>|---------------|--------------------------------|
+|               |  Exercise                      |
+|---------------|--------------------------------|
+|  Time of Day  |  Light  |  Moderate  |  Heavy  |
+|---------------|---------|------------|---------|
+|  Morning      |  6.5    |  7.4       |  8.0    |
+|               |  7.3    |  6.8       |  7.7    |
+|               |  6.6    |  6.7       |  7.1    |
+|               |  7.4    |  7.3       |  7.6    |
+|               |  7.2    |  7.6       |  6.6    |
+|               |  6.8    |  7.4       |  7.2    |
+|---------------|---------|------------|---------|
+|  Evening      |  7.1    |  7.4       |  8.2    |
+|               |  7.9    |  8.1       |  8.5    |
+|               |  8.2    |  8.2       |  9.5    |
+|               |  7.7    |  8.0       |  8.7    |
+|               |  7.5    |  7.6       |  9.6    |
+|               |  7.6    |  8.0       |  9.4    |
+|---------------|---------|------------|---------|</code></pre>
+<p>First, load the data:</p>
+<pre><code>hours &lt;- c(6.5, 7.3, 6.6, 7.4, 7.2, 6.8, 7.4, 6.8, 6.7,
+           7.3, 7.6, 7.4, 8.0, 7.7, 7.1, 7.6, 6.6, 7.2,
+           7.1, 7.9, 8.2, 7.7, 7.5, 7.6, 7.4, 8.1, 8.2,
+           8.0, 7.6, 8.0, 8.2, 8.5, 9.5, 8.7, 9.6, 9.4)
+tod   &lt;- c(rep(&quot;morning&quot;, 18), rep(&quot;evening&quot;, 18))
+exer  &lt;- rep(c(rep(&quot;light&quot;, 6), rep(&quot;moderate&quot;, 6), rep(&quot;heavy&quot;, 6)), 2)
+an.ex &lt;- data.frame(hours, tod, exer) ; rm(hours, tod, exer)</code></pre>
+<p>These are ordered factors:</p>
+<pre><code>an.ex$tod  &lt;- ordered(an.ex$tod, levels = c(&quot;morning&quot;, &quot;evening&quot;))
+an.ex$exer &lt;- ordered(an.ex$exer, levels = c(&quot;light&quot;, &quot;moderate&quot;, &quot;heavy&quot;))</code></pre>
+<p>Examine the data frame (truncated here):</p>
+<pre><code>hours     tod     exer
+1    6.5 morning    light
+2    7.3 morning    light
+...
+7    7.4 morning moderate
+8    6.8 morning moderate
+...
+35   9.6 evening    heavy
+36   9.4 evening    heavy</code></pre>
+<p>Run the model:</p>
+<pre><code>fit.1 &lt;- aov(hours ~ tod + exer + tod:exer, data = an.ex)
+summary(fit.1)
+            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+tod          1  9.000   9.000  48.416 9.93e-08 ***
+exer         2  4.754   2.377  12.787 9.63e-05 ***
+tod:exer     2  1.712   0.856   4.604    0.018 *  
+Residuals   30  5.577   0.186                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
+<p>Alternate method:</p>
+<pre><code>library(car) # alternate way
+fit.2 &lt;- lm(hours ~ tod + exer + tod:exer, data = an.ex)
+Anova(fit.2, type = &quot;II&quot;)</code></pre>
+</body>
+</html>

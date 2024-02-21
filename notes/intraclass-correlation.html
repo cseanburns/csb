@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="C. Sean Burns" />
+  <meta name="keywords" content="base-R, intraclass correlation" />
+  <title>Intraclass Correlation Examples in R</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      <!-- margin: 0 auto; -->
+      <!-- max-width: 36em; -->
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Intraclass Correlation Examples in R</h1>
+<p class="author">C. Sean Burns</p>
+<p class="date">02-21-2024</p>
+</header>
+<!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="#intraclass-correlations-notes">Intraclass Correlations
+Notes</a>
+<ul>
+<li><a href="#toy-data">Toy Data</a></li>
+<li><a href="#icc-versions">ICC Versions</a>
+<ul>
+<li><a href="#case-1-one-way-consistency-single">Case 1: One-way,
+Consistency, Single</a></li>
+<li><a href="#case-2-two-way-agreement-single-or-average">Case 2:
+Two-way, Agreement, Single or Average</a>
+<ul>
+<li><a href="#case-2a-twoway-agreement-single">Case 2a: Two,way,
+Agreement, Single</a></li>
+<li><a href="#case-2b-twoway-agreement-average">Case 2b: Two,way,
+Agreement, Average</a></li>
+</ul></li>
+<li><a href="#case-3-two-way-consistency-single-or-average">Case 3:
+Two-way, Consistency, Single or Average</a>
+<ul>
+<li><a href="#case-3a-two-way-consistency-single">Case 3a: Two-way,
+Consistency, Single</a></li>
+<li><a href="#case-3b-two-way-consistency-average">Case 3b: Two-way,
+Consistency, Average</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#icc-in-r">ICC in R</a>
+<ul>
+<li><a href="#case-1-one-way-consistency-single-1">Case 1: One-Way,
+Consistency, Single</a></li>
+<li><a href="#case-2-two-way-agreement-single">Case 2: Two-way,
+Agreement, Single</a></li>
+<li><a href="#case-3-two-way-agreement-average">Case 3: Two-way,
+Agreement, Average</a></li>
+<li><a href="#case-4-two-way-consistency-single">Case 4: Two-way,
+Consistency, Single</a></li>
+<li><a href="#case-5-two-way-consistency-average">Case 5: Two-way,
+Consistency, Average</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2 id="intraclass-correlations-notes">Intraclass Correlations
+Notes</h2>
+<p>Working through the <strong>intraclass correlation coefficients
+(ICC)</strong> by reading:</p>
+<p>Shrout, P. E., &amp; Fleiss, J. L. (1979). Intraclass correlations:
+Uses in assessing rater reliability. <strong>Psychological Bulletin,
+86</strong>(2), 420-428. <a
+href="http://dx.doi.org/10.1037/0033-2909.86.2.420">http://dx.doi.org/10.1037/0033-2909.86.2.420</a>,
+<a
+href="http://www.ncbi.nlm.nih.gov/pubmed/18839484">http://www.ncbi.nlm.nih.gov/pubmed/18839484</a></p>
+<p>And using the <strong>irr</strong> package along with its
+documentation:</p>
+<p>Gamer, Matthias. Lemon, Jim, Fellows, Ian, &amp; Singh, Puspendra.
+(2012). irr: Various Coefficients of Interrater Reliability and
+Agreement. R package version 0.84. <a
+href="http://CRAN.R-project.org/package=irr">http://CRAN.R-project.org/package=irr</a></p>
+<h3 id="toy-data">Toy Data</h3>
+<p>The toy data from the Shrout &amp; Fleiss article, Table 2,
+p. 423:</p>
+<pre><code>|----------|------------------------|
+|          |          Judge         |
+|----------|------------------------|
+|  Target  |  1   |  2  |  3  |  4  |
+|----------|------------------------|
+|  1       |  9   |  2  |  5  |  8  |
+|  2       |  6   |  1  |  3  |  2  |
+|  3       |  8   |  4  |  6  |  8  |
+|  4       |  7   |  1  |  2  |  6  |
+|  5       |  10  |  5  |  6  |  9  |
+|  6       |  6   |  2  |  4  |  7  |
+|----------|------------------------|</code></pre>
+<p>Add the above data to R and structure for running an Anova:</p>
+<pre><code>scores  &lt;- c(9,6,8,7,10,6,2,1,4,1,5,2,5,3,6,2,6,4,8,2,8,6,9,7)
+targets &lt;- rep(c(&quot;target1&quot;, &quot;target2&quot;, &quot;target3&quot;, &quot;target4&quot;, &quot;target5&quot;, &quot;target6&quot;), 4)
+judges  &lt;- c(rep(&quot;judge1&quot;, 6), rep(&quot;judge2&quot;, 6), rep(&quot;judge3&quot;, 6), rep(&quot;judge4&quot;, 6))
+stj_df  &lt;- data.frame(scores, targets, judges)</code></pre>
+<p>Resulting data frame:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>scores</th>
+<th>judges</th>
+<th>targets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>9</td>
+<td>judge1</td>
+<td>target1</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>6</td>
+<td>judge1</td>
+<td>target2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>8</td>
+<td>judge1</td>
+<td>target3</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>7</td>
+<td>judge1</td>
+<td>target4</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>10</td>
+<td>judge1</td>
+<td>target5</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>6</td>
+<td>judge1</td>
+<td>target6</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>2</td>
+<td>judge2</td>
+<td>target1</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>1</td>
+<td>judge2</td>
+<td>target2</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>4</td>
+<td>judge2</td>
+<td>target3</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>1</td>
+<td>judge2</td>
+<td>target4</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>5</td>
+<td>judge2</td>
+<td>target5</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>2</td>
+<td>judge2</td>
+<td>target6</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>5</td>
+<td>judge3</td>
+<td>target1</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>3</td>
+<td>judge3</td>
+<td>target2</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>6</td>
+<td>judge3</td>
+<td>target3</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>2</td>
+<td>judge3</td>
+<td>target4</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>6</td>
+<td>judge3</td>
+<td>target5</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>4</td>
+<td>judge3</td>
+<td>target6</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>8</td>
+<td>judge4</td>
+<td>target1</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>2</td>
+<td>judge4</td>
+<td>target2</td>
+</tr>
+<tr class="odd">
+<td>21</td>
+<td>8</td>
+<td>judge4</td>
+<td>target3</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td>6</td>
+<td>judge4</td>
+<td>target4</td>
+</tr>
+<tr class="odd">
+<td>23</td>
+<td>9</td>
+<td>judge4</td>
+<td>target5</td>
+</tr>
+<tr class="even">
+<td>24</td>
+<td>7</td>
+<td>judge4</td>
+<td>target6</td>
+</tr>
+</tbody>
+</table>
+<p>Relevant summary of statistics:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Group</th>
+<th>N</th>
+<th>Mean</th>
+<th>Var</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Target 1</td>
+<td>4</td>
+<td>6.00</td>
+<td>10.00</td>
+</tr>
+<tr class="even">
+<td>Target 2</td>
+<td>4</td>
+<td>3.00</td>
+<td>4.67</td>
+</tr>
+<tr class="odd">
+<td>Target 3</td>
+<td>4</td>
+<td>6.50</td>
+<td>3.67</td>
+</tr>
+<tr class="even">
+<td>Target 4</td>
+<td>4</td>
+<td>4.00</td>
+<td>8.67</td>
+</tr>
+<tr class="odd">
+<td>Target 5</td>
+<td>4</td>
+<td>7.50</td>
+<td>5.67</td>
+</tr>
+<tr class="even">
+<td>Target 6</td>
+<td>4</td>
+<td>4.75</td>
+<td>4.92</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>24</td>
+<td>5.29</td>
+<td>7.35</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Group</th>
+<th>N</th>
+<th>Mean</th>
+<th>Var</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Judge 1</td>
+<td>6</td>
+<td>7.67</td>
+<td>2.67</td>
+</tr>
+<tr class="even">
+<td>Judge 2</td>
+<td>6</td>
+<td>2.50</td>
+<td>2.70</td>
+</tr>
+<tr class="odd">
+<td>Judge 3</td>
+<td>6</td>
+<td>4.33</td>
+<td>2.67</td>
+</tr>
+<tr class="even">
+<td>Judge 4</td>
+<td>6</td>
+<td>6.67</td>
+<td>6.27</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>24</td>
+<td>5.29</td>
+<td>7.35</td>
+</tr>
+</tbody>
+</table>
+<h3 id="icc-versions">ICC Versions</h3>
+<p>Shrout &amp; Fleiss document six versions of the intraclass
+correlation coefficient (<strong>ICC</strong>). In deciding which
+version to use, they state:</p>
+<blockquote>
+<p>The guidelines for choosing the appropriate form of the
+<strong>ICC</strong> call for three decisions: (a) Is a one-way or
+two-way analysis of variance (ANOVA) appropriate for the analysis of the
+reliability study? (b) Are differences between the judges’ mean ratings
+relevant to the reliability study? %%(c)%% Is the unit of analysis an
+individual rating or the mean of several ratings? (p. 420)</p>
+</blockquote>
+<p>This results in the following six forms:</p>
+<ul>
+<li>If (a) one-way, then (b) is always no (consistency) and %%(c)%% can
+be either an individual rating (single) or mean of several ratings
+(average).</li>
+<li>If (a) two-way, then (b) may either be yes (agreement) or no
+(consistency) and %%(c)%% can be either an individual rating (single) or
+the mean of several ratings (average).</li>
+</ul>
+<p>More specifically:</p>
+<blockquote>
+<ol type="1">
+<li>Each target is rated by a different set of <strong>k</strong>
+judges, randomly selected from a larger population of judges
+(p. 421).</li>
+</ol>
+</blockquote>
+<ul>
+<li>If Case 1, then (a) is always one-way, (b) is always no
+(consistency), but %%(c)%% may be either single or average.
+<ul>
+<li>ICC(1,1): one-way, consistency, single</li>
+<li>ICC(1,4): one-way, consistency, average</li>
+</ul></li>
+<li>The one-way ANOVA model:</li>
+</ul>
+<pre><code>fit.1 &lt;- aov(scores ~ targets, data = stj_df)
+summary(fit.1)
+           Df Sum Sq Mean Sq F value Pr(&gt;F)
+targets      5  56.21  11.242   1.795  0.165
+Residuals   18 112.75   6.264               </code></pre>
+<h4 id="case-1-one-way-consistency-single">Case 1: One-way, Consistency,
+Single</h4>
+<p>The ICC(1,1) estimate (one-way, consistency, single):</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>C</mi><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>B</mi><mi>M</mi><mi>S</mi><mo>−</mo><mi>W</mi><mi>M</mi><mi>S</mi></mrow><mrow><mi>B</mi><mi>M</mi><mi>S</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>W</mi><mi>M</mi><mi>S</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">ICC(1,1) = \frac{BMS - WMS}{BMS + (k - 1)WMS}</annotation></semantics></math></p>
+<p>Where:</p>
+<ul>
+<li>BMS is the between-targets mean square (11.24)</li>
+<li>WMS is the within-target mean square (6.26)</li>
+<li><strong>k</strong> is the number of judges (4)</li>
+</ul>
+<p>Therefore:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>I</mi><mi>C</mi><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>11.24</mn><mo>−</mo><mn>6.26</mn></mrow><mrow><mn>11.24</mn><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>6.26</mn></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0.17</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{align*}
+ICC(1,1) &amp; = \frac{11.24 - 6.26}{11.24 + (4 - 1)6.26} \\
+         &amp; = 0.17
+\end{align*}
+</annotation></semantics></math></p>
+<p>The ICC(1,4) estimate (one-way, consistency, average):</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>C</mi><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>B</mi><mi>M</mi><mi>S</mi><mo>−</mo><mi>W</mi><mi>M</mi><mi>S</mi></mrow><mrow><mi>B</mi><mi>M</mi><mi>S</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">ICC(1,4) = \frac{BMS - WMS}{BMS}</annotation></semantics></math></p>
+<p>Therefore:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>I</mi><mi>C</mi><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>11.24</mn><mo>−</mo><mn>6.26</mn></mrow><mn>11.24</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0.44</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{align*}
+ICC(1,4) &amp; = \frac{11.24 - 6.26}{11.24} \\
+         &amp; = 0.44
+\end{align*}
+</annotation></semantics></math></p>
+<h4 id="case-2-two-way-agreement-single-or-average">Case 2: Two-way,
+Agreement, Single or Average</h4>
+<blockquote>
+<ol start="2" type="1">
+<li>A random sample of <strong>k</strong> judges is selected from a
+larger population, and each judge rates each target, that is, each judge
+rates <strong>n</strong> targets altogether (p 421).</li>
+</ol>
+</blockquote>
+<ul>
+<li>If Case 2, then (a) is always two-way, (b) is always yes
+(agreement), and %%(c)%% may be either single or average.
+<ul>
+<li>ICC(2,1): two-way, agreement, single</li>
+<li>ICC(2,4): two-way, agreement, average</li>
+</ul></li>
+<li>The two-way ANOVA model:</li>
+</ul>
+<pre><code>fit.2 &lt;- aov(scores ~ targets + judges, data = stj_df)
+summary(fit.2)
+            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+targets      5  56.21   11.24   11.03 0.000135 ***
+judges       3  97.46   32.49   31.87 9.45e-07 ***
+Residuals   15  15.29    1.02   </code></pre>
+<h5 id="case-2a-twoway-agreement-single">Case 2a: Two,way, Agreement,
+Single</h5>
+<p>The ICC(2,1) estimate (two-way, agreement, single):</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>C</mi><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>B</mi><mi>M</mi><mi>S</mi><mo>−</mo><mi>E</mi><mi>M</mi><mi>S</mi></mrow><mrow><mi>B</mi><mi>M</mi><mi>S</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>E</mi><mi>M</mi><mi>S</mi><mo>+</mo><mfrac><mrow><mi>k</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>J</mi><mi>M</mi><mi>S</mi><mo>−</mo><mi>E</mi><mi>M</mi><mi>S</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mi>n</mi></mfrac></mrow></mfrac></mrow><annotation encoding="application/x-tex">ICC(2,1) = \frac{BMS - EMS}{BMS + (k - 1)EMS + \frac{k(JMS - EMS)}{n}}</annotation></semantics></math></p>
+<p>Where:</p>
+<ul>
+<li>BMS is the between-targets mean square (11.24)</li>
+<li>JMS is the mean square for the between-judges sum of squares
+(32.49)</li>
+<li>EMS is the mean square for the residual sum of squares (1.02)</li>
+<li><strong>k</strong> is the number of judges (4)</li>
+<li><strong>n</strong> is the number of targets (6)</li>
+</ul>
+<p>Therefore:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>I</mi><mi>C</mi><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>11.24</mn><mo>−</mo><mn>1.02</mn></mrow><mrow><mn>11.24</mn><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>1.02</mn><mo>+</mo><mfrac><mrow><mn>4</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>32.49</mn><mo>−</mo><mn>1.02</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mn>6</mn></mfrac></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0.29</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{align*}
+ICC(2,1) &amp; = \frac{11.24 - 1.02}{11.24 + (4 - 1)1.02 + \frac{4(32.49 - 1.02)}{6}} \\
+         &amp; = 0.29
+\end{align*}
+</annotation></semantics></math></p>
+<h5 id="case-2b-twoway-agreement-average">Case 2b: Two,way, Agreement,
+Average</h5>
+<p>The ICC(2,4) estimate (two-way, agreement, average):</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>C</mi><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>B</mi><mi>M</mi><mi>S</mi><mo>−</mo><mi>E</mi><mi>M</mi><mi>S</mi></mrow><mrow><mi>B</mi><mi>M</mi><mi>S</mi><mo>+</mo><mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>J</mi><mi>M</mi><mi>S</mi><mo>−</mo><mi>E</mi><mi>M</mi><mi>S</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>n</mi></mfrac></mrow></mfrac></mrow><annotation encoding="application/x-tex">ICC(2,4) = \frac{BMS - EMS}{BMS + \frac{(JMS - EMS)}{n}}</annotation></semantics></math></p>
+<p>Therefore:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>I</mi><mi>C</mi><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>11.24</mn><mo>−</mo><mn>1.02</mn></mrow><mrow><mn>11.24</mn><mo>+</mo><mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>32.49</mn><mo>−</mo><mn>1.02</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>6</mn></mfrac></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0.62</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{align*}
+ICC(2,4) &amp; = \frac{11.24 - 1.02}{11.24 + \frac{(32.49 - 1.02)}{6}} \\
+         &amp; = 0.62
+\end{align*}
+</annotation></semantics></math></p>
+<h4 id="case-3-two-way-consistency-single-or-average">Case 3: Two-way,
+Consistency, Single or Average</h4>
+<blockquote>
+<ol start="3" type="1">
+<li>Each target is rated by each of the same <strong>k</strong> judges,
+who are the only judges of interest (p. 421).</li>
+</ol>
+</blockquote>
+<ul>
+<li>If Case 3, then (a) is always two-way, (b) is always no
+(consistency) and %%(c)%% may be either single or average.
+<ul>
+<li>ICC(3,1): two-way, consistency, single</li>
+<li>ICC(3,4): two-way, consistency, average</li>
+</ul></li>
+<li>The two-way ANOVA model (same as for Case 2):</li>
+</ul>
+<pre><code>fit.2 &lt;- aov(scores ~ targets + judges, data = stj_df)
+summary(fit.2)
+            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+targets      5  56.21   11.24   11.03 0.000135 ***
+judges       3  97.46   32.49   31.87 9.45e-07 ***
+Residuals   15  15.29    1.02   </code></pre>
+<h5 id="case-3a-two-way-consistency-single">Case 3a: Two-way,
+Consistency, Single</h5>
+<p>The ICC(3,1) estimate (two-way, consistency, single):</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>C</mi><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>B</mi><mi>M</mi><mi>S</mi><mo>−</mo><mi>E</mi><mi>M</mi><mi>S</mi></mrow><mrow><mi>B</mi><mi>M</mi><mi>S</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>E</mi><mi>M</mi><mi>S</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">ICC(3,1) = \frac{BMS - EMS}{BMS + (k - 1)EMS}</annotation></semantics></math></p>
+<p>Where:</p>
+<ul>
+<li>BMS is the between-targets mean square (11.24)</li>
+<li>EMS is the mean square for the residual sum of squares (1.02)</li>
+<li><strong>k</strong> is the number of judges (4)</li>
+</ul>
+<p>Therefore:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>I</mi><mi>C</mi><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>11.24</mn><mo>−</mo><mn>1.02</mn></mrow><mrow><mn>11.24</mn><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>1.02</mn></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0.71</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{align*}
+ICC(3,1) &amp; = \frac{11.24 - 1.02}{11.24 + (4 - 1)1.02} \\
+         &amp; = 0.71
+\end{align*}
+</annotation></semantics></math></p>
+<h5 id="case-3b-two-way-consistency-average">Case 3b: Two-way,
+Consistency, Average</h5>
+<p>The ICC(3,4) estimate (two-way, consistency, average):</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>C</mi><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>B</mi><mi>M</mi><mi>S</mi><mo>−</mo><mi>E</mi><mi>M</mi><mi>S</mi></mrow><mrow><mi>B</mi><mi>M</mi><mi>S</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">ICC(3,4) = \frac{BMS - EMS}{BMS}</annotation></semantics></math></p>
+<p>Therefore:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>I</mi><mi>C</mi><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>11.24</mn><mo>−</mo><mn>1.02</mn></mrow><mn>11.24</mn></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0.91</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{align*}
+ICC(3,4) &amp; = \frac{11.24 - 1.02}{11.24} \\
+         &amp; = 0.91
+\end{align*}
+</annotation></semantics></math></p>
+<p>These agree with the ICC scores in Table 4 from Shrout &amp; Fleiss
+(p. 424):</p>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Estimate</th>
+<th>Model</th>
+<th>Type</th>
+<th>Unit of Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ICC(1,1)</td>
+<td>0.17</td>
+<td>One-way</td>
+<td>Consistency</td>
+<td>Single</td>
+</tr>
+<tr class="even">
+<td>ICC(1,4)</td>
+<td>0.44</td>
+<td>One-way</td>
+<td>Consistency</td>
+<td>Average</td>
+</tr>
+<tr class="odd">
+<td>ICC(2,1)</td>
+<td>0.29</td>
+<td>Two-way</td>
+<td>Agreement</td>
+<td>Single</td>
+</tr>
+<tr class="even">
+<td>ICC(2,4)</td>
+<td>0.62</td>
+<td>Two-way</td>
+<td>Agreement</td>
+<td>Average</td>
+</tr>
+<tr class="odd">
+<td>ICC(3,1)</td>
+<td>0.71</td>
+<td>Two-way</td>
+<td>Consistency</td>
+<td>Single</td>
+</tr>
+<tr class="even">
+<td>ICC(3,4)</td>
+<td>0.91</td>
+<td>Two-way</td>
+<td>Consistency</td>
+<td>Average</td>
+</tr>
+</tbody>
+</table>
+<h3 id="icc-in-r">ICC in R</h3>
+<p>Using the <strong>irr</strong> package, the data has to be reshaped
+(here just re-added into R):</p>
+<pre><code>library(&quot;irr&quot;)
+score_1 &lt;- c(9,6,8,7,10,6)
+score_2 &lt;- c(2,1,4,1,5,2)
+score_3 &lt;- c(5,3,6,2,6,4)
+score_4 &lt;- c(8,2,8,6,9,7)</code></pre>
+<p>Viewing the data (<strong>irr</strong> uses the data as it appears in
+the table at the top of this page):</p>
+<pre><code>cbind(score_1, score_2, score_3, score_4)
+     score_1 score_2 score_3 score_4
+[1,]       9       2       5       8
+[2,]       6       1       3       2
+[3,]       8       4       6       8
+[4,]       7       1       2       6
+[5,]      10       5       6       9
+[6,]       6       2       4       7</code></pre>
+<p>Then:</p>
+<h4 id="case-1-one-way-consistency-single-1">Case 1: One-Way,
+Consistency, Single</h4>
+<p><strong>ICC(1,1)</strong> (one-way, consistency, single):</p>
+<pre><code>icc(cbind(score_1, score_2, score_3, score_4),
+    model = &quot;oneway&quot;,
+    type  = &quot;consistency&quot;,
+    unit  = &quot;single&quot;)
+ Single Score Intraclass Correlation
+
+   Model: oneway 
+   Type : consistency 
+
+   Subjects = 6 
+     Raters = 4 
+     ICC(1) = 0.166
+
+ F-Test, H0: r0 = 0 ; H1: r0 &gt; 0 
+    F(5,18) = 1.79 , p = 0.165 
+
+ 95%-Confidence Interval for ICC Population Values:
+  -0.133 &lt; ICC &lt; 0.723</code></pre>
+<p><strong>ICC(1,4)</strong> (one-way, consistency, average):</p>
+<pre><code>icc(cbind(score_1, score_2, score_3, score_4),
+    model = &quot;oneway&quot;,
+    type  = &quot;consistency&quot;,
+    unit  = &quot;average&quot;)
+ Average Score Intraclass Correlation
+
+   Model: oneway 
+   Type : consistency 
+
+   Subjects = 6 
+     Raters = 4 
+     ICC(4) = 0.443
+
+ F-Test, H0: r0 = 0 ; H1: r0 &gt; 0 
+    F(5,18) = 1.79 , p = 0.165 
+
+ 95%-Confidence Interval for ICC Population Values:
+  -0.884 &lt; ICC &lt; 0.912</code></pre>
+<h4 id="case-2-two-way-agreement-single">Case 2: Two-way, Agreement,
+Single</h4>
+<p><strong>ICC(2,1)</strong> (two-way, agreement, single):</p>
+<pre><code>icc(cbind(score_1, score_2, score_3, score_4),
+    model = &quot;twoway&quot;,
+    type  = &quot;agreement&quot;,
+    unit  = &quot;single&quot;)
+ Single Score Intraclass Correlation
+
+   Model: twoway 
+   Type : agreement 
+
+   Subjects = 6 
+     Raters = 4 
+   ICC(A,1) = 0.29
+
+ F-Test, H0: r0 = 0 ; H1: r0 &gt; 0 
+  F(5,4.79) = 11 , p = 0.0113 
+
+ 95%-Confidence Interval for ICC Population Values:
+  0.019 &lt; ICC &lt; 0.761</code></pre>
+<h4 id="case-3-two-way-agreement-average">Case 3: Two-way, Agreement,
+Average</h4>
+<p><strong>ICC(2,4)</strong> (two-way, agreement, average):</p>
+<pre><code>icc(cbind(score_1, score_2, score_3, score_4),
+    model = &quot;twoway&quot;,
+    type  = &quot;agreement&quot;,
+    unit  = &quot;average&quot;)
+ Average Score Intraclass Correlation
+
+   Model: twoway 
+   Type : agreement 
+
+   Subjects = 6 
+     Raters = 4 
+   ICC(A,4) = 0.62
+
+ F-Test, H0: r0 = 0 ; H1: r0 &gt; 0 
+  F(5,4.19) = 11 , p = 0.0165 
+
+ 95%-Confidence Interval for ICC Population Values:
+  0.039 &lt; ICC &lt; 0.929</code></pre>
+<h4 id="case-4-two-way-consistency-single">Case 4: Two-way, Consistency,
+Single</h4>
+<p><strong>ICC(3,1)</strong> (two-way, consistency, single):</p>
+<pre><code>icc(cbind(score_1, score_2, score_3, score_4),
+    model = &quot;twoway&quot;,
+    type  = &quot;consistency&quot;,
+    unit  = &quot;single&quot;)
+ Single Score Intraclass Correlation
+
+   Model: twoway 
+   Type : consistency 
+
+   Subjects = 6 
+     Raters = 4 
+   ICC(C,1) = 0.715
+
+ F-Test, H0: r0 = 0 ; H1: r0 &gt; 0 
+    F(5,15) = 11 , p = 0.000135 
+
+ 95%-Confidence Interval for ICC Population Values:
+  0.342 &lt; ICC &lt; 0.946</code></pre>
+<h4 id="case-5-two-way-consistency-average">Case 5: Two-way,
+Consistency, Average</h4>
+<p><strong>ICC(3,4)</strong> (two-way, consistency, average):</p>
+<pre><code>icc(cbind(score_1, score_2, score_3, score_4),
+    model = &quot;twoway&quot;,
+    type  = &quot;consistency&quot;,
+    unit  = &quot;average&quot;)
+ Average Score Intraclass Correlation
+
+   Model: twoway 
+   Type : consistency 
+
+   Subjects = 6 
+     Raters = 4 
+   ICC(C,4) = 0.909
+
+ F-Test, H0: r0 = 0 ; H1: r0 &gt; 0 
+    F(5,15) = 11 , p = 0.000135 
+
+ 95%-Confidence Interval for ICC Population Values:
+  0.676 &lt; ICC &lt; 0.986</code></pre>
+</body>
+</html>

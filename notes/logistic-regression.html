@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="C. Sean Burns" />
+  <meta name="keywords" content="base-R, Logistic Regression" />
+  <title>Logistic Regression in R</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      <!-- margin: 0 auto; -->
+      <!-- max-width: 36em; -->
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Logistic Regression in R</h1>
+<p class="author">C. Sean Burns</p>
+<p class="date">02-20-2024</p>
+</header>
+<!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="#logistic-regression">Logistic Regression</a></li>
+<li><a href="#one-dichotomous-independent-variable">One Dichotomous
+Independent Variable</a></li>
+<li><a href="#logistic-regression-in-r">Logistic regression in R</a>
+<ul>
+<li><a href="#one-independent-variable-with-multiple-categories">One
+Independent Variable with Multiple Categories</a></li>
+</ul></li>
+<li><a href="#ordered-logistic-regression">Ordered Logistic
+Regression</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2 id="logistic-regression">Logistic Regression</h2>
+<h2 id="one-dichotomous-independent-variable">One Dichotomous
+Independent Variable</h2>
+<p>The following example is based on:</p>
+<p>Pedhazur, E. J. (1997). //Multiple regression in behavioral research:
+Explanation and prediction// (3rd ed.). Wadsworth.</p>
+<p>From the chapter: “Categorical Dependent Variable: Logistic
+Regression” (pp. 714-725).</p>
+<p>The toy example here involves the gender difference in admission to
+an engineering program. Create the data in R, add as grouped data.</p>
+<pre><code>yes &lt;- c(7, 3)
+no  &lt;- c(3, 7)
+log.ex &lt;- rbind(yes, no)
+dimnames(log.ex) &lt;- list(&quot;Admit&quot;  = c(&quot;Yes&quot;, &quot;No&quot;),
+                         &quot;Gender&quot; = c(&quot;Male&quot;, &quot;Female&quot;))
+# Display the table
+log.ex</code></pre>
+<p>The table:</p>
+<pre><code>|---------|---------------------|
+|         |  Gender             | 
+|---------|---------------------|
+|  Admit  |  Male    |  Female  |
+|  Yes    |  7       |  3       |
+|  No     |  3       |  7       |
+|---------|---------------------|</code></pre>
+<p><em>where</em></p>
+<pre><code>|---------|---------------------|
+|         |  X                  |
+|---------|---------------------|
+|  Y      |  1       |  0       |
+|  1      |  a       |  b       |
+|  0      |  c       |  d       |
+|---------|---------------------|</code></pre>
+<p>Pedhazur shows how to calculate the odds ratio using two methods.
+First, using the table above:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mi>R</mi><mo>=</mo><mfrac displaystyle="true"><mfrac displaystyle="true"><mi>a</mi><mi>c</mi></mfrac><mfrac displaystyle="true"><mi>b</mi><mi>d</mi></mfrac></mfrac><mo>=</mo><mfrac displaystyle="true"><mrow><mi>a</mi><mi>d</mi></mrow><mrow><mi>b</mi><mi>c</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">OR = \dfrac{\dfrac{a}{c}}{\dfrac{b}{d}} = \dfrac{ad}{bc}</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mfrac displaystyle="true"><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>7</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>7</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo>=</mo><mfrac displaystyle="true"><mn>49</mn><mn>9</mn></mfrac><mo>=</mo><mn>5.44</mn></mrow><annotation encoding="application/x-tex">= \dfrac{(7)(7)}{(3)(3)} = \dfrac{49}{9} = 5.44</annotation></semantics></math></p>
+<p>Second,</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mi>R</mi><mo>=</mo><mfrac displaystyle="true"><mi>P</mi><mrow><mn>1</mn><mo>−</mo><mi>P</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">OR = \dfrac{P}{1 - P}</annotation></semantics></math>
+(or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac displaystyle="true"><mi>P</mi><mi>Q</mi></mfrac><annotation encoding="application/x-tex">\dfrac{P}{Q}</annotation></semantics></math>)</p>
+<p>Where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>d</mi><mi>d</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>M</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">odds(M)</annotation></semantics></math>
+equals
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>d</mi><mi>d</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">odds(F)</annotation></semantics></math>
+equals
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">1 - P</annotation></semantics></math>
+(or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>),
+then:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>d</mi><mi>d</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>M</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac displaystyle="true"><mn>.7</mn><mn>.3</mn></mfrac><mo>=</mo><mn>2.333</mn></mrow><annotation encoding="application/x-tex">odds(M) = \dfrac{.7}{.3} = 2.333</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>d</mi><mi>d</mi><mi>s</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac displaystyle="true"><mn>.3</mn><mn>.7</mn></mfrac><mo>=</mo><mn>0.429</mn></mrow><annotation encoding="application/x-tex">odds(F) = \dfrac{.3}{.7} = 0.429</annotation></semantics></math>;
+and;</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mi>R</mi><mo>=</mo><mfrac displaystyle="true"><mn>2.333</mn><mn>.429</mn></mfrac><mo>=</mo><mn>5.44</mn></mrow><annotation encoding="application/x-tex">OR = \dfrac{2.333}{.429} = 5.44</annotation></semantics></math></p>
+<h2 id="logistic-regression-in-r">Logistic regression in R</h2>
+<p>The logistic regression provides the parameters for the model. When
+collecting data, it may be natural to enter the data by individual
+observations (i.e., ungrouped). Because the data was added as grouped
+data (since it’s taken from a textbook), entering it in R as such
+results in a matrix:</p>
+<pre><code>class(log.ex)
+[1] &quot;matrix&quot;
+log.ex
+     Gender
+Admit Male Female
+  Yes    7      3
+  No     3      7</code></pre>
+<p>Based on a tip <a
+href="http://stats.stackexchange.com/questions/27400/logistic-regression-grouped-and-ungrouped-variables-using-r">http://stats.stackexchange.com/questions/27400/logistic-regression-grouped-and-ungrouped-variables-using-r</a>,
+the following code works on grouped data (note the order of the Admit
+coding (1,0), which matches the order in the //log.ex// table):</p>
+<pre><code>fit.1 &lt;- glm(as.table(log.ex) ~ c(1,0), family = binomial)
+fit.1
+
+Call:  glm(formula = as.table(log.ex) ~ c(1, 0), family = binomial)
+
+Coefficients:
+(Intercept)      c(1, 0)  
+    -0.8473       1.6946  
+
+Degrees of Freedom: 1 Total (i.e. Null);  0 Residual
+Null Deviance:      3.291 
+Residual Deviance: 8.882e-16    AIC: 9.285</code></pre>
+<p>A summary of the model:</p>
+<pre><code>summary(fit.1)
+
+Call:
+glm(formula = as.table(log.ex) ~ c(1, 0), family = binomial)
+
+Deviance Residuals: 
+[1]  0  0
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)  
+(Intercept)  -0.8473     0.6901  -1.228   0.2195  
+c(1, 0)       1.6946     0.9759   1.736   0.0825 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 3.2913e+00  on 1  degrees of freedom
+Residual deviance: 8.8818e-16  on 0  degrees of freedom
+AIC: 9.2846
+
+Number of Fisher Scoring iterations: 3</code></pre>
+<p>Exponentiate the coefficients:</p>
+<pre><code>exp(coef(fit.1))
+(Intercept)     c(1, 0) 
+  0.4285714   5.4444444</code></pre>
+<p>Now we have the parameters for the odds ratio (5.44) we calculated
+above. The interpretation of this model is: “the odds of being admitted
+to the program, rather than being denied, are about 5.44 times greater
+(more favorable) for males than they are for females” (Pedhazur,
+p. 718).</p>
+<h3 id="one-independent-variable-with-multiple-categories">One
+Independent Variable with Multiple Categories</h3>
+<p>On p. 729, Pedhazur describes a set of data where “the independent
+variable consists of more than two categories.” He presents a table on
+page 730 that looks like this:</p>
+<pre><code>|--------------------|-------------|-------------|---------|--------|
+|                    | Training                                     |
+| Dependent Variable | Treatment 1 | Treatment 2 | Control | Totals |
+|--------------------|-------------|-------------|---------|--------|
+| Success            | 30          | 40          | 10      | 80     |
+| Failure            | 20          | 10          | 40      | 70     |
+| Totals             | 50          | 50          | 50      | 150    |
+|--------------------|-------------|-------------|---------|--------|</code></pre>
+<p>Let’s call the dependent variable the <strong>outcome</strong>
+variable and the <strong>training</strong> variable the
+<strong>treatment</strong> variable. The cell counts are frequencies,
+and so we create the data in <strong>R</strong> like so:</p>
+<pre><code>treatment &lt;- c(rep(1, 50), rep(2, 50), rep(3, 50))
+outcome   &lt;- c(rep(1, 30), rep(0, 20), rep(1, 40), rep(0, 10),
+               rep(1, 10), rep(0, 40))
+test.set &lt;- as.data.frame(cbind(outcome, treatment))</code></pre>
+<p>Next we make sure our <strong>treatment</strong> variable is a factor
+and is properly leveled, such that the <strong>Control</strong> level is
+the reference level:</p>
+<pre><code>test.set$treatment &lt;- factor(test.set$treatment, levels = c(1, 2, 3),
+                             labels = c(&quot;T1&quot;, &quot;T2&quot;, &quot;Control&quot;))
+test.set$treatment &lt;- relevel(test.set$treatment, ref = &quot;Control&quot;)</code></pre>
+<p>Here’s a glimpse of some of the rows in the data frame
+(e.g. ‘’test.set[51:55, ]’’):</p>
+<pre><code>|-----|---------|-----------|
+|     | outcome | treatment |
+|-----|---------|-----------|
+| 1   | 1       | T1        |
+| 2   | 1       | T1        |
+| ... | ...     | ...       |
+| 51  | 1       | T2        |
+| 52  | 1       | T2        |
+| ... | ...     | ...       |
+| 101 | 1       | Control   |
+| 102 | 1       | Control   |
+|-----|---------|-----------|</code></pre>
+<p>We regress <strong>outcome</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
+on <strong>treatment</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+and take a look at the model and its parameters:</p>
+<pre><code>fit.1 &lt;- glm(outcome ~ treatment, data = test.set, family = &quot;binomial&quot;)
+summary(fit.1)</code></pre>
+<p>The model (below) corresponds to Table 17.1 (p. 731) in Pedhazur, but
+neither <em>summary</em> nor <em>anova</em> provide all the needed
+information. Pedhazur also reports the <em>Wald</em> chi-square test and
+the degrees of freedom for the coefficients in the model. To do a
+<em>Wald</em> test, we need the <em>aod</em> package and then run the
+<em>Wald</em> test on each coefficient and on all the levels of the
+treatment variable (see <a
+href="http://stats.idre.ucla.edu/r/dae/logit-regression/">http://stats.idre.ucla.edu/r/dae/logit-regression/</a>
+for more details):</p>
+<pre><code>library(&quot;aod&quot;)
+wald.test(b = coef(fit.1), Sigma = vcov(fit.1), Terms = 1)      # test constant
+wald.test(b = coef(fit.1), Sigma = vcov(fit.1), Terms = 2)      # test treatmentT1
+wald.test(b = coef(fit.1), Sigma = vcov(fit.1), Terms = 3)      # test treatmentT2
+wald.test(b = coef(fit.1), Sigma = vcov(fit.1), Terms = 2:3)    # test treatment entirely</code></pre>
+<p>Pedhazur also reports the exponentiated coefficients for the
+treatment levels. I’ll add the exponentiated confidence intervals too,
+at the 95% level:</p>
+<pre><code>round(exp(cbind(OR = coef(fit.1), confint(fit.1))), 3)</code></pre>
+<p>We can now reconstruct Pedhazur’s table. <strong>R</strong> rounds
+differently, but the results are the same:</p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 10%" />
+<col style="width: 7%" />
+<col style="width: 5%" />
+<col style="width: 9%" />
+<col style="width: 12%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Estimate B</th>
+<th>S.E.</th>
+<th>Wald</th>
+<th>df</th>
+<th>Sig</th>
+<th>Exp(B)</th>
+<th>2.5%</th>
+<th>97.5%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Intercept</td>
+<td>-1.3863</td>
+<td>0.3536</td>
+<td>15.4</td>
+<td>1</td>
+<td>.0000</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>treatmentT1</td>
+<td>1.7918</td>
+<td>0.4564</td>
+<td>15.4</td>
+<td>1</td>
+<td>.0000</td>
+<td>6.00</td>
+<td>2.523</td>
+<td>15.260</td>
+</tr>
+<tr class="odd">
+<td>treatmentT2</td>
+<td>2.7726</td>
+<td>0.5000</td>
+<td>30.7</td>
+<td>1</td>
+<td>.0000</td>
+<td>16.00</td>
+<td>6.268</td>
+<td>44.988</td>
+</tr>
+<tr class="even">
+<td>treatment</td>
+<td></td>
+<td></td>
+<td>31.9</td>
+<td>2</td>
+<td>.0000</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>anova</code> function, as well as the <code>summary</code>
+function, provide us with the log likelihoods in the form of the
+residual deviances and the chi-square improvement in the form of the
+deviance residual for the <strong>treatment</strong> variable.</p>
+<pre><code>anova(fit.1)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Df</th>
+<th>Deviance Residual</th>
+<th>Df</th>
+<th>Resid. Dev</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NULL</td>
+<td></td>
+<td></td>
+<td>149</td>
+<td>207.28</td>
+</tr>
+<tr class="even">
+<td>treatment</td>
+<td>2</td>
+<td>39.895</td>
+<td>147</td>
+<td>167.38</td>
+</tr>
+</tbody>
+</table>
+<p>Field, Miles, and Field (p. 332, 2012) provide another way of
+reporting this. By adding the treatment variable, the reduction in
+deviance results in the chi-square statistic, which if significant,
+means we can reject the null hypothesis that the model is not better
+than chance at predicting the outcome. We can do this using the
+following code:</p>
+<pre><code># The reduction in the deviance; results in the chi square statistic
+fit.chi &lt;- fit.0$null.deviance - fit.0$deviance
+
+# The degrees of freedom for the chi square statistic
+chi.df  &lt;- fit.0$df.null - fit.0$df.residual
+
+# The probability associated with the chi-square statistic
+chisq.prob &lt;- 1 - pchisq(fit.chi, chi.df)
+
+# Display the results
+fit.chi; chi.df; chisq.prob</code></pre>
+<h2 id="ordered-logistic-regression">Ordered Logistic Regression</h2>
+<p>Note: Europe is the baseline/reference group and Low is the
+baseline/reference mean score. The objective is to make sense of the
+odds ratio of any region compared to the odds ratio of Europe, given
+this is how R’s output should be interpreted. We have the following
+table:</p>
+<pre><code>|------------------|-------|--------|------|------------|------------|---------|------|
+|                  | first_auth_geog                                                  |
+|------------------|-------|--------|------|------------|------------|---------|------|
+| mean.score       |Europe | Africa | Asia | Latin Amer | North Amer | Oceania | U.K. |
+|------------------|-------|--------|------|------------|------------|---------|------|
+| Low              | 220   | 4      | 43   | 23         | 217        | 65      | 65   |
+| Middle           | 260   | 11     | 64   | 30         | 221        | 68      | 43   |
+| High             | 124   | 5      | 44   | 23         | 79         | 30      | 20   |
+|------------------|-------|--------|------|------------|------------|---------|------|</code></pre>
+<p>The odds are calculated by: Low / (Middle + High). For Europe, that
+means:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mi>d</mi><mi>d</mi><mi>s</mi><mo>=</mo><mfrac displaystyle="true"><mn>220</mn><mrow><mn>260</mn><mo>+</mo><mn>124</mn></mrow></mfrac><mo>=</mo><mn>0.573</mn></mrow><annotation encoding="application/x-tex">Odds = \dfrac{220}{260+124} = 0.573</annotation></semantics></math></p>
+<p>And for Asia, that means:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mi>d</mi><mi>d</mi><mi>s</mi><mo>=</mo><mfrac displaystyle="true"><mn>43</mn><mrow><mn>64</mn><mo>+</mo><mn>44</mn></mrow></mfrac><mo>=</mo><mn>0.398</mn></mrow><annotation encoding="application/x-tex">Odds = \dfrac{43}{64+44} = 0.398</annotation></semantics></math></p>
+<p>Thus, the odds ratio is:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mi>R</mi><mo>=</mo><mfrac displaystyle="true"><mn>0.573</mn><mn>0.398</mn></mfrac><mo>=</mo><mn>1.439</mn></mrow><annotation encoding="application/x-tex">OR = \dfrac{0.573}{0.398} = 1.439</annotation></semantics></math></p>
+<p>Interpretation: <strong>first_auth_geog</strong> in Europe are 1.439x
+more likely to score low than middle or high compared to X in Asia.</p>
+<p>It works out a little differently when North America is considered
+the treatment group:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mi>d</mi><mi>d</mi><mi>s</mi><mo>=</mo><mfrac displaystyle="true"><mn>217</mn><mrow><mn>221</mn><mo>+</mo><mn>79</mn></mrow></mfrac><mo>=</mo><mn>0.723</mn></mrow><annotation encoding="application/x-tex">Odds = \dfrac{217}{221+79} = 0.723</annotation></semantics></math></p>
+<p>Thus this odds ratio is:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mi>R</mi><mo>=</mo><mfrac displaystyle="true"><mn>0.573</mn><mn>0.723</mn></mfrac><mo>=</mo><mn>0.792</mn></mrow><annotation encoding="application/x-tex">OR = \dfrac{0.573}{0.723} = 0.792</annotation></semantics></math></p>
+<p>Interpretation: <strong>first_auth_geog</strong> in Europe are 0.792x
+more likely to score low than middle or high compared to
+<strong>first_auth_geog</strong> in North America. This, of course,
+means <strong>first_auth_geog</strong> in Europe are less likely because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mi>R</mi><mo>&lt;</mo><mn>1.00</mn></mrow><annotation encoding="application/x-tex">OR &lt; 1.00</annotation></semantics></math>.</p>
+<p>The information is derived from the <code>ftable</code> command and
+also compared to the output of the ordered logistic regression:</p>
+<pre><code>ftable(xtabs(~ mean.rs + first_auth_geog, data = dec_sent))
+m &lt;- polr(mean.rs ~ first_auth_geog, data = dec_sent, Hess = TRUE)
+round(exp(cbind(OR = coef(m), ci)), 3)</code></pre>
+<h2 id="references">References</h2>
+<p>Field, A., Miles, Jeremy, &amp; Field, Zoë. (2012). //Discovering
+Statistics Using R//. Los Angeles: Sage.</p>
+</body>
+</html>

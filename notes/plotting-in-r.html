@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="C. Sean Burns" />
+  <meta name="keywords" content="base-R, plots" />
+  <title>Plotting in R</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      <!-- margin: 0 auto; -->
+      <!-- max-width: 36em; -->
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Plotting in R</h1>
+<p class="author">C. Sean Burns</p>
+<p class="date">02-20-2024</p>
+</header>
+<h1 id="plotting-in-r">Plotting in R</h1>
+<p>In this tutorial, I primarily cover base-R plot functions.</p>
+<p>I used different data, but the examples here are built on those
+provided by <a
+href="http://www.sthda.com/english/wiki/r-base-graphs">STHDA</a>.</p>
+<h2 id="base-r-plots">Base R Plots</h2>
+<h3 id="plot">Plot</h3>
+<p>The <code>plot()</code> function is the most basic plot and is often
+used to plot line or point plots. The syntax is <code>plot(x,y)</code>
+but also includes arguments for modifying the plot. Examples:</p>
+<p><strong>Basic Plot</strong></p>
+<pre><code>ds &lt;- USArrests # load the built-in dataset
+head(ds) # look at the top few rows
+plot(ds$Murder, ds$UrbanPop, type = &quot;p&quot;)</code></pre>
+<p>Data example 2:</p>
+<pre><code>library(robustbase)
+edex &lt;- education
+head(education)</code></pre>
+<p><strong>Adding Labels</strong></p>
+<p>Variables include (from <code>?education</code>):</p>
+<ul>
+<li>‘State’ State</li>
+<li>‘Region’ Region (1=Northeastern, 2=North central, 3=Southern,
+4=Western)</li>
+<li>‘X1’ Number of residents per thousand residing in urban areas in
+1970</li>
+<li>‘X2’ Per capita personal income in 1973</li>
+<li>‘X3’ Number of residents per thousand under 18 years of age in
+1974</li>
+<li>‘Y’ Per capita expenditure on public education in a state, projected
+for 1975</li>
+</ul>
+<p>Since the variables do not have descriptive names, we can add labels
+to the X and Y axes:</p>
+<pre><code>plot(education$X1, education$Y,
+     xlab = &quot;Residents per 1000 in Urban Areas&quot;,
+     ylab = &quot;Per capita Expenditure on Public Education&quot;,
+     main = &quot;Relationship Between Expenditure on Public Ed and Urban Pop&quot;)</code></pre>
+<p><strong>Adding Regression Line</strong></p>
+<pre><code>plot(education$X1, education$Y,
+     xlab = &quot;Residents per 1000 in Urban Areas&quot;,
+     ylab = &quot;Per capita Expenditure on Public Education&quot;,
+     main = &quot;Relationship Between Expenditure on Public Ed and Urban Pop&quot;)
+abline(lm(education$Y ~ education$X1), col = &quot;blue&quot;)</code></pre>
+<p><strong>Adding Loess Line</strong></p>
+<pre><code>plot(education$X1, education$Y,
+     xlab = &quot;Residents per 1000 in Urban Areas&quot;,
+     ylab = &quot;Per capita Expenditure on Public Education&quot;,
+     main = &quot;Relationship Between Expenditure on Public Ed and Urban Pop&quot;)
+lines(lowess(education$Y ~ education$X1), col = &quot;red&quot;)</code></pre>
+<h3 id="scatterplots">Scatterplots</h3>
+<p><strong>Scatterplots with Groups</strong></p>
+<pre><code>library(&quot;car&quot;)
+scatterplot(education$Y ~ education$X1 | education$Region)</code></pre>
+<p>Making the scatterplot more readable by describing the regions
+variable:</p>
+<pre><code>education$RegionName &lt;- factor(education$Region,
+    labels = c(&quot;Northeastern&quot;, &quot;North Central&quot;, &quot;Southern&quot;, &quot;Western&quot;))
+scatterplot(education$Y ~ education$X1 | education$RegionName)</code></pre>
+<p><strong>Scatterplot Matrices</strong></p>
+<p>Here’s we’ll compare the four numerical variables by specifying their
+column numbers. We can define the kind of points the plot creates with
+the <code>pch</code> argument. See <code>?points</code> for options.</p>
+<pre><code>pairs(education[,3:6], pch = 20)
+pairs(education[,3:6], pch = 18, col = &quot;blue&quot;)
+pairs(education[,3:6], pch = 18, col = &quot;red&quot;, cex = 1.8)</code></pre>
+<h3 id="box-plots">Box Plots</h3>
+<pre><code>boxplot(education$Y ~ education$Region)
+boxplot(education$Y ~ education$RegionName)
+boxplot(education$Y ~ education$RegionName,
+        col = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;orange&quot;))</code></pre>
+<h3 id="strip-charts">Strip Charts</h3>
+<pre><code>stripchart(education$Y ~ education$RegionName)
+stripchart(education$Y ~ education$RegionName, vertical = TRUE)
+stripchart(education$Y ~ education$RegionName, vertical = TRUE,
+           col = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;orange&quot;))</code></pre>
+<h3 id="bar-plots">Bar Plots</h3>
+<p>Bar plot does not aggregrate by default. Therefore I use the
+<code>table</code> command to aggregate the counts:</p>
+<pre><code>barplot(education$Region)
+barplot(education$RegionName)
+table(education$RegionName) # to see what&#39;s being plotted
+barplot(table(education$RegionName))
+barplot(table(education$RegionName),
+        col = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;orange&quot;))</code></pre>
+<p>To create a legend with this data requires some hacking. To compare,
+in the second call, I use the <code>unique</code> function to get unique
+values:</p>
+<pre><code>barplot(table(education$RegionName),
+        col = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;orange&quot;),
+        legend = education$RegionName)
+barplot(table(education$RegionName),
+        col = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;orange&quot;),
+        legend = unique(education$RegionName))</code></pre>
+<h3 id="multiple-lines">Multiple Lines</h3>
+<p>From the <code>bigcity</code> data set. <code>u</code> is the
+population of 49 U.S. cities in 1920. <code>x</code> is the the
+population of these cities in 1930. I’m simply sorting these to provide
+the example.</p>
+<pre><code>library(boot)
+head(bigcity)
+plot(bigcity$u, type = &quot;b&quot;, col = &quot;blue&quot;, pch = 18)
+plot(sort(bigcity$u), type = &quot;b&quot;, col = &quot;blue&quot;, pch = 18)
+lines(sort(bigcity$x), type = &quot;b&quot;, col = &quot;red&quot;, pch = 19)
+legend(&quot;topleft&quot;, legend = c(&quot;1920&quot;, &quot;1930&quot;),
+       col = c(&quot;blue&quot;, &quot;red&quot;), lty = 1:1)</code></pre>
+<h3 id="pie-chart">Pie Chart</h3>
+<p>We need to aggregate the data for a pie chart. For this, I’ll use the
+<code>tapply</code> function to take the mean of the <code>Y</code>
+variable for each <code>RegionName</code>.</p>
+<pre><code>pie(tapply(education$Y, education$RegionName, FUN = mean))
+pie(tapply(education$Y, education$RegionName, FUN = mean),
+    col = c(&quot;blue&quot;, &quot;red&quot;, &quot;green&quot;, &quot;orange&quot;))</code></pre>
+<h3 id="histograms">Histograms</h3>
+<pre><code>hist(education$X1)
+hist(education$X1, col = &quot;red&quot;)
+hist(education$X1, col = &quot;#1565c0&quot;)
+hist(education$X1, col = &quot;#1565c0&quot;, breaks = 3)</code></pre>
+<h3 id="density-plots">Density Plots</h3>
+<pre><code>plot(density(education$X1), col = &quot;#1565c0&quot;)</code></pre>
+<h3 id="dot-chart">Dot Chart</h3>
+<pre><code>dotchart(education$X1, labels = education$State,
+         groups = education$RegionName,
+         main = &quot;Education Expenditure 1970s&quot;)</code></pre>
+<h3 id="plot-group-means">Plot Group Means</h3>
+<pre><code>library(gplots)
+library(psych)
+plotmeans(education$X1 ~ education$RegionName)
+plotmeans(education$X1 ~ education$RegionName, mean.labels = TRUE)
+plotmeans(education$X1 ~ education$RegionName, connect = FALSE)</code></pre>
+<h2 id="saving-plots">Saving Plots</h2>
+<p>By default, plots are displayed and not saved as files. R can save
+plots in multiple file formats, and they all generally follow the syntax
+below that Here I save the basic plot as a PNG file:</p>
+<pre><code>png(&quot;plot1.png&quot;, width = 700, height = 700)
+plotmeans(education$X1 ~ education$RegionName, connect = FALSE)
+dev.off()</code></pre>
+<h2 id="see-also">See Also</h2>
+<p><a href="https://ggplot2.tidyverse.org/">ggplot2</a> is a powerful
+and popular graphing library for R.</p>
+<p>It’s also possible to create spatial/map plots. I created the
+following two:</p>
+<ul>
+<li>A map of <a href="https://rpubs.com/seancsb/52342">USDA Obesity and
+Diabetes Rates by US Census Region</a></li>
+<li>A map of <a href="https://rpubs.com/seancsb/6832">Texas Death
+Row</a> statistics</li>
+</ul>
+<h2 id="references">References</h2>
+<p>See <a
+href="http://www.sthda.com/english/wiki/r-base-graphs">STHDA</a> for
+many more fine examples plus some other plotting libraries.</p>
+</body>
+</html>

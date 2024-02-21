@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="C. Sean Burns" />
+  <meta name="keywords" content="base-R, Linear Regression" />
+  <title>Linear Regression Example in R</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      <!-- margin: 0 auto; -->
+      <!-- max-width: 36em; -->
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Linear Regression Example in R</h1>
+<p class="author">C. Sean Burns</p>
+<p class="date">02-21-2024</p>
+</header>
+<!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="#linear-regression">Linear Regression</a>
+<ul>
+<li><a href="#linear-regression-equation">Linear regression
+equation</a></li>
+<li><a href="#sample-data">Sample Data</a>
+<ul>
+<li><a href="#build-the-model">Build the Model</a></li>
+</ul></li>
+<li><a href="#visualize-the-model">Visualize the Model</a></li>
+<li><a href="#test-y-on-x">Test
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
+on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math></a></li>
+</ul></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2 id="linear-regression">Linear Regression</h2>
+<p>Examples adapted from the following work:</p>
+<p>Pagano, R. R. (2002). <strong>Understanding statistics in the
+behavioral sciences</strong> (6th ed.). Belmont, CA: Wadsworth. See
+pages 135 - 136.</p>
+<h3 id="linear-regression-equation">Linear regression equation</h3>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mi>′</mi><mo>=</mo><msub><mi>b</mi><mi>Y</mi></msub><mi>X</mi><mo>+</mo><msub><mi>a</mi><mi>Y</mi></msub></mrow><annotation encoding="application/x-tex">Y&#39; = {b_Y}X + a_Y</annotation></semantics></math></p>
+<p>where:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mi>′</mi></mrow><annotation encoding="application/x-tex">Y&#39;</annotation></semantics></math>
+= predicted
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>Y</mi></msub><annotation encoding="application/x-tex">b_Y</annotation></semantics></math>
+= slope</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mi>Y</mi></msub><annotation encoding="application/x-tex">a_Y</annotation></semantics></math>
+= intercept</li>
+</ul>
+<p>And:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>Y</mi></msub><mo>=</mo><mfrac displaystyle="true"><mrow><mo>∑</mo><mrow><mi>X</mi><mi>Y</mi></mrow><mo>−</mo><mfrac displaystyle="true"><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mo>∑</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mo>∑</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mi>N</mi></mfrac></mrow><mrow><mo>∑</mo><msup><mi>X</mi><mn>2</mn></msup><mo>−</mo><mfrac displaystyle="true"><msup><mrow><mo stretchy="true" form="prefix">(</mo><mo>∑</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>N</mi></mfrac></mrow></mfrac></mrow><annotation encoding="application/x-tex">b_Y = \dfrac{\sum{XY} - \dfrac{(\sum{X})(\sum{Y})}{N}}{\sum{X^2} - \dfrac{(\sum{X})^2}{N}}</annotation></semantics></math></p>
+<p>And:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>Y</mi></msub><mo>=</mo><mover><mi>Y</mi><mo accent="true">‾</mo></mover><mo>−</mo><msub><mi>b</mi><mi>Y</mi></msub><mover><mi>X</mi><mo accent="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">a_Y = \bar{Y} - {b_Y}\bar{X}</annotation></semantics></math></p>
+<h3 id="sample-data">Sample Data</h3>
+<p>The goal is to predict height in inches at age 20 based on height at
+age 3.</p>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 38%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Individual No.</th>
+<th>Height at Age 3 <strong>X</strong> (in.)</th>
+<th>Height at Age 20 <strong>Y</strong> (in.)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>30</td>
+<td>59</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>30</td>
+<td>63</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>32</td>
+<td>62</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>33</td>
+<td>67</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>34</td>
+<td>65</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>35</td>
+<td>61</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>36</td>
+<td>69</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>38</td>
+<td>66</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>40</td>
+<td>68</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>41</td>
+<td>65</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>41</td>
+<td>73</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>43</td>
+<td>68</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>45</td>
+<td>71</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>45</td>
+<td>74</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>47</td>
+<td>71</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>48</td>
+<td>75</td>
+</tr>
+</tbody>
+</table>
+<p>Enter the data into R:</p>
+<pre><code>x &lt;- c(30, 30, 32, 33, 34, 35, 36, 38, 40, 41, 41, 43, 45, 45, 47, 48)
+y &lt;- c(59, 63, 62, 67, 65, 61, 69, 66, 68, 65, 73, 68, 71, 74, 71, 75)</code></pre>
+<h4 id="build-the-model">Build the Model</h4>
+<p>Run the model using <a
+href="https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lm.html">https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lm.html</a></p>
+<pre><code>fit.1 &lt;- lm(y ~ x)
+summary(fit.1)
+
+Call:
+lm(formula = y ~ x)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.9068 -1.9569 -0.3841  1.7136  4.1113 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  41.6792     4.4698   9.325 2.21e-07 ***
+x             0.6636     0.1144   5.799 4.61e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.654 on 14 degrees of freedom
+Multiple R-squared:  0.7061,    Adjusted R-squared:  0.6851 
+F-statistic: 33.63 on 1 and 14 DF,  p-value: 4.611e-05</code></pre>
+<p>Use the coefficients to create the regression equation:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mi>′</mi><mo>=</mo><msub><mi>b</mi><mi>Y</mi></msub><mi>X</mi><mo>+</mo><msub><mi>a</mi><mi>Y</mi></msub><mo>=</mo><mn>0.664</mn><mi>X</mi><mo>+</mo><mn>41.679</mn></mrow><annotation encoding="application/x-tex">Y&#39; = {b_Y}X + a_Y = 0.664X + 41.679</annotation></semantics></math></p>
+<h3 id="visualize-the-model">Visualize the Model</h3>
+<p>Visualize the regression with a shaded 95% confidence region:</p>
+<pre><code>library(ggplot2)
+dat &lt;- data.frame(x,y)
+p   &lt;- ggplot(dat, aes(x, y))
+p + geom_point() + geom_smooth(method = lm)</code></pre>
+<h3 id="test-y-on-x">Test
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
+on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math></h3>
+<p><code>summary(fit.1)</code> reports the p-value for the F-statistic.
+Another way to test the regression of Y on X is by comparing the
+F-statistic observed to its critical value in a <a
+href="http://www.socr.ucla.edu/applets.dir/f_table.html%7CF-Distribution%20table">http://www.socr.ucla.edu/applets.dir/f_table.html|F-Distribution
+table</a>. If for no other reason but to help develop the intuition
+involved.) Although the F-statistic is reported by
+<code>summary(fit.1)</code>, per Pedhazur (1997), it can also be derived
+by dividing the <strong>regression sums of squares</strong> by the
+associated <strong>degrees of freedom</strong> and then by the
+<strong>residual sums of squares</strong> by its associated
+<strong>degrees of freedom</strong>. The <strong>sums of
+squares</strong> are not reported by <code>summary(fit.1)</code>, but
+they are reported by fitting <strong>anova</strong> to the model:</p>
+<pre><code>aov(fit.1)
+Call:
+   aov(formula = fit.1)
+
+Terms:
+                        x Residuals
+Sum of Squares  236.83824  98.59926
+Deg. of Freedom         1        14
+
+Residual standard error: 2.653828
+Estimated effects may be unbalanced</code></pre>
+<p>Use these values to confirm the F-statistic:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>=</mo><mfrac displaystyle="true"><mfrac displaystyle="true"><mrow><mi>S</mi><msub><mi>S</mi><mrow><mi>r</mi><mi>e</mi><mi>g</mi></mrow></msub></mrow><mrow><mi>d</mi><msub><mi>f</mi><mn>1</mn></msub></mrow></mfrac><mfrac displaystyle="true"><mrow><mi>S</mi><msub><mi>S</mi><mrow><mi>r</mi><mi>e</mi><mi>s</mi></mrow></msub></mrow><mrow><mi>d</mi><msub><mi>f</mi><mn>2</mn></msub></mrow></mfrac></mfrac><mo>=</mo><mfrac displaystyle="true"><mfrac displaystyle="true"><mn>236.83824</mn><mn>1</mn></mfrac><mfrac displaystyle="true"><mn>98.59926</mn><mn>14</mn></mfrac></mfrac><mo>=</mo><mn>33.63</mn></mrow><annotation encoding="application/x-tex">F = \dfrac{\dfrac{SS_{reg}}{df_1}}{\dfrac{SS_{res}}{df_2}} = \dfrac{\dfrac{236.83824}{1}}{\dfrac{98.59926}{14}} = 33.63</annotation></semantics></math></p>
+</body>
+</html>

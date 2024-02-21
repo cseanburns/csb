@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="C. Sean Burns" />
+  <meta name="keywords" content="base-R" />
+  <title>Introduction to R</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      <!-- margin: 0 auto; -->
+      <!-- max-width: 36em; -->
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Introduction to R</h1>
+<p class="author">C. Sean Burns</p>
+<p class="date">02-20-2024</p>
+</header>
+<!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="#introduction-to-r">Introduction to R</a>
+<ul>
+<li><a href="#quick-tips">Quick tips</a>
+<ul>
+<li><a href="#get-help">Get help</a></li>
+<li><a href="#installing-and-updating-packages">Installing and Updating
+Packages</a></li>
+<li><a href="#using-a-text-editor">Using a text editor</a></li>
+</ul></li>
+<li><a href="#data-objects">Data Objects</a>
+<ul>
+<li><a href="#vectors">Vectors</a></li>
+<li><a href="#factors">Factors</a></li>
+<li><a href="#data-frames">Data Frames</a></li>
+</ul></li>
+<li><a href="#manipulate-data">Manipulate data</a></li>
+<li><a href="#statistics">Statistics</a>
+<ul>
+<li><a href="#descriptive-statistics">Descriptive Statistics</a></li>
+<li><a href="#correlation">Correlation</a></li>
+<li><a href="#linear-regression">Linear Regression</a></li>
+<li><a href="#pearsons-chi-squared-test-for-count-data">Pearson’s
+Chi-squared test for count data</a></li>
+<li><a href="#chi-squared-goodness-of-fit">Chi-squared Goodness of
+Fit</a></li>
+<li><a href="#ttest">t.test</a></li>
+<li><a href="#anova">ANOVA</a></li>
+</ul></li>
+<li><a href="#saving-data">Saving data</a></li>
+<li><a href="#reading-data">Reading data</a></li>
+</ul></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h1 id="introduction-to-r">Introduction to R</h1>
+<h2 id="quick-tips">Quick tips</h2>
+<h3 id="get-help">Get help</h3>
+<p>If you need help with R, then a search engine is your friend.
+However, since “R” is a common term, I precede many of my web searches
+on R with the term <strong>r stat [query]</strong>, and that’s worked
+well for me.</p>
+<p>But R also has builtin in help/documentation/examples. To get help on
+a command or function, use the question mark followed by the name of a
+function or library, or use two question marks to search for a topic. In
+the example that follows, I am pulling up the specific documentation for
+the <code>lm</code> function. In the second statement, I’m searching the
+documentation for the term <code>chisquare</code>.</p>
+<pre><code>?lm
+??chisquare</code></pre>
+<p>The main R website is incredibly useful, too. The site contains links
+to FAQs, manuals, books, and an academic journal dedicated to R.
+See:</p>
+<p><a
+href="https://www.r-project.org/">https://www.r-project.org/</a></p>
+<h3 id="installing-and-updating-packages">Installing and Updating
+Packages</h3>
+<p>R includes base libraries (functions and data) in the default
+install. These are called <strong>Base R</strong> or <strong>R
+Base</strong>. A comprehensive list of these packages are on the web at
+the link below, and the links to each package on that site retrieve the
+same documentation that you access when you use the <code>?</code>
+commands above:</p>
+<p><a
+href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html">https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html</a></p>
+<p>Eventually you will want to to install additional libraries to add
+functionality. To do so, use the following command, and replace
+<code>package</code> with the name of the package to install:</p>
+<pre><code>install.packages(&quot;package&quot;)</code></pre>
+<p>Once installed, to load a package into the workspace so that you can
+use it, you use the <code>library</code> command:</p>
+<pre><code>library(&quot;package&quot;)</code></pre>
+<p>Periodically you may need or want to update all packages that are
+installed:</p>
+<pre><code>update.packages()</code></pre>
+<p>Packages and R itself are written by people who work in different
+industries, but many work in academia. It’s thus appreciated if we cite
+R and the packages that we use in our analyses in our publications. To
+get citation information for packages (note the version number in the
+citation info):</p>
+<pre><code>citation() # to cite R itself
+citation(&quot;package&quot;)</code></pre>
+<h3 id="using-a-text-editor">Using a text editor</h3>
+<p>When we write code, we use a text editor (not a word processor). <a
+href="https://rstudio.com/">RStudio</a> provides a builtin text editor,
+but otherwise, which one you choose is based on personal preferences. <a
+href="https://atom.io">Atom</a> is a popular, cross-platform text editor
+that has good integration with <a href="https://git-scm.com/">Git</a> /
+<a href="https://github.com">GitHub</a>. GitHub is a site to manage and
+store code. It’s also a popular place to find additional R packages.</p>
+<p>When writing in a text editor, use the <code>#</code> to write
+comments to document what you’re doing along the way. For example, here
+is an example comment followed by a short mathematical statement:</p>
+<pre><code># I will add 2 + 2 together:
+2 + 2</code></pre>
+<h2 id="data-objects">Data Objects</h2>
+<p>R uses several types of data structures, typically referred to as
+<strong>objects</strong>. The hardest part of R, in my opinion, is
+learning how to deal with these data objects and applying them to messy
+data to organize your data for analysis. It depends on the research and
+the researcher, of course, but if I had to estimate the amount of time I
+spend on a project that involves R, I’d say that, on average, I
+spend:</p>
+<ul>
+<li>50% of my time organizing and cleaning data</li>
+<li>35% of my time analyzing the data</li>
+<li>15% of my time preparing the data and the output (for example,
+polishing plots for publication)</li>
+</ul>
+<p>The main data objects follow. Today we’ll introduce ourselves to a
+few of these:</p>
+<ul>
+<li>Vectors: cf. column of data of the same type</li>
+<li>Lists: “an object consisting of an ordered collection of objects
+known as its components”; or, a mixed bag of data</li>
+<li>Arrays: a multidimensional structure of the same data type</li>
+<li>Matrices: a two dimensional structure of the same data type</li>
+<li>Factors: “a vector object used to specify a discrete
+classification”</li>
+<li>Data Frames: “a list with a class ‘data.frame’”; or, kind of like a
+spreadsheet</li>
+</ul>
+<p>For more details (and attribution for quotes), see: <a
+href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html">An
+Introduction to R</a></p>
+<h3 id="vectors">Vectors</h3>
+<p>A R vector may include data of different <strong>classes</strong>,
+such as numeric, character, and logical. Vectors may also include
+missing data, which are indicated by <code>NA</code>.</p>
+<p>In the statemenst below, I use the <code>&lt;-</code> to make an
+assignment. It assigns the values on the right side of the statement to
+the variable name on the left side of the statement. Thus, in the first
+statement below, we declare the variable <code>x</code> to hold the
+value <code>1</code>, and the variable <code>y</code> to hold multiple
+values from <code>1</code> to <code>4</code>, inclusive. Sometimes
+you’ll see examples where the equal sign <code>=</code> is used instead
+of the <code>&lt;-</code> for assignment. It’s a matter of preference,
+but <code>&lt;-</code> helps to distinguish assignment operations from
+other operations where the equal sign has a different use.</p>
+<pre><code>x  &lt;- 1  # numeric vector with one element
+y  &lt;- c(1,2,3,4) # numeric vector with multiple elements
+z  &lt;- c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;) # character vector
+x1 &lt;- c(TRUE, FALSE, TRUE, FALSE) # logical vector
+y1 &lt;- c(1,2,NA,3) # numeric vector with one missing element
+x  &lt;- rnorm(20, 1, 0.5)
+y  &lt;- rnorm(20, 2, 0.7)
+z  &lt;- x * y</code></pre>
+<p>All data objects, including vectors, are indexed. To retrieve a
+specific element in a vector by its index, use square brackets:</p>
+<pre><code>x[1] # retrieves the first element in the vector x 
+y[4] # retrieves the fourth element in the vector y</code></pre>
+<h3 id="factors">Factors</h3>
+<p>Vectors may include data that belongs to the <strong>factor</strong>
+class. Factors may be unordered or ordered. Whether factors need to be
+ordered depends on the research and data, of course. For example, we
+don’t order <strong>female</strong> or <strong>male</strong>, but we may
+order grade levels.</p>
+<p>Data is not necessarily in the desired class when entered into R, and
+we use the <code>class</code> function to see how data is classed and
+then change it if needed:</p>
+<p><strong>unordered:</strong></p>
+<pre><code>attendance &lt;- c(&quot;Yes&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;No&quot;)
+class(attendance)
+attendance &lt;- as.factor(attendance)</code></pre>
+<p><strong>ordered:</strong></p>
+<pre><code># enter data
+grades &lt;- c(&quot;C&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;, &quot;A&quot;, &quot;C&quot;, &quot;B&quot;)
+grades
+class(grades)
+table(grades)
+# change data class
+grades &lt;- factor(grades, levels = c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;), ordered = TRUE)
+grades
+class(grades)
+table(grades)</code></pre>
+<h3 id="data-frames">Data Frames</h3>
+<p>We can import data from spreadsheets, CSV files, etc, but sometimes
+we create data by combining separate vectors. For illustration, let’s
+create two vectors:</p>
+<ul>
+<li><code>x</code> will be a numeric vector that contains 20 elements,
+normally distributed with a mean of 83, and a <em>sd</em> of 3.0.</li>
+<li><code>y</code> will be a logical vector, TRUE if greater than 83,
+FALSE if less than 83</li>
+</ul>
+<pre><code>x &lt;- rnorm(20, 83, 3)
+x
+y &lt;- x &gt; 83
+y
+y &lt;- as.factor(y)
+y
+z &lt;- data.frame(x, y)
+z
+plot(z$x, z$y)
+# Reversing the order of the variables or changing the syntax may produce
+# different plots:
+plot(z$x ~ z$y) # written in formula notation
+plot(z$y, z$x) # same as above</code></pre>
+<p><strong>Note 1:</strong> R often uses formula notation/syntax:</p>
+<ul>
+<li><code>response variable ~ predictor variable</code>, or:</li>
+<li><code>dependent variable ~ independent variable</code>, or:</li>
+<li><code>y ~ x</code></li>
+</ul>
+<p><strong>Note 2:</strong> The dollar sign is used to refer to a
+variable in a data frame (think of a column in a spreadsheet). Above,
+<code>x</code> is a variable (of any length) in the <code>z</code> data
+frame.</p>
+<p><strong>Note 3:</strong> To retrieve a specific element in a data
+frame, use the square brackets and the index for both row and
+column:</p>
+<pre><code>z[1,1] # retrieve first element in first column
+z[1,2] # retrieve first element in second column
+z[3,2] # retrieve third element in second column
+z[3,] # retrieve third row
+z[,2] # retrieve second column</code></pre>
+<h2 id="manipulate-data">Manipulate data</h2>
+<p>We can do mathematical calcuations on all elements of a vector (or
+variable in a data frame) at once:</p>
+<pre><code>z$x + 100
+z$x - 100
+z$x * 100
+z$x / 100
+(z$x - 1) / 100</code></pre>
+<p>A <strong>log2</strong> transformation of a vector:</p>
+<pre><code>log(z$x)</code></pre>
+<p>A <strong>log10</strong> transformation of a vector:</p>
+<pre><code>log10(z$x)</code></pre>
+<p>When using the logarithm, be careful if there are zeroes in the
+vector:</p>
+<pre><code>n &lt;- 0:10
+n
+log(n)</code></pre>
+<p>Instead:</p>
+<pre><code>n &lt;- 0:10
+log(n + 1)
+log10(n + 1)</code></pre>
+<p>Basic math on each element in a vector:</p>
+<pre><code>z$x - 1
+z$x * 2
+z$x / 3
+(z$x + 100) * 3
+exp(z$x) # Euler&#39;s number raised to x
+pi * z$x</code></pre>
+<h2 id="statistics">Statistics</h2>
+<p>Some example statistical analyses:</p>
+<h3 id="descriptive-statistics">Descriptive Statistics</h3>
+<pre><code>set.seed(1)  # used to control random generation :)
+x &lt;- rnorm(100, 50, 1)
+summary(x)
+round(x)
+min(x)
+max(x)
+max(x) - min(x)
+sum(x)
+rank(x)
+quantile(x)
+var(x)
+sd(x)
+mean(x)
+median(x)
+length(x)
+hist(x)
+plot(density(x))</code></pre>
+<h3 id="correlation">Correlation</h3>
+<p>Three types of correlation, but we’ll also read in CSV data, from <a
+href="https://www.kaggle.com/mustafaali96/weight-height/version/1">Kaggle</a>:</p>
+<pre><code>health &lt;- read.table(file = &quot;weight-height.csv&quot;,
+                     header = TRUE,
+                     sep = &quot;,&quot;)
+head(health)
+cor(health$Height, health$Weight, method = &quot;pearson&quot;)
+cor(health$Height, health$Weight, method = &quot;spearman&quot;)
+cor(health$Height, health$Weight, method = &quot;kendal&quot;)
+boxplot(health$Weight ~ health$Gender)
+boxplot(health$Height ~ health$Gender)</code></pre>
+<p><strong>Note 1</strong>: When reading data from the file system, it
+helps if the data is located in the same part of the file system (i.e.,
+folder) that you used to start R. Otherwise, you need to specify the
+path to the data in the <code>read.table</code> (and similar commands).
+Specifying the path is OS-dependent.</p>
+<p>To get the location of your working directory. If you would like see
+the current working directory and/or change it:</p>
+<pre><code>getwd()
+setwd(&#39;/home/user/workspace/project1&#39;) # e.g., Linux
+setwd(&#39;/Users/user/workspace/project1&#39;) # e.g., macOS
+setwd(&#39;C://file/path&#39;) # e.g., Windows</code></pre>
+<h3 id="linear-regression">Linear Regression</h3>
+<p>Linear regression statements take the form of
+<code>model &lt;- lm(DV ~ IV)</code> or
+<code>model &lt;- lm(y ~ x)</code>, where “model” is simply the name you
+choose to refer to the model.</p>
+<pre><code>head(cars)
+plot(cars$dist ~ cars$speed)
+abline(lm(cars$dist ~ cars$speed))
+cor(cars$speed, cars$dist, method = &quot;pearson&quot;)
+fit &lt;- lm(cars$dist ~ cars$speed)
+plot(fit) # model diagnostics
+summary(fit)
+confint(fit)
+anova(fit)</code></pre>
+<p><strong>Note 1:</strong> <code>cars</code> is a data set that is part
+of <strong>base R</strong>.</p>
+<h3 id="pearsons-chi-squared-test-for-count-data">Pearson’s Chi-squared
+test for count data</h3>
+<pre><code>M &lt;- as.table(rbind(c(762, 327, 468), c(484, 239, 477)))
+dimnames(M) &lt;- list(gender = c(&quot;F&quot;, &quot;M&quot;),
+                    party = c(&quot;Democrat&quot;,&quot;Independent&quot;, &quot;Republican&quot;))
+Xsq &lt;- chisq.test(M)  # Prints test summary
+Xsq$observed   # observed counts (same as M)
+Xsq$expected   # expected counts under the null
+Xsq$residuals  # Pearson residuals
+Xsq$stdres     # standardized residuals</code></pre>
+<h3 id="chi-squared-goodness-of-fit">Chi-squared Goodness of Fit</h3>
+<p>Here we have prior data and so we don’t assume the null probabilities
+are equal across all categories of observations:</p>
+<pre><code>count  &lt;- c(399, 193, 63, 82, 13)
+null_probs &lt;- c(0.53, 0.32, 0.08, 0.05, 0.02)
+chisq.test(count, p = null_probs)</code></pre>
+<p>If we do test for equal null probabilities:</p>
+<pre><code>new_count &lt;- c(20, 39, 31)
+chisq.test(count)</code></pre>
+<h3 id="t.test">t.test</h3>
+<p><strong>One Sample t-test:</strong></p>
+<pre><code>mean(health$Weight)
+t.test(health$Weight, mu = 150)
+t.test(health$Weight, mu = 150, alternative = &quot;greater&quot;)</code></pre>
+<p><strong>Two Sample t-test:</strong></p>
+<pre><code>L &lt;- health$Weigth - 10
+t.test(health$Weight, L) # if variances are unequal
+t.test(health$Weight, L, var.equal = TRUE)</code></pre>
+<p><strong>Paired t-test:</strong></p>
+<pre><code>btemp1  &lt;- beaver1$temp
+length(btemp1)
+btemp2  &lt;- beaver2$temp
+length(btemp)
+set.seed(1)
+btemp1a &lt;- sample(btemp1, 100, replace = FALSE)
+t.test(btemp1a, btemp2, paired = TRUE)
+boxplot(btemp1a, btemp2)</code></pre>
+<h3 id="anova">ANOVA</h3>
+<p><strong>One way ANOVA</strong></p>
+<pre><code>x &lt;- c(2,3,7,2,6,10,8,7,5,10,10,13,14,13,15)
+g &lt;- c(rep(&quot;group1&quot;, 5), rep(&quot;group2&quot;, 5), rep(&quot;group3&quot;, 5))
+xg &lt;- data.frame(x, g)
+xg
+fit.a &lt;- aov(x ~ g, data = xg)
+summary(fit.1)
+plot(xg$x ~ xg$g)
+fit.tukey &lt;- TukeyHSD(fit.a)</code></pre>
+<h2 id="saving-data">Saving data</h2>
+<p>When you quit R, you are given the option to save your workspace. To
+quit, use the following command:</p>
+<pre><code>q()</code></pre>
+<p>But you may want to save your data to something like a CSV file,
+especially if you’ve organized and cleaned it up for analysis. To do
+so:</p>
+<pre><code>write.table(beaver1, file = &quot;beaver1.csv&quot;, sep = &quot;,&quot;, quote = TRUE)</code></pre>
+<p><strong>Note 1</strong>: The <code>beaver1</code> and
+<code>beaver1</code> datasets are provided with <strong>base
+R</strong>.</p>
+<h2 id="reading-data">Reading data</h2>
+<p>Read CSV from the web:</p>
+<pre><code>boston &lt;- read.table(&quot;https://data.boston.gov/dataset/00c015a1-2b62-4072-a71e-79b292ce9670/resource/9fdbdcad-67c8-4b23-b6ec-861e77d56227/download/tmpilkz66jf.csv&quot;,
+  header = TRUE,
+  sep = &quot;,&quot;,
+  quote = &quot;\&quot;&quot;)</code></pre>
+<p>Read from other sources, such as <a
+href="https://www.statmethods.net/input/importingdata.html">Excel, SPSS,
+SAS, and Stata</a>.</p>
+<p>Read from Google Sheets, relational databases, such as MySQL, and
+other sources.</p>
+</body>
+</html>
