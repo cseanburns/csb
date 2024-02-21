@@ -25,30 +25,20 @@
 <section>
 <h1>Notes</h1>
 
+<p>I used to use Octopress and then Dokuwiki
+to keep notes on various topics I study.
+I've developed different work flows in more receny years,
+but wanted to preserve these notes on this site.</p>
+
+<p>Most of the notes were saved
+in DokuWiki syntax.
+I use <code>pandoc</code> to convert them to HTML.
+In some cases,
+such as with the notes on R,
+I found it better to convert
+my notes to Markdown and then to HTML.</p>
+
 <h2>Base R Notes</h2>
-
-<p>I originally had these notes
-on a DokuWiki site.
-I started creating these
-notes a long time ago
-when I wanted to make sure
-I understood a statistic in R
-or when I used them to
-give a presentation on R.</p>
-
-<p>These were notes converted
-from DokuWiki syntax to
-Markdown, and then to HTML.
-I used the following
-<code>pandoc</code> command
-to convert them from
-Markdown to HTML:</p>
-
-<pre>
-<code>
-pandoc -f markdown -t html --mathml file.md -s -o file.html
-</code>
-</pre>
 
 <ol>
 <li><a href="notes/introduction-to-r.html">Introduction to R</a></li>
@@ -61,6 +51,61 @@ pandoc -f markdown -t html --mathml file.md -s -o file.html
 <li><a href="notes/manova.html">MANOVA Example in R</a></li>
 <li><a href="notes/multiple-regression.html">Multiple Regression Example in R</a></li>
 </ol>
+
+<p>I converted these notes from Markdown to HTML
+with the following command:</p>
+
+<pre>
+<code>
+pandoc -f markdown -t html --mathml file.md -s -o file.html
+</code>
+</pre>
+
+</section>
+
+<section>
+  <h2><i>The Library Quarterly</i></h2>
+
+  <p>Notes on a reading of the first four volumes of <i>The Library Quarterly</i></p>
+
+  <ol>
+    <li><a href="notes/library-quarterly-notes.html"><i>Notes on The Library Quarterly</i></a></li>
+  </ol>
+
+  <p>I converted these notes from DokuWiki syntax to HTML with the following command:</p>
+
+  <pre>
+  <code>
+pandoc -f dokuwiki -t html5 \
+  --metadata-file=metadata.yaml \
+  background.txt literature-review.txt \
+  volume-1-issue-1.txt volume-1-issue-2.txt volume-1-issue-3.txt volume-1-issue-4.txt \
+  volume-2-issue-1.txt volume-2-issue-2.txt volume-2-issue-3.txt volume-2-issue-4.txt \
+  volume-3-issue-1.txt volume-3-issue-2.txt volume-3-issue-3.txt volume-3-issue-4.txt \
+  volume-4-issue-1.txt volume-4-issue-2.txt volume-4-issue-3.txt volume-4-issue-4.txt -s -o library-quarterly-notes.html
+  </code>
+  </pre>
+
+  <p>The metadata.yaml file contained the following:</p>
+
+  <pre>
+  <code>
+---
+title: 'The Scholarly Journal and Disciplinary Identity'
+author: 'C. Sean Burns'
+date: '2013-2014'
+description: |
+  These notes are based on my reading
+  of the first four volumes of the journal
+  The Library Quarterly.
+abstract: |
+  These notes are based on my reading
+  of the first four volumes of the journal
+  The Library Quarterly. I started them on
+  July 19, 2013 and finished on January 16, 2014.
+---
+  </code>
+  </pre>
 
 </section>
 
