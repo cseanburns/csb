@@ -35,6 +35,7 @@ to monitor new posts.</p>
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#syslog">syslog</a></li>
 <li><a href="WWW/index.html#breathe-and-sleep">Breathe and Sleep</a></li>
 <li><a href="WWW/index.html#database-interfaces">Database Interfaces</a></li>
 <li><a href="WWW/index.html#the-word">The Word</a></li>
@@ -245,6 +246,17 @@ to monitor new posts.</p>
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20240222">
+<h2 id="syslog">syslog</h2>
+<h3 id="February-22-2024"><time datetime="2024-02-22">February 22, 2024</time></h3>
+<p>Last night stuff on my computer started to break in a weird way. The laptop fan started to run at full blast right as I was walking away from it to take my children some where. I didn't think anything of it, but when we returned home four hours later, the fan was still running.</p>
+<p>After investigating for a bit, I found that Firefox was using over a 100% of a CPU core and that <strong>/var/log/syslog</strong> had grown to a 120G with errors related to Firefox on Wayland.</p>
+<p>I cleared the syslog file with:</p>
+<pre><code>sudo truncate -s 0 /var/log/syslog
+</code></pre>
+<p>And then edited <strong>/etc/logrotate.d/rsyslog</strong> to prevent the <strong>syslog</strong> file from taking up so much space in the future. I also found that someone had submitted a bug report on this exact problem to launchpad.net. I added a confirmation to the bug report.</p>
+<p>In the meantime, I'm switching to another browser until this is resolved. This is unrelated to the bug, but I prefer Firefox and yet it's becoming increasingly clear that this is a Chrome-based world. I'm starting to think that I might have to make a permanent switch because many websites that I use for work are not as functional with Firefox as they are with Chrome-based browsers. I dislike that, a lot.</p>
+</article>
 <article id="20240219">
 <h2 id="breathe-and-sleep">Breathe and Sleep</h2>
 <h3 id="February-19-2024"><time datetime="2024-02-19">February 19, 2024</time></h3>
