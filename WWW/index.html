@@ -35,6 +35,7 @@ to monitor new posts.</p>
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#resize">resize</a></li>
 <li><a href="WWW/index.html#phones-down">Phones Down</a></li>
 <li><a href="WWW/index.html#syslog">syslog</a></li>
 <li><a href="WWW/index.html#breathe-and-sleep">Breathe and Sleep</a></li>
@@ -247,6 +248,26 @@ to monitor new posts.</p>
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20240305">
+<h2 id="resize">resize</h2>
+<h3 id="March-05-2024"><time datetime="2024-03-05">March 05, 2024</time></h3>
+<p>I use the <a href="https://alacritty.org/">alacritty</a> terminal. I can zoom in and out in <code>alacritty</code> (change size) like other terminals with <code>ctrl +/-</code>.</p>
+<p>However, I'd mostly rather change the font size directly. To do that, you edit the <code>$HOME/.config/alacritty/alacritty.yml</code> configuration file. For example, to change from a 13 point font size to a 14 point font size, you change 13 to 14 in the config file: <code>size: 14</code> from <code>size: 13</code>.</p>
+<p>Rather than open that configuration file, I wrote a little <code>bash</code> script to make it easier:</p>
+<pre><code>#!/bin/bash
+
+resize() {
+  ptsize=&quot;$1&quot;
+  config=&quot;$HOME/.config/alacritty/alacritty.yml&quot;
+  sed -i &quot;/size: /s/[0-9][0-9]/$ptsize/&quot; &quot;$config&quot;
+}
+
+resize &quot;$@&quot;
+</code></pre>
+<p>Now, to do something like change the font size to a 14 point, I only have to type something like:</p>
+<pre><code>resize 14
+</code></pre>
+</article>
 <article id="20240228">
 <h2 id="phones-down">Phones Down</h2>
 <h3 id="February-28-2024"><time datetime="2024-02-28">February 28, 2024</time></h3>
