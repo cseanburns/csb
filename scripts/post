@@ -72,7 +72,7 @@ make_rss() {
     printf "\n" >> "${md_dir}"/tmp.xml
 
     # Create a link using the baseurl and the <h2> element from index.html.
-    printf "https://cseanburns.net/WWW/index.html#" >> "${md_dir}"/tmp.xml
+    printf "https://cseanburns.github.io/csb/WWW/index.html#" >> "${md_dir}"/tmp.xml
     grep 'h2 id=' "${target_file}" | head -n1 |  grep -o -P '(?<=").*(?=")' >> "${md_dir}"/tmp.xml
 
     # Copy the date to a new line in order to create <lastBuildDate> and <pubDate> lines.
