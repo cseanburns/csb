@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+# set -euo pipefail
 
 ## This script auto generates a new post, RSS entry, etc for The Text page.
 ## Sep 20, 2023
