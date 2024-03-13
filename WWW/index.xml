@@ -5,8 +5,14 @@
     <link>https://cseanburns.github.io/csb/WWW/</link>
     <description>Recent posts in cseanburns.github.io/csb/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Mar 2024 13:16:55 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 13 Mar 2024 10:06:37 -0400</lastBuildDate>
     <atom:link href="https://cseanburns.github.io/csb/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>R Base</title>
+          <link>https://cseanburns.github.io/csb/WWW/index.html#r-base</link>
+          <pubDate>Wed, 13 Mar 2024 10:06:37 -0400</pubDate>
+          <guid>https://cseanburns.github.io/csb/WWW/index.html#r-base</guid>
+        </item>
         <item>
           <title>Bashing Bash</title>
           <link>https://cseanburns.github.io/csb/WWW/index.html#bashing-bash</link>
