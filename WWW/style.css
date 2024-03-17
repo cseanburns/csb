@@ -1,129 +1,13 @@
-html {
-  font-family: "Courier New", monospace;
-  font-size: 100%;
-  line-height: 1.5em;
-  background-color: #ffffff;
-  color: #0f0f16;
-}
-
-body {
-  padding-right: 10px;
-  padding-left: 1px;
-  font-size: 1rem;
-}
-
-header {
-  margin: 0 5px 5px 5px;
-}
-
-header a {
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-nav a {
-    color: #ff0090;
-}
-
-header + section {
-  margin: 5px;
-}
-
-main section {
-  margin: 5px;
-}
-
-h1, h2 {
-  font-family: sans-serif;
-  color: #669aff;
-}
-
-h3, h4 {
-    color: darkblue;
-}
-
 h2, h3 { 
-  /* places h2 element just below the top of the window */
+  /* places elements just below the top of the window */
   scroll-margin-top: 3ex;
-}
-
-h1 {
-    font-size: 1.5rem;
-}
-
-h2 {
-    font-size: 1.25rem;
-}
-
-h3 {
-    font-size: 1.125rem;
-}
-
-h4 {
-    font-size: 1rem;
 }
 
 .bold {
   font-weight: bold;
 }
 
-a {
-    text-decoration: underline;
-    color: #ff0090;
-}
-
-a[href^="https://"] {
-    color: #000;
-}
-
 a[href^="https://"]::after {
     content: "(↗)";
     color: #000;
-}
-
-blockquote {
-    border-left: 1px solid;
-    padding-left: 0.5rem;
-}
-
-blockquote p {
-    display: inline;
-}
-
-pre {
-    font-size: .8em;
-    padding: 0 0 1% 1%;
-    overflow: scroll;
-    background-color: #1f2969;
-    color: #fff;
-}
-
-p > code {
-    background-color: #585858;
-    color: #fff;
-    padding: 0 2px 0 2px;
-}
-
-li > code {
-    background-color: #585858;
-    color: #fff;
-    padding: 0 2px 0 2px;
-}
-
-aside {
-  border-left: 5px solid;
-  padding: 5px;
-}
-
-dt {
-  font-family: sans-serif;
-}
-
-footer {
-  font-size: .8em;
-  margin: 5px;
-}
-
-footer p:nth-child(1) {
-  padding-top: 5px;
 }
