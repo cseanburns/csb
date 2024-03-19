@@ -35,6 +35,7 @@ to monitor new posts.</p>
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#copying">Copying</a></li>
 <li><a href="WWW/index.html#not-reading">Not Reading</a></li>
 <li><a href="WWW/index.html#on-digital-minimalism">On Digital Minimalism</a></li>
 <li><a href="WWW/index.html#reload">Reload</a></li>
@@ -258,6 +259,14 @@ to monitor new posts.</p>
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20240319">
+<h2 id="copying">Copying</h2>
+<h3 id="March-19-2024"><time datetime="2024-03-19">March 19, 2024</time></h3>
+<p>Sometimes I need to copy a few lines from a file but don't want to open the file because, well, I don't know why. I'd rather just stay on the command prompt.</p>
+<p>Since I'm using Wayland nowadays, I use <code>wl-copy</code> to copy to the clipboard. To copy some lines from a text file, just start with <code>sed</code> and pipe to <code>wl-copy</code>:</p>
+<pre><code>sed -n &#39;/regex/p&#39; file.md | wl-copy
+</code></pre>
+</article>
 <article id="20240318">
 <h2 id="not-reading">Not Reading</h2>
 <h3 id="March-18-2024"><time datetime="2024-03-18">March 18, 2024</time></h3>
