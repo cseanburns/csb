@@ -28,11 +28,11 @@ make_post() {
 
 make_article() {
     # add <article id> with date at line 1
-    postdate=$(date +%Y%m%d)
+    postdate=$(date +%Y%m%d%H%M%S)
     sed -i "1i <article id=\"$postdate\">" "${post_file}"
 
     # add <time datetime> with date within h3 element
-    h3date=$(date +%B-%d-%Y)
+    h3date=$(date +%B-%d-%Y-%M)
     timedate=$(date +%Y-%m-%d)
     textdate=$(date "+%B %d, %Y")
     sed -i "2a <h3 id=\"$h3date\"><time datetime=\"$timedate\">$textdate</time></h3>" "${post_file}" 
