@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Building the POYi Archive</title>
+  </head>
+  <body>
+    <h1>Building the POYi Archive</h1>
+    <h2>C. Sean Burns</h2>
+    <p>November 5, 2009</p>
+    <p><a href="../index.html">Back to ~/csb</a></p>
+    <p><p>The report below was first written on February 3, 2009 and then modified on November 5, 2009, when I was a Master's student at the University of Missouri and learning to code. The report provides an account of the process I used to build the original POYi Archive using Omeka and various custom scripts.</p></p>
+    <h1 id="building-the-poyi-archive">Building the POYi Archive</h1>
+    <p>Building the original <a href="http://archive.poyi.org/">POYi Archive</a> using <a href="https://omeka.org/">Omeka</a>.</p>
+    <h2 id="part-i-manipulating-and-uploading-data-to-the-poyi-archive-omeka-database">Part I: Manipulating and Uploading Data to the POYi Archive Omeka Database</h2>
+    <p><a href="http://poyi.org/">Pictures of the Year International (POYi)</a> has been holding annual photojournalism documentary contests since 1943 and in the process has collected nearly 40,000 photographs. Although they are not copyright holders to these photographs, as part of the condition of the contest they are allowed to, under certain conditions, republish these photographs. Throughout the last decade or so, they have been digitizing all the older photographs and were using some very limited, proprietary software to keep track of their collection. Their hope was to create a public archive and share these very important images with the world.</p>
+    <p>POYi Directory Rick Shaw contacted Dr. Thomas Kochtanek during the fall of 2007. Dr. Thomas Kochtanek is an expert in information storage and retrieval systems and digital libraries and teaches at the School of Information and Library Science at the University of Missouri, Columbia. Over the last decade Dr. Kochtanek has lead a team responsible for the successful <a href="http://www.trumanlibrary.org/library.htm">Truman Library archive</a>, one of the first and largest digital libraries on the Web. Because of Dr. Kochtanek's experience with digital libraries, Rick Shaw, seeking to build a digital library for the POYi archive, was put into contact with Dr. Kochtanek.</p>
+    <p>I began work on POYi's archive in January 2008. The Truman digital library is a custom built site and preexists many present content management systems (CMS). Because it is a custom built site, it is costly to maintain. POYi had a limited amount of funding for their project and so we focused our search on an open source content management system. Soon after we began our search, I discovered a digital library CMS called <a href="http://omeka.org/">Omeka</a>.</p>
+    <p>Omeka is an open source CMS sponsored by the <a href="http://chnm.gmu.edu/">Center for History and New Media</a> and <a href="http://www.gmu.edu/">George Mason University</a>. It is designed for collections relating to the humanities and cultural artifacts. More information as well as use case scenarios can be found on Omeka's <a href="http://omeka.org/about/">About page</a>.</p>
+    <p>Omeka uses a combination of PHP5 and MySQL5, with a little bit of JavaScript, technologies to build their software. The software is designed to run on Linux using the popular Apache web server. Omeka also provides industry standard <a href="http://dublincore.org/">Dublin Core</a> metadata elements to describe the items in user collections. The use of these standard and open technologies made Omeka an extremely attractive solution for the POYi archive.</p>
+    <p>I began building the POYi archive during the spring of 2008. POYi uses a Red Hat server for their Web sites and we were given a directory on this server to build the Archive. Unfortunately, the current release of Red Hat offers PHP 5.1.6 and Omeka requires PHP 5.2.x or greater. I thought this would be an issue, and it was an issue for the initial install, but after turning to the Omeka forums one of the Omeka web developers suggested altering the verify.php file in the Omeka <code>install/</code> directory. This file checks system requirements during the install and will inform the user their system needs to be updated to run Omeka if the requirements do not match those on their system. Because PHP 5.1.6 and 5.2.x are close, I replaced the following line (install/verify.php, line 10), hoping this would work. The following code:</p>
+    <pre><code>
+    if(version_compare(&quot;5.2.x&quot;, phpversion(), &quot;&gt;=&quot;)) {
+    </code></pre>
+    <p>Became this:</p>
+    <pre><code>
+    if(version_compare(&quot;5.1.x&quot;, phpversion(), &quot;&gt;=&quot;)) {
+    </code></pre>
+    <p>Besides this small glitch, installing Omeka took approximately five to ten minutes. The first step involved creating a database for Omeka, installing the Omeka source files in the Web directory, proceeding with the Web install available via the Web browser, and then uploading content. I should note that extensive text and multimedia documentation for the installation and customization of Omeka already exists on their site.</p>
+    <p>I should also note that the version of Omeka we used is 0.92. Omeka has since rebuilt their software and the version numbering was reset to 0.10. As of today's date (November 5, 2009), the version is at 1.1. The rebuild has resulted in an almost entirely different application. While this will have an affect on our ability to upgrade to a newer version of Omeka when the Red Hat operating system catches up and is able to offer a version of PHP beyond 5.2, as of now, I have not investigated how this upgrade process will happen, although Omeka has provided some documentation on their web site that details the process.</p>
+    <p>Omeka is a modular application built using the <a href="http://framework.zend.com/">Zend Framework</a>. Plugins and themes are built separately from the core Omeka software. One of the most attractive and useful plugins available was the Drop Box plugin. The Drop Box plugin allowed us to upload thousands of photographs in a single sitting. Unfortunately, the Drop Box plugin did not provide a way to synchronously apply all the metadata to each photograph. This was a problem. All the photos from 1943 to 2006 were now uploaded to the site within collections by year, but none of the photos were described. Faced with the unbearable and timely process of entering each photograph's metadata by hand, I quickly looked for an alternative and faster solution.</p>
+    <p>Fortunately, since Omeka is built using open source technologies, such as MySQL, the solution soon became obvious. POYi had provided all of their metadata to us in spreadsheet files. These files were exported from the proprietary software they were using to organize their collection. Our solution involved a simple and basic cleanup of the spreadsheet files, normalizing the data, checking for errant punctuation that would interfere with exporting them as CSV (Comma Separated Value) files, turning those CSV files into MySQL update files, and then updating the MySQL Omeka supplied database.</p>
+    <p>The Omeka version we are using for the site has a table in the database called the <code>omeka_items</code> table (the reset of 0.10 to today's 1.1 version of Omeka uses a different database structure and the following procedure would need to be altered to work on the new version, although beyond that, there is nothing to prevent the same essential process, as detailed below, from being used if the database is rebuilt with a new version of Omeka). The <code>omeka_items</code> table contains all the Dublin Core fields, as well as some Omeka specific fields. These fields are described as:</p>
+    <pre><code>
+    id
+    title
+    publisher
+    language
+    relation
+    spatial_coverage
+    rights
+    description
+    source
+    subject
+    creator
+    additional_creator
+    format
+    date
+    type_id
+    collection_id
+    contributor
+    rights_holder
+    provenance
+    citation
+    temporal_coverage_start
+    temporal_coverage_end
+    featured
+    public</code></pre>
+    <p>When we first started uploading the data to the database, we described more fields than we did for the later years. We have since disabled viewing those fields on the current Archive site because we do not feel they correctly match the Dublin Core metadata elements. In other words, the final elements we decided to describe were the basic ones: title, publisher, relation, rights, description, creator, and date. We were more confident in the quality of data we had for those fields than we were for the other fields. At a later date we would like to upload some of the additional information provided to us by POYi. An example of such includes the awards won for the photographs. The types of awards have considerably varied over the years, especially as new medias like the Web became popular. Trying to figure how to normalize the fields for those various awards quickly became rather complicated, ind time has been of the essence for this project.</p>
+    <p>The spreadsheets of metadata and photos supplied to us by POYi were organized by year and we built our collections and worked on the data based on this yearly division. Following is the process we used to make the conversions and upload the data. Development of this project was performed on the <a href="http://www.ubuntu.com/">Ubuntu GNU/Linux distribution</a> and the scripts used involve the Bash scripting language as well as GNU Awk and Sed. These programming / scripting languages allowed us to manipulate the text after we converted the spreadsheets to CSV files.</p>
+    <p>Our goal was to match the columns to the MySQL Dublin Core fields we were going to update. When we uploaded the images using the Drop Box plugin, each photograph title was added to the <code>omeka_items</code> table and supplied a primary key--an ID number. Because each photograph contained a unique ID number, the process basically involved updating the table matching the descriptive fields to the appropriate photograph's ID.</p>
+    <p>In addition to this, a vast majority of the photos provided to us by POYi were named sequentially, beginning with <code>1.jpg</code>. This was very fortunate because it allowed us to easily match the photograph name to the photograph's ID in the <code>omeka_item</code> table. Unfortunately, the photographs were not consistently sequentially named. Some photographs, especially in the later years, were part of a group of related photographs and were thus named, e.g., <code>1200a.jpg</code>, <code>1200b.jpg</code>, <code>1200c.jpg</code>. Since it involved nearly 40,000 photographs, matching the photograph to the correct ID was initially the most time consuming part of this process, but we were later able to refine our process to make this aspect of the project proceed even more quickly. The scripts provided below will describe the absolute final process rather than the various intermediary steps we took as we learned how to streamline our work. (Note: those grouped or story set of photographs are, unfortunately, not necessarily grouped in the POYi Archive. Although a search in the Archive on a particular photographer will return all the photographs of a story, if that photographer has one, it is not obvious that they might be related in that way. Any future upgrade of the data should remedy this, conceptually that is, from an archival perspective.)</p>
+    <p>After the photographs were uploaded to the site, we needed a list of the files and their corresponding IDs. To retrieve this list, we logged into MySQL and performed the following command:</p>
+    <pre><code>
+    SELECT id,tile FROM omeka_items INTO outfile &#39;/tmp/fileList.txt&#39;;
+    </code></pre>
+    <p>This provided us with a two column list that looked like so:</p>
+    <pre><code>
+    1   1
+    2   2
+    3   3
+    4   4
+    </code></pre>
+    <p>And so on up to around 40,000 lines, give or take several hundred. The first column listed the database unique ID for the photograph and the second column listed the photograph's title, as supplied to us by the POYi folks. This was the master list we used to match photograph files to their corresponding IDs in the MySQL database.</p>
+    <p>Next we opened up one of the spreadsheets supplied to us. We used the OpenOffice.org Calc spreadsheet program to perform the following steps. The spreadsheets contained a lot of information we were not going to use, for reasons outlined above, so we spent some time cleaning up the data, removing information we were not going to use, and organizing it into the columns we were going to use. Then we used the file and ID list we exported from the MySQL database above to re-sort the spreadsheet according to the file column in that list. This matched up the file list in the POYi spreadsheet with the file list from the exported file to the proper IDs. Being able to do this was a big time saver.</p>
+    <p>Next we had to make sure all the fields in the spreadsheets were formatted as text. We selected the entire sheet, right clicked, and formatted all the cells as text. Then we removed all double quotes and replaced them with single quotes. Since MySQL uses double quotes to delimit the data in the upload file, we had to remove all double quotes in the spreadsheet fields and replace them with single quotes. Sometimes double quotes appeared in the description of a photograph. For example, a photograph's description (or caption) may quote someone about something. Next we removed all colons (:) and replaced them with commas (,). Rather than exporting the spreadsheet as a Comma Separated Value file, we were going to export it as a Colon Separated Value file. Also, many of the captions (often short narratives) had commas in them and so exporting the spreadsheet as a standard Comma Separated Value file became meaningless, as the many commas in the captions would mean extra fields. We saved the file as a CVS file using colons as Field Delimiters and double quotes as Text Delimiters.</p>
+    <p>We had previously prepared a text file listing the fields we were using and the basic MySQL command set up. We named this file simply <code>fields</code>. The <code>fields</code> file looked like this:</p>
+    <pre><code>
+    set title   =
+    publisher   =
+    relation    =
+    rights      =
+    description =
+    creator     =
+    date        =
+    where id    =
+    </code></pre>
+    <p>That set of fields matches exactly to the fields in our CVS file. Next we had to repeat that set to match the number of lines in the CSV file. To find out how many lines were in the CSV file, in BASH, the following command was used:</p>
+    <pre><code>
+    wc -l omekaItems1.csv
+    </code></pre>
+    <p>Therefore, if there were a 1000 lines in the CSV file, we had to repeat the set in the <code>fields</code> file an additional 999 times. To do this we used the Vim text editor to open the <code>fields</code> file. Beginning with the first line <code>set title</code>, we copied the first set, a total of 8 lines, by issuing this command in Vim:</p>
+    <pre><code>
+    y8
+    </code></pre>
+    <p>In this example we need to repeat this set 999 more times, in Vim we do this:</p>
+    <pre><code>
+    999p
+    </code></pre>
+    <p>Now in our <code>fields</code> file we have a 1000 sets (8000 lines total) of the above set of fields.</p>
+    <p>The CVS file we exported needed to be broken down into separate lines for each field. When we exported the file from the spreadsheet, each line contained all the information in the spreadsheet row: title, publisher, etc., and we needed to put each of those descriptions on their own line in order to match the lines in the field file. Here's what a CSV file would have looked like before processing (using the column names to list this, but the file contained the actual data):</p>
+    <pre><code>
+    &quot;title&quot;:&quot;publisher&quot;:&quot;relation&quot;:&quot;rights&quot;:&quot;description&quot;:&quot;creator&quot;:&quot;date&quot;:&quot;id&quot;
+    </code></pre>
+    <p>We needed to put those fields on separate lines and to do so we used a very simple GNU Awk script. Here is the script:</p>
+    <pre><code>
+    #!/usr/bin/gawk
+
+    BEGIN { FS = &quot;:&quot; }
+
+    {print $1}
+    {print $2}
+    {print $3}
+    {print $4}
+    {print $5}
+    {print $6}
+    {print $7}
+    {print $8}
+    </code></pre>
+    <p>This file was named <code>parse.awk</code> and made into an executable file. To parse the CSV file and output the results into a new file called <code>omeka.fields</code>, we would issue the command in the BASH shell like so:</p>
+    <pre><code>
+    awk -f parse.awk omekaItems1.csv &gt; omeka.fields</code></pre>
+    <p>Next we had to examine the <code>omeka.fields</code> file for any errors. Namely, sometimes the file would contain blank lines. In order to remove blank lines, we open up the file in the Vim text editor and issue the following command:</p>
+    <pre><code>
+    :%g/^g/d
+    </code></pre>
+    <p>Also, to help insure that we parsed the CSV file correctly, we would make sure each file had the same amount of lines. In the BASH shell prompt:</p>
+    <pre><code>
+    wc -l fields
+    wc -l omeka.fields
+    </code></pre>
+    <p>At this point we had to join the <code>fields</code> and the <code>omeka.fields</code> files together. Remember, the <code>fields</code> file looks like this:</p>
+    <pre><code>
+    set title   =
+    publisher   =
+    relation    =
+    rights      =
+    description =
+    creator     =
+    date        =
+    where id    =
+    </code></pre>
+    <p>And the new <code>omeka.fields</code> file looks like this, except supply the actual data for the name of the data below:</p>
+    <pre><code>
+    title
+    publisher
+    relation
+    rights
+    description
+    creator
+    date
+    id</code></pre>
+    <p>And what we needed to have to create the MySQL update script is this:</p>
+    <pre><code>
+    set title   = title
+    publisher   = publisher
+    relation    = relation
+    rights      = rights
+    description = description
+    creator     = creator
+    date        = date
+    where id    = id</code></pre>
+    <p>There is a GNU/Linux utility called <code>paste</code> that allowed us to join these two files together and output the result into a new file. The utility is issued from the command line and works like this:</p>
+    <pre><code>
+    paste fields omeka.fields &gt; omekaItems</code></pre>
+    <p>In other words, the syntax is this:</p>
+    <pre><code>
+    paste file1 file2 &gt; file3</code></pre>
+    <p>At this point, we were almost done. But MySQL requires a few more additions to this file before it will work. First, the MySQL update command requires the following syntax:</p>
+    <pre><code>
+    UPDATE database.table
+    set field  = &quot;data&quot;,
+    field      = &quot;data&quot;,
+    field      = &quot;data&quot;
+    where id   = &quot;ID&quot;;</code></pre>
+    <p>In order to update our <code>omekaItems</code> file, we had to add a blank line above each instance where the line <code>set title</code> appears and in that blank line we had to put the string <code>UPDATE database.table</code>. In order to do this we used the SED scripting language. The following commands, issued from the Bash shell prompt (or a script), did the trick:</p>
+    <pre><code>
+    sed &#39;/set title/{x;p;x;}&#39; omekaItems &gt; file1
+    sed &#39;s/^$/update database\.omeka_items/g&#39; file1 &gt; file2</code></pre>
+    <p>The first line above adds a blank line above each instance of <code>set title</code> and outputs the results into a file named <code>file1</code>. The second line above replaces that blank line with the update information and outputs the results into a file named <code>file2</code>. In the second line <code>database</code> is the name of the database and <code>omeka_items</code> is the name of the table we are updating in that database (the actual database's name has been withheld for basic security reasons).</p>
+    <p>So now we have a file named <code>file2</code> that looks like below. For clarity's sake, the following is an actual field set from the 57th Annual POYi Competition:</p>
+    <pre><code>
+    UPDATE database.omeka_items
+    set title = &quot;Tornado&quot;
+    publisher = &quot;Associate Press&quot;
+    relation = &quot;57th Annual POYi Competition&quot;
+    rights = &quot;All Rights Reserved&quot;
+    description = &quot;A woman and her two children huddled together under an overpass as a tornado nears outside Newcastle, Okla., May 3rd, 1999.&quot;
+    creator = &quot;J. Pat Carter&quot;
+    date = &quot;1999&quot;
+    where id = &quot;30343&quot;</code></pre>
+    <p>This photograph can be viewed here: <a href="http://archive.poyi.org/items/show/30343" class="uri">http://archive.poyi.org/items/show/30343</a>.</p>
+    <p>In order for this MySQL script to work, MySQL <code>UPDATE</code> syntax requires that the last thing we have to do is add commas after some of the lines above (except for the second to the last line) and a semi-colon after the final line. A Sed script helps solve this for us. Our script, named <code>sed.comma</code>, looks like this:</p>
+    <pre><code>
+    #!/bin/bash
+
+    sed -e &quot;/title =/s/$/,/g&quot; -e\
+    &quot;/publisher =/s/$/,/g&quot; -e\
+    &quot;/relation =/s/$/,/g&quot; -e\
+    &quot;/rights =/s/$/,/g&quot; -e\
+    &quot;/description =/s/$/,/g&quot; -e\
+    &quot;/creator =/s/$/,/g&quot; -e\
+    &quot;/where id =/s/$/;/g&quot; $1</code></pre>
+    <p>The <code>$1</code> at the end allows us to use arguments for this script. The file we run this script on is called <code>file2</code> and in a BASH shell prompt, after making the file an executable, we issue the following command:</p>
+    <pre><code>
+    ./sed.comma file2 &gt; omekaFinal1.sq
+    </code></pre>
+    <p>This outputs the results into a file named <code>omekaFinal1.sq</code> and the set above becomes this:</p>
+    <pre><code>
+    UPDATE database.omeka_items
+    set title = &quot;Tornado&quot;,
+    publisher = &quot;Associate Press&quot;,
+    relation = &quot;57th Annual POYi Competition&quot;,
+    rights = &quot;All Rights Reserved&quot;,
+    description = &quot;A woman and her two children huddled together under an overpass as a tornado nears outside Newcastle, Okla., May 3rd, 1999.&quot;,
+    creator = &quot;J. Pat Carter&quot;,
+    date = &quot;1999&quot;
+    where id = &quot;30343&quot;;</code></pre>
+    <p>One final thing before we updated our database was left. Sometimes the data we received from POYi was incomplete. Some photographs, for example, did not have a description. If we try to update the database with empty fields in our file, MySQL will throw an error. Therefore the last process involves opening the <code>omekaFinal1.sq</code> file in our Vim text editor and searching for empty fields and replacing those fields with the "N/A" string. Example Vim code looks like this:</p>
+    <pre><code>
+    :%s/description =\t,/description = \&quot;N\/A\&quot;/g
+    </code></pre>
+    <p>After that was completed, the next step involved uploading the files into the database. These files were often a quite a few megabytes in size (total lines of code for all the years described equal to about 360,000), so we compressed them with <code>bzip2</code> like so:</p>
+    <pre><code>
+    bzip2 omekaItems1.sq
+    </code></pre>
+    <p>And then we transferred them to the Web server:</p>
+    <pre><code>
+    scp omekaItems1.sq user@poyi.org:~/
+    </code></pre>
+    <p>After the file was transferred, we would log into the POYi server using a Secure Shell:</p>
+    <pre><code>
+    ssh user@poyi.org
+    </code></pre>
+    <p>And decompressed the file with <code>bunzip2</code> and updated the database with the following command:</p>
+    <pre><code>
+    mysql -u databaseUser -p -D databaseName &lt; omekaItems1.sq
+    </code></pre>
+    <p>Then we checked the web site to make sure all was well.</p>
+    <h2 id="part-ii-redesigning-the-theme-miscellany">Part II: Redesigning the Theme &amp; Miscellany</h2>
+    <p>Omeka and various outside Omeka contributors have provided several themes for public use. These themes alter the design and layout of the public interface. One of the themes offered is called <a href="http://omeka.org/add-ons/themes/">From Scratch</a>. This theme provides a basic template for customization and all the CSS elements, corresponding to the HTML tags in a default Omeka install, are provided in a file called "screen.css". Most of the customization and presentation can be altered by adding CSS descriptions to this file.</p>
+    <p>POYi director Rick Shaw wanted the Archive site to match as closely to their regular site as possible. This primarily involved modifying the color scheme and basic layout. Most of this was accomplished by modifying the CSS.</p>
+    <p>Other modifications required some PHP coding or altering. For example, users may browse items by clicking on a range of pagination links at the top of each photograph's page. The default range is five. Therefore users visiting the site may start on page one and at the most may skip ahead to page five or if they are on page seven they may skip ahead to page twelve. Since the POYi Archive site contains so many photographs, we felt it would be better to provide a longer range. We have since extended that range from five to twenty.</p>
+  </body>
+</html>
