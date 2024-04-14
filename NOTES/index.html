@@ -43,7 +43,7 @@
 </section>
 
 <section>
-  <h2><i>The Library Quarterly</i></h2>
+  <h2>Notes on Reading <i>The Library Quarterly</i></h2>
 
   <p>Notes on a reading of the first four volumes of <i>The Library Quarterly</i></p>
 
@@ -56,9 +56,10 @@
 <section>
   <h2>Comment on Note Conversion</h2>
 
-  <p>I used Octopress and then Dokuwiki
-  to keep notes on various topics I study.
+  <p>I first used Octopress and then later Dokuwiki
+  to keep notes on various topics.
   I've developed different work flows in more recent years,
+  based on more fundamental technologies,
   but wanted to preserve these notes on this site.</p>
 
   <p>Most of the notes were saved
@@ -68,7 +69,7 @@
   In some cases,
   such as with the notes on R,
   I found it better to convert
-  my notes to Markdown and then to HTML.</p>
+  my notes to Markdown, do some additional editing, and then conver them to HTML.</p>
 
   <h3>Converting R Notes</h3>
 
@@ -89,7 +90,7 @@
   <code>
 pandoc -f dokuwiki -t html5 \
   --metadata-file=metadata.yaml \
-  --toc=true \
+  --toc \
   background.txt literature-review.txt \
   volume-1-issue-1.txt volume-1-issue-2.txt volume-1-issue-3.txt volume-1-issue-4.txt \
   volume-2-issue-1.txt volume-2-issue-2.txt volume-2-issue-3.txt volume-2-issue-4.txt \
