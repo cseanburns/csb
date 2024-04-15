@@ -26,7 +26,7 @@
 <h1>Notes</h1>
 
 
-<h2>Base R Notes</h2>
+<h2>Notes on Base R</h2>
 
 <ol>
 <li><a href="NOTES/introduction-to-r.html">Introduction to R</a></li>
@@ -59,77 +59,6 @@
   <ul>
     <li><a href="NOTES/building-the-poyi-archive.html">Building the Original POYi Archive</a></li>
   </ul>
-
-</section>
-
-<section>
-  <h2>Comment on Note Conversion</h2>
-
-  <p>I first used Octopress and then later Dokuwiki
-  to keep notes on various topics.
-  I've developed different work flows in more recent years,
-  based on more fundamental technologies,
-  but wanted to preserve these notes on this site.</p>
-
-  <p>Most of the notes were saved
-  in DokuWiki syntax.
-  I use <code>pandoc</code>
-  to convert them from DokuWiki to HTML.
-  In some cases,
-  such as with the notes on R,
-  I found it better to convert
-  my notes to Markdown, do some additional editing, and then conver them to HTML.</p>
-
-  <h3>Converting R Notes</h3>
-
-  <p>I converted these notes from Markdown to HTML
-  with the following command:</p>
-
-  <pre>
-  <code>
-  pandoc -f markdown -t html --mathml file.md -s -o file.html
-  </code>
-  </pre>
-
-  <h3>Converting General DokuWiki Notes</h3>
-
-  <p>I converted these notes from DokuWiki syntax to HTML with the following command:</p>
-
-  <pre>
-  <code>
-pandoc -f dokuwiki -t html5 \
-  --metadata-file=metadata.yaml \
-  --toc \
-  background.txt literature-review.txt \
-  volume-1-issue-1.txt volume-1-issue-2.txt volume-1-issue-3.txt volume-1-issue-4.txt \
-  volume-2-issue-1.txt volume-2-issue-2.txt volume-2-issue-3.txt volume-2-issue-4.txt \
-  volume-3-issue-1.txt volume-3-issue-2.txt volume-3-issue-3.txt volume-3-issue-4.txt \
-  volume-4-issue-1.txt volume-4-issue-2.txt volume-4-issue-3.txt volume-4-issue-4.txt -s -o library-quarterly-notes.html
-  </code>
-  </pre>
-
-  <p>The metadata.yaml file contained the following:</p>
-
-  <pre>
-  <code>
----
-title: 'The Scholarly Journal and Disciplinary Identity'
-author: 'C. Sean Burns'
-date: '2013-2014'
-description: |
-  These notes are based on my reading
-  of the first four volumes of the journal
-  The Library Quarterly.
-abstract: |
-  These notes are based on my reading
-  of the first four volumes of the journal
-  The Library Quarterly. I started them on
-  July 19, 2013 and finished on January 16, 2014.
-  I'll continue to revise these notes
-  and edit out DokuWiki specific aspects.
----
-  </code>
-  </pre>
 
 </section>
 
