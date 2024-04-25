@@ -1,3 +1,7 @@
+html {
+      font-size: 120%
+  }
+
 h2, h3 { 
   /* places elements just below the top of the window */
   scroll-margin-top: 3ex;
