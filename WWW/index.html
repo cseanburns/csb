@@ -35,6 +35,7 @@ to monitor new posts.</p>
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#rmarkdown">Rmarkdown</a></li>
 <li><a href="WWW/index.html#seasonal-habits">Seasonal Habits</a></li>
 <li><a href="WWW/index.html#sentence-line-breaks">Sentence Line Breaks</a></li>
 <li><a href="WWW/index.html#archiving-email">Archiving Email</a></li>
@@ -285,6 +286,53 @@ to monitor new posts.</p>
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20240521000905">
+<h2 id="rmarkdown">Rmarkdown</h2>
+<h3 id="May-21-2024-09"><time datetime="2024-05-21">May 21, 2024</time></h3>
+<p>I use Vim as my primary environment for <code>R</code> development. This setup uses the following Vim plugins:</p>
+<ul>
+<li><a href="https://github.com/jalvesaq/Nvim-R">Nvim-R</a>: Vim as an <code>R</code> development environment</li>
+<li><a href="https://github.com/gaalcaras/ncm-R">ncm-R</a>: <code>R</code> autocompletion in Vim</li>
+<li><a href="https://github.com/vim-pandoc/vim-pandoc">vim-pandoc</a>: <code>pandoc</code> integration</li>
+<li><a href="https://github.com/jalvesaq/zotcite">zotcite</a>: Zotero integration in Vim</li>
+</ul>
+<p>With the Nvim-R plugin, I can run <code>R</code> <a href="https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt">commands directly within the document</a>. But the plugin shines when writing Rmarkdown (<em>Rmd</em>) files. To produce a report written from an Rmarkdown file in Vim, I use the following command: <code>:Rmarkdown</code>. This command generates the configured output as specified in the Rmarkdown YAML header. (It also assumes that the <a href="https://cran.r-project.org/web/packages/rmarkdown/index.html">rmarkdown</a> package is installed in <code>R</code> and <code>pandoc</code> on your system.)</p>
+<p>I successfully used this process for a paper recently accepted by <em>Scientometrics</em>.</p>
+<p>Another efficient way to create reports from <em>Rmd</em> files is by using a <strong>Makefile</strong>. I've been using Makefiles to generate my textbooks using <a href="https://github.com/rust-lang/mdBook">mdbook</a>, and I thought I'd apply it to this workflow. This approach allows you to share your research workflow as you intended it, and that's better for reproducibility than just sharing your code and data.</p>
+<p>As an example, let's say I have a file named <strong>test.Rmd</strong> with the following YAML (imagine some <code>R</code> code and text after the YAML):</p>
+<pre><code>---
+title: &quot;Rmarkdown from the command line&quot;
+author: &quot;C. Sean Burns&quot;
+date: &quot;May 20, 2024&quot;
+output:
+  html_document:
+    theme: united
+    keep_md: false
+    df_print: paged
+    code_folding: hide
+    toc: true
+    toc_depth: 2
+  word_document: default
+  pdf_document: default
+always_allow_html: yes
+---
+
+[insert text and R code here ...]
+</code></pre>
+<p>With the following <strong>Makefile</strong>, I can auto generate PDF, HTML, and DOCX files:</p>
+<pre><code>all: test.html test.docx test.pdf
+
+test.html: test.Rmd
+    Rscript -e &quot;rmarkdown::render(&#39;test.Rmd&#39;, output_format = &#39;html_document&#39;)&quot;
+
+test.docx: test.Rmd
+    Rscript -e &quot;rmarkdown::render(&#39;test.Rmd&#39;, output_format = &#39;word_document&#39;)&quot;
+
+test.pdf: test.Rmd
+    Rscript -e &quot;rmarkdown::render(&#39;test.Rmd&#39;, output_format = &#39;pdf_document&#39;)&quot;
+</code></pre>
+<p>To generate all three files, run <code>make all</code> in the shell. Or to generate only the HTML file, run <code>make test.html</code>.</p>
+</article>
 <article id="20240514155234">
 <h2 id="seasonal-habits">Seasonal Habits</h2>
 <h3 id="May-14-2024-52"><time datetime="2024-05-14">May 14, 2024</time></h3>
