@@ -35,6 +35,7 @@ to monitor new posts.</p>
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#on-writing-longhand">On Writing Longhand</a></li>
 <li><a href="WWW/index.html#make-install">Make Install</a></li>
 <li><a href="WWW/index.html#being-cool">Being Cool</a></li>
 <li><a href="WWW/index.html#on-distance">On Distance</a></li>
@@ -293,6 +294,13 @@ to monitor new posts.</p>
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20240603170600">
+<h2 id="on-writing-longhand">On Writing Longhand</h2>
+<h3 id="June-03-2024-06"><time datetime="2024-06-03">June 03, 2024</time></h3>
+<p>I went (late) to a writing retreat this morning. Writing retreats are a great way to focus and get work done, and I need them sometimes, especially since I'm working on a scholarly book.</p>
+<p>But, <a href="#no-more-backpack">per my decision a few weeks ago</a>, I didn't carry a backpack. By entailment of a late early 21st century life for a professional in the US, that means I didn't bring my laptop. And because the retreat was not near our offices, I didn't have access to my desktop machine.</p>
+<p>Instead, I brought a notebook and a pen, and when I sat down to write, the ideas came flowing out. I developed an aspect of my thesis for my book that was implicit in what I had already developed, but writing it out by hand helped me make a more explicit, stronger connection than what I had developed before. It was thrilling.</p>
+</article>
 <article id="20240603163519">
 <h2 id="make-install">Make Install</h2>
 <h3 id="June-03-2024-35"><time datetime="2024-06-03">June 03, 2024</time></h3>
@@ -333,7 +341,7 @@ sudo make install
 <pre><code>`vim --version | grep -A1 &quot;^VIM&quot;`
 </code></pre>
 <h3 id="updating-vim-9">Updating Vim 9</h3>
-<p>The process is fairly similar when updating Vim, but there are a few differences. First, I don't need to <code>clone</code> the repo, but I do need to <code>pull</code> it for updates. I also need run <code>make distclean</code> to cleanup prior build files. The whole process is:</p>
+<p>The process is fairly similar when updating Vim, but there are a few differences. First, I don't need to <code>clone</code> the repo, but I do need to <code>pull</code> it for updates. I also need to run <code>make distclean</code> to cleanup prior build files. The whole process is:</p>
 <pre><code>cd ~/bin/vim
 make distclean
 git pull origin master
