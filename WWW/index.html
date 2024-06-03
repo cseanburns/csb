@@ -35,6 +35,7 @@ to monitor new posts.</p>
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#make-install">Make Install</a></li>
 <li><a href="WWW/index.html#being-cool">Being Cool</a></li>
 <li><a href="WWW/index.html#on-distance">On Distance</a></li>
 <li><a href="WWW/index.html#traffic">Traffic</a></li>
@@ -292,6 +293,57 @@ to monitor new posts.</p>
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20240603163519">
+<h2 id="make-install">Make Install</h2>
+<h3 id="June-03-2024-35"><time datetime="2024-06-03">June 03, 2024</time></h3>
+<p>On Debian-based distros, including Debian but also Ubuntu and other derivatives, the common way to install software is through the <code>apt</code> command. And there are corresponding package management systems on other Linux families, like <code>dnf</code> on Red Hat-based systems. These are great software management systems, but using them generally means installing older versions of software (albeit, patched for security updates). That's usually fine, but in some cases, I would like the latest versions of software. For example, Vim 9 was released almost two years ago and is much better than the last stable release, which was Vim 8.2. But Vim 8.2 is the default version on my Linux box right now when installing using <code>apt</code>. Furthermore, there are some plugins that I use a lot that expect Vim 9. Some of those plugins also expect Python3 support, and the <code>apt</code> version of Vim isn't configured for that. These factors mean that the best way to install Vim is by downloading and compiling the source code.</p>
+<h3 id="installing-vim-9">Installing Vim 9</h3>
+<p>The steps to install Vim 9 (after perhaps removing Vim 8.2 using <code>apt</code>) are:</p>
+<ol>
+<li>Install dependencies needed to compile Vim 9 with Python3 support. I already had <strong>build-essentials</strong> installed, but for reproducibility on a new system:</li>
+</ol>
+<pre><code>sudo apt update
+sudo apt install -y build-essentials python3-dev
+</code></pre>
+<ol start="2">
+<li>I like to compile software from my <code>~/bin</code> directory. So, change to my <code>~/bin</code> directory and clone the Vim repository from GitHub:</li>
+</ol>
+<pre><code>cd ~/bin
+git clone https://github.com/vim/vim.git
+</code></pre>
+<ol start="3">
+<li>Navigate to the new Vim source directory:</li>
+</ol>
+<pre><code>cd vim/src
+</code></pre>
+<ol start="4">
+<li>Configure with Python3 support:</li>
+</ol>
+<pre><code>./configure --with-features=huge --enable-python3interp --prefix=/usr/local
+</code></pre>
+<ol start="5">
+<li>Compile and install Vim:</li>
+</ol>
+<pre><code>make
+sudo make install
+</code></pre>
+<ol start="6">
+<li>Then check the version using:</li>
+</ol>
+<pre><code>`vim --version | grep -A1 &quot;^VIM&quot;`
+</code></pre>
+<h3 id="updating-vim-9">Updating Vim 9</h3>
+<p>The process is fairly similar when updating Vim, but there are a few differences. First, I don't need to <code>clone</code> the repo, but I do need to <code>pull</code> it for updates. I also need run <code>make distclean</code> to cleanup prior build files. The whole process is:</p>
+<pre><code>cd ~/bin/vim
+make distclean
+git pull origin master
+cd src/
+./configure --with-features=huge --enable-python3interp --prefix=/usr/local
+make
+sudo make install
+</code></pre>
+<p>And then I can check the installed version number.</p>
+</article>
 <article id="20240603160354">
 <h2 id="being-cool">Being Cool</h2>
 <h3 id="June-03-2024-03"><time datetime="2024-06-03">June 03, 2024</time></h3>
