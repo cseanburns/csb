@@ -35,6 +35,7 @@ to monitor new posts.</p>
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#custom-yaml">Custom YAML</a></li>
 <li><a href="WWW/index.html#accidental-redirect">Accidental Redirect</a></li>
 <li><a href="WWW/index.html#on-writing-longhand">On Writing Longhand</a></li>
 <li><a href="WWW/index.html#make-install">Make Install</a></li>
@@ -295,6 +296,67 @@ to monitor new posts.</p>
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20240605013258">
+<h2 id="custom-yaml">Custom YAML</h2>
+<h3 id="June-05-2024-32"><time datetime="2024-06-05">June 05, 2024</time></h3>
+<p>I'm editing a manuscript and marking it up with markdown. This is not
+an Rmarkdown file. It's just plain markdown. I have a YAML in the header
+with metadata like this:</p>
+<pre><code>title: &quot;This is the title&quot;
+subtitle: &quot;This is the subtitle&quot;
+author:
+    - name: &quot;C. Sean Burns&quot;
+      affiliation: &quot;University of Kentucky&quot;
+    - name: &quot;Generic Name&quot;
+      affiliation: &quot;University of Generica&quot;
+date: &quot;June 5, 2024&quot;
+abstract:
+    This is the abstract of the manuscript. It goes here.
+lang: &quot;en&quot;</code></pre>
+<p>I was having a problem generating HTML from this file using
+<code>pandoc</code>. The metadata would render to HTML except for the
+author names and affiliations, which would simply return
+<strong>true</strong>:</p>
+<pre><code>pandoc file.md -s -o file.html</code></pre>
+<p>The solution was to create and use a custom template for the YAML. I
+had read about this before but hadn't investigated it enough. But now I
+have! Here's my custom template for the above example file:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;${lang}&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;${title}&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;${title}&lt;/h1&gt;
+  &lt;h2&gt;${subtitle}&lt;/h2&gt;
+  &lt;p&gt;&lt;strong&gt;Author(s):&lt;/strong&gt;&lt;/p&gt;
+  &lt;ul&gt;
+  $for(author)$
+    &lt;li&gt;${author.name} (${author.affiliation})&lt;/li&gt;
+  $endfor$
+  &lt;/ul&gt;
+  &lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; ${date}&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Abstract:&lt;/strong&gt; ${abstract}&lt;/p&gt;
+  &lt;hr&gt;
+  $body$
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>It's pretty simple. For every field in the YAML that I want in the
+HTML output, simply enclose the field name in the custom template file.
+In the case of multiple fields with the same field name, such as with
+the author and affiliation fields, then use a <code>for</code> loop in
+the custom template file. And note that the field names are
+hierarchical, such that <em>affiliation</em> is a child of
+<em>author</em> and should thus be <code>${author.affiliation}</code>,
+and so forth.</p>
+<p>To create the HTML output with <code>pandoc</code>, do:</p>
+<pre><code>pandoc file.md -s -o file.html --template=custom_template.html</code></pre>
+<p>Of course, the file names could be descriptive of the project. And
+the custom template could do more with the metadata, like using the YAML
+metadata to add HTML <code>&lt;meta&gt;</code> tags in the HTML
+<code>&lt;head&gt;</code>.</p>
+</article>
 <article id="20240604215211">
 <h2 id="accidental-redirect">Accidental Redirect</h2>
 <h3 id="June-04-2024-52"><time datetime="2024-06-04">June 04, 2024</time></h3>
