@@ -35,6 +35,7 @@ to monitor new posts.</p>
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#accidental-redirect">Accidental Redirect</a></li>
 <li><a href="WWW/index.html#on-writing-longhand">On Writing Longhand</a></li>
 <li><a href="WWW/index.html#make-install">Make Install</a></li>
 <li><a href="WWW/index.html#being-cool">Being Cool</a></li>
@@ -294,6 +295,30 @@ to monitor new posts.</p>
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20240604215211">
+<h2 id="accidental-redirect">Accidental Redirect</h2>
+<h3 id="June-04-2024-52"><time datetime="2024-06-04">June 04, 2024</time></h3>
+<p>I was editing an HTML file and wanted to list the
+<code>&lt;h2&gt;</code> tags in the file with the <code>grep</code>
+command.</p>
+<p>And I made a big <strong>MISTAKE</strong> because I typed too fast
+and pressed Enter too fast:</p>
+<pre><code>grep &quot;&lt;h2&quot;&gt; index.html</code></pre>
+<p>Astute observers will notice that the &gt; tag is outside the right
+quote mark. Which means I accidentally zeroed out the file because
+that's a <code>bash</code> redirect! I had done a lot of work on that
+file, too. Oh, the pain!</p>
+<p>The correct <code>grep</code> command is:</p>
+<pre><code>grep &quot;&lt;h2&gt;&quot; index.html</code></pre>
+<p>Fortunately I had the HTML file open in my browser. But when I
+right-clicked and selected <strong>View Page Source</strong>, I got
+nothing. Because I emptied the file!</p>
+<p>What did the trick was pressing Ctrl-a to select all in the browser
+window and selecting <strong>View Selection Source</strong>. That opened
+up the HTML code, and I was able to paste that into my editor.</p>
+<p>I'm using <code>git</code> on this file, but I hadn't yet committed
+my changes. Argh!!</p>
+</article>
 <article id="20240603170600">
 <h2 id="on-writing-longhand">On Writing Longhand</h2>
 <h3 id="June-03-2024-06"><time datetime="2024-06-03">June 03, 2024</time></h3>
