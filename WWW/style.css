@@ -1,9 +1,9 @@
 html {
-	font-size: 120%;
+    font-size: 120%;
     background-color: #f4f1d6;
-	color: #000;
+    color: #000;
     margin-left: 5px;
-	line-height: 1.5;
+    line-height: 1.5;
   }
 
 h1, h2, h3, h4, p, li {
@@ -12,16 +12,16 @@ h1, h2, h3, h4, p, li {
 }
 
 h1, h2 {
-	color: #ab4524;
+    color: #ab4524;
 }
 
 h3, h4 {
-	color: #e76229;
+    color: #e76229;
 }
 
 h2, h3 { 
-  /* places elements just below the top of the window */
-  scroll-margin-top: 3ex;
+    /* places elements just below the top of the window */
+    scroll-margin-top: 3ex;
 }
 
 a {
@@ -44,19 +44,18 @@ pre, code {
 }
 
 pre {
-	/* background: #eae3bc; */
-	color: #000;
-  	border-radius: 7px;
-  	border: 1px dashed #000;
-  	padding: 10px;
-	margin: 10px 0;
-	overflow-x: auto;
+    color: #000;
+    border-radius: 7px;
+    border: 1px dashed #000;
+    padding: 10px;
+    margin: 10px 0;
+    overflow-x: auto;
 }
 
 hr {
-	color: #e76229;
+    color: #e76229;
 }
 
 .bold {
-  font-weight: bold;
+    font-weight: bold;
 }
