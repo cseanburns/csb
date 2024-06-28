@@ -1,4 +1,5 @@
 html {
+    font-family: 'Courier New', Courier, monospace;
     font-size: 120%;
     background-color: #fff;
     color: #000;
@@ -6,8 +7,7 @@ html {
     line-height: 1.5;
   }
 
-h1, h2, h3, h4, p, li {
-    font-family: 'Courier New', Courier, monospace;
+h1, h2, h3 {
     text-transform: uppercase;
 }
 
@@ -17,6 +17,10 @@ h1, h2 {
 
 h3, h4 {
     color: #e76229;
+}
+
+h4 {
+    font-family: 'Courier New', Courier, monospace;
 }
 
 h2, h3 { 
@@ -50,6 +54,10 @@ pre {
     padding: 10px;
     margin: 10px 0;
     overflow-x: auto;
+}
+
+ul {
+    list-style-type: "- ";
 }
 
 hr {
