@@ -64,6 +64,31 @@ hr {
     color: #e76229;
 }
 
+table {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-collapse: collapse;
+}
+
+.header {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  text-transform: uppercase;
+}
+
+th {
+    padding-right: 10px;
+}
+
+td:nth-child(1) {
+    width: 125px;
+}
+
+tr:hover {
+  background-color: #e76229;
+}
+
 .bold {
     font-weight: bold;
 }
