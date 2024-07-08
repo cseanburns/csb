@@ -320,7 +320,7 @@ can check my <code>$PATH</code> variable. However, the output is one
 long line of directories, where each directory is separated by a colon.
 This is not a very readable output.</p>
 <p>To make the output readable, I pipe it to the <code>sed</code>
-command to replace newlines for colons:</p>
+command to replace colons with newlines:</p>
 <pre><code>echo &quot;$PATH&quot; | sed &#39;s/:/\n/g&#39;</code></pre>
 <p>We can keep adding pipes to the output. If I want to pipe the above
 output to list executable directories only in my home directory, I
