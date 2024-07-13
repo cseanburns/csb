@@ -1,31 +1,42 @@
 html {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 120%;
     background-color: #fff;
     color: #000;
-    margin-left: 5px;
+    font-size: 100%;
+}
+
+body {
+    max-width: clamp(320px, 90%, 1000px);
+    margin: auto;
+    font-size: 1.25rem;
     line-height: 1.5;
-  }
+}
 
 h1, h2, h3 {
     text-transform: uppercase;
+    text-wrap: balance;
 }
 
 h1, h2 {
-    color: #ab4524;
+    color: #360036;
 }
 
 h3, h4 {
-    color: #e76229;
+    color: #dc2a2a;
 }
 
 h4 {
     font-family: 'Courier New', Courier, monospace;
+    text-wrap: balance;
 }
 
 h2, h3 { 
     /* places elements just below the top of the window */
     scroll-margin-top: 3ex;
+}
+
+p {
+    max-width: 65ch;
 }
 
 a {
@@ -64,29 +75,30 @@ hr {
     color: #e76229;
 }
 
+img {
+    max-width: 100%;
+}
+
 table {
     padding-top: 10px;
     padding-bottom: 10px;
     border-collapse: collapse;
 }
 
+/* table class */
 .header {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  padding: 5px;
-  text-transform: uppercase;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 5px;
+    text-transform: uppercase;
 }
 
-th {
-    padding-right: 10px;
+td, th {
+    padding: 0.5em;
 }
 
-td:nth-child(1) {
-    width: 125px;
-}
-
-tr:hover {
-  background-color: #e76229;
+:is(tbody, table) > tr:nth-child(odd) {
+    background: #0001;
 }
 
 .bold {
