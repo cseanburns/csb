@@ -84,10 +84,18 @@ table {
     padding-top: 10px;
     padding-bottom: 10px;
     border-collapse: collapse;
+    caption-side: bottom;
+    font-size: .9em;
+}
+
+caption {
+    text-align: start;
+    font-style: italic;
+    font-size: .85em;
 }
 
 /* table class */
-.header {
+thead {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     padding: 5px;
@@ -96,6 +104,15 @@ table {
 
 td, th {
     padding: 0.5em;
+}
+
+td {
+    text-align: end;
+}
+
+tfoot {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 :is(tbody, table) > tr:nth-child(odd) {
