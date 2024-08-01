@@ -38,6 +38,7 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#breaking-bad-habits">Breaking Bad Habits</a></li>
 <li><a href="WWW/index.html#keep-staying-cool">Keep Staying Cool</a></li>
 <li><a href="WWW/index.html#lots-of-walking">Lots of Walking</a></li>
 <li><a href="WWW/index.html#more-bad-traffic">More Bad Traffic</a></li>
@@ -327,6 +328,69 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20240801113553">
+<h2 id="breaking-bad-habits">Breaking Bad Habits</h2>
+<h3 id="August-01-2024-35"><time datetime="2024-08-01">August 01, 2024</time></h3>
+<p>To help me break my <a href="WWW/index.html#bad-habits">bad habit</a>
+of checking email first thing in the morning, I wrote a Python script to
+limit my email usage to one hour a day, from noon to 1pm.</p>
+<pre><code>#!/usr/bin/env python3
+
+import time
+import subprocess
+from colorama import Fore
+
+start_hour = 12
+end_hour = 13
+hour = int(time.strftime(&quot;%H&quot;))
+minutes = int(time.strftime(&quot;%M&quot;))
+minutes_left = 60 - minutes
+
+def get_email():
+    mbsync = &quot;/usr/bin/mbsync&quot;
+    mbsync_arg = &quot;-a&quot;
+    subprocess.call([mbsync, mbsync_arg])
+
+def process_email():
+    notmuch = &quot;/usr/bin/notmuch&quot;
+    notmuch_arg = &quot;new&quot;
+    subprocess.call([notmuch, notmuch_arg])
+
+def email():
+    mutt = &quot;/usr/bin/mutt&quot;
+    subprocess.call([mutt])
+
+def check_email():
+    if hour == start_hour:
+        get_email()
+        process_email()
+        email()
+    elif start_hour - hour == 1:
+        print(Fore.YELLOW + &quot;Almost there. %s more minutes to check email.&quot; % minutes_left)
+    elif hour &lt; start_hour:
+        hour_diff = (start_hour - hour) - 1
+        print(Fore.RED + &quot;BE PATIENT. %s more hour(s) and %s minutes to check email.&quot; % (hour_diff, minutes_left))
+    elif (hour + 1) &gt; end_hour:
+        print(Fore.GREEN + &quot;WAIT TILL TOMORROW TO CHECK EMAIL.&quot;)
+
+def main():
+    check_email()
+
+main()</code></pre>
+<p>It's a pretty simple script and is mainly just enough to remind me to
+not check my email first thing in the morning. And it only
+<em>deters</em> me from using <code>mutt</code>, my email client. If I
+keep the client open, then I can check email anytime. I could also get
+around it by calling <code>mutt</code> using the full path to the
+executable: <code>/usr/bin/mutt</code>.</p>
+<p>But, it's been enough so far to keep me focused, which is what I
+want.</p>
+<p>I call this Python script in my <code>.bash_functions</code>
+file:</p>
+<pre><code>mutt() {
+    $HOME/bin/mutt.py
+}</code></pre>
+</article>
 <article id="20240801110639">
 <h2 id="keep-staying-cool">Keep Staying Cool</h2>
 <h3 id="August-01-2024-06"><time datetime="2024-08-01">August 01, 2024</time></h3>
