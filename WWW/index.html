@@ -38,6 +38,7 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#vim-as-file-manager">Vim as File Manager</a></li>
 <li><a href="WWW/index.html#breaking-bad-habits">Breaking Bad Habits</a></li>
 <li><a href="WWW/index.html#keep-staying-cool">Keep Staying Cool</a></li>
 <li><a href="WWW/index.html#lots-of-walking">Lots of Walking</a></li>
@@ -328,6 +329,31 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20240805083837">
+<h2 id="vim-as-file-manager">Vim as File Manager</h2>
+<h3 id="August-05-2024-38"><time datetime="2024-08-05">August 05, 2024</time></h3>
+<p>I use <code>vim</code> all the time. However, I have a tendency to
+close the application when I'm done with a particular file. I don't
+think this is very efficient.</p>
+<p>A better use of <code>vim</code> would be to keep it open and use
+more of its potential. The first step is to start using it as a file
+manager with <a
+href="https://www.vim.org/scripts/script.php?script_id=1075">netrw</a>.</p>
+<p>One of the most basic file management actions is to move or copy a
+file. It took me a moment to understand the process. To move or copy a
+file:</p>
+<ol type="1">
+<li>Open the current directory: <code>vim .</code> Or if already in
+<code>vim</code>, use <code>&lt;Esc&gt;:e .</code> to open the current
+directory.</li>
+<li>Navigate to a target directory and mark it: <code>mt</code></li>
+<li>Navigate to source file and mark it: <code>mf</code>.</li>
+<li>Press <code>mc</code> or <code>mm</code> to copy / remove
+(respectively) the source file to the target directory.</li>
+</ol>
+<p>I've been using <code>vim</code> for twenty-something years, and I'm
+still learning new things about it.</p>
+</article>
 <article id="20240801113553">
 <h2 id="breaking-bad-habits">Breaking Bad Habits</h2>
 <h3 id="August-01-2024-35"><time datetime="2024-08-01">August 01, 2024</time></h3>
