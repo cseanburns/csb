@@ -38,6 +38,7 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#just-chilling">Just Chilling</a></li>
 <li><a href="WWW/index.html#ice-bath">Ice Bath</a></li>
 <li><a href="WWW/index.html#composing-a-tune">Composing a Tune</a></li>
 <li><a href="WWW/index.html#essays-with-chatgpt">Essays with ChatGPT</a></li>
@@ -337,6 +338,78 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20240826010359">
+<h2 id="just-chilling">Just Chilling</h2>
+<h3 id="August-26-2024-03"><time datetime="2024-08-26">August 26, 2024</time></h3>
+<p>The average temperature last month increased by one degree compared
+to the same month last year. Yet I've decreased my electricity usage by
+2.72 times, or by -63.24%, despite a 1% increase in the average
+temperature.. Furthermore, I've managed to reduce my electricity usage
+month over month for the last four months. That's pretty
+<em>cool</em>!</p>
+<p>I enrolled in budget billing long ago. This means I pay about the
+same amount each month. Currently, that's <span
+class="math inline">132<em>p</em><em>e</em><em>r</em><em>m</em><em>o</em><em>n</em><em>t</em><em>h</em>.<em>I</em>′<em>m</em><em>n</em><em>o</em><em>t</em><em>s</em><em>u</em><em>r</em><em>e</em><em>w</em><em>h</em><em>e</em><em>n</em><em>t</em><em>h</em><em>i</em><em>s</em><em>a</em><em>m</em><em>o</em><em>u</em><em>n</em><em>t</em><em>w</em><em>i</em><em>l</em><em>l</em><em>b</em><em>e</em><em>a</em><em>d</em><em>j</em><em>u</em><em>s</em><em>t</em><em>e</em><em>d</em>, <em>b</em><em>u</em><em>t</em><em>m</em><em>y</em><em>a</em><em>c</em><em>c</em><em>o</em><em>u</em><em>n</em><em>t</em><em>r</em><em>e</em><em>p</em><em>o</em><em>r</em><em>t</em><em>s</em><em>a</em><em>n</em><em>e</em><em>g</em><em>a</em><em>t</em><em>i</em><em>v</em><em>e</em><em>b</em><em>a</em><em>l</em><em>a</em><em>n</em><em>c</em><em>e</em><em>o</em><em>f</em>−</span>226.04.
+I suppose this means that the electricity company will adjust my bill
+soon and that I might not have to make a payment for a couple of
+months!</p>
+<table>
+<thead>
+<tr class="header">
+<th>Month</th>
+<th>2023 Usage (KWH)</th>
+<th>2023 Avg Temp (F)</th>
+<th>2024 Usage (KWH)</th>
+<th>2024 Avg Temp (F)</th>
+<th>% change kWh</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>May</td>
+<td>831</td>
+<td>58</td>
+<td>612</td>
+<td>60</td>
+<td>-26.35%</td>
+</tr>
+<tr class="even">
+<td>June</td>
+<td>799</td>
+<td>66</td>
+<td>513</td>
+<td>70</td>
+<td>-35.79%</td>
+</tr>
+<tr class="odd">
+<td>July</td>
+<td>942</td>
+<td>72</td>
+<td>570</td>
+<td>76</td>
+<td>-39.49%</td>
+</tr>
+<tr class="even">
+<td>August</td>
+<td>1499</td>
+<td>78</td>
+<td>551</td>
+<td>79</td>
+<td>-63.24%</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note:</em> Based on my reading of my electricity bill, each month
+represents the previous month's usage. That is, May represents April
+usage, and so forth. I suppose then I'll be able to report September
+(August usage) later this week.</p>
+<p>I'm really very curious if I can keep this reduction going during the
+winter months.</p>
+<p>My Python function to calculate percentage change:</p>
+<pre><code>def perchange(x,y):
+    c = ((x - y) / y) * 100
+    return c</code></pre>
+</article>
 <article id="20240815120651">
 <h2 id="ice-bath">Ice Bath</h2>
 <h3 id="August-15-2024-06"><time datetime="2024-08-15">August 15, 2024</time></h3>
