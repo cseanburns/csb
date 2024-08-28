@@ -354,68 +354,82 @@ I think I'll try.</p>
 <h3 id="August-26-2024-03"><time datetime="2024-08-26">August 26, 2024</time></h3>
 <p>The average temperature last month increased by one degree compared
 to the same month last year. Yet I've decreased my electricity usage by
-2.72 times, or by -63.24%, despite a 1% increase in the average
-temperature. Furthermore, I've managed to reduce my electricity usage
+2.72 times, or by -63.24%. Furthermore, I've managed to reduce my electricity usage
 month over month for the last four months. That's pretty <em>cool</em>!</p>
 <p>I enrolled in budget billing long ago. This means I pay about the
 same amount each month. Currently, $132 per month.
-I'm not sure when this amount will be adjusted, but my account reports a negative balance of -$226.04.
+I'm not sure when this amount will be adjusted, but my account reports a negative balance of $226.04.
 I suppose this means that the electricity company will adjust my bill
 soon and that I might not have to make a payment for a couple of
 months!</p>
-<table>
-<thead>
-<tr class="header">
-<th>Month</th>
-<th>2023 Usage (KWH)</th>
-<th>2023 Avg Temp (F)</th>
-<th>2024 Usage (KWH)</th>
-<th>2024 Avg Temp (F)</th>
-<th>% change kWh</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>May</td>
-<td>831</td>
-<td>58</td>
-<td>612</td>
-<td>60</td>
-<td>-26.35%</td>
-</tr>
-<tr class="even">
-<td>June</td>
-<td>799</td>
-<td>66</td>
-<td>513</td>
-<td>70</td>
-<td>-35.79%</td>
-</tr>
-<tr class="odd">
-<td>July</td>
-<td>942</td>
-<td>72</td>
-<td>570</td>
-<td>76</td>
-<td>-39.49%</td>
-</tr>
-<tr class="even">
-<td>August</td>
-<td>1499</td>
-<td>78</td>
-<td>551</td>
-<td>79</td>
-<td>-63.24%</td>
-</tr>
-</tbody>
+<table class="span_table">
+    <colgroup>
+        <col span="1">
+        <col span="3">
+        <col span="3">
+    </colgroup>
+    <thead>
+        <tr class="header">
+            <th></th>
+            <th class="bottomborder" colspan="3">Usage (KWH)</th>
+            <th class="bottomborder" colspan="3">Avg Temp (F)</th>
+        </tr>
+        <tr>
+            <th>Month</th>
+            <th>2023</th>
+            <th>2024</th>
+            <th>% change</th>
+            <th>2023</th>
+            <th>2024</th>
+            <th>Change</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td>May</td>
+            <td>831</td>
+            <td>612</td>
+            <td>-26.35%</td>
+            <td>58</td>
+            <td>60</td>
+            <td>+2</td>
+        </tr>
+        <tr class="even">
+            <td>June</td>
+            <td>799</td>
+            <td>513</td>
+            <td>-35.79%</td>
+            <td>66</td>
+            <td>70</td>
+            <td>+4</td>
+        </tr>
+        <tr class="odd">
+            <td>July</td>
+            <td>942</td>
+            <td>570</td>
+            <td>-39.49%</td>
+            <td>72</td>
+            <td>76</td>
+            <td>+4</td>
+        </tr>
+        <tr class="even">
+            <td>August</td>
+            <td>1499</td>
+            <td>551</td>
+            <td>-63.24%</td>
+            <td>78</td>
+            <td>79</td>
+            <td>+1</td>
+        </tr>
+    </tbody>
 </table>
-<p><em>Note:</em> Based on my reading of my electricity bill, each month
+<p class="small"><em>Note:</em> Based on my reading of my electricity bill, each month
 represents the previous month's usage. That is, May represents April
 usage, and so forth. I suppose then I'll be able to report September
 (August usage) later this week.</p>
 <p>I'm really very curious if I can keep this reduction going during the
-winter months.</p>
-<p>My Python function to calculate percentage change:</p>
+winter months, especially with the gas bill.</p>
+<p>A simple Python function to calculate percentage change:</p>
 <pre><code>def perchange(x,y):
     c = ((x - y) / y) * 100
     return c</code></pre>
