@@ -86,6 +86,7 @@ table {
     border-collapse: collapse;
     caption-side: bottom;
     font-size: .9em;
+    border-bottom: 1px solid black;
 }
 
 caption {
@@ -94,7 +95,11 @@ caption {
     font-size: .85em;
 }
 
-/* table class */
+/* tables */
+.span_table {
+    width: 100%;
+}
+
 thead {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
@@ -103,15 +108,11 @@ thead {
 }
 
 td, th {
-    padding: 0.5em;
+    padding: 0.5em 1em;
+    text-align: center;
 }
 
-td {
-    text-align: end;
-}
-
-tfoot {
-    border-top: 1px solid black;
+thead, th.bottomborder {
     border-bottom: 1px solid black;
 }
 
@@ -119,10 +120,33 @@ tfoot {
     background: #0001;
 }
 
+tfoot {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+/* :is(colgroup) > col:nth-child(2) { */
+/*     background: lightyellow; */
+/* } */
+
+/* :is(colgroup) > col:nth-child(3) { */
+/*     background: navajowhite; */
+/* } */
+
+/* general styles */
+
 .bold {
     font-weight: bold;
 }
 
 .center {
     text-align: center;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.small {
+    font-size: .8em;
 }
