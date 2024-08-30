@@ -38,6 +38,7 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#its-complicated">It's complicated</a></li>
 <li><a href="WWW/index.html#tasteless-in-comparison">Tasteless in Comparison</a></li>
 <li><a href="WWW/index.html#markdown-vs-asciidoc">Markdown Vs. Asciidoc</a></li>
 <li><a href="WWW/index.html#go-the-distance">Go the Distance</a></li>
@@ -341,6 +342,60 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20240830100101">
+<h2 id="its-complicated">It's complicated</h2>
+<h3 id="August-30-2024-01"><time datetime="2024-08-30">August 30, 2024</time></h3>
+<p>As faculty, we have to report whether a student attended, engaged, or
+participated in a course between certain dates near the start of each
+semester.</p>
+<p>We were recently informed of a new reporting requirement. Now, we
+also have to report whether a student attended, engaged, or participated
+in a course if they withdrew from the course before a specified
+date.</p>
+<p>I thought it was kind of funny that I had to read the new requirement
+a couple of times to make sense of it. I didn't want to spend any more
+time on this, though, but for the <em>lolz</em>, I asked ChatGPT to
+represent the logic of these reporting requirements in Python code.</p>
+<p>For your reading pleasure:</p>
+<pre><code>#!/usr/bin/env python3
+
+from datetime import datetime
+
+# Define the reporting period
+reporting_start_date = datetime(2024, 9, 10)
+reporting_end_date = datetime(2024, 9, 16)
+drop_deadline = datetime(2024, 9, 15)
+
+# Simulated student data
+students = [
+    {&quot;name&quot;: &quot;Alice&quot;, &quot;drop_date&quot;: datetime(2024, 9, 12), &quot;attendance_dates&quot;: [datetime(2024, 9, 11)]},
+    {&quot;name&quot;: &quot;Bob&quot;, &quot;drop_date&quot;: datetime(2024, 9, 14), &quot;attendance_dates&quot;: [datetime(2024, 9, 13), datetime(2024, 9, 14)]},
+    {&quot;name&quot;: &quot;Charlie&quot;, &quot;drop_date&quot;: datetime(2024, 9, 10), &quot;attendance_dates&quot;: []},
+    {&quot;name&quot;: &quot;Diana&quot;, &quot;drop_date&quot;: None, &quot;attendance_dates&quot;: [datetime(2024, 9, 12), datetime(2024, 9, 15)]}
+]
+
+def check_attendance(student):
+    &quot;&quot;&quot;Check if a student attended on or before their drop date.&quot;&quot;&quot;
+    if student[&quot;drop_date&quot;] is None:
+        return None  # Student didn&#39;t drop
+    for date in student[&quot;attendance_dates&quot;]:
+        if date &lt;= student[&quot;drop_date&quot;]:
+            return &quot;YES&quot;
+    return &quot;NO&quot;
+
+def report_attendance(students, reporting_start_date, reporting_end_date, drop_deadline):
+    &quot;&quot;&quot;Report attendance for all students.&quot;&quot;&quot;
+    for student in students:
+        drop_date = student[&quot;drop_date&quot;]
+        if drop_date is not None and drop_date &lt;= drop_deadline:
+            attendance_status = check_attendance(student)
+            print(f&quot;Student: {student[&#39;name&#39;]}, Drop Date: {drop_date.strftime(&#39;%Y-%m-%d&#39;)}, Attended: {attendance_status}&quot;)
+        else:
+            print(f&quot;Student: {student[&#39;name&#39;]}, Drop Date: Not Dropped or after deadline, Attended: --&quot;)
+
+# Run the reporting logic
+report_attendance(students, reporting_start_date, reporting_end_date, drop_deadline)</code></pre>
+</article>
 <article id="20240828114456">
 <h2 id="tasteless-in-comparison">Tasteless in Comparison</h2>
 <h3 id="August-28-2024-44"><time datetime="2024-08-28">August 28, 2024</time></h3>
