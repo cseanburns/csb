@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# set -euo pipefail
-
 ## This script auto generates a new post, RSS entry, etc for The Text page.
 ## Sep 20, 2023
 
@@ -12,7 +10,6 @@ initialize_variables() {
     readonly post_file="${md_file%.md}.html"
     readonly target_file="${post_dir}/index.html"
     readonly rss_file="${post_dir}/index.xml"
-    # readonly remote_dir="danoc:~/public_html/WWW/"
 }
 
 file_check() {
@@ -23,7 +20,7 @@ file_check() {
 }
 
 make_post() {
-    pandoc -f gfm -t html "${md_file}" -o "${post_file}"
+    pandoc --wrap=none -f gfm -t html "${md_file}" -o "${post_file}"
 }
 
 make_article() {
@@ -131,11 +128,6 @@ EOF
     mv "${md_dir}"/new.xml "${rss_file}" 
 }
 
-# send_post() {
-#     scp "${target_file}" "${remote_dir}"
-#     scp "${rss_file}" "${remote_dir}"
-# }
-
 cleanup() {
     rm "${md_dir}/tmp.html"
     rm "${md_dir}/tmp.xml"
@@ -150,7 +142,6 @@ main() {
     toc_generator
     make_rss
     insert_rss
-    # send_post
     cleanup
 }
 
