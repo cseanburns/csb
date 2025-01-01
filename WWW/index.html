@@ -38,6 +38,7 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#2024-year-in-review">2024 Year in Review</a></li>
 <li><a href="WWW/index.html#being-sick">Being Sick</a></li>
 <li><a href="WWW/index.html#my-child">My Child</a></li>
 <li><a href="WWW/index.html#utility-update">Utility Update</a></li>
@@ -360,6 +361,30 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20241231202317">
+<h2 id="2024-year-in-review">2024 Year in Review</h2>
+<h3 id="December-31-2024-23"><time datetime="2024-12-31">December 31, 2024</time></h3>
+<p>As I mend from last week's craziness, I thought I'd write a year in review post. Alas, I have nothing meaningful to say. But in the absence of substance, I have metrics.</p>
+<p>In summary, not including this post, this page has a word count of 60,454 words, and I wrote 122 posts this year.</p>
+<p>Here is the breakdown of posts by year:</p>
+<pre><code>122 2024
+ 24 2023
+ 25 2022
+ 84 2021
+ 49 2020
+ 12 2019</code></pre>
+<p>I have no idea why I was so much more posty in 2024 than I was in 2023, but I like it.</p>
+<p>To get those stats, I used this command:</p>
+<pre><code>grep &quot;article id&quot; index.html | awk -F&quot;=&quot; &#39;{ print $2 }&#39; | sed &#39;s/&quot;//&#39; | grep --color=never -Eo &quot;^[[:digit:]]{4}&quot; | uniq -c</code></pre>
+<p>The command is a series of piped commands, where the output of one command becomes the input for the next command. The first command uses <code>grep</code> to search this <code>index.html</code> file for the unique <strong>article id</strong> string for each post. It returns lines like <code>&lt;article id="20190423"&gt;</code>.</p>
+<p>The output gets piped through <code>awk</code>. I set the equal sign as the field separator, and print the second column. It returns lines like <code>"20190423"&gt;</code>.</p>
+<p>I want the first four numbers in that line because these represent the years of the posts. To get there, I remove the opening quote mark. I do that by piping the prior output to the <code>sed</code> command, which removes the first quote mark. It returns lines like <code>20190423"&gt;</code>.</p>
+<p>To get the first four digits, which represent the year for each post, I pipe the output of the prior command to <code>grep</code>. This returns lines like <code>2019</code>.</p>
+<p>The output is already sorted, so I pipe that to the <code>uniq -c</code> command, which gives me the tabular count above.</p>
+<p>As I wrote this, I realized I didn't need <code>awk</code> at all. This command produces the same tabular count:</p>
+<pre><code>grep &quot;article id&quot; index.html | grep --color=never -Eo &quot;\&quot;[[:digit:]]{4}&quot; | sed &#39;s/&quot;//&#39; | uniq -c</code></pre>
+<p>There are probably more efficient ways to get the info, but still, the first command took just a minute to write. Using Linux/Unix command line utilities is so fun.</p>
+</article>
 <article id="20241227111224">
 <h2 id="being-sick">Being Sick</h2>
 <h3 id="December-27-2024-12"><time datetime="2024-12-27">December 27, 2024</time></h3>
