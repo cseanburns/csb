@@ -54,8 +54,14 @@ a:hover {
     text-decoration: underline;
 }
 
-pre, code {
+p>code {
+    font-family: monospace;
+    font-size: .99rem;
+    color: black;
+    background-color: lightgray;
     text-transform: none;
+    padding: 3px;
+    border-radius: 10px;
 }
 
 pre {
