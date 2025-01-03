@@ -38,6 +38,7 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#command-line-magic">Command Line Magic</a></li>
 <li><a href="WWW/index.html#2024-year-in-review">2024 Year in Review</a></li>
 <li><a href="WWW/index.html#being-sick">Being Sick</a></li>
 <li><a href="WWW/index.html#my-child">My Child</a></li>
@@ -361,6 +362,27 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20250103165134">
+<h2 id="command-line-magic">Command Line Magic</h2>
+<h3 id="January-03-2025-51"><time datetime="2025-01-03">January 03, 2025</time></h3>
+<p>A year ago I stumbled upon <a href="https://www.indexdata.com/resources/software/yaz/">YAZ</a> and was immediately hooked. The YAZ package includes a few utilities, such as the <code>yaz-client</code> command line utility and more. I can use <code>yaz-client</code> to establish a connection to a library's catalog, and then I can perform queries using the <a href="https://software.indexdata.com/yaz/doc/tools.html#PQF">Prefix Query Format</a>.</p>
+<p>To demonstrate, below I start the <code>yaz-client</code> from the Bash shell, marked by the <code>$</code> prompt. This creates an interactive environment to run various <code>yaz</code> commands, marked by the <code>Z&gt;</code> prompt. The <code>open [server-addr]</code> command connects to a catalog's server at [server-addr]. For example, below I connect to the Library of Congress's catalog. Once the connection has been established, I use the <code>find</code> command to initiate a query. Then I use the <code>show</code> command to peruse the results, which are displayed in MARC format.</p>
+<pre><code>$ yaz-client
+Z&gt; open z3950.loc.gov:7090/voyager
+Z&gt; find @and @attr 1=4 &quot;information&quot; @attr 1=21 &quot;library science&quot;
+Z&gt; show 1
+Z&gt; show 2
+Z&gt; quit
+$</code></pre>
+<p>In the example query, the <code>find</code> command initiates a Boolean AND search (<code>@and</code>) for works with "information" in the title (<code>@attr 1=4</code>) and the term "library science" as the subject heading (<code>@attr 1=21</code>). The attributes are listed in <code>man 7 bib1-attr</code>. The list of attributes makes it possible to create complex search commands, much more complex than what is possible via a library's discovery service.</p>
+<p>I won't show the instructions here, but I can use the <code>yaz-client</code> to download retrieved sets instead of perusing records one by one. However, a set is downloaded as a single MARC file, which isn't very human readable. But the YAZ package includes a utility called <code>yaz-marcdump</code>. I can use that utility to convert the MARC files into JSON, and then use <a href="https://jqlang.github.io/jq/">jq</a> to parse the JSON file.</p>
+<p>As an example, the <a href="https://www.loc.gov/marc/umb/um07to10.html">MARC 650</a> field is for Subject added entry. It includes subfields like <code>$a</code> for the Topical Term, <code>$x</code> for General Subdivision, and <code>$z</code> for Geographical Subdivision. Consider a work with the following subject entry in its MARC record format:</p>
+<pre><code>650  0 $a Libraries $z Great Britain $v Periodicals.</code></pre>
+<p>This says that the work is a periodical that includes articles about Great Britain libraries.</p>
+<p>Once data like that has been downloaded and converted into JSON, I can investigate the geographical coverage of the retrieved set using <code>jq</code>:</p>
+<pre><code>jq &#39;.fields[] | select(has(&quot;650&quot;)) | .[&quot;650&quot;].subfields[] | select(has(&quot;z&quot;)) | .z&#39; records.formatted.json</code></pre>
+<p>And then I can map that data in R or Python! This would make a retrieved data set much more interesting to examine than what is currently offered in library search and discovery systems. The <code>yaz-client</code> is quite fun.</p>
+</article>
 <article id="20241231202317">
 <h2 id="2024-year-in-review">2024 Year in Review</h2>
 <h3 id="December-31-2024-23"><time datetime="2024-12-31">December 31, 2024</time></h3>
