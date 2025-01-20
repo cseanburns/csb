@@ -1,6 +1,6 @@
 html {
     font-family: 'Courier New', Courier, monospace;
-    background-color: #fff;
+    background-color: #f8f5d7;
     color: #000;
     font-size: 100%;
 }
@@ -11,6 +11,11 @@ body {
     font-size: 1.25rem;
     line-height: 1.5;
 }
+
+#introduction, #research, #teaching, #the_text, #bookshelf {
+    border-bottom: 1px black dotted;
+}
+
 
 h1, h2, h3 {
     text-transform: uppercase;
