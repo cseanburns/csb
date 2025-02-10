@@ -57,7 +57,7 @@ h2, h3 { scroll-margin-top: 3ex; /* places elements just below the top of the wi
 
 p {
     margin-bottom: 1rem;
-    max-width: 65ch;
+    max-width: 82ch;
 }
 
 li { max-width: 65ch; }
@@ -94,7 +94,6 @@ pre {
   padding: 1rem;
   overflow-x: auto;
 }
-
 
 ul { list-style-type: "- "; }
 
