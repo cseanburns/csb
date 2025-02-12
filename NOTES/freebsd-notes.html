@@ -30,14 +30,14 @@
     <pre><code>service netif restart</code></pre>
 
     <h2>install security patches</h2>
-    <pre>
-<code>freebsd-update fetch
+    <pre><code>
+freebsd-update fetch
 freebsd-update install</code></pre>
 
     <h2>update packages</h2>
 
-    <pre>
-<code>pkg update
+    <pre><code>
+pkg update
 pkg upgrade
 pkg autoremove
 pkg clean</code></pre>
@@ -45,8 +45,8 @@ pkg clean</code></pre>
     <h2>Update the FreeBSD version</h2>
     <p>For example, to upgrade from 14.0-RELEASE to the 14.1-RELEASE (get info on release numbers from freebsd.org):</p>
 
-    <pre>
-<code>freebsd-update -r 14.1-RELEASE upgrade
+    <pre><code>
+freebsd-update -r 14.1-RELEASE upgrade
 freebsd-update install</code></pre>
 
     <p>Reboot:</p>
@@ -63,8 +63,8 @@ freebsd-update install</code></pre>
     <p>After installing Wayland and Sway per the <a href="https://docs.freebsd.org/en/books/handbook/wayland/">FreeBSD Handbook</a>,
     install the graphics driver:</p>
 
-    <pre>
-<code>pkg install drm-kmod
+<pre><code>
+pkg install drm-kmod
 sysrc -f /etc/rc.conf kld_list+=i915kms</code></pre>
 
     <p>Ensure that <code>$USER</code> is in the video group and reboot.</p>
