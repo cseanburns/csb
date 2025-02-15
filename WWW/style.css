@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    max-width: clamp(320px, 100%, 1000px);
+    max-width: clamp(320px, 95%, 1000px);
     margin: auto;
 }
 
