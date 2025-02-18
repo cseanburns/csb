@@ -84,7 +84,12 @@ img { max-width: 100%; }
 
 .bold { font-weight: bold; }
 
-.center { text-align: center; }
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensures both elements are centered */
+    text-align: center;
+}
 
 .underline { text-decoration: underline; }
 
