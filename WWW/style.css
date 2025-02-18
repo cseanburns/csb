@@ -1,6 +1,6 @@
 html {
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.6;
     text-rendering: optimizeLegibility;
 
@@ -21,31 +21,10 @@ body {
 
 #introduction, #research, #teaching, #the_text, #bookshelf { border-bottom: 1px black dotted; }
 
-h1 {
-	font-size: 2.2rem;
-	line-height: 1.3;
-}
-
-h2 {
-	font-size: 1.8rem;
-	line-height: 1.4;
-}
-
-h1, h2 { color: #111111; }
-
-h3 {
-	font-size: 1.5rem;
-	line-height: 1.5;
-}
-
-h1, h2, h3 {
+h1, h2 {
+    color: #111111;
     text-transform: uppercase;
     text-wrap: balance;
-}
-
-h4 {
-	font-size: 1.2rem;
-	line-height: 1.5;
 }
 
 h3, h4 {
@@ -142,13 +121,9 @@ td, th {
     text-align: center;
 }
 
-thead, th.bottomborder {
-    border-bottom: 1px solid black;
-}
+thead, th.bottomborder { border-bottom: 1px solid black; }
 
-:is(tbody, table) > tr:nth-child(odd) {
-    background: #0001;
-}
+:is(tbody, table) > tr:nth-child(odd) { background: #0001; }
 
 tfoot {
     border-top: 1px solid black;
