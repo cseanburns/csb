@@ -10,7 +10,7 @@ html {
 
     /* Muted colors */
     background-color: #ececec;
-    color: #2e2e2e;
+    color: #000;
 
 }
 
@@ -42,17 +42,17 @@ p {
 li { max-width: 82ch; }
 
 a {
-    color: #0077cc;
+    color: #0000FF;
     text-decoration: none;
 }
 
 a:visited {
-    color: #557799;
+    color: #0000FF;
     text-decoration: none;
 }
 
 a:hover {
-    color: #005999;
+    color: #0000FF;
     text-decoration: underline;
 }
 
