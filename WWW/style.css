@@ -21,6 +21,13 @@ body {
 
 #introduction, #research, #teaching, #the_text, #bookshelf { border-bottom: 1px black dotted; }
 
+.textbooks {
+    display: flex;
+    gap: 10px;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
 h1, h2 {
     color: #111111;
     text-transform: uppercase;
