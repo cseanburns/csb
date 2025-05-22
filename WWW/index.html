@@ -39,6 +39,7 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#a-blank-canvas">A Blank Canvas</a></li>
 <li><a href="WWW/index.html#done-with-ai">Done with AI</a></li>
 <li><a href="WWW/index.html#on-amputations">On Amputations</a></li>
 <li><a href="WWW/index.html#squeezed">Squeezed</a></li>
@@ -387,6 +388,25 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20250522153912">
+<h2 id="a-blank-canvas">A Blank Canvas</h2>
+<h3 id="May-22-2025-39"><time datetime="2025-05-22">May 22, 2025</time></h3>
+<p>Terminal or command-line based work is spartan looking by default, but people make great efforts to theme the experience. They do this by modifying their shell prompts and various terminal applications, including their text editors.</p>
+<p>For example, many text editors support <a href="https://en.wikipedia.org/wiki/Syntax_highlighting">syntax highlighting</a>. This enables the text editor to use different colors and formatting to display text. This can help when writing code because a text editor with syntax highlighting recognizes and highlights a programming language's keywords plus other aspects of the code. It may also highlight errors in the code. The same basic idea is used in word processors that highlight spelling errors or like. Thus, theming support is not merely eye candy but also enhances the user experience or <em>UX</em>.</p>
+<p>Text editors can use color schemes (or themes) that use different colors and formatting to display text. I use the <a href="https://www.vim.org">vim</a> text editor, which comes with a default set of color schemes. The website <a href="https://vimcolorschemes.com/">vimcolorschemes</a> provides a database of user contributed color schemes that others can use. Many of these are quite beautiful. Other text editors have their own theming support.</p>
+<p>One of the first text editors I used was <a href="https://en.wikipedia.org/wiki/Nvi">nvi</a>, which doesn't support syntax highlighting. When I started using a text editor that did (<code>vim</code>), I was totally in awe and thought it was the coolest thing ever. In recent years, though, I've become much more spartan in my tastes and have occasionally searched the vimcolorschemes website for minimal color schemes that I can use.</p>
+<p>The problem was that although there are lots of minimal color schemes on that site and elsewhere (like GitHub), none were minimal enough. They all used some kind of syntax highlighting for code and like plus various background and foreground colors.</p>
+<p>To resolve this, I finally wrote my own color scheme file for Vim. I call it <strong>blank</strong>, and it's available at [<a href="https://github.com/cseanburns/blank](https://github.com/cseanburns/blank)">https://github.com/cseanburns/blank](https://github.com/cseanburns/blank)</a>. It supports only what I think are the most functional aspects of syntax highlighting, which means it supports:</p>
+<ul>
+<li>highlighting text (called visual mode in Vim)</li>
+<li>highlighting matching parentheses</li>
+<li>spelling errors</li>
+<li>search terms</li>
+</ul>
+<p>I also wanted it to support Markdown formatting. This means my Vim <strong>blank</strong> color scheme will render <code>**bold**</code> as <strong>bold</strong>, <code>*italics*</code> as <em>italics</em>, <code>~~strikethrough~~</code> as <del>strikethrough</del>, and <code>[links](https://example.com)</code> as <a href="https://example.com">links</a>. But nothing more.</p>
+<p>Importantly, the foreground and background color of the editor uses the same colors as my terminal, which is important to me.</p>
+<p>I've been using this for a few days now, and I'm happy that I finally decided to roll my own.</p>
+</article>
 <article id="20250521183627">
 <h2 id="done-with-ai">Done with AI</h2>
 <h3 id="May-21-2025-36"><time datetime="2025-05-21">May 21, 2025</time></h3>
