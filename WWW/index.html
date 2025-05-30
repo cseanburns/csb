@@ -39,6 +39,7 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#sourdough-hydration-and-starter-feeding">Sourdough Hydration and Starter Feeding</a></li>
 <li><a href="WWW/index.html#section-numbering-in-css">Section Numbering in CSS</a></li>
 <li><a href="WWW/index.html#set-the-tone-iii">Set the Tone, III</a></li>
 <li><a href="WWW/index.html#a-blank-canvas">A Blank Canvas</a></li>
@@ -390,6 +391,16 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20250530140920">
+<h2 id="sourdough-hydration-and-starter-feeding">Sourdough Hydration and Starter Feeding</h2>
+<h3 id="May-30-2025-09"><time datetime="2025-05-30">May 30, 2025</time></h3>
+<p>I was having a hard time with my sourdough bread recently, which would come out rather flat after baking. But after some testing, I figured it was probably the result of two things: dough hydration and starter feeding.</p>
+<p>In the colder (and dryer) months of the year, I would feed my starter once after using it. Then I'd let it sit for a few hours so that it could eat, and I'd feed it again later in the day before placing it in the fridge. In the fridge state, the bacteria would consume the rest of the flour and water more slowly. This worked fine because during the colder months, the bacteria feeds more slowly overall, even when the house is heated.</p>
+<p>However, this method hadn't been working well this spring. And I think this was because the starter would feed too quickly, and by the time I'd use it to make bread, it had overfed. It turns out that the starter should not be hungry when I use it. I can't remember if I knew this and had forgotten it or hadn't known this at all.</p>
+<p>To fix this, I still feed it a first meal after making the dough, but then I immediately put it in the fridge. Then on bread making day, I pull it out of the fridge, feed it, and let it sit on the counter until it's had a chance to eat. I use it to make dough when it's doubled and is all bubbly.</p>
+<p>The other issues is that I've noticed that the weather seems to effect the hydration levels. I've <a href="WWW/index.html#water-temp">written before how the changing seasons effect how my sourdough bread rises</a>. which might be more pronounced this spring because it's been especially rainy and humid. Thus the other change I made was during the dough making process. In the colder, dryer months, I had been using 300 grams of water to make the dough, but recently this also seemed to contribute to a flatter loaf. So the other change I made was to reduce the amount of water I'd add to the dough to 250 grams. The result has been so much better. The loaf rises higher and is less dense.</p>
+<p>I first started making sourdough bread back in 2001, and my current starter is almost three years old now. Even after all this time, I'm still learning so much about this living organism.</p>
+</article>
 <article id="20250530131949">
 <h2 id="section-numbering-in-css">Section Numbering in CSS</h2>
 <h3 id="May-30-2025-19"><time datetime="2025-05-30">May 30, 2025</time></h3>
@@ -414,7 +425,7 @@ body #homepage h3::before {
   counter-increment: sub_outline;
 }</code></pre>
 <p>The above code should work in any browser.</p>
-<p>For this page, though, I use <code>&lt;ol&gt;</code> with the `reversed` attribute for the table of contents. I wanted to mirror the numbering in the table of contents with the matching posts. For example, this post should be "#346" in the table of contents, and I want to add "Post 346: Title of Post" to the <code>&lt;h2&gt;</code> element for the actual post.</p>
+<p>For this page, though, I use <code>&lt;ol&gt;</code> with the <code>reversed</code> attribute for the table of contents. I wanted to mirror the numbering in the table of contents with the matching posts. For example, this post should be "#346" in the table of contents, and I want to add "Post 346: Title of Post" to the <code>&lt;h2&gt;</code> element for the actual post.</p>
 <p>To do this, I used <code>counter-reset: reversed(numbering);</code> to target the <code>&lt;h2&gt;</code> elements used in each post. Unfortunatley, neither Safari nor Chrome (the basis of most browsers these days), don't support the <code>reversed</code> keyword. So I used the <code>@moz-document</code> function to target the Firefox browser only. Without targeting Firefox only, the output is funky in other browsers. Anyway, the result is "Post 346: Title of Post" in Firefox. For those using other browsers, only the "Title of Post" is displayed.</p>
 <pre><code>/* Adding post numbering to The Text */
 /* Applying to Firefox only: Chrome doesn&#39;t support the reversed() keyword yet in counter-reset */
