@@ -2,16 +2,6 @@ html {
     font-family: sans-serif;
     font-size: 1rem;
     line-height: 1.6;
-    text-rendering: optimizeLegibility;
-
-    /* Soft, light mode */
-    /* background-color: #f9f9f9; */
-    /* color: #222222; */
-
-    /* Muted colors */
-    background-color: #ececec;
-    color: #000;
-
 }
 
 body {
@@ -19,61 +9,44 @@ body {
     margin: auto;
 }
 
-#introduction, #research, #teaching, #the_text, #bookshelf { border-bottom: 1px black dotted; }
+/* Adding outline numbering to homepage */
 
-.textbooks {
-    display: flex;
-    gap: 10px;
-    flex-flow: row wrap;
-    justify-content: space-around;
+body #homepage {
+    counter-reset: main_outline;
 }
 
-h1, h2 {
-    color: #111111;
-    text-transform: uppercase;
-    text-wrap: balance;
+body #homepage h2::before {
+  content: counter(main_outline) " ";
+  counter-increment: main_outline;
 }
 
-h3, h4 {
-	color: #dc2a2a;
-	text-wrap: balance;
+body #homepage h2 {
+  counter-reset: sub_outline;
+}
+
+body #homepage h3::before {
+  content: counter(main_outline) "." counter(sub_outline) " ";
+  counter-increment: sub_outline;
+}
+
+/* Adding post numbering to The Text */
+/* Applying to Firefox only: Chrome doesn't support the reversed() keyword yet in counter-reset */
+
+@-moz-document url-prefix() {
+  body #thetext {
+    counter-reset: reversed(numbering);
+  }
+  
+  body #thetext article > h2::before {
+  counter-increment: numbering -1;
+  content: "Post " counter(numbering) ": ";
+  }
 }
 
 h2, h3 { scroll-margin-top: 3ex; /* places elements just below the top of the window */ }
 
-p {
-    margin-bottom: 1rem;
-    max-width: 82ch;
-}
-
-li { max-width: 82ch; }
-
-a {
-    color: #0000FF;
-    text-decoration: none;
-}
-
-a:visited {
-    color: #0000FF;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #0000FF;
-    text-decoration: underline;
-}
-
-a[href^="https://"]::after {
-    content: "(↗)";
-    color: #000;
-}
-
 code, pre {
   font-family: "Courier New", Courier, monospace;
-  font-size: 0.95rem;
-  background: #f5f5f5;
-  padding: 0.2rem 0.4rem;
-  border-radius: 10px;
 }
 
 pre {
@@ -81,22 +54,9 @@ pre {
   overflow-x: auto;
 }
 
-ul { list-style-type: "- "; }
-
-hr { color: #dc2a2a; }
-
-img { max-width: 100%; }
-
 /* general classes */
 
 .bold { font-weight: bold; }
-
-.center {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Ensures both elements are centered */
-    text-align: center;
-}
 
 .underline { text-decoration: underline; }
 
