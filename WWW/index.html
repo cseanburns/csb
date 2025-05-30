@@ -39,6 +39,7 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#section-numbering-in-css">Section Numbering in CSS</a></li>
 <li><a href="WWW/index.html#set-the-tone-iii">Set the Tone, III</a></li>
 <li><a href="WWW/index.html#a-blank-canvas">A Blank Canvas</a></li>
 <li><a href="WWW/index.html#done-with-ai">Done with AI</a></li>
@@ -389,6 +390,46 @@ Use the <a href="https://cseanburns.github.io/csb/WWW/index.xml">RSS feed</a> to
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20250530131949">
+<h2 id="section-numbering-in-css">Section Numbering in CSS</h2>
+<h3 id="May-30-2025-19"><time datetime="2025-05-30">May 30, 2025</time></h3>
+<p>I added some section numbering to my CSS using the <code>counter-reset</code> and <code>counter-increment</code> CSS properties. I targed my homepage with the following code, which adds outline style numbering to the <code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> elements:</p>
+<pre><code>/* Adding outline numbering to homepage */
+
+body #homepage {
+    counter-reset: main_outline;
+}
+
+body #homepage h2::before {
+  content: counter(main_outline) &quot; &quot;;
+  counter-increment: main_outline;
+}
+
+body #homepage h2 {
+  counter-reset: sub_outline;
+}
+
+body #homepage h3::before {
+  content: counter(main_outline) &quot;.&quot; counter(sub_outline) &quot; &quot;;
+  counter-increment: sub_outline;
+}</code></pre>
+<p>The above code should work in any browser.</p>
+<p>For this page, though, I use <code>&lt;ol reversed&gt;</code> for the table of contents. I wanted to mirror the numbering in the table of contents with the matching posts. For example, this post should be "#346" in the table of contents, and I want to add "Post 346: Title of Post" to the <code>&lt;h2&gt;</code> element for the actual post.</p>
+<p>To do this, I used <code>counter-reset: reversed(numbering);</code> to target the <code>&lt;h2&gt;</code> elements used in each post. Unfortunatley, neither Safari nor Chrome (the basis of most browsers these days), don't support the <code>reversed</code> keyword. So I used the <code>@moz-document</code> function to target the Firefox browser only. Without targeting Firefox only, the output is funky in other browsers. Anyway, the result is "Post 346: Title of Post" in Firefox. For those using other browsers, only the "Title of Post" is displayed.</p>
+<pre><code>/* Adding post numbering to The Text */
+/* Applying to Firefox only: Chrome doesn&#39;t support the reversed() keyword yet in counter-reset */
+
+@-moz-document url-prefix() {
+  body #thetext {
+    counter-reset: reversed(numbering);
+  }
+  
+  body #thetext article &gt; h2::before {
+  counter-increment: numbering -1;
+  content: &quot;Post &quot; counter(numbering) &quot;: &quot;;
+  }
+}</code></pre>
+</article>
 <article id="20250529153922">
 <h2 id="set-the-tone-iii">Set the Tone, III</h2>
 <h3 id="May-29-2025-39"><time datetime="2025-05-29">May 29, 2025</time></h3>
