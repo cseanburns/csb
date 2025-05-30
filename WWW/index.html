@@ -414,7 +414,7 @@ body #homepage h3::before {
   counter-increment: sub_outline;
 }</code></pre>
 <p>The above code should work in any browser.</p>
-<p>For this page, though, I use <code>&lt;ol reversed&gt;</code> for the table of contents. I wanted to mirror the numbering in the table of contents with the matching posts. For example, this post should be "#346" in the table of contents, and I want to add "Post 346: Title of Post" to the <code>&lt;h2&gt;</code> element for the actual post.</p>
+<p>For this page, though, I use <code>&lt;ol&gt;</code> with the `reversed` attribute for the table of contents. I wanted to mirror the numbering in the table of contents with the matching posts. For example, this post should be "#346" in the table of contents, and I want to add "Post 346: Title of Post" to the <code>&lt;h2&gt;</code> element for the actual post.</p>
 <p>To do this, I used <code>counter-reset: reversed(numbering);</code> to target the <code>&lt;h2&gt;</code> elements used in each post. Unfortunatley, neither Safari nor Chrome (the basis of most browsers these days), don't support the <code>reversed</code> keyword. So I used the <code>@moz-document</code> function to target the Firefox browser only. Without targeting Firefox only, the output is funky in other browsers. Anyway, the result is "Post 346: Title of Post" in Firefox. For those using other browsers, only the "Title of Post" is displayed.</p>
 <pre><code>/* Adding post numbering to The Text */
 /* Applying to Firefox only: Chrome doesn&#39;t support the reversed() keyword yet in counter-reset */
