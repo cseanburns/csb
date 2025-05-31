@@ -3965,9 +3965,10 @@ T-test  1.835857   13   two-sided  0.08935  [1.98, 2.22]  0.490653  1.015  0.397
 <p>To merge them with <code>diff</code> and an <code>ed</code> script:</p>
 <pre><code>diff -e file1.py file2.py &gt; patch.ed
 (cat patch.ed &amp;&amp; echo w) | ed - file1.py</code></pre>
-<p>To merge them with <code>diff</code> and the <code>patch</code> command:</p>
+<p>Although I like to use <code>ed</code> a lot, it's probably easier to merge them with the <code>diff</code> and the <code>patch</code> commands:</p>
 <pre><code>diff -u file1.py file2.py &gt; patchfile.patch
 patch file1.py patchfile.patch</code></pre>
+<p>Updated: Sat May 31 11:09:00 AM EDT 2025</p>
 </article>
 
 <article id="20210810">
