@@ -752,7 +752,7 @@ body #homepage h3::before {
 <h2 id="on-gnuplot">On <code>gnuplot</code></h2>
 <h3 id="April-08-2025-05"><time datetime="2025-04-08">April 08, 2025</time></h3>
 <p>I don't remember how I stumbled upon it, but in my early days of using Linux, I found <a href="https://sdf.org/">SDF</a>, a <q>Public Access UNIX system.</q> SDF runs on <a href="https://www.netbsd.org/">NetBSD</a>, and offers, among other things, a shell account, an online bulletin board system, web hosting, and more. It's been in operation since 1987.</p>
-<p>Sometime in the early 2000s while on SDF (where I still have an account and login periodically), I found and started using <a href="https://www.netbsd.org/"><code>gnuplot</code></a>, <q>an interactive plotting program</q> (see <code>man gnuplot</code>). This was a handful of years before I learned about or how to use R or Python. In those days, I was playing around with Perl and various shell environments, like <a href="https://en.wikipedia.org/wiki/KornShell"><code>ksh</code></a> and <a href="https://en.wikipedia.org/wiki/Tcsh"><code>tcsh</code></a>, before finally settling on <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)"><code>bash</code></a>, and terminal-based email clients like <a href="https://en.wikipedia.org/wiki/Alpine_(email_client)">Alpine</a> and <a href="https://en.wikipedia.org/wiki/Elm_(email_client)">Elm</a> before sticking to <a href="https://en.wikipedia.org/wiki/Mutt_(email_client)">Mutt</a>. Bash and Mutt are still the main programs I use today, and so those early days were pretty formative for me.</p>
+<p>Sometime in the early 2000s while on SDF (where I still have an account and login periodically), I found and started using <a href="http://gnuplot.info/">gnuplot</a>, <q>an interactive plotting program</q> (see <code>man gnuplot</code>). This was a handful of years before I learned about or how to use R or Python. In those days, I was playing around with Perl and various shell environments, like <a href="https://en.wikipedia.org/wiki/KornShell"><code>ksh</code></a> and <a href="https://en.wikipedia.org/wiki/Tcsh"><code>tcsh</code></a>, before finally settling on <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)"><code>bash</code></a>, and terminal-based email clients like <a href="https://en.wikipedia.org/wiki/Alpine_(email_client)">Alpine</a> and <a href="https://en.wikipedia.org/wiki/Elm_(email_client)">Elm</a> before sticking to <a href="https://en.wikipedia.org/wiki/Mutt_(email_client)">Mutt</a>. Bash and Mutt are still the main programs I use today, and so those early days were pretty formative for me.</p>
 <p>I taught myself to use <code>gnuplot</code> by downloading daily weather temperatures using a local university weather station, and plotting the results. If I recall correctly, I had a <a href="https://en.wikipedia.org/wiki/Cron"><code>cron</code></a> job setup that would automatically retrieve the data and update the plot and add it to a web page. It was pretty fun working on that little project.</p>
 <p>Then I started to learn R and decades went by (geez!). But I've been wanting to dive back into <code>gnuplot</code> because I remember it being super powerful and fun albeit a bit cryptic. Also, unlike R, <code>gnuplot</code> doesn't require a graphical system to be installed. This makes it ideal for running it on remote servers with command line only environments.</p>
 <p>Finally then, the other day I installed the terminal-based <code>gnuplot-nox</code> package because I wanted to use it to plot <a href="WWW/index.html#utility-update">my utility usage</a>. It took some time to relearn some things. Every online tutorial I found made too many assumptions or glossed over tacit knowledge, especially over how data files should be formatted. But ChatGippity came to the rescue, and pretty soon, I was able to plot my utility data and easily save the output as ASCII plots. This latter part was important because this is a text-only page, and if I want to share these plots, they'd have to be ASCII plots. (R does have the ability to print all sorts of ASCII plots, too, though.)</p>
@@ -1506,12 +1506,11 @@ months!</p>
     </colgroup>
     <thead>
         <tr class="header">
-            <th></th>
+            <th rowspan="2">Month</th>
             <th class="bottomborder" colspan="3">Usage (KWH)</th>
             <th class="bottomborder" colspan="3">Avg Temp (F)</th>
         </tr>
         <tr>
-            <th>Month</th>
             <th>2023</th>
             <th>2024</th>
             <th>% change</th>
@@ -3230,7 +3229,7 @@ Pass it on!</p>
 <article id="20230823">
 <h2 id="a-delight">A Delight</h2>
 <h3 id="August-23-2023"><time datetime="2023-08-23">August 23, 2023</time></h3>
-<p><u>The Book of Delights</u> by Ross Gay is a wonderful read.</p>
+<p><cite>The Book of Delights</cite> by Ross Gay is a wonderful read.</p>
 <p>Perhaps the book placed me in a good frame of mind when a friend texted me that their friend was going to be at the art fair down the street last weekend and was texting me, and not the friend, because the friend's phone wasn't working. There were like thousands of people at the fair, and I thought, without their phone, how would I find them? And the thought of looking for them, with my own children in tow, amidst that sea of people, made me laugh with delight.</p>
 </article>
 <article id="20230818">
