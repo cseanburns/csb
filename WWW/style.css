@@ -11,20 +11,20 @@ body {
 
 /* Adding outline numbering to homepage */
 
-body #homepage {
+body .outline {
     counter-reset: main_outline;
 }
 
-body #homepage h2::before {
+body .outline h2::before {
   content: counter(main_outline) " ";
   counter-increment: main_outline;
 }
 
-body #homepage h2 {
+body .outline h2 {
   counter-reset: sub_outline;
 }
 
-body #homepage h3::before {
+body .outline h3::before {
   content: counter(main_outline) "." counter(sub_outline) " ";
   counter-increment: sub_outline;
 }
