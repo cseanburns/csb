@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FreeBSD Notes">
+    <title>C. Sean Burns, PhD, Notes</title>
+    <base href="https://cseanburns.net/">
+    <link rel="stylesheet" href="WWW/style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/f16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/f32.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="images/f72.png">
+    <link rel="icon" type="image/png" sizes="114x114" href="images/f114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/f144.png">
+  </head>
+
+  <body>
+    <header>
+      <nav>
+          <p>
+          <a href="index.html">Home</a> &rarr;
+          <a href="NOTES/index.html">NOTES</a> &rarr;
+          <a href="NOTES/TECH/index.html">TECH</a> &rarr; FreeBSD Notes
+          </p>
+      </nav>
+    </header>
+
+<main>
+
+    <h1>Some notes on using FreeBSD</h1>
+
+    <p>Login as <code>root</code> to complete most of the tasks below.</p>
+
+    <h2>Restart wifi</h2>
+    <pre><code>service netif restart</code></pre>
+
+    <h2>install security patches</h2>
+    <pre><code>
+freebsd-update fetch
+freebsd-update install</code></pre>
+
+    <h2>update packages</h2>
+
+    <pre><code>
+pkg update
+pkg upgrade
+pkg autoremove
+pkg clean</code></pre>
+
+    <h2>Update the FreeBSD version</h2>
+    <p>For example, to upgrade from 14.0-RELEASE to the 14.1-RELEASE (get info on release numbers from freebsd.org):</p>
+
+    <pre><code>
+freebsd-update -r 14.1-RELEASE upgrade
+freebsd-update install</code></pre>
+
+    <p>Reboot:</p>
+
+    <pre>
+<code>shutdown -r now</code></pre>
+
+    <p>Login as <code>root</code> and run the install command again:</p>
+
+    <pre>
+<code>freebsd-update install</code></pre>
+
+    <h2>Installing the Sway window manager</h2>
+    <p>After installing Wayland and Sway per the <a href="https://docs.freebsd.org/en/books/handbook/wayland/">FreeBSD Handbook</a>,
+    install the graphics driver:</p>
+
+<pre><code>
+pkg install drm-kmod
+sysrc -f /etc/rc.conf kld_list+=i915kms</code></pre>
+
+    <p>Ensure that <code>$USER</code> is in the video group and reboot.</p>
+
+    <h2>Starting Sway</h2>
+    <p>Do this as <code>$USER</code> and not as <code>root</code>.</p>
+    <pre>
+<code>sway</code></pre>
+
+</main>
+
+<hr>
+
+<footer>
+<p>Unless otherwise attributed, the views, thoughts, and opinions
+expressed on this site belong solely to the site owner,
+C. Sean Burns, and not to the site owner's employer
+or any other related entity.</p>
+
+<p>Copyright by C. Sean Burns, 2019.
+Last modified: <time datetime="2024-08-13">2024-08-13</time>.</p>
+
+</footer>
+
+</body>
+</html>

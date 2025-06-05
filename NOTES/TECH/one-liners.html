@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="One Liners">
+    <title>C. Sean Burns, PhD, One Liners</title>
+    <base href="https://cseanburns.net/">
+    <link rel="stylesheet" href="WWW/style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/f16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/f32.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="images/f72.png">
+    <link rel="icon" type="image/png" sizes="114x114" href="images/f114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/f144.png">
+  </head>
+
+  <body>
+
+<header>
+  <nav>
+    <a href="index.html">Home</a> &rarr;
+    <a href="NOTES/index.html">NOTES</a> &rarr;
+    <a href="NOTES/TECH/index.html">TECH</a> &rarr; One Liners
+  </nav>
+</header>
+
+<main>
+    <section>
+
+    <h2>sed</h2>
+
+    <p>A few <code>sed</code> commands that are useful and that I'd like to remember.</p>
+
+    <p>Get a sane list of the <code>$PATH</code>:</p>
+
+    <pre><code>
+echo "$PATH" | sed 's/:/\n/g'
+    </code></pre>
+
+    <p>See what directories in <code>$HOME</code> are in <code>$PATH</code>:</p>
+
+    <pre><code>
+echo "$PATH" | sed 's/:/\n/g' | grep "$HOME"
+    </code></pre>
+
+    <p>Compare different lines from two (or more even) different files:</p>
+
+    <pre><code>
+cat &lt;(sed -n '7,10p' file1) &lt;(sed -n '1,3p' file2)
+    </code></pre>
+
+    <p>Copy matching lines from a file if using Wayland. Alternatively, replace the <em>regex</em> with line numbers:</p>
+
+    <pre><code>
+sed -n '/regex/p' file.md | wl-copy
+    </code></pre>
+
+    <p>Replace a specific occurence in a line, like a field replacement:
+
+    <pre><code>
+cat fruit.dat
+apple apple apple apple
+
+sed 's/apple/orange 2' fruit.dat
+apple orange apple apple
+    </code></pre>
+
+    <p>Or, specify a specific line, like line 1:</p>
+
+    <pre><code>
+cat fruit.dat
+
+apple apple apple apple
+apple apple apple apple
+apple apple apple apple
+apple apple apple apple
+
+sed '2s/apple/orange 2' fruit.dat
+
+apple apple apple apple
+apple orange apple apple
+apple apple apple apple
+apple apple apple apple
+    </code></pre>
+
+    </section>
+</main>
+
+<hr>
+
+<footer>
+<p>Unless otherwise attributed, the views, thoughts, and opinions
+expressed on this site belong solely to the site owner,
+C. Sean Burns, and not to the site owner's employer
+or any other related entity.</p>
+
+<p>Copyright by C. Sean Burns, 2019.
+Last modified: <time datetime="2024-10-07">2024-10-07</time>.</p>
+
+</footer>
+
+</body>
+</html>
