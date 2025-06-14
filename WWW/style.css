@@ -1,13 +1,58 @@
 html {
-    font-family: sans-serif;
-    font-size: 1rem;
-    line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: black;
+  background-color: white;
+  font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 body {
     max-width: clamp(320px, 95%, 1000px);
     margin: auto;
 }
+
+header > nav > p {
+  border: 1px solid #a8c391;
+  background-color: #ecf2e7;
+  padding: 5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #3c790a;
+}
+
+h2, h3 { scroll-margin-top: 3ex; /* places elements just below the top of the window */ }
+
+code, pre {
+  font-family: monospace; "Courier New", Courier;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+code {
+  color: #ce410a;
+}
+
+blockquote, aside {
+  color: #068306;
+  background-color: #ddffdd;
+  padding: 10px;
+}
+
+/* general classes */
+
+.bold { font-weight: bold; }
+
+.underline { text-decoration: underline; }
+
+.small { font-size: .8em; }
 
 /* Adding outline numbering to homepage */
 
@@ -43,63 +88,4 @@ body .outline h3::before {
   }
 }
 
-h2, h3 { scroll-margin-top: 3ex; /* places elements just below the top of the window */ }
 
-code, pre {
-  font-family: "Courier New", Courier, monospace;
-}
-
-pre {
-  padding: 1rem;
-  overflow-x: auto;
-}
-
-/* general classes */
-
-.bold { font-weight: bold; }
-
-.underline { text-decoration: underline; }
-
-.small { font-size: .8em; }
-
-/* tables */
-
-table {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-collapse: collapse;
-    caption-side: bottom;
-    font-size: .9em;
-    border-bottom: 1px solid black;
-}
-
-caption {
-    text-align: start;
-    font-style: italic;
-    font-size: .85em;
-}
-
-.span_table { width: 100%; }
-
-thead {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 5px;
-    text-transform: uppercase;
-}
-
-td, th {
-    padding: 0.5em 1em;
-    text-align: center;
-}
-
-thead, th.bottomborder { border-bottom: 1px solid black; }
-
-:is(tbody, table) > tr:nth-child(odd) { background: #0001; }
-
-tfoot {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-
-/* end tables */
