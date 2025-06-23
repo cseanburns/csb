@@ -45,6 +45,7 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#sci-fi-communication-part-ii">Sci-Fi Communication, Part II</a></li>
 <li><a href="WWW/index.html#sci-fi-communication">Sci-Fi Communication</a></li>
 <li><a href="WWW/index.html#on-side-effects">On Side Effects</a></li>
 <li><a href="WWW/index.html#the-web-sucks-colors-part-ii">The Web Sucks: Colors Part II</a></li>
@@ -407,6 +408,27 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20250623094416">
+<h2 id="sci-fi-communication-part-ii">Sci-Fi Communication, Part II</h2>
+<h3 id="June-23-2025-44"><time datetime="2025-06-23">June 23, 2025</time></h3>
+<p>When I started thinking about <em>data-centric computing</em>, I didn't know, but should have expected, that this was already being pursued. This means that I have a lot of reading ahead of me, but right now, I like the idea captured here:</p>
+<blockquote>
+<p>Data is the center of the universe; applications are ephemeral (<a href="https://datacentricmanifesto.org/">The Data-Centric Manifesto</a>).</p>
+</blockquote>
+<p>Assuming that futuristic sci-fi shows illustrate a data-centric model of computing, I'll use those shows to contrast the application-centric model that's common today with a data-centric model that's implicitly portrayed in those shows and movies.</p>
+<p>Later I will describe what I'm envisioning, and then start reading to see how it aligns (or not) with the current research and ideas. For now, I'll focus on end user applications to set up a contrast. This will all be rather roughly illustrated as I draft these ideas and then read the literature. This series of posts will serve as a rough draft of this work. Later I'll likely copy this content to a separate page on this site to more fully fledge out the draft.</p>
+<p>First, I'll consider the current application-centric computing model but aim to keep it simple.</p>
+<hr />
+<p>Let's say a user wants to watch a YouTube video. They identify the video (more on that at a later time), and click to view it in their browser. Several protocols are engaged at this point. TCP/IP is used to negotiate the connection between the YouTube website and the user's computer. A web server delivers the content to the user's browser. UDP/IP (specifically HTTP/3 using QUIC over UDP) is used to transmit the YouTube video to the user's computer. The browser receives this information, via port 443 (encrypted HTTP traffic). Web technologies, like HTML, CSS, and JavaScript, handle the presentation of the data in the browser and how a user acts on that data (e.g., viewing, clipping, downloading, etc.).</p>
+<p>Several applications are involved here. The user's OS handles internet data transmission and routes it to the appropriate applications using TCP/IP and with HTTP/3 using QUIC over UDP. The browser app handles web technologies: e.g., HTTP, HTML, CSS, and JavaScript. The YouTube app/website provides the infrastructure for hosting and serving videos. It defines how that video is presented and what actions a user can take (e.g., play, pause, comment, share). The browser application renders this experience according to the web technologies used and allows the user to interact with the video, with respect the constraints and affordances set by YouTube.</p>
+<blockquote>
+<p>How I use the term <em>handles</em> above is doing a lot of work here. More on this later.</p>
+</blockquote>
+<p>In short, the OS is fairly agnostic with regards to how data is interpreted or used, but two things <em>app-ify</em> the data: the YouTube website and the user's browser.</p>
+<blockquote>
+<p>I use the term <em>app-ify</em> in this context to state how raw data is converted into a structured and contained experience with defined functionality.</p>
+</blockquote>
+</article>
 <article id="20250621112853">
 <h2 id="sci-fi-communication">Sci-Fi Communication</h2>
 <h3 id="June-21-2025-28"><time datetime="2025-06-21">June 21, 2025</time></h3>
