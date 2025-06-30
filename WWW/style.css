@@ -88,4 +88,32 @@ body .outline h3::before {
   }
 }
 
+table {
+  table-layout: fixed;
+  width: clamp(320px, 95%, 1000px);
+  border-collapse: collapse;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  overflow-x: auto;
+}
+
+table caption {
+  text-align: left;
+  font-style: italic;
+}
+
+thead {
+  background-color: #3c790a;
+  color: white;
+  border-bottom: 1px solid black;
+}
+
+td {
+  text-align: center;
+}
+
+th,
+td {
+  padding: 0.5em;
+}
 
