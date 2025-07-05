@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  max-width: 72ch;
+  max-width: 80ch;
   margin: auto;
   padding: 0 5px 0 5px;
 }
@@ -31,21 +31,23 @@ code, pre {
   font-family: monospace;
 }
 
-pre {
-  padding: 1rem;
-  overflow-x: auto;
-  border: 1px solid black;
-  border-radius: 10px;
+p > code {
+  color: #ce410a;
 }
 
-code {
-  color: #ce410a;
+pre {
+  color: black;
+  background-color: #fcfaee;
+  padding: 10px;
+  border-left: 8px solid #e0cb52;
+  overflow-x: auto;
 }
 
 blockquote, aside {
   color: #068306;
   background-color: #ddffdd;
   padding: 10px;
+  border-left: 8px solid #52e052;
 }
 
 img {
