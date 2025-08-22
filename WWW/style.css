@@ -1,10 +1,10 @@
 html {
   box-sizing: border-box;
-  background-color: white;
-  color: #333;
+  background-color: #222127;
+  color: #fff;
   font-size: 100%;
   font-family: sans-serif;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 *, ::before, ::after {
@@ -22,7 +22,7 @@ header {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #3c790a;
+  color: #ffb300;
 }
 
 h2, h3 { scroll-margin-top: 3ex; /* places elements just below the top of the window */ }
@@ -36,18 +36,22 @@ p > code {
 }
 
 pre {
-  color: black;
-  background-color: #fcfaee;
+  color: #ffb300;
+  background-color: #4e3e1f;
   padding: 10px;
-  border-left: 8px solid #e0cb52;
+  border-left: 8px solid #ce410a;
   overflow-x: auto;
 }
 
+pre {
+  font-family: monospace;
+}
+
 blockquote, aside {
-  color: #068306;
-  background-color: #ddffdd;
+  color: #ffb300;
+  background-color: #4e3e1f;
   padding: 10px;
-  border-left: 8px solid #52e052;
+  border-left: 8px solid #ffb300;
 }
 
 img {
@@ -56,7 +60,7 @@ img {
 }
 
 a {
-    color: blue;
+    color: #ffb300;
     text-decoration: underline;
 }
 
@@ -121,8 +125,8 @@ table caption {
 }
 
 thead {
-  background-color: #3c790a;
-  color: white;
+  background-color: #4e3e1f;
+  color: #e4a004;
   border-bottom: 1px solid black;
 }
 
