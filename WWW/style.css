@@ -18,11 +18,12 @@ body {
 }
 
 header {
-  border-bottom: 1px solid #a8c391;
+  border-bottom: 1px solid #16b10e;
+  border-bottom-style: dashed;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #ffb300;
+  color: #16b10e;
 }
 
 h2, h3 { scroll-margin-top: 3ex; /* places elements just below the top of the window */ }
@@ -36,10 +37,10 @@ p > code {
 }
 
 pre {
-  color: #ffb300;
-  background-color: #4e3e1f;
+  color: #16b10e;
+  background-color: #1b1b1b;
   padding: 10px;
-  border-left: 8px solid #ce410a;
+  border-left: 8px solid #000;
   overflow-x: auto;
 }
 
@@ -48,10 +49,10 @@ pre {
 }
 
 blockquote, aside {
-  color: #ffb300;
-  background-color: #4e3e1f;
+  color: #16b10e;
+  background-color: #1b1b1b;
   padding: 10px;
-  border-left: 8px solid #ffb300;
+  border-left: 8px solid #fff;
 }
 
 img {
@@ -60,12 +61,16 @@ img {
 }
 
 a {
-    color: #ffb300;
+    color: #16b10e;
     text-decoration: underline;
 }
 
 a:hover {
     text-decoration: none;
+}
+
+hr {
+  color: #16b10e;
 }
 
 /* general classes */
@@ -110,12 +115,14 @@ body .outline h3::before {
   }
 }
 
+/* Table styling */
+
 table {
   table-layout: fixed;
   /*width: clamp(320px, 95%, 1000px);*/
   border-collapse: collapse;
-  border-top: 1px solid #999;
-  border-bottom: 1px solid #999;
+  border-top: 1px solid #16b10e;
+  border-bottom: 1px solid #16b10e;
   overflow-x: auto;
 }
 
@@ -125,8 +132,8 @@ table caption {
 }
 
 thead {
-  background-color: #4e3e1f;
-  color: #e4a004;
+  background-color: #1b1b1b;
+  color: #16b10e;
   border-bottom: 1px solid black;
 }
 
