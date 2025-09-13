@@ -31,15 +31,17 @@
 
     <p>Login as <code>root</code> to complete most of the tasks below.</p>
 
-    <h2>Restart wifi</h2>
+    <h2>Wifi</h2>
+    <p>Restart wifi:</p>
     <pre><code>service netif restart</code></pre>
+    <p>Add wifi credentials to: <code>/etc/wpa_supplicant.conf</code></p>
 
-    <h2>install security patches</h2>
+    <h2>Install security patches</h2>
     <pre><code>
 freebsd-update fetch
 freebsd-update install</code></pre>
 
-    <h2>update packages</h2>
+    <h2>Update packages</h2>
 
     <pre><code>
 pkg update
@@ -79,15 +81,18 @@ sysrc -f /etc/rc.conf kld_list+=i915kms</code></pre>
     <pre>
 <code>sway</code></pre>
 
+    <h2>Misc commands:</h2>
+
+    <p>Use <code>vidfont</code> to change console font and size.
+    Add font selection to <code>/etc/rc.conf</code> to make permanent: e.g., <code>allscreens_flags="-f spleen-8x16"</code>.</p>
+
 </main>
 
 <hr>
 
 <footer>
-<p>Unless otherwise attributed, the views, thoughts, and opinions
-expressed on this site belong solely to the site owner,
-C. Sean Burns, and not to the site owner's employer
-or any other related entity.</p>
+<p>Unless otherwise attributed, the views, thoughts, and opinions expressed on this site belong solely to the site owner,
+C. Sean Burns, and not to the site owner's employer or any other related entity.</p>
 
 <p>Copyright by C. Sean Burns, 2019.
 Last modified: <time datetime="2024-08-13">2024-08-13</time>.</p>
