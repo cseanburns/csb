@@ -57,10 +57,41 @@
                 <section id="introduction">
                     <h1>C. Sean Burns</h1>
 
-                    <p>I work as an Associate Professor at the University of Kentucky's College of Communication and Information,
-                    within the School of Information Science.</p>
+					<p>A personal website in the spirit of a <em>digital garden</em> that contains pages
+					about niche things like plain text, reading, writing, coding, thinking about systems, and
+					paying attention to the details, with my limited senses.</p>
 
-                    <p>My <a href="WWW/about.html">About page</a> contains more details.</p>
+                    <p>My <a href="WWW/about.html">About page</a> contains some details.</p>
+
+					<h2>Now</h2>
+
+					<ul>
+						<li>Personal reading: Right now I'm reading <cite class="title">Hiking with Nietzsche: On Becoming Who You Are</cite> / <span class="author">John Kaag</span>.</li>
+						<li>Learning: Playing around with substring expansion and other capabilities in and with <code>bash</code>.</li>
+						<li>Researching: Working on a project about librarian publishing patterns.</li>
+						<li>Academic reading: Diving back into domain analysis theory and reading a lot of Birger Hjørland's works.</li>
+					</ul>
+
+                </section>
+
+                <section id="the_text">
+                    <h2>The Text</h2>
+
+                    <p><a href="WWW/index.html">The Text</a> is probably the main page of this site.
+					It's a single page that contains hundreds of short posts on a variety of topics.
+                    I started the page on April 23, 2019 and have been adding to it ever since.</p>
+
+                    <p>Why is it a single page?
+                    It's a single page because a single, long page on random topics confuses search engines.
+                    I think that's funny because it shows that search engines have an inherent definition of what a document it,
+					and a single, long page messes with that definition.</p>
+
+                    <p>To add new posts to the page, I write a single markdown file, and then process that file with a
+                    <a href="https://github.com/cseanburns/csb/blob/master/scripts/post">bash</a> script,
+                    which converts it to HTML, adds a bunch of extra tags, creates a RSS entry, etc, etc.
+                    The script uses a lot of <code>sed</code> and
+                    <a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ed.html"><code>ed</code></a> commands,
+                    which I also think is funny.</p>
                 </section>
 
                 <section id="research">
@@ -78,14 +109,13 @@
                 <section id="teaching">
                     <h2>Teaching</h2>
 
-                    <p>I teach in the Library Science (LS) and in the Information, Communication, Technology (ICT) programs.</p>
+                    <p>I teach in Library Science (LS) and in Information, Communication, Technology (ICT) programs.</p>
 
                     <h3>Books</h3>
 
-                    <p>I've written and made available several of my for the courses that I teach.
+                    <p>I've written and made available open educational / open access textbooks for the courses that I teach.
                     These textbooks cover systems librarianship, electronic resource management, Linux systems administration,
-                    and personal knowledge management.
-                    I'm presently writing a new textbook on semantic web development.</p>
+                    personal knowledge management, and semantic web development.</p>
 
                     <p>Visit <a href="WWW/books.html">textbooks</a> for the complete list.</p>
 
@@ -97,25 +127,9 @@
 
                     <p>Visit <a href="WWW/software.html">software applications</a> to download and use them.</p>
 
-                </section>
+					<p>These applications were all written in <code>bash</code>, but they employ a lot of additional utilities.
+					I'm learning more <code>bash</code> to make them more bashy.</p>
 
-                <section id="the_text">
-                    <h2>The Text</h2>
-
-                    <p><a href="WWW/index.html">The Text</a>
-                    is a single page that contains hundreds of short posts on a variety of topics.
-                    I started the page on April 23, 2019, and have been adding to it ever since.</p>
-
-                    <p>Why is it a single page?
-                    It's a single page because a single, long page on random topics really confuses search engines,
-                    which I think is funny (because I know why it confuses them).</p>
-
-                    <p>To add new posts to the page, I write a single markdown file, and then process that file with a
-                    <a href="https://github.com/cseanburns/csb/blob/master/scripts/post">bash</a> script,
-                    which converts it to HTML, adds a bunch of extra tags, creates a RSS entry, etc, etc.
-                    The script uses a lot of <code>sed</code> and
-                    <a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ed.html"><code>ed</code></a> commands,
-                    which I also think is funny.</p>
                 </section>
 
                 <section id="bookshelf">
@@ -137,7 +151,7 @@
                 <p>Unless otherwise attributed, the views, thoughts, and opinions expressed on this site belong solely to the site owner,
                 C. Sean Burns, and not to the site owner's employer or any other related entity.</p>
 
-                <p>Copyright by Sean Burns, 2019. Last modified: <time datetime="2025-07-03">2025-07-03</time>.</p>
+                <p>Copyright by Sean Burns, 2019. Last modified: <time datetime="2025-11-18">2025-11-18</time>.</p>
             </footer>
         </body>
 </html>
