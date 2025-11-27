@@ -473,7 +473,7 @@ barry works as a graphics designer and is 30 years old.
 carolyn works as a tycoon and is 44 years old.
 dennis works as a professor and is 50 years old.</code></pre>
 <p>The problem with this code is that it's written with a <em>bash-as-a-command-interpreter</em> mindset. In practice, this is inefficient because for every use of <code>cut</code> under the <code>while</code> statement, <code>bash</code> forks a process. For a four line data file, this isn't an issue. But it becomes an issue if the file contains a lot of data.</p>
-<p>We can accomplish the above output in a more <em>bashy</em> way, i.e., using <code>bash</code> a legit programming language, by setting the <a href="https://mywiki.wooledge.org/IFS">IFS</a> environmental variable and using Bash's builtin <code>read</code> command. The following <em>bashy</em> code, also adopted from the @YSAF video, produces the same output:</p>
+<p>We can accomplish the above output in a more <em>bashy</em> way, i.e., using <code>bash</code> as a legit programming language, by setting the <a href="https://mywiki.wooledge.org/IFS">IFS</a> environmental variable and using Bash's builtin <code>read</code> command. The following <em>bashy</em> code, also adopted from the @YSAF video, produces the same output:</p>
 <pre><code>#!/usr/bin/env bash
 
 while IFS=, read -r name age job; do
