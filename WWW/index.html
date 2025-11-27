@@ -472,7 +472,7 @@ done &lt; data.csv</code></pre>
 barry works as a graphics designer and is 30 years old.
 carolyn works as a tycoon and is 44 years old.
 dennis works as a professor and is 50 years old.</code></pre>
-<p>The problem with this code is that it's written with a <em>bash-as-a-command-interpreter</em> mindset. In practice, this is inefficient because for use of <code>cut</code> under the <code>while</code> statement, <code>bash</code> forks a process. For a four line data file, this isn't an issue. But it becomes an issue if the file contains a lot of data.</p>
+<p>The problem with this code is that it's written with a <em>bash-as-a-command-interpreter</em> mindset. In practice, this is inefficient because for every use of <code>cut</code> under the <code>while</code> statement, <code>bash</code> forks a process. For a four line data file, this isn't an issue. But it becomes an issue if the file contains a lot of data.</p>
 <p>We can accomplish the above output in a more <em>bashy</em> way, i.e., using <code>bash</code> a legit programming language, by setting the <a href="https://mywiki.wooledge.org/IFS">IFS</a> environmental variable and using Bash's builtin <code>read</code> command. The following <em>bashy</em> code, also adopted from the @YSAF video, produces the same output:</p>
 <pre><code>#!/usr/bin/env bash
 
@@ -480,7 +480,7 @@ while IFS=, read -r name age job; do
   echo &quot;$name works as a $job and is $age years old.&quot;
 done &lt; data.csv</code></pre>
 <p>Here the code is shorter and magnitudes faster because <code>bash</code> is not forking processes by calling on external utilities like <code>cut</code>.</p>
-<p>However, this is not the kind of code that I'd be prone to write at the prompt, via <em>bash-as-a-command-interpreter</em>. Learning to write this way thus means learning <em>bash-as-a-programming-language</em>.</p>
+<p>However, this is not the kind of code that I'd be prone to write at the prompt, via <em>bash-as-a-command-interpreter</em>. Learning to code this way thus means learning <em>bash-as-a-programming-language</em>.</p>
 <p>As an aside, it turns out that <code>bash</code> is pretty efficient and advanced using the <em>bashy</em> approach. Take the following CSV file named <code>calc.csv</code>:</p>
 <pre><code>1,2,3
 4,5,6
