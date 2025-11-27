@@ -45,6 +45,7 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#using-bash">Using Bash</a></li>
 <li><a href="WWW/index.html#reading-student-work">Reading Student Work</a></li>
 <li><a href="WWW/index.html#rethinking">Rethinking</a></li>
 <li><a href="WWW/index.html#thinking-with">Thinking With</a></li>
@@ -428,6 +429,95 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20251127135743">
+<h2 id="using-bash">Using Bash</h2>
+<h3 id="November-27-2025-57"><time datetime="2025-11-27">November 27, 2025</time></h3>
+<p>I had a bit of an epiphany watching a <code>bash</code> focused YouTube channel, <a href="https://www.youtube.com/@yousuckatprogramming">@yousuckatprogramming (YSAP)</a>, This channel is great because Dave Eddy, the YouTuber, has a very deep knowledge of <code>bash</code> and treats it as a proper and respectful programming language. This is refreshing because <code>bash</code> often gets trashed as a language, and people suggest using alternate programming languages, like Python, when doing anything complicated.</p>
+<p>The epiphany happened watching the Bash video titled: <a href="https://www.youtube.com/watch?v=gB1OFgiilzQ">Bash <code>read</code> command instead of <code>cut</code> and <code>tr</code></a>. In this video, Eddy presents two ways of solving a problem using <code>bash</code>: a "cringe" way and a, I'll call it, a <em>bashy</em> way. It was this contrast that helped me realized that the criticisms of <code>bash</code> could be that just like people's <a href="https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118">problem with Vim is that they don't grok vi</a>, people's problem with <code>bash</code> is a lack a of grok there, too.</p>
+<p>My guess is that if people don't grok <code>bash</code> it's because of <code>bash</code> itself. The crux may be that <code>bash</code> is both <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)"><q>an interactive command interpreter and programming language</q></a>, and it's this dual use, and even dual frameworks, that may cause misunderstanding.</p>
+<p>First, it means that when we learn to use <code>bash</code>, we often first learn it as a command interpreter (via the prompt). It's through the interpreter that we use <code>bash</code> to perform regular, everyday kinds of computing tasks, like naming, moving, and deleting files and directories; launching programs; examining and manipulating data, etc. Many of these latter actions usually involve using utilities, like <code>cut</code>, <code>tr</code>, and <a href="https://www.gnu.org/software/coreutils/manual/coreutils.html">others</a>, that come with our operating system and are not part of <code>bash</code> but are used via <code>bash</code> (or some other shell).</p>
+<p>For example, if I want to examine some structured data in a file, I might use pipelines with utilities like <code>cut</code>, <code>sort</code>, and <code>uniq</code> to extract a column from a <code>[FILE]</code>, sort it, and then count the unique instances of it using pipelines:</p>
+<pre><code>cut -d, -f2 [FILE] | sort | uniq -c</code></pre>
+<blockquote>
+<p>A pipeline <code>|</code> uses utilities and programs as building blocks, where the data from a file is parsed by one program, and the parsed data is then sent to another program for more parsing, and so on.</p>
+</blockquote>
+<p>This is a perfectly fine way to use <code>bash</code>. The problem comes later when we learn to script to automate tasks, to parse data, to add control flows, etc. At this point, we've been using <code>bash</code> as an interactive command interpreter, and so we adopt what we learned from <code>bash</code> as a command interpreter to our scripting or coding. In other words, we've developed a mental model of <code>bash</code> as a command interpreter instead of as a programming language, and thus apply code snippets like above in our shell scripts because that's how we have been thinking about and using the shell. This was my evolution, but I don't think I'm alone in this. From the shell's early days, this was encouraged, especially after the introduction of pipelining, as demonstrated by <a href="https://youtu.be/tc4ROCJYbm0?si=nAjNdTQprDizaQmt&amp;t=296">Brian Kernighan in the 1970s</a>.</p>
+<p>As I learned to program in <code>bash</code>, it helped to think of the shell prompt as a kind of <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>, similar to what we might use with <code>R</code> or <code>python</code>. Like those other languages, you could craft commands at the shell prompt (the REPL), and then insert them in a file to run later. However, I now think a REPL is not a sufficient analogy. Real REPLs may be good for testing and crafting commands, but they are not great for doing everyday work. But <code>bash</code> is, as an interactive command interpreter. That is, because of pipelining and other shell attributes, I could use the shell for my entire existence and never bother to use <code>bash</code> as a programming language that's much more than a command interpreter. As a command interpreter, <code>bash</code> and similar shells are complete, whereas this isn't really true for other languages, like <code>R</code> or <code>python</code>. And therein lies the crux. In order to take advantage of <code>bash</code> as a legit programming language, we have to stop using it as a command interpreter in our scripts.</p>
+<p>Based on the @YSAF video, we can illustrate this with the following comma separate value file, named <code>data.csv</code>.</p>
+<pre><code>angie,23,cat burgler
+barry,30,graphics designer
+carolyn,44,tycoon
+dennis,50,professor</code></pre>
+<p>At the shell prompt, I can extract the second field with the <code>cut</code> utility:</p>
+<pre><code>cut -d, -f2 data.csv</code></pre>
+<p>This command instructs <code>cut</code> to use the comma to identify the fields in the file, and then select the second field from the file. In short, it would print to screen the numbers from the file:</p>
+<pre><code>23
+30
+44
+53</code></pre>
+<p>This is totally fine, and it's the main use case of the <code>cut</code> utility. There are other utilities that do all kinds of data operations like this, and these all make working on the command line a lot of fun and really useful.</p>
+<p>However, when adapting such commands to scripts, using utilities like <code>cut</code> introduces inefficiencies. This is because the <code>cut</code> command is an external utility (<code>/usr/bin/cut</code>), and each time <code>bash</code> (or any shell) calls it, the shell spawns additional processes, as illustrated @YSAP's video.</p>
+<p>To show this, let's say I write a script using <code>cut</code> several times, like so (adapted from the @YSAF video):</p>
+<pre><code>#!/usr/bin/env bash
+
+while read line; do
+    name=$(echo &quot;$line&quot; | cut -d, -f1 )
+    age=$(echo &quot;$line&quot; | cut -d, -f2 )
+    job=$(echo &quot;$line&quot; | cut -d, -f3 )
+
+    echo &quot;$name works as a $job and is $age years old.&quot;
+done &lt; data.csv</code></pre>
+<p>Based on the <code>data.csv</code> file, the output would be:</p>
+<pre><code>angie works as a cat burgler and is 23 years old.
+barry works as a graphics designer and is 30 years old.
+carolyn works as a tycoon and is 44 years old.
+dennis works as a professor and is 50 years old.</code></pre>
+<p>The problem with this code is that it's written with a <em>bash-as-a-command-interpreter</em> mindset. In practice, this is inefficient because for use of <code>cut</code> under the <code>while</code> statement, <code>bash</code> forks a process. For a four line data file, this isn't an issue. But it becomes an issue if the file contains a lot of data.</p>
+<p>We can accomplish the above output in a more <em>bashy</em> way, i.e., using <code>bash</code> a legit programming language, by setting the <a href="https://mywiki.wooledge.org/IFS">IFS</a> environmental variable and using Bash's builtin <code>read</code> command. The following <em>bashy</em> code, also adopted from the @YSAF video, produces the same output:</p>
+<pre><code>#!/usr/bin/env bash
+
+while IFS=, read -r name age job; do
+  echo &quot;$name works as a $job and is $age years old.&quot;
+done &lt; data.csv</code></pre>
+<p>Here the code is shorter and magnitudes faster because <code>bash</code> is not forking processes by calling on external utilities like <code>cut</code>.</p>
+<p>However, this is not the kind of code that I'd be prone to write at the prompt, via <em>bash-as-a-command-interpreter</em>. Learning to write this way thus means learning <em>bash-as-a-programming-language</em>.</p>
+<p>As an aside, it turns out that <code>bash</code> is pretty efficient and advanced using the <em>bashy</em> approach. Take the following CSV file named <code>calc.csv</code>:</p>
+<pre><code>1,2,3
+4,5,6
+7,8,9</code></pre>
+<p>We can sum the columns in that file without calling external utilities, ergo, in a <em>bashy</em> way:</p>
+<pre><code>#!/usr/bin/env bash
+
+while IFS=, read -r one two three; do
+    (( sum_one += one ))
+    (( sum_two += two ))
+    (( sum_three += three))
+done &lt; &quot;$1&quot;
+
+echo &quot;$sum_one $sum_two $sum_three&quot;</code></pre>
+<p>Here's the equivalent in the <code>awk</code> programming language, which was designed for this kind of work:</p>
+<pre><code>#!/usr/bin/awk -f
+
+BEGIN { FS=&quot;,&quot; }
+
+{
+        sum_one += $1
+        sum_two += $2
+        sum_three += $3
+}
+
+END {
+        print sum_one, sum_two, sum_three
+}</code></pre>
+<p>In both cases, <code>bash</code> and <code>awk</code> process the output at nearly the same speed and efficiency, although <code>awk</code> is about 1,000th of a second faster.</p>
+<p>Anyway, this epiphany has gotten me thinking about some of the lessons I can take from this difference between <em>bash-as-a-command-interpreter</em> and <em>bash-as-a-programming-language</em>:</p>
+<ul>
+<li>how we first encounter a tool can frame how we understand it: for example, my first experience with <code>bash</code> was at the shell prompt, and I only came to use it as a programming language much later. But that meant when I used it as a programming language, I adopted command interpreter behavior. Someone with a formal CS or like background, however, might have a completely different experience.</li>
+<li>how we engage something can determine what we perceive as possible: like above, because I adopted command interpreter behavior to shell scripting, the shell's programming logic and vocabulary stayed invisible to me for a long, long time.</li>
+<li>there are two different cultures here: the first is based on the history of Unix, which heralded and elevated the pipeline as a way of working and as a way of thinking. It's a beautiful way and one of my favorite, daily ways to engage with the OS, but it's a separate culture (albeit overlapping) from a programming first culture.</li>
+<li>since <code>bash</code> is complete as an interpreter and complete as a programming language, it highlights how different paths to learning something can lead to different mental models. And like any mental model, either can expose endless possibilities but also limit what can be seen.</li>
+</ul>
+</article>
 <article id="20251117155744">
 <h2 id="reading-student-work">Reading Student Work</h2>
 <h3 id="November-17-2025-57"><time datetime="2025-11-17">November 17, 2025</time></h3>
@@ -7687,7 +7777,7 @@ even happier.</p>
 <footer>
 <p>Unless otherwise attributed, the views, thoughts, and opinions expressed on this site belong solely to the site owner, C. Sean Burns, and not to the site owner's employer or any other related entity.</p>
 
-<p>Copyright by Sean Burns, 2019. Last modified: <time datetime="2024-08-31">2023-08-31</time>.</p>
+<p>Copyright by Sean Burns, 2019. Last modified: <time datetime="2025-11-27">2025-11-27</time>.</p>
 </footer>
 
 </body>
