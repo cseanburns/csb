@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bash Notes">
+    <title>C. Sean Burns, PhD, One Liners</title>
+    <base href="https://cseanburns.net/">
+    <link rel="stylesheet" href="WWW/style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/f16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/f32.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="images/f72.png">
+    <link rel="icon" type="image/png" sizes="114x114" href="images/f114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/f144.png">
+  </head>
+
+  <body>
+
+<header>
+  <nav>
+    <a href="index.html">Home</a> &rarr;
+    <a href="NOTES/index.html">NOTES</a> &rarr;
+    <a href="NOTES/TECH/index.html">TECH</a> &rarr; Bash Notes
+  </nav>
+</header>
+
+<main>
+<h1 id="bash-notes">BASH Notes</h1>
+<h2 id="compound-commands">Compound commands</h2>
+<p>Commands in a list with <code>()</code> are executed in a
+subshell:</p>
+<pre><code>(ls ; cd $HOME)</code></pre>
+<p>Commands in a list with <code>{}</code> are executed in current shell
+environment. Keep spaces after and before brackets and end with a
+semicolon.</p>
+<pre><code>{ ls ; cd $HOME ; }</code></pre>
+<h2 id="basic-variables-aka-parameters">Basic variables (aka
+Parameters)</h2>
+<h3 id="quoting">Quoting</h3>
+<p>Variables are expanded in double quotes but not single quotes:</p>
+<pre><code>echo &quot;I am $HOME&quot;
+I am /home/USER</code></pre>
+<p>But:</p>
+<pre><code>echo &#39;I am $HOME&#39;
+I am $HOME</code></pre>
+<h3 id="setting">Setting</h3>
+<p>It’s okay to leave curly braces <code>{}</code> out for minor uses,
+small scripts, etc., but using <code>{}</code> is more robust, explicit,
+and it is especially helpful when marking the end of a variable
+value.</p>
+<pre><code>name=&quot;Ray&quot;
+echo &quot;Hello, $name!&quot;
+echo &quot;Hello, ${name}!&quot;
+echo &quot;Hello, ${name}&#39;s kids!&quot;</code></pre>
+<h3 id="appending">Appending</h3>
+<p>Append to a variable:</p>
+<pre><code>name=&quot;Ray&quot;
+name+=&quot; of Light&quot;
+echo &quot;$name&quot;
+Ray of Light</code></pre>
+<p>Or append numbers as strings:</p>
+<pre><code>a=4
+a+=3
+echo &quot;$a&quot;
+43</code></pre>
+<h3 id="types">Types</h3>
+<p>Declare variable to be an integer.</p>
+<pre><code>declare -i a=4
+a+=3
+echo &quot;$a&quot;
+7</code></pre>
+<p>Declare variable as an indexed array:</p>
+<pre><code>declare -a fruit=(apple banana cherry)</code></pre>
+<p>Declare variable as an associated array:</p>
+<pre><code>declare -A fruit=([&quot;first&quot;]=&quot;banana&quot; [&quot;second&quot;]=&quot;apple&quot; [&quot;third&quot;]=&quot;cherry&quot;)</code></pre>
+<h2 id="parameter-expansion">Parameter Expansion</h2>
+<h3 id="substitution">Substitution</h3>
+<p>Use <code>${parameter:-substitute}</code> if parameter is unset. This
+returns ‘Harry’ instead of a value for ‘friend’ since ‘friend’ is
+unset:</p>
+<pre><code>name=&quot;Norman&quot;
+echo &quot;${name} and ${friend:-Harry}!&quot;
+Norman and Harry</code></pre>
+<p>But in this example, ‘Harry’ isn’t used because ‘Gina’ is
+declared.</p>
+<pre><code>friend=&quot;Gina&quot;
+echo &quot;${name} and ${friend:-Harry}!&quot;
+Norman and Gina</code></pre>
+<p>Using the <code>+</code> sign returns the alternate, even if the
+variable is set:</p>
+<pre><code>friend=&quot;Gina&quot;
+echo &quot;${name} and ${friend:+Harry}!&quot;
+Norman and Harry</code></pre>
+<h3 id="substring-expansion">Substring expansion</h3>
+<p>Removes the first two characters:</p>
+<pre><code>letters=&quot;abcdefg&quot;
+echo &quot;${letters:2}&quot;
+cdefg</code></pre>
+<p>Removes the first two characters, returns the next three and
+stops:</p>
+<pre><code>echo &quot;${str:2:3}&quot;</code></pre>
+<h3 id="matching-prefixes">Matching Prefixes</h3>
+<p>Names the matching prefix:</p>
+<pre><code>filename=&quot;1a_history_linux.md&quot;
+filetype=(md txt csv dat)
+echo &quot;${!file*}&quot;
+filename filetype</code></pre>
+<h3 id="parameter-length">Parameter length</h3>
+<p>Return the length of a variable:</p>
+<pre><code>filename=&quot;1a_history_linux.md&quot;
+echo &quot;${#filename}&quot;
+19</code></pre>
+<h3 id="remove-matching-prefix-patterns">Remove Matching Prefix
+Patterns</h3>
+<p>Let’s set a variable:</p>
+<pre><code>filename=&quot;1a_history_linux.md&quot;</code></pre>
+<p>The following will remove up to the shortest (first) match of the
+underscore, from left to right:</p>
+<pre><code>echo &quot;${filename#*_}&quot;
+history_linux.md</code></pre>
+<p>The following will remove up to the longest (last) match of the
+underscore:</p>
+<pre><code>echo &quot;${filename##*_}&quot;
+linux.md</code></pre>
+<p>Since there’s only one period, you can remove all through the
+period:</p>
+<pre><code>echo &quot;${filename#*.}&quot;
+md</code></pre>
+<h3 id="remove-matching-suffix-patterns">Remove Matching Suffix
+Patterns</h3>
+<p>Remove the suffix, i.e., matching right to left. Using the
+<code>%</code> matches the first pattern and <code>%%</code> matches the
+furthest. Working right to left, then:</p>
+<pre><code>echo &quot;${filename%.md}&quot;
+1a_history_linux</code></pre>
+<p>Or, to be file extension agnostic:</p>
+<pre><code>echo &quot;${filename%.*}&quot;</code></pre>
+<p>Go to the first match of the underscore (which can be replaced with
+another pattern) from the right:</p>
+<pre><code>echo &quot;${filename%_*}&quot;
+1a_history</code></pre>
+<p>And the longest match from the right:</p>
+<pre><code>echo &quot;${filename%%_*}&quot;
+1a</code></pre>
+<p>Match the <code>a</code> to remove all but the <code>1</code>:</p>
+<pre><code>echo ${filename%%a_*}
+1</code></pre>
+<h3 id="search-and-replace-pattern-substitution">Search and Replace:
+Pattern Substitution</h3>
+<p>Replaces first match:</p>
+<pre><code>my_path=&quot;/home/home/bin&quot;
+echo &quot;${my_path/home/usr}&quot;
+/usr/home/bin</code></pre>
+<p>Use two <code>//</code> to replace all matches:</p>
+<pre><code>echo &quot;${my_path//home/usr}&quot;
+/usr/usr/bin</code></pre>
+<p>In the past, I’d use <code>sed</code> for something to print my
+shell’s paths on separate newlines, but we can add newlines with this
+method. See the section on <strong>QUOTING</strong> in the Bash man page
+for the meaning <code>$'string'</code> (ANSI C quoting):</p>
+<pre><code>echo -e &quot;${PATH//:/$&#39;\n&#39;}&quot;</code></pre>
+<p><code>printf</code> works and is probably better:</p>
+<pre><code>printf &quot;${PATH//:/$&#39;\n&#39;}&quot;</code></pre>
+<p>Or more simply:</p>
+<pre><code>printf &quot;%s\n&quot; $PATH</code></pre>
+<p>Another example:</p>
+<pre><code>name=&quot;Chris&quot;
+echo &quot;${name/Chris/Ralph}&quot;
+Ralph</code></pre>
+<p>Or:</p>
+<pre><code>printf &quot;%s\n&quot; &quot;${name/Chris/Ralph}&quot;
+Ralph</code></pre>
+<h3 id="case-modification">Case modification</h3>
+<p>We can change the case in various ways.</p>
+<h4 id="lower-to-upper">Lower to Upper</h4>
+<p>The <code>^</code> converts lower to upper:</p>
+<p>To change the first character:</p>
+<pre><code>name=&quot;chris&quot;
+echo &quot;${name^}&quot;
+Chris</code></pre>
+<p>Upper cases:</p>
+<pre><code>echo &quot;${name^^}&quot;
+CHRIS</code></pre>
+<p>Use pattern matching. Here we match for the letter
+<code>i</code>:</p>
+<pre><code>echo &quot;${name^^i}&quot;
+chrIs</code></pre>
+<p>Or ranges:</p>
+<pre><code>echo &quot;${name^^[a-n]}&quot;
+CHrIs</code></pre>
+<h4 id="upper-to-lower">Upper to Lower</h4>
+<p>The <code>,</code> converts upper to lower case:</p>
+<pre><code>name=&quot;CHRIS&quot;</code></pre>
+<p>Conver the first character:</p>
+<pre><code>echo &quot;${name,}&quot;
+cHRIS</code></pre>
+<p>Convert all characters:</p>
+<pre><code>echo &quot;${name,,}&quot;
+chris</code></pre>
+<p>Use pattern matching:</p>
+<pre><code>echo &quot;${name,,I}&quot;
+CHRiS</code></pre>
+<h3 id="parameter-transformation">Parameter Transformation</h3>
+<p>We more options with this syntax:
+<code>${parameter@operation}</code>.</p>
+<p>Converts lower to uppercase:</p>
+<pre><code>name=&quot;Chris&quot;
+echo &quot;${name@U}&quot;
+CHRIS</code></pre>
+<p>Converts first character to upper and remaining characters to
+lower:</p>
+<pre><code>name=&quot;chris&quot;
+echo &quot;${name@u}&quot;
+Chris</code></pre>
+<p>Example on an array:</p>
+<pre><code>animals=(bats kangaroos cheetahs zebras snakes)
+echo &quot;${animals[@]@u}&quot; 
+Bats Kangaroos Cheetahs Zebras Snakes</code></pre>
+<p>Transformations include upper to lowercase:</p>
+<pre><code>name=&quot;CHRIS&quot;
+echo &quot;${name@L}&quot;
+chris</code></pre>
+<p>Returns single quoted string:</p>
+<pre><code>name=&quot;CHRIS&quot;
+echo &quot;${name@Q}&quot;
+&#39;CHRIS&#39;</code></pre>
+<p>Returns parameter and value for associative array</p>
+<pre><code>animals=(bats kangaroos cheetahs zebras snakes)
+echo &quot;${animals[@]@A}&quot; 
+declare -a animals=([0]=&quot;bats&quot; [1]=&quot;kangaroos&quot; [2]=&quot;cheetahs&quot; [3]=&quot;zebras&quot; [4]=&quot;snakes&quot;)</code></pre>
+<p>For example:</p>
+<pre><code>while IFS=, read -r food type; do
+    echo &quot;${food@u} ${type@U}&quot;
+done &lt; foods.txt</code></pre>
+<p>where <code>foods.txt</code> is:</p>
+<pre><code>apple,is fruit
+broccoli,is vegetable
+banana,is fruit
+kale,is vegetable</code></pre>
+<p>The <code>while</code> loop returns:</p>
+<pre><code>Apple IS FRUIT
+Broccoli IS VEGETABLE
+Banana IS FRUIT
+Kale IS VEGETABLE</code></pre>
+<h2 id="arrays">Arrays</h2>
+<h3 id="indexed-arrays">Indexed Arrays</h3>
+<p><code>declare</code> is optional but use it to make it obvious that
+we’re declaring an array:</p>
+<pre><code>declare -a fruits=(apple banana cherry)</code></pre>
+<p>Returns the entire array:</p>
+<pre><code>echo &quot;${fruits[@]}&quot;
+apple banana cherry</code></pre>
+<p>Index starts at <code>0</code>, so this returns the second item in
+the list:</p>
+<pre><code>echo &quot;${fruits[1]}&quot;
+banana</code></pre>
+<p>Starting from the right, which indexes at <code>-1</code>:</p>
+<pre><code>echo &quot;${fruits[-1]}&quot;
+cherry</code></pre>
+<p>Add the <code>#</code> to get the number of items in (or length of)
+the array:</p>
+<pre><code>echo &quot;${#fruits[@]}&quot;
+3</code></pre>
+<p>Slice the array:</p>
+<pre><code>echo &quot;${fruits[@]:1:3}&quot;
+banana cherry</code></pre>
+<p>Append to the array. Note that if item exists at index 3, then this
+replaces the item:</p>
+<pre><code>fruits[3]=&quot;orange&quot;</code></pre>
+<p>Agnostic way to append to the array:</p>
+<pre><code>fruits+=(orange)</code></pre>
+<p>Print all keys or indices in array</p>
+<pre><code>echo &quot;${!fruits[@]}&quot;</code></pre>
+<p>Loop through an array</p>
+<pre><code>for i in &quot;${fruits[@]}&quot; ; do
+    echo &quot;${i}&quot;
+done</code></pre>
+<p>Loop through an array’s indices, print each line</p>
+<pre><code>for i in &quot;${!fruits[@]}&quot; ; do
+    echo &quot;$i&quot;
+done</code></pre>
+<h3 id="associative-arrays">Associative Arrays</h3>
+<pre><code>declare -A fruits=([&quot;first&quot;]=&quot;Banana&quot; [&quot;second&quot;]=&quot;Apple&quot; [&quot;third&quot;]=&quot;Cherry&quot;)</code></pre>
+<p>Print all values but not keys</p>
+<pre><code>echo &quot;${fruits[@]}&quot;</code></pre>
+<p>Print all keys or indices in array. Unfortunately, Bash doesn’t
+preserve the order:</p>
+<pre><code>echo &quot;${!fruits[@]}&quot;
+second first third</code></pre>
+<p>Add to assoc array</p>
+<pre><code>fruits+=([&quot;fourth&quot;]=&quot;orange&quot;) </code></pre>
+<h2 id="brace-expansion">Brace Expansion</h2>
+<p>Generate arbitrary strings. Use the following syntax:</p>
+<pre><code>{x..y[..incr]}</code></pre>
+<p>Thus, this expands to <code>1 2 3 4 5</code>:</p>
+<pre><code>echo {1..5}
+1 2 3 4 5</code></pre>
+<p>Or using the alphabet:</p>
+<pre><code>echo {a..f}
+a b c d e f</code></pre>
+<p>To use increments (or steps):</p>
+<pre><code>echo {1..10..2}
+1 3 5 7 9</code></pre>
+<p>Again, can use increments with the alphabet:</p>
+<pre><code>echo {a..m..2}
+a c e g i k m</code></pre>
+<p>Or in reverse:</p>
+<pre><code>echo {m..a..2}
+m k i g e c a</code></pre>
+<p>We can also use brace list expansion:</p>
+<pre><code>echo {ralph,gina}@example.com
+ralph@example.com gina@example.com</code></pre>
+<p>Or creating directories:</p>
+<pre><code>mkdir -p bin/{src,images}</code></pre>
+<p>Values in <code>{..}</code> are expanded before <code>$var</code> is
+evaluated, so the following doesn’t work: (we’d expect the output:
+<code>1 2 3 4 5</code>).</p>
+<pre><code>n=5
+echo {1..$n}
+1..5</code></pre>
+<h2 id="command-substitution">Command Substitution</h2>
+<p>The output of a command replaces the command name. I use this often,
+but basically it’s like so:</p>
+<pre><code>touch &quot;$(date +%A).md&quot;
+ls
+Wednesday.md</code></pre>
+<h2 id="process-substitution">Process Substitution</h2>
+<p>Command substitution creates text as output, but process substitution
+creates a file as output. So if we want to treat the output as a file,
+then use process substitution. Thus, it seems to me that process
+substitution’s best use case is to avoid the use of temporary files.
+E.g., instead of:</p>
+<pre><code>sort a.txt &gt; a.sorted
+sort b.txt &gt; b.sorted
+diff a.sorted b.sorted</code></pre>
+<p>We can do:</p>
+<pre><code>diff &lt;(sort a.txt) &lt;(sort b.txt)</code></pre>
+<p>Here’s a simple case using <code>grep</code> alternation. If today is
+‘Wed’ or ‘Thu’, then the output returns that:</p>
+<pre><code>grep -E &quot;Wed|Thu&quot; &lt;(date)
+Wed</code></pre>
+<h2 id="redirection">Redirection</h2>
+<h3 id="here-documents">Here Documents</h3>
+<p>This takes the syntax of:</p>
+<pre><code>command &lt;&lt;EOF
+...
+...
+...
+EOF</code></pre>
+<p>I use this in shell script with <code>ed</code> because it’s cool to
+add <code>ed</code> commands:</p>
+<pre><code>ed testfile &lt;&lt;EOF
+a
+This is a test file.
+It&#39;s nothing but a file that I created with a HERE DOC.
+.
+wq
+EOF</code></pre>
+<p>Then we can edit it and run commands:</p>
+<pre><code>ed testfile &lt;&lt;EOF
+a
+I&#39;m adding more lines to this file.
+.
+g/adding/s/more/new/
+wq
+EOF</code></pre>
+<p>In scripts (specifically in indented loops, functions, etc), add the
+dash, which strips leading tabs, etc, and helps to keep the function
+clean looking:</p>
+<pre><code>function() {
+    command
+    command &lt;&lt;-EOF
+    ...
+    ...
+    ...
+    EOF
+}</code></pre>
+<h3 id="here-strings">Here Strings</h3>
+<p>Here strings come in the form:</p>
+<pre><code>command &lt;&lt;&lt; &quot;some input&quot;</code></pre>
+<p>And is a better alternative than:</p>
+<pre><code>echo ... | command</code></pre>
+<p>Avoiding <code>echo</code> means avoiding a subshell:</p>
+<pre><code>grep hello &lt;&lt;&lt; &quot;hello world&quot;</code></pre>
+<p>as compared to:</p>
+<pre><code>echo &quot;hello world&quot; | grep hello</code></pre>
+<p>Some use cases.</p>
+<p>A command that takes stdin:</p>
+<pre><code>wc -c &lt;&lt;&lt; &quot;$(date)&quot;</code></pre>
+<p>Hash a string:</p>
+<pre><code>sha256sum &lt;&lt;&lt; &quot;some_string_of_characters&quot;</code></pre>
+<p>Check that a regex matches some value:</p>
+<pre><code>grep -E &#39;[0-9]{4}&#39; &lt;&lt;&lt; &quot;$(date)&quot;</code></pre>
+<p>Avoid subshells. This is good:</p>
+<pre><code>count=0
+while read -r line; do
+    ((count++))
+done &lt;&lt;&lt; &quot;one line&quot;</code></pre>
+<p>But this would create a subshell:</p>
+<pre><code>count=0
+echo &quot;one line&quot; | while read -r line; do
+    ((count++))
+done
+
+echo &quot;$count&quot;</code></pre>
+<h2
+id="prepost-incrementdecrement">{Pre,Post}-{increment,decrement}</h2>
+<p>Post-increment <code>id++</code> and post-decrement <code>id--</code>
+will return the original value and then auto increment in
+<strong>arithemtic expansion</strong>.</p>
+<pre><code>a=4
+echo $((a++))
+4
+echo $((a++))
+5</code></pre>
+<p>Pre-increment <code>++id</code> and pre-decrement <code>--id</code>
+auto increments immediately.</p>
+<pre><code>a=4
+echo $((++a))
+5
+echo $((++a))
+6</code></pre>
+<p>However, both act the same way in a, e.g., a <code>for</code> loop.
+I.e., these are equivalent.</p>
+<p>Post-increment:</p>
+<pre><code>for ((i=0;i&lt;10;i++)) ; do echo $i ; done
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9</code></pre>
+<p>Pre-increment:</p>
+<pre><code>for ((i=0;i&lt;10;++i)) ; do echo $i ; done
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9</code></pre>
+<p>However, in a <code>while</code> loop when incrementing in a
+condition.</p>
+<p>Post-increment:</p>
+<pre><code>i=0
+while (( i++ &lt;3 )); do echo &quot;i is now $i&quot; ; done
+i is now 1
+i is now 2
+i is now 3</code></pre>
+<p>Pre-increment:</p>
+<pre><code>i=0
+while (( ++i &lt;3 )); do echo &quot;i is now $i&quot; ; done
+i is now 1
+i is now 2</code></pre>
+<h2 id="loops">Loops</h2>
+<ul>
+<li>use <code>break</code> to stop a loop</li>
+<li>use <code>return</code> to stop a function</li>
+<li>use <code>exit</code> to stop a script</li>
+</ul>
+<h3 id="count-columns">Count columns</h3>
+<p>Here’s an examle where I wanted to do something in Bash, like count
+numbers in separate columns in a file, that I’d normally do in something
+like <code>awk</code>:</p>
+<pre><code>#!/usr/bin/env bash
+
+while IFS=, read -r one two three; do
+    (( sum_one += one ))
+    (( sum_two += two ))
+    (( sum_three += three))
+done &lt; &quot;$1&quot;
+
+echo &quot;$sum_one $sum_two $sum_three&quot;</code></pre>
+<p>Where <code>"$1"</code> might be:</p>
+<pre><code>1,2,3
+4,5,6
+7,8,9</code></pre>
+<p>The above would be the <code>awk</code> equivalent:</p>
+<pre><code>#!/usr/bin/awk -f
+
+BEGIN { FS=&quot;,&quot; }
+
+{
+    sum_one += $1
+    sum_two += $2
+    sum_three += $3
+}
+
+END {
+    print sum_one, sum_two, sum_three
+}</code></pre>
+<h3 id="office-hours">Office Hours</h3>
+<p>Each semester I put a sign on my door that lists my office hours for
+that semester. I usually do this in code. Here are a couple of
+examples:</p>
+<pre><code>#!/usr/bin/env bash
+
+declare -a office_days=(Wed Thu)
+
+today=$(date +%a)
+
+for d in &quot;${office_days[@]}&quot;; do
+    if [[ &quot;$today&quot; = &quot;$d&quot; ]]; then
+        echo &quot;office hours today&quot;
+        exit 0
+    fi
+done
+
+echo &quot;office hours not today&quot;</code></pre>
+<p>Here’s a wordier version:</p>
+<pre><code>#!/usr/bin/env bash
+
+declare -a office_days=(Mon Tue Wed Thu Fri)
+
+if [[ &quot;${office_days[0]}&quot; = &quot;$(date +%a)&quot; || &quot;${office_days[1]}&quot; = &quot;$(date +%a)&quot; ]] ; then
+    echo &quot;office hours today&quot;
+else
+    echo &quot;office hours not today&quot;
+fi </code></pre>
+<h3 id="using-read-like-i-would-awk">Using <code>read</code> like I
+would <code>awk</code></h3>
+<p>Based on the <span class="citation" data-cites="YSAP">@YSAP</span> YT
+channel:</p>
+<pre><code>#!/usr/bin/env bash
+
+while IFS=, read -r name age job; do
+  echo &quot;$name works as a $job and is $age years old.&quot;
+done &lt; data.csv</code></pre>
+<p>Or:</p>
+<pre><code>#!/usr/bin/env bash
+
+data=(name age job)
+
+name=&quot;${data[0]}&quot;
+age=&quot;${data[1]}&quot;
+job=&quot;${data[2]}&quot;
+
+while IFS=, read -r &quot;${data[@]}&quot; ; do
+  echo &quot;${name}, the ${job}, is ${age} years old.&quot;
+done &lt; data.csv</code></pre>
+<p>Where <code>data.csv</code> is:</p>
+<pre><code>angie,23,cat burgler
+barry,30,graphics designer
+carolyn,44,tycoon
+dennis,50,professor</code></pre>
+</main>
+
+<hr>
+
+<footer>
+<p>Unless otherwise attributed, the views, thoughts, and opinions expressed on this site belong solely to the site owner,
+C. Sean Burns, and not to the site owner's employer or any other related entity.</p>
+
+<p>Copyright by C. Sean Burns, 2025.
+Last modified: <time datetime="2025-12-11">2025-12-11</time>.</p>
+
+</footer>
+
+</body>
+</html>
