@@ -438,9 +438,9 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 <p>First, it means that when we learn to use <code>bash</code>, we often first learn it as a command interpreter (via the prompt). It's through the interpreter that we use <code>bash</code> to perform regular, everyday kinds of computing tasks, like naming, moving, and deleting files and directories; launching programs; examining and manipulating data, etc. Many of these latter actions usually involve using utilities, like <code>cut</code>, <code>tr</code>, and <a href="https://www.gnu.org/software/coreutils/manual/coreutils.html">others</a>, that come with our operating system and are not part of <code>bash</code> but are used via <code>bash</code> (or some other shell).</p>
 <p>For example, if I want to examine some structured data in a file, I might use pipelines with utilities like <code>cut</code>, <code>sort</code>, and <code>uniq</code> to extract a column from a <code>[FILE]</code>, sort it, and then count the unique instances of it using pipelines:</p>
 <pre><code>cut -d, -f2 [FILE] | sort | uniq -c</code></pre>
-<blockquote>
-<p>A pipeline <code>|</code> uses utilities and programs as building blocks, where the data from a file is parsed by one program, and the parsed data is then sent to another program for more parsing, and so on.</p>
-</blockquote>
+<aside>
+	<p>NOTE:<br><br>A pipeline <code>|</code> uses utilities and programs as building blocks, where the data from a file is parsed by one program, and the parsed data is then sent to another program for more parsing, and so on.</p>
+</aside>
 <p>This is a perfectly fine way to use <code>bash</code>. The problem comes later when we learn to script to automate tasks, to parse data, to add control flows, etc. At this point, we've been using <code>bash</code> as an interactive command interpreter, and so we adopt what we learned from <code>bash</code> as a command interpreter to our scripting or coding. In other words, we've developed a mental model of <code>bash</code> as a command interpreter instead of as a programming language, and thus apply code snippets like above in our shell scripts because that's how we have been thinking about and using the shell. This was my evolution, but I don't think I'm alone in this. From the shell's early days, this was encouraged, especially after the introduction of pipelining, as demonstrated by <a href="https://youtu.be/tc4ROCJYbm0?si=nAjNdTQprDizaQmt&amp;t=296">Brian Kernighan in the 1970s</a>.</p>
 <p>As I learned to program in <code>bash</code>, it helped to think of the shell prompt as a kind of <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>, similar to what we might use with <code>R</code> or <code>python</code>. Like those other languages, you could craft commands at the shell prompt (the REPL), and then insert them in a file to run later. However, I now think a REPL is not a sufficient analogy. Real REPLs may be good for testing and crafting commands, but they are not great for doing everyday work. But <code>bash</code> is, as an interactive command interpreter. That is, because of pipelining and other shell attributes, I could use the shell for my entire existence and never bother to use <code>bash</code> as a programming language that's much more than a command interpreter. As a command interpreter, <code>bash</code> and similar shells are complete, whereas this isn't really true for REPLs in other languages, like <code>R</code> or <code>python</code>. And therein lies the crux. In order to take advantage of <code>bash</code> as a legit programming language, we have to stop using it as a command interpreter in our scripts.</p>
 <p>We can illustrate this with the following comma separate value file, named <code>data.csv</code>.</p>
@@ -634,9 +634,9 @@ I like what I do, but the inflationary forces are making it all less attractive.
 <p>I'm always looking for ways to using the terminal instead of the web browser, and for a long time, one way I did this was to reply to students' Canvas discussion forum posts through email replies. That is, if you enable the correct notifications in the Canvas LMS, you receive emails for all discussion forum posts, and you can reply to those posts via your email client. In short, the main feature that I really like about Canvas is a feature that lets me avoid using Canvas in the web browser.</p>
 <p>I like this specifically because I use the <a href="https://en.wikipedia.org/wiki/Mutt_(email_client)">Mutt email client</a>. Mutt is a keyboard driven, command line email client. Once you're adept at using it, it's wicked fast at managing email. Writing email is also fast, but since Mutt broadly follows the <a href="https://en.wikipedia.org/wiki/Unix_philosophy">Unix philosophy</a>, that means I use my own text editor (Vim) to compose emails, which I'm also wicked fast at using.</p>
 <p>I'm writing this post because for a good, long time now, I couldn't reply to Canvas discussion posts from Mutt. Frustrated with using Canvas via the web browser, I finally investigated, and I found that I could still reply to posts via email by using the Outlook web app, or via the Thunderbird email client. That confirmed for me that Canvas was still accepting replies to posts via email. While using those apps was okay, it wasn't ideal because those aren't terminal clients. To solve the problem, I sent two emails to my personal email account from my work account, but I sent one from Mutt and one from Thunderbird. Then I compared the email headers and found the discrepancy. I fixed the issue in my Mutt configuration file, and once again, I can reply to discussion posts from Mutt. Now I am a happier camper again!</p>
-<blockquote>
+<aside>
 <p>I use Firefox, and I like it a lot, but the problem with the web is not the browser; rather, the problem with the web is that websites suck, a lot. Websites are resource hogs (overly depending on JavaScript and JavaScript frameworks), the user interfaces (UI) are inefficient, every website UI is different, and so on. Many people want to blame some web browser for their problems with the web (do a web search for why some browser sucks, and you'll see what I mean), but we should really blame web developers for awful web sites and for the lack of effective standards for web development (akin to standards and rules for everything else we build in the physical world). Also, I've been using Mutt for decades, and the UI has never changed once. The importance of this kind of stability (having already nailed down an effective UI) cannot be overstated, especially compared to websites that are constantly changing (e.g., the frequency of Canvas updates is astounding). But these are other topics for other days.</p>
-</blockquote>
+</aside>
 </article>
 <article id="20250822170612">
 <h2 id="writing-literature-reviews">Writing Literature Reviews</h2>
@@ -721,16 +721,16 @@ I like what I do, but the inflationary forces are making it all less attractive.
 <p>Assuming that futuristic sci-fi shows illustrate a data-centric model of computing, I'll use those shows to contrast the application-centric model that's common today with a data-centric model that's implicitly portrayed in those shows and movies.</p>
 <p>Later I will describe what I'm envisioning, and then start reading to see how it aligns (or not) with the current research and ideas. For now, I'll focus on end user applications to set up a contrast. This will all be rather roughly illustrated as I draft these ideas and then read the literature. This series of posts will serve as a rough draft of this work. Later I'll likely copy this content to a separate page on this site to more fully fledge out the draft.</p>
 <p>First, I'll consider the current application-centric computing model but aim to keep it simple.</p>
-<hr />
+<hr>
 <p>Let's say a user wants to watch a YouTube video. They identify the video (more on that at a later time), and click to view it in their browser. Several protocols are engaged at this point. TCP/IP is used to negotiate the connection between the YouTube website and the user's computer. A web server delivers the content to the user's browser. UDP/IP (specifically HTTP/3 using QUIC over UDP) is used to transmit the YouTube video to the user's computer. The browser receives this information, via port 443 (encrypted HTTP traffic). Web technologies, like HTML, CSS, and JavaScript, handle the presentation of the data in the browser and how a user acts on that data (e.g., viewing, clipping, downloading, etc.).</p>
 <p>Several applications are involved here. The user's OS handles internet data transmission and routes it to the appropriate applications using TCP/IP and with HTTP/3 using QUIC over UDP. The browser app handles web technologies: e.g., HTTP, HTML, CSS, and JavaScript. The YouTube app/website provides the infrastructure for hosting and serving videos. It defines how that video is presented and what actions a user can take (e.g., play, pause, comment, share). The browser application renders this experience according to the web technologies used and allows the user to interact with the video, with respect the constraints and affordances set by YouTube.</p>
-<blockquote>
-<p>How I use the term <em>handles</em> above is doing a lot of work here. More on this later.</p>
-</blockquote>
+<aside>
+	<p>NOTE:<br><br>How I use the term <em>handles</em> above is doing a lot of work here. More on this later.</p>
+</aside>
 <p>In short, the OS is fairly agnostic with regards to how data is interpreted or used, but two things <em>app-ify</em> the data: the YouTube website and the user's browser.</p>
-<blockquote>
-<p>I use the term <em>app-ify</em> in this context to state how raw data is converted into a structured and contained experience with defined functionality.</p>
-</blockquote>
+<aside>
+	<p>NOTE:<br><br>I use the term <em>app-ify</em> in this context to state how raw data is converted into a structured and contained experience with defined functionality.</p>
+</aside>
 </article>
 <article id="20250621112853">
 <h2 id="sci-fi-communication">Sci-Fi Communication</h2>
@@ -1114,7 +1114,7 @@ body #homepage h3::before {
 <p>I think the rubric it created was spot on. Without knowing my dissertation's details, it created a rubric designed to evaluate all sorts of quantitative methodologies.</p>
 <p>I think the application of the rubric was honest and appropriately critical.</p>
 <p>I hadn't realized that I hadn't uploaded my R scripts and data to my institutional repository (or like) until it critiqued me for that. I'm happy o3 is all for open science, and annoyed with myself for not depositing my scripts and data. I would have scored higher in this category! In any case, I still have all of it, so I may upload it to GitHub.</p>
-<p>o3 also thought I had made a <strong>theoretical stretch</strong>. I totally get that because I'm generally inclined to make these sorts of connections across disciplines. Specifically, it wrote that my <q>dissertation ambitiously marries bounded-rationality decision theory, game theory, bibliometrics, and social-computing models.</p>
+<p>o3 also thought I had made a <strong>theoretical stretch</strong>. I totally get that because I'm generally inclined to make these sorts of connections across disciplines. Specifically, it wrote that my <q>dissertation ambitiously marries bounded-rationality decision theory, game theory, bibliometrics, and social-computing models.</q></p>
 <p>After a follow up question, it gave me some great ideas and sources I could use to extend this line of research. The data I used for my dissertation came from CiteULike, which has shutdown. It knew that, and it offered alternative, good replacements. I also used Google Scholar as a data source, and it noted how much Google Scholar has exploded in the last decade plus. I think o3 is implying that if I pick this research up again, I might be able to develop a more rigorous theory. I still think that needs to be done, and that bounded-rationality decision theory, game theory, bibliometrics, and social-computing models all are ripe for some kind of unification in my field.</p>
 <p>o3 also suggested ways to improve my Bayesian analysis. At the time, I used it mostly as a proof of concept. o3 accepted that as an appropriate defense, but it suggested how I could improve my priors and address the sensitivity issue.</p>
 <p>Overall, I feel a but humbled by this, but I'm honestly happy that I apparently passed its analysis and earned a PhD in its view.</p>
@@ -3596,31 +3596,23 @@ Pass it on!</p>
 <p>The van back door is wide open, and the little one is eating in the back of the van and we're chatting. There are people in the car parked next to us, and they are getting ready to leave. Another car pulls up and blocks our cars. This new car has tinted windows, so I can't see inside.</p>
 <p>At first I think that the person in the new arrival is about to turn into a space, but they just idle there, primarily behind my car but far enough ahead to block the other people. I get a bit nervous, because there are lots of spaces in the lot, and it makes me wonder what their intent is.</p>
 <p>Finally they roll their passenger window down. There's a woman. She starts yelling at me.</p>
+
 <blockquote>
-<p>What are you doing with that kid?</p>
+<p>Her: What are you doing with that kid?</p>
+<p>Me: What do you mean what am I doing with this kid?</p>
+<p>Her: I said, what are you doing with that kid?</p>
+<p>Me: What do you mean?</p>
 </blockquote>
-<blockquote>
-<p>What do you mean what am I doing with this kid?</p>
-</blockquote>
-<blockquote>
-<p>I said, what are you doing with that kid?</p>
-</blockquote>
-<blockquote>
-<p>What do you mean?</p>
-</blockquote>
+
 <p>Her voice gets louder and her face angier:</p>
+
 <blockquote>
-<p>What are you doing with that kid?</p>
+<p>Her: What are you doing with that kid?</p>
+<p>Me: What? Mind your own business.</p>
+<p>Her: It's my business if you're doing something wrong with that kid.</p>
+<p>Me: I'm her Dad. Drive on.</p>
 </blockquote>
-<blockquote>
-<p>What? Mind your own business.</p>
-</blockquote>
-<blockquote>
-<p>It's my business if you're doing something wrong with that kid.</p>
-</blockquote>
-<blockquote>
-<p>I'm her Dad. Drive on.</p>
-</blockquote>
+
 <p>She glared at me for a minute. The people parked next to us were waiting for her to move out of the way. Finally she drove to the other end of the lot, rolled her window down, and watched us. I took my child into the studio, and we waited there for the rest of the evening till we could go home.</p>
 </article>
 <article id="20230909">
@@ -4272,9 +4264,9 @@ w !pandoc % -o test.html
 !w3m test.html
 </code></pre>
 <p>This behavior is buried in the <code>info ed</code> documentation. Vim inherits this behavior as a descendant of ed, but I first learned about it in a <a href="https://twitter.com/cseanburns/status/1423825942758166530">tweet</a>. From <code>info ed</code>:</p>
-<blockquote>
-<p>an unescaped '%' is replaced by the default filename</p>
-</blockquote>
+<aside>
+	<p>NOTE:<br><br>an unescaped '%' is replaced by the default filename</p>
+</aside>
 <p>More often when I'm generating an HTML file from a markdown file, which I do a lot because I write lectures and other content in markdown, I use a function that I wrote and keep in my <strong>.bash_functions</strong> file. I like this function because it keeps smart formatting out of my HTML.</p>
 <pre><code>makepost () {
   sourcefile=&quot;$1&quot;
@@ -6205,16 +6197,17 @@ mine.</p>
 realized the trick with it. Here it is as a general, universal rule that
 I <em>recommend</em> all people of the world <em>follow</em>:</p>
 
-<blockquote>
-
+<aside>
 <p>Feel free to post to social media, but never ever read, watch, or listen to
 anything posted.</p>
+</aside>
 
-</blockquote>
 <p>Or,</p>
+
 <blockquote>
 <p>Produce it. Never consume it.</p>
 </blockquote>
+
 </article>
 
 <article id="20210107">

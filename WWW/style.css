@@ -1,7 +1,6 @@
 html {
   box-sizing: border-box;
   background-color: white;
-  /* color: #333; */
   font-size: 100%;
   font-family: sans-serif;
   line-height: 1.5;
@@ -18,12 +17,8 @@ body {
 }
 
 header {
-  border-bottom: 1px solid #16b10e;
+  border-bottom: 1px solid #000;
   border-bottom-style: dashed;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  /* color: #3c790a; */
 }
 
 h2, h3 { scroll-margin-top: 3ex; /* places elements just below the top of the window */ }
@@ -32,15 +27,11 @@ code, pre {
   font-family: monospace;
 }
 
-p > code {
-  /* color: #ce410a; */
-}
-
 pre {
-  /* color: black; */
-  /* background-color: #fcfaee; */
+  color: #fff;
+  background-color: #000;
   padding: 10px;
-  border-left: 8px solid #e0cb52;
+  border-left: 8px solid #0000ee;
   overflow-x: auto;
 }
 
@@ -49,10 +40,9 @@ pre {
 }
 
 blockquote, aside {
-  /* color: #068306; */
-  /* background-color: #ddffdd; */
   padding: 10px;
-  border-left: 8px solid #52e052;
+  border: 2px solid #0000ee;
+  border-left: 8px solid #0000ee;
 }
 
 img {
@@ -61,16 +51,11 @@ img {
 }
 
 a {
-    /* color: #16b10e; */
     text-decoration: underline;
 }
 
 a:hover {
     text-decoration: none;
-}
-
-hr {
-  /* color: #16b10e; */
 }
 
 /* general classes */
@@ -142,4 +127,3 @@ th,
 td {
   padding: 0.5em;
 }
-
