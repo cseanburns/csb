@@ -1,7 +1,7 @@
 html {
   box-sizing: border-box;
   background-color: white;
-  color: #333;
+  /* color: #333; */
   font-size: 100%;
   font-family: sans-serif;
   line-height: 1.5;
@@ -23,7 +23,7 @@ header {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #3c790a;
+  /* color: #3c790a; */
 }
 
 h2, h3 { scroll-margin-top: 3ex; /* places elements just below the top of the window */ }
@@ -33,12 +33,12 @@ code, pre {
 }
 
 p > code {
-  color: #ce410a;
+  /* color: #ce410a; */
 }
 
 pre {
-  color: black;
-  background-color: #fcfaee;
+  /* color: black; */
+  /* background-color: #fcfaee; */
   padding: 10px;
   border-left: 8px solid #e0cb52;
   overflow-x: auto;
@@ -49,8 +49,8 @@ pre {
 }
 
 blockquote, aside {
-  color: #068306;
-  background-color: #ddffdd;
+  /* color: #068306; */
+  /* background-color: #ddffdd; */
   padding: 10px;
   border-left: 8px solid #52e052;
 }
@@ -61,7 +61,7 @@ img {
 }
 
 a {
-    color: #16b10e;
+    /* color: #16b10e; */
     text-decoration: underline;
 }
 
@@ -70,7 +70,7 @@ a:hover {
 }
 
 hr {
-  color: #16b10e;
+  /* color: #16b10e; */
 }
 
 /* general classes */
@@ -119,10 +119,9 @@ body .outline h3::before {
 
 table {
   table-layout: fixed;
-  /*width: clamp(320px, 95%, 1000px);*/
   border-collapse: collapse;
-  border-top: 1px solid #999;
-  border-bottom: 1px solid #999;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
   overflow-x: auto;
 }
 
@@ -132,8 +131,6 @@ table caption {
 }
 
 thead {
-  background-color: #3c790a;
-  color: #16b10e;
   border-bottom: 1px solid black;
 }
 
