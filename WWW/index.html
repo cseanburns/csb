@@ -439,7 +439,7 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 <p>For example, if I want to examine some structured data in a file, I might use pipelines with utilities like <code>cut</code>, <code>sort</code>, and <code>uniq</code> to extract a column from a <code>[FILE]</code>, sort it, and then count the unique instances of it using pipelines:</p>
 <pre><code>cut -d, -f2 [FILE] | sort | uniq -c</code></pre>
 <aside>
-	<p>NOTE:<br><br>A pipeline <code>|</code> uses utilities and programs as building blocks, where the data from a file is parsed by one program, and the parsed data is then sent to another program for more parsing, and so on.</p>
+<p>A pipeline <code>|</code> uses utilities and programs as building blocks, where the data from a file is parsed by one program, and the parsed data is then sent to another program for more parsing, and so on.</p>
 </aside>
 <p>This is a perfectly fine way to use <code>bash</code>. The problem comes later when we learn to script to automate tasks, to parse data, to add control flows, etc. At this point, we've been using <code>bash</code> as an interactive command interpreter, and so we adopt what we learned from <code>bash</code> as a command interpreter to our scripting or coding. In other words, we've developed a mental model of <code>bash</code> as a command interpreter instead of as a programming language, and thus apply code snippets like above in our shell scripts because that's how we have been thinking about and using the shell. This was my evolution, but I don't think I'm alone in this. From the shell's early days, this was encouraged, especially after the introduction of pipelining, as demonstrated by <a href="https://youtu.be/tc4ROCJYbm0?si=nAjNdTQprDizaQmt&amp;t=296">Brian Kernighan in the 1970s</a>.</p>
 <p>As I learned to program in <code>bash</code>, it helped to think of the shell prompt as a kind of <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>, similar to what we might use with <code>R</code> or <code>python</code>. Like those other languages, you could craft commands at the shell prompt (the REPL), and then insert them in a file to run later. However, I now think a REPL is not a sufficient analogy. Real REPLs may be good for testing and crafting commands, but they are not great for doing everyday work. But <code>bash</code> is, as an interactive command interpreter. That is, because of pipelining and other shell attributes, I could use the shell for my entire existence and never bother to use <code>bash</code> as a programming language that's much more than a command interpreter. As a command interpreter, <code>bash</code> and similar shells are complete, whereas this isn't really true for REPLs in other languages, like <code>R</code> or <code>python</code>. And therein lies the crux. In order to take advantage of <code>bash</code> as a legit programming language, we have to stop using it as a command interpreter in our scripts.</p>
@@ -725,11 +725,11 @@ I like what I do, but the inflationary forces are making it all less attractive.
 <p>Let's say a user wants to watch a YouTube video. They identify the video (more on that at a later time), and click to view it in their browser. Several protocols are engaged at this point. TCP/IP is used to negotiate the connection between the YouTube website and the user's computer. A web server delivers the content to the user's browser. UDP/IP (specifically HTTP/3 using QUIC over UDP) is used to transmit the YouTube video to the user's computer. The browser receives this information, via port 443 (encrypted HTTP traffic). Web technologies, like HTML, CSS, and JavaScript, handle the presentation of the data in the browser and how a user acts on that data (e.g., viewing, clipping, downloading, etc.).</p>
 <p>Several applications are involved here. The user's OS handles internet data transmission and routes it to the appropriate applications using TCP/IP and with HTTP/3 using QUIC over UDP. The browser app handles web technologies: e.g., HTTP, HTML, CSS, and JavaScript. The YouTube app/website provides the infrastructure for hosting and serving videos. It defines how that video is presented and what actions a user can take (e.g., play, pause, comment, share). The browser application renders this experience according to the web technologies used and allows the user to interact with the video, with respect the constraints and affordances set by YouTube.</p>
 <aside>
-	<p>NOTE:<br><br>How I use the term <em>handles</em> above is doing a lot of work here. More on this later.</p>
+<p>How I use the term <em>handles</em> above is doing a lot of work here. More on this later.</p>
 </aside>
 <p>In short, the OS is fairly agnostic with regards to how data is interpreted or used, but two things <em>app-ify</em> the data: the YouTube website and the user's browser.</p>
 <aside>
-	<p>NOTE:<br><br>I use the term <em>app-ify</em> in this context to state how raw data is converted into a structured and contained experience with defined functionality.</p>
+<p>I use the term <em>app-ify</em> in this context to state how raw data is converted into a structured and contained experience with defined functionality.</p>
 </aside>
 </article>
 <article id="20250621112853">
@@ -4265,7 +4265,7 @@ w !pandoc % -o test.html
 </code></pre>
 <p>This behavior is buried in the <code>info ed</code> documentation. Vim inherits this behavior as a descendant of ed, but I first learned about it in a <a href="https://twitter.com/cseanburns/status/1423825942758166530">tweet</a>. From <code>info ed</code>:</p>
 <aside>
-	<p>NOTE:<br><br>an unescaped '%' is replaced by the default filename</p>
+	<p>an unescaped '%' is replaced by the default filename</p>
 </aside>
 <p>More often when I'm generating an HTML file from a markdown file, which I do a lot because I write lectures and other content in markdown, I use a function that I wrote and keep in my <strong>.bash_functions</strong> file. I like this function because it keeps smart formatting out of my HTML.</p>
 <pre><code>makepost () {
