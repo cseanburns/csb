@@ -252,12 +252,6 @@ echo -e "${PATH//:/$'\n'}"
 printf "${PATH//:/$'\n'}"
 ```
 
-Or more simply:
-
-```
-printf "%s\n" $PATH
-```
-
 Another example:
 
 ```
