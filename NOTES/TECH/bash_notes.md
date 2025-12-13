@@ -249,7 +249,7 @@ echo -e "${PATH//:/$'\n'}"
 `printf` works and is probably better:
 
 ```
-printf "${PATH//:/$'\n'}"
+printf "%s\n" "${PATH//:/$'\n'}"
 ```
 
 Another example:

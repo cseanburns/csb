@@ -160,7 +160,7 @@ method. See the section on <strong>QUOTING</strong> in the Bash man page
 for the meaning <code>$'string'</code> (ANSI C quoting):</p>
 <pre><code>echo -e &quot;${PATH//:/$&#39;\n&#39;}&quot;</code></pre>
 <p><code>printf</code> works and is probably better:</p>
-<pre><code>printf &quot;${PATH//:/$&#39;\n&#39;}&quot;</code></pre>
+<pre><code>printf &quot;%s\n&quot; &quot;${PATH//:/$&#39;\n&#39;}&quot;</code></pre>
 <p>Another example:</p>
 <pre><code>name=&quot;Chris&quot;
 echo &quot;${name/Chris/Ralph}&quot;
