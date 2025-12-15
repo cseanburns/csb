@@ -1,111 +1,135 @@
 html {
-  box-sizing: border-box;
-  background-color: white;
-  color: #000;
-  font-size: 100%;
-  font-family: sans-serif;
-  line-height: 1.5;
+	box-sizing: border-box;
+	background-color: white;
+	color: #0f0f0f;
+	font-size: 100%;
+	font-family: sans-serif;
+	line-height: 1.5;
 }
 
 *, *::before, *::after {
-  box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 body {
-  max-width: 80ch;
-  margin: auto;
-  padding: 0 5px 0 5px;
+	max-width: 80ch;
+	margin: auto;
+	padding: 0 5px 0 5px;
 }
 
 header {
-  border-bottom: 1px dashed #000;
+	border-bottom: 1px dashed #000;
 }
 
-h2, h3 { scroll-margin-top: 3ex; /* places elements just below the top of the window */ }
+/* places elements just below the top of the window */
+h2, h3 {
+	scroll-margin-top: 3ex;
+}
 
 pre {
-  font-family: monospace;
-  color: #111;                 /* near-black text */
-  background: #f6f8fa;         /* soft light gray */
-  padding: 0.9rem 1rem;
-  border: 1px solid #d0d7de;   /* subtle edge so it doesn’t “float” */
-  border-left: 8px solid #0000ee;
-  border-radius: 6px;
-  overflow-x: auto;
-  line-height: 1.45;
+	font-family: monospace;
+	color: #111;
+	background: #f6f8fa;
+	padding: 0.9rem 1rem;
+	border: 1px solid #d0d7de;
+	border-left: 8px solid #0000ee;
+	border-radius: 6px;
+	overflow-x: auto;
+	line-height: 1.45;
 }
 
 code {
-  padding: 0.1em 0.3em;
-  background: #f6f8fa;
-  border: 1px solid #d0d7de;
-  border-radius: 4px;
+	padding: 0.1em 0.3em;
+	background: #f6f8fa;
+	border: 1px solid #d0d7de;
+	border-radius: 4px;
 }
 
 pre code {
-  padding: 0;
-  background: transparent;
-  border: 0;
+	padding: 0;
+	background: transparent;
+	border: 0;
 }
 
 blockquote,
 aside {
-  padding: 0.75rem 1rem;
-  margin: 1rem 0;
-  color: #222;
-  border: 1px solid #cfd6e0;
-  border-radius: 4px;
+	padding: 0.75rem 1rem;
+	margin: 1rem 0;
+	color: #222;
+	border: 1px solid #cfd6e0;
+	border-radius: 4px;
 }
 
 blockquote {
-  background: #f9fafb;
-  border-left: 6px solid #5b70b8;
-  padding-left: 1.25rem;
-  font-style: italic;
+	background: #f9fafb;
+	border-left: 6px solid #5b70b8;
+	padding-left: 1.25rem;
+	font-style: italic;
 }
 
 aside {
-  background: #fbfaf7;
-  border-left: 6px solid #7e7435;
-  padding-left: 0.75rem;
-  font-size: 0.95em;
+	background: #fbfaf7;
+	border-left: 6px solid #7e7435;
+	padding-left: 0.75rem;
+	font-size: 0.95em;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+	max-width: 100%;
+	height: auto;
 }
 
 a {
-    text-decoration: underline;
+	color: #005f87;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #4b6b88;
 }
 
 a:hover {
-    text-decoration-thickness: 2px;
+	text-decoration-thickness: 2px;
 }
 
 a:focus-visible {
-  outline: 2px solid $0000ee;
-  outline-offset: 2px;
+	outline: 2px solid $0000ee;
+	outline-offset: 2px;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid #dddddd;
+}
+
+details > summary {
+	color: #005f87;
+	cursor: pointer;
 }
 
 /* general classes */
 
-.bold { font-weight: bold; }
+.bold {
+	font-weight: bold;
+}
 
-.underline { text-decoration: underline; }
+.underline {
+	text-decoration: underline;
+}
 
-.small { font-size: .8em; }
+.small {
+	font-size: .8em;
+}
 
 /* Adding outline numbering to homepage */
 
 body .outline {
-    counter-reset: main_outline;
+	counter-reset: main_outline;
 }
 
 body .outline h2::before {
-  content: counter(main_outline) " ";
-  counter-increment: main_outline;
+	content: counter(main_outline) " ";
+	counter-increment: main_outline;
 }
 
 body .outline h2 {
@@ -113,48 +137,48 @@ body .outline h2 {
 }
 
 body .outline h3::before {
-  content: counter(main_outline) "." counter(sub_outline) " ";
-  counter-increment: sub_outline;
+	content: counter(main_outline) "." counter(sub_outline) " ";
+	counter-increment: sub_outline;
 }
 
 /* Adding post numbering to The Text */
 /* Applying to Firefox only: Chrome doesn't support the reversed() keyword yet in counter-reset */
 
 @-moz-document url-prefix() {
-  body #thetext {
-    counter-reset: reversed(numbering);
-  }
-  
-  body #thetext article > h2::before {
-  counter-increment: numbering -1;
-  content: "Post " counter(numbering) ": ";
-  }
+	body #thetext {
+		counter-reset: reversed(numbering);
+	}
+	
+	body #thetext article > h2::before {
+	counter-increment: numbering -1;
+	content: "Post " counter(numbering) ": ";
+	}
 }
 
 /* Table styling */
 
 table {
-  table-layout: fixed;
-  border-collapse: collapse;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
-  overflow-x: auto;
+	table-layout: fixed;
+	border-collapse: collapse;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	overflow-x: auto;
 }
 
 table caption {
-  text-align: left;
-  font-style: italic;
+	text-align: left;
+	font-style: italic;
 }
 
 thead {
-  border-bottom: 1px solid black;
+	border-bottom: 1px solid black;
 }
 
 td {
-  text-align: center;
+	text-align: center;
 }
 
 th,
 td {
-  padding: 0.5em;
+	padding: 0.5em;
 }
