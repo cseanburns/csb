@@ -24,7 +24,11 @@
 		    <p>This is a personal website in the spirit of a <em>digital garden</em>.
 		    It contains pages about niche things like plain text, reading, writing, coding,
 		    computer systems (and their history), research projects, teaching, education, cooking,
-		    family, and paying attention to the details with my limited senses.</p>
+		    family, and my attempts to pay attention to the details.</p>
+
+		    <p>This site is built for browsing and exploring.
+		    New pages and edits happen quietly.
+		    Writing is provisional.</p>
 
 		    <p>The site is perfectly usable in a text-mode browser, such as
 		    <a href="https://w3m.sourceforge.net/">w3m</a>,
@@ -38,89 +42,62 @@
 		    <ul>
 			    <li>Currently reading:
 				    <cite class="title">Sophie's Choice</cite> / <span class="author">William Styron</span>.</li>
+			    <li>Mood: Good. We're between semesters, and it's time to take a breath.</li>
 			    <li>Learning: Playing around with substring expansion and other capabilities in and with <code>bash</code>.</li>
 			    <li>Researching: Working on a project about librarian publishing patterns.</li>
 			    <li>Academic reading: Diving back into domain analysis theory and reading a lot of Birger Hjørland's works.</li>
 		    </ul>
 
+		    <p>I'm an academic, but most of this site does not abide by the usual academic genres.</p>
+
                 </section>
 
                 <section id="the_text">
-                    <h2>The Text</h2>
+			<h2>Personal Content</h2>
 
-                    <p><a href="WWW/index.html">The Text</a> is probably the main page of this site.
-		    It's a single page that contains hundreds of short posts on a variety of topics.
-                    I started the page on April 23, 2019 and have been adding to it since.</p>
+			<h3>The Text</h3>
 
-                    <p>Why is it a single page?
-                    It's a single page because a single, long page on random topics confuses search engines.
-		    I think that's funny because it shows that search engines have an inherent definition of what a document is, and a single, long page messes with that definition.</p>
+			<p><a href="WWW/index.html">The Text</a> is probably the main page of this site.
+			It's a single page, with a table of contents, that contains hundreds of short posts on a variety of topics.
+			I started the page on April 23, 2019.
+			It includes an RSS feed.</p>
 
-                    <p>To add new posts to the page, I write a single markdown file, and then process that file with a
-                    <a href="https://github.com/cseanburns/csb/blob/master/scripts/post">bash</a> script,
-                    which converts it to HTML, adds a bunch of extra tags, inserts into The Text page, creates a RSS entry, etc, etc.
-                    The script uses a lot of <code>sed</code> and
-                    <a href="https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ed.html"><code>ed</code></a> commands,
-		    which I also think is funny because these, especially <code>ed</code>, are not generally used for such things.</p>
+			<h3>Notes</h3>
+
+			<p>I've been keeping some <a href="NOTES/index.html">Notes</a>.</p>
+
+			<h3>Reading</h3>
+
+			<p>Reading books is important.
+			Here's <a href="WWW/bookshelf.html">my virtual bookshelf</a>.</p>
                 </section>
 
-                <section id="research">
-                    <h2>Research</h2>
+                <section id="professional">
+			<h2>Academic and Scholarly Work</h2>
 
-                    <p>My research topics broadly cover areas in scholarly communication, open science, open access, information retrieval,
-                    and academic libraries.</p>
+			<h3>Research</h3>
 
-                    <p>See my <a href="WWW/research.html">research summary page</a> or my <a href="WWW/cv.html">CV</a>.
-                </section>
+			<p>My research topics broadly cover areas in scholarly communication, open science,
+			open access, information retrieval, and academic libraries.</p>
 
-                <section id="teaching">
-                    <h2>Teaching</h2>
+			<p>See my <a href="WWW/research.html">research summary page</a> or my <a href="WWW/cv.html">CV</a>.
 
-		    <p>I teach in Library Science (LS) and in Information, Communication, Technology (ICT) programs.</p>
+			<h3>Teaching</h3>
 
-		    <p>See my <a href="WWW/teaching.html">teaching summary page</a>.</p>
+			<p>I teach in Library Science (LS) and in Information, Communication, Technology (ICT) programs.</p>
 
-                    <h3>Books</h3>
+			<p>See my <a href="WWW/teaching.html">teaching summary page</a>.</p>
+		</section>
 
-                    <p>I've written and made available open educational / open access textbooks for the courses that I teach.
-                    These textbooks cover systems librarianship, electronic resource management, Linux systems administration,
-                    personal knowledge management, and semantic web development.</p>
-
-                    <p>Visit <a href="WWW/books.html">textbooks</a> for the complete list.</p>
-
-                    <h3>Software</h3>
-
-                    <p>I teach a couple of courses that involve using the Bash shell on Linux.
-                    To facilitate that, I wrote several open source software applications to help students learn
-                    how to use Linux command line utitilies and to navigate the Linux filesystem.</p>
-
-                    <p>Visit <a href="WWW/software.html">software applications</a> to download and use them.</p>
-
-		    <p>These applications were all written in <code>bash</code>, but they employ a lot of additional utilities.
-		    I'm learning more <code>bash</code> to make them more bashy.</p>
-
-                </section>
-
-                <section id="bookshelf">
-                    <h2>Bookshelf</h2>
-
-                    <p>Reading books is important.
-		    Here's <a href="WWW/bookshelf.html">my virtual bookshelf</a>.</p>
-                </section>
-
-                <section id="notes">
-                    <h2>Notes</h2>
-                    <p>I've been keeping some <a href="NOTES/index.html">Notes</a>.</p>
-                </section>
-            </main>
+	    </main>
 
             <hr>
 
             <footer>
-                <p>Unless otherwise attributed, the views, thoughts, and opinions expressed on this site belong solely to the site owner,
-                C. Sean Burns, and not to the site owner's employer or any other related entity.</p>
+		    <p>This site is my own work.
+		    The writing, ideas, and projects here are independent of any institution or affiliation.</p>
 
-                <p>Copyright by Sean Burns, 2023. Last modified: <time datetime="2025-12-06">2025-12-06</time>.</p>
+		    <p>Copyright by Sean Burns, 2023. Last modified: <time datetime="2025-12-15">2025-12-15</time>.</p>
             </footer>
         </body>
 </html>
