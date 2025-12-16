@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/index.xml</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Nov 2025 13:57:43 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 16 Dec 2025 06:50:13 -0500</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>Revising</title>
+          <link>https://cseanburns.github.io/csb/WWW/index.html#revising</link>
+          <pubDate>Tue, 16 Dec 2025 06:50:13 -0500</pubDate>
+          <guid>https://cseanburns.github.io/csb/WWW/index.html#revising</guid>
+        </item>
         <item>
           <title>Using Bash</title>
           <link>https://cseanburns.github.io/csb/WWW/index.html#using-bash</link>
