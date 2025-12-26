@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/index.xml</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Dec 2025 21:31:25 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 26 Dec 2025 14:14:59 -0500</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>Lights Out</title>
+          <link>https://cseanburns.github.io/csb/WWW/index.html#lights-out</link>
+          <pubDate>Fri, 26 Dec 2025 14:14:59 -0500</pubDate>
+          <guid>https://cseanburns.github.io/csb/WWW/index.html#lights-out</guid>
+        </item>
         <item>
           <title>Simple Meals</title>
           <link>https://cseanburns.github.io/csb/WWW/index.html#simple-meals</link>
