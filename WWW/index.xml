@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/index.xml</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Dec 2025 14:14:59 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 29 Dec 2025 11:38:20 -0500</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>Vim Forgets</title>
+          <link>https://cseanburns.github.io/csb/WWW/index.html#vim-forgets</link>
+          <pubDate>Mon, 29 Dec 2025 11:38:20 -0500</pubDate>
+          <guid>https://cseanburns.github.io/csb/WWW/index.html#vim-forgets</guid>
+        </item>
         <item>
           <title>Lights Out</title>
           <link>https://cseanburns.github.io/csb/WWW/index.html#lights-out</link>

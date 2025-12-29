@@ -45,6 +45,7 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#vim-forgets">Vim Forgets</a></li>
 <li><a href="WWW/index.html#lights-out">Lights Out</a></li>
 <li><a href="WWW/index.html#simple-meals">Simple Meals</a></li>
 <li><a href="WWW/index.html#a-past-delight">A Past Delight</a></li>
@@ -433,6 +434,33 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20251229113820">
+<h2 id="vim-forgets">Vim Forgets</h2>
+<h3 id="December-29-2025-38"><time datetime="2025-12-29">December 29, 2025</time></h3>
+<p>There are a couple things I keep forgetting how to do in Vim because I don't use them often enough to remember, and because they involve visual mode, which I also don't use much. But when I need them, they are a huge boon.</p>
+<p>Let's say I have lines like this:</p>
+<pre><code>this is one
+this is two
+this is three</code></pre>
+<p>If I want to replace all instances of <strong>is</strong> in the above block with a word, like <strong>was</strong>, I'd normally do this in command mode:</p>
+<pre><code>:s/\&lt;is\&gt;/was</code></pre>
+<p>This is still the fastest way to do it in many cases.</p>
+<p>But another useful way is, using visual blockwise mode, is to place my cursor on the first letter of the word, press <strong>ctrl-v</strong>, and then highlight the column of words. Once those are highlighted, press <code>c</code> to change the word, press the <code>Esc</code> key, and the words are changed.</p>
+<p>The other thing I want to remember is auto-increment a column of numbers. Let's say I have the following list:</p>
+<pre><code>1
+1
+1
+1
+1
+1</code></pre>
+<p>To auto-increment these numbers, put the cursor on the second number, press <code>ctrl-v</code>, highlight the remainder, and then press <code>g ctrl-a</code>. The result is:</p>
+<pre><code>1
+2
+3
+4
+5
+6</code></pre>
+</article>
 <article id="20251226141459">
 <h2 id="lights-out">Lights Out</h2>
 <h3 id="December-26-2025-14"><time datetime="2025-12-26">December 26, 2025</time></h3>
