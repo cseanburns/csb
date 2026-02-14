@@ -47,6 +47,7 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#organizing-email">Organizing Email</a></li>
 <li><a href="WWW/index.html#covid-still-sucks-in-2026">COVID Still Sucks in 2026</a></li>
 <li><a href="WWW/index.html#framing">Framing</a></li>
 <li><a href="WWW/index.html#vim-forgets">Vim Forgets</a></li>
@@ -438,6 +439,15 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20260214172649">
+<h2 id="organizing-email">Organizing Email</h2>
+<h3 id="February-14-2026-26"><time datetime="2026-02-14">February 14, 2026</time></h3>
+<p>I use a basic but effective method of archiving my work email that is based on the calendar year. E.g., all email from January 2014 through December 2014 is archived in a folder named <code>year2014</code>, and so on.</p>
+<p>I also use rules to filter new email to separate folders. E.g., all email from unit, college, and university lists are automatically filtered to a folder named <code>university_lists</code>. All email from the Canvas LMS is filtered to a folder named <code>courses</code>, and so on. I process these emails differently. I might archive the institutional email, but since emails from Canvas are generally posts from students, I'll respond to those via my email client and then delete them and my responses.</p>
+<p>These approaches work well because they let me keep my inbox sparse and hence allow me to prioritize email that is directly sent to me. In the end, I am able to consistently keep a zero inbox.</p>
+<p>Over the last few years, though, I've begun to accumulate additional folders based on projects or specific kinds of service work. That worked fine, too, while the work was active, but once those projects or that service work ended, the folders stuck around indefinitely. That led to some clutter.</p>
+<p>Since I don't like clutter, I decided to use <code>notmuch</code> for more than searching email and also for tagging email. I've never used it in such a way, and the documentation wasn't always clear on how to proceed. I worked it out, though, and created a <a href="NOTES/TECH/notmuch_tips.html">Notmuch cheat sheet</a>. The way this works now is that I tag all email in an old project folder, then I archive the email in that folder to its corresponding year, and finally delete the project folder. Using the corresponding tag, I can retrieve all the email that was in the folder (e.g., <code>notmuch search tag:&amp;lt;project_name&amp;gt;</code>). I can also list tags in use in case I forget any (e.g., <code>notmuch search --output=tags '*'</code>).</p>
+</article>
 <article id="20260123212813">
 <h2 id="covid-still-sucks-in-2026">COVID Still Sucks in 2026</h2>
 <h3 id="January-23-2026-28"><time datetime="2026-01-23">January 23, 2026</time></h3>
