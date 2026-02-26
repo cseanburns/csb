@@ -158,7 +158,7 @@ table, th, td {
 
 	<pre><code>
 # RETRIEVING EMAIL
-macro index,pager <F4> "<shell-escape>clear ; /usr/bin/mbsync -a ; notmuch new" "Retrieve new email"
+macro index,pager &lt;F4&gt; "&lt;shell-escape&gt;clear ; /usr/bin/mbsync -a ; notmuch new" "Retrieve new email"
 	</code></pre>
 
 	<h2 id="useful-search-patterns">Useful search patterns</h2>
@@ -169,11 +169,11 @@ macro index,pager <F4> "<shell-escape>clear ; /usr/bin/mbsync -a ; notmuch new" 
 
 	<pre><code>
 # SEARCH EMAIL
-macro index <F8> \
-"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
-<shell-escape>notmuch-mutt -r --prompt search<enter>\
-<change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
-<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
+macro index &lt;F8&gt; \
+"&lt;enter-command&gt;set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key&lt;enter&gt;\
+&lt;shell-escape&gt;notmuch-mutt -r --prompt search&lt;enter&gt;\
+&lt;change-folder-readonly&gt;`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`&lt;enter&gt;\
+&lt;enter-command&gt;set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key&lt;enter&gt;" \
 "notmuch: search mail"
 	</code></pre>
 
