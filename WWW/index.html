@@ -47,6 +47,7 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#underlines">Underlines</a></li>
 <li><a href="WWW/index.html#organizing-email">Organizing Email</a></li>
 <li><a href="WWW/index.html#covid-still-sucks-in-2026">COVID Still Sucks in 2026</a></li>
 <li><a href="WWW/index.html#framing">Framing</a></li>
@@ -439,6 +440,20 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20260301120821">
+<h2 id="underlines">Underlines</h2>
+<h3 id="March-01-2026-08"><time datetime="2026-03-01">March 01, 2026</time></h3>
+<p>The web commandeered underlines for hyperlinks, but I liked it when we used underlines for book titles. I think <cite style="text-decoration:underline">Lonesome Dove</cite> looks better than <cite>Lonesome Dove</cite>.</p>
+<p>This is a dumb thing to miss, but it's interesting to me how minor technology standards changed a common practice, and I remember having to make the adjustment when writing bibliographies. I also remember being confused by what underlined text meant when I first used the web.</p>
+<hr />
+<p>In the above example, I use CSS to underline the title of the book in the first mention of the title:</p>
+<pre><code>&lt;cite style:&quot;text-decoration:underline&quot;&gt;Lonesome Dove&lt;/cite&gt;</code></pre>
+<p>But in the second, I just use the <code>&lt;cite&gt;</code> element without inline CSS:</p>
+<pre><code>&lt;cite&gt;Lonesome Dove&lt;/cite&gt;</code></pre>
+<p>Browsers default to italics when displaying content within the <code>&lt;cite&gt;</code> element.</p>
+<p>We do have the HTML5 <code>&lt;u&gt;</code> element, which defaults to underlining text, but its purpose is for <a href="https://www.w3.org/TR/2011/WD-html5-author-20110809/the-u-element.html">explicitly rendered, non-textual annotation</a>, whatever that means. This definition of the <code>&lt;u&gt;</code> element is a good example of poor documentation. Fortunately, there are good examples on the web that do a better job of illustrating the element's semantic purpose.</p>
+<p>Regardless of how the text appears, I use the <code>&lt;cite&gt;</code> element to represent the <a href="https://www.w3.org/TR/2011/WD-html5-author-20110809/the-cite-element.html">title of the book</a>. It's a semantic element, which means it conveys meaning about its content. This is important for machines and screen readers.</p>
+</article>
 <article id="20260214172649">
 <h2 id="organizing-email">Organizing Email</h2>
 <h3 id="February-14-2026-26"><time datetime="2026-02-14">February 14, 2026</time></h3>
