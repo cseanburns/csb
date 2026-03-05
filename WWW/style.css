@@ -1,7 +1,7 @@
 html {
 	box-sizing: border-box;
 	background-color: white;
-	color: #0f0f0f;
+	color: #222;
 	font-size: 100%;
 	font-family: serif;
 	line-height: 1.55;
@@ -101,10 +101,13 @@ img {
 a {
 	color: #005f87;
 	text-decoration: underline;
+	text-underline-offset: 0.15em;
+	text-decoration-thickness: 1px;
+	text-decoration-skip-ink: auto;
 }
 
 a:visited {
-	color: #4b6b88;
+	color: #6b7f94;
 }
 
 a:hover {
