@@ -93,7 +93,7 @@ a:hover {
 }
 
 a:focus-visible {
-	outline: 2px solid $0000ee;
+	outline: 2px solid #0000ee;
 	outline-offset: 2px;
 }
 
