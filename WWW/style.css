@@ -21,6 +21,14 @@ header {
 	border-bottom: 1px dashed #000;
 }
 
+h2 {
+	border-bottom: 1px dashed #000;
+}
+
+#posts > h2 {
+	border-bottom: none;
+}
+
 /* places elements just below the top of the window */
 h2, h3 {
 	scroll-margin-top: 3ex;
