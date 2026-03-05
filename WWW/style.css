@@ -3,8 +3,8 @@ html {
 	background-color: white;
 	color: #0f0f0f;
 	font-size: 100%;
-	font-family: sans-serif;
-	line-height: 1.5;
+	font-family: serif;
+	line-height: 1.55;
 }
 
 *, *::before, *::after {
@@ -32,6 +32,17 @@ h2 {
 /* places elements just below the top of the window */
 h2, h3 {
 	scroll-margin-top: 3ex;
+}
+
+h1, h2, h3 {
+	font-family: sans-serif;
+	line-height: 1.25;
+}
+
+p {
+	margin: 0.75em 0;
+	hyphens: auto;
+	overflow-wrap: break-word;
 }
 
 pre {
