@@ -443,16 +443,24 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 <article id="20260301120821">
 <h2 id="underlines">Underlines</h2>
 <h3 id="March-01-2026-08"><time datetime="2026-03-01">March 01, 2026</time></h3>
-<p>The web commandeered underlines for hyperlinks, but I liked it when we used underlines for book titles. I think <cite style="text-decoration:underline;font-style:normal;">Lonesome Dove</cite> looks better than <cite>Lonesome Dove</cite>.</p>
-<p>This is a dumb thing to miss, but it's interesting to me how minor technology standards changed a common practice, and I remember having to make the adjustment when writing bibliographies. I also remember being confused by what underlined text meant when I first used the web.</p>
+<p>The web commandeered underlines for hyperlinks, but I liked it when we used underlines for book titles.
+I think <cite style="text-decoration:underline;font-style:normal">Lonesome Dove</cite> looks better than <cite>Lonesome Dove</cite>.</p>
+<p>This is a dumb thing to miss, but it's interesting to me how minor technology standards changed a common practice, and I remember having to make the adjustment when writing bibliographies.</p>
+<p>I also remember being confused by what underlined text meant when I first used the web in the mid to late 1990s. I thought people were citing a bunch of book titles.</p>
 <hr />
-<p>In the above example, I use CSS to underline the title of the book in the first mention of the title:</p>
-<pre><code>&lt;cite style:&quot;text-decoration:underline&quot;&gt;Lonesome Dove&lt;/cite&gt;</code></pre>
-<p>But in the second, I just use the <code>&lt;cite&gt;</code> element without inline CSS:</p>
+<p>Browsers default to italics when displaying content within the <code>&lt;cite&gt;</code> element.
+In the above example, for the first mention of the title, I use CSS to underline the title of the book and remove the italics.
+This is the pre-web way of formatting a book title. I remember underlining many book titles with a typewriter, back in the day.</p>
+<pre><code>&lt;cite style=&quot;text-decoration:underline;font-style:normal&quot&gt;Lonesome Dove&lt;/cite&gt;</code></pre>
+<p>But in the second, I just use the <code>&lt;cite&gt;</code> element without inline CSS (i.e., the default in most browsers):</p>
 <pre><code>&lt;cite&gt;Lonesome Dove&lt;/cite&gt;</code></pre>
-<p>Browsers default to italics when displaying content within the <code>&lt;cite&gt;</code> element.</p>
-<p>We do have the HTML5 <code>&lt;u&gt;</code> element, which defaults to underlining text, but its purpose is for <a href="https://www.w3.org/TR/2011/WD-html5-author-20110809/the-u-element.html">explicitly rendered, non-textual annotation</a>, whatever that means. This definition of the <code>&lt;u&gt;</code> element is a good example of poor documentation. Fortunately, there are good examples on the web that do a better job of illustrating the element's semantic purpose.</p>
-<p>Regardless of how the text appears, I use the <code>&lt;cite&gt;</code> element to represent the <a href="https://www.w3.org/TR/2011/WD-html5-author-20110809/the-cite-element.html">title of the book</a>. It's a semantic element, which means it conveys meaning about its content. This is important for machines and screen readers.</p>
+<p>We do have the HTML5 <code>&lt;u&gt;</code> element, which defaults to underlining text, but
+its purpose is for <a href="https://www.w3.org/TR/2011/WD-html5-author-20110809/the-u-element.html">explicitly rendered, non-textual annotation</a>, whatever that means.
+This definition of the <code>&lt;u&gt;</code> element is a good example of poor documentation.
+Fortunately, there are good examples on the web that do a better job of illustrating the element's current, semantic purpose.</p>
+<p>Browsers probably display text within the <code>&lt;u&gt;</code> as underlined text for backwards compatitibility.
+Prior versions of HTML used the element for that purpose.</p>
+<p>Regardless of how the text appears, I do use the <code>&lt;cite&gt;</code> element to represent the <a href="https://www.w3.org/TR/2011/WD-html5-author-20110809/the-cite-element.html">title of the book</a>. It's a semantic element, which means it conveys meaning about its content. This is important for machines and screen readers.</p>
 </article>
 <article id="20260214172649">
 <h2 id="organizing-email">Organizing Email</h2>
