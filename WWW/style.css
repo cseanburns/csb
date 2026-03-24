@@ -22,8 +22,10 @@ header {
 }
 
 h2 {
-	background-color: #e8e8e8;
-	padding-left: 5px;
+	background-color: #408bd0;
+	color: white;
+	padding: 5px 5px 5px 10px;
+	border-radius: 10px;
 }
 
 #posts > h2 {
