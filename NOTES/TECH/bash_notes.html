@@ -25,10 +25,26 @@
 </header>
 
 <main>
-<h1 id="bash-notes">BASH Notes</h1>
-<h2 id="compound-commands">Compound commands</h2>
-<p>Commands in a list with <code>()</code> are executed in a
-subshell:</p>
+	<h1 id="bash-notes">BASH Notes</h1>
+
+	<h2>Table of Contents</h2>
+
+	<ol>
+		<li><a href="NOTES/TECH/bash_notes.html#compound-commands">Compound commands</a></li>
+		<li><a href="NOTES/TECH/bash_notes.html#basic-variables-aka-parameters">Basic variables</a></li>
+		<li><a href="NOTES/TECH/bash_notes.html#parameter-expansion">Parameter Expansion</a></li>
+		<li><a href="NOTES/TECH/bash_notes.html#arrays">Arrays</a></li>
+		<li><a href="NOTES/TECH/bash_notes.html#brace-expansion">Brace Expansion</a></li>
+		<li><a href="NOTES/TECH/bash_notes.html#command-substitution">Command Substitution</a></li>
+		<li><a href="NOTES/TECH/bash_notes.html#process-substitution">Process Substitution</a></li>
+		<li><a href="NOTES/TECH/bash_notes.html#redirection">Redirection</a></li>
+		<li><a href="NOTES/TECH/bash_notes.html#prepost-incrementdecrement">{Pre,Post}-{increment,decrement}</a></li>
+		<li><a href="NOTES/TECH/bash_notes.html#loops">Loops</a></li>
+	</ol>
+
+	<h2 id="compound-commands">Compound commands</h2>
+
+	<p>Commands in a list with <code>()</code> are executed in a subshell:</p>
 <pre><code>(ls ; cd $HOME)</code></pre>
 <p>Commands in a list with <code>{}</code> are executed in current shell
 environment. Keep spaces after and before brackets and end with a
@@ -401,8 +417,7 @@ echo &quot;one line&quot; | while read -r line; do
 done
 
 echo &quot;$count&quot;</code></pre>
-<h2
-id="prepost-incrementdecrement">{Pre,Post}-{increment,decrement}</h2>
+<h2 id="prepost-incrementdecrement">{Pre,Post}-{increment,decrement}</h2>
 <p>Post-increment <code>id++</code> and post-decrement <code>id--</code>
 will return the original value and then auto increment in
 <strong>arithemtic expansion</strong>.</p>
