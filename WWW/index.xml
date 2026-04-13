@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/index.xml</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Apr 2026 08:19:46 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 13 Apr 2026 08:54:29 -0400</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>Field of Attention</title>
+          <link>https://cseanburns.github.io/csb/WWW/index.html#field-of-attention</link>
+          <pubDate>Mon, 13 Apr 2026 08:54:29 -0400</pubDate>
+          <guid>https://cseanburns.github.io/csb/WWW/index.html#field-of-attention</guid>
+        </item>
         <item>
           <title>Multiword Search in Vim</title>
           <link>https://cseanburns.github.io/csb/WWW/index.html#multiword-search-in-vim</link>
