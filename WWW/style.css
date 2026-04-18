@@ -181,14 +181,14 @@ footer {
 /* Adding post numbering to The Text */
 /* Applying to Firefox only: Chrome doesn't support the reversed() keyword yet in counter-reset */
 
-@-moz-document url-prefix() {
+@supports (counter-reset: reversed(numbering)) {
 	body #thetext {
 		counter-reset: reversed(numbering);
 	}
 	
 	body #thetext article > h2::before {
-	counter-increment: numbering -1;
-	content: "Post " counter(numbering) ": ";
+		counter-increment: numbering -1;
+		content: "Post " counter(numbering) ": ";
 	}
 }
 
