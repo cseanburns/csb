@@ -47,6 +47,7 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#rethinking-cloud-usage">Rethinking Cloud Usage</a></li>
 <li><a href="WWW/index.html#on-oatmeal">On Oatmeal</a></li>
 <li><a href="WWW/index.html#gobble-gobble">Gobble Gobble</a></li>
 <li><a href="WWW/index.html#field-of-attention">Field of Attention</a></li>
@@ -447,6 +448,17 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20260511073817">
+<h2 id="rethinking-cloud-usage">Rethinking Cloud Usage</h2>
+<h3 id="May-11-2026-38"><time datetime="2026-05-11">May 11, 2026</time></h3>
+<p>I teach two courses that require students to learn and use the Linux command line. I've been doing this for ten years now, and how I've taught these courses has changed a lot.</p>
+<p>In the early days, I had students use VirtualBox. This was good because it taught students how to deploy virtual machines and install Linux. But it was problematic because some students had really low powered machines that wouldn't easily support running VMs. And then Apple switched to their M1 ARM chips, and students that used those computers couldn't easily install Linux because VirtualBox didn't support the M1 chip, at least early on. Or if they did (I can't remember all that well now), students would have to choose ARM-based Linux distributions, and those had some limitations at the time. Even though those students could use VMware on macOS, the whole point of using one VM software was to simplify my instructions. If I had to use two different VM solutions, then the course became more about those different VM solutions. Plus, I don't and refuse to use macOS, so I couldn't even provide instructions for students with Apple computers.</p>
+<p>Later I had a bare metal server on campus. I created accounts on that server, and students would <code>ssh</code> into that machine. This was cool because it enabled all sorts of learning activities that are made easy using a shared machine. I could assign students to groups, have them work in shared directories, with shared files, and like. This would make how file permissions and ownership work clearer. I would set up local mail and chat, and students could email and chat with each other on the server. And so much more.</p>
+<p>But then my university restricted <code>ssh</code> access to those with VPN accounts, but they made it difficult to get VPN access, and the instructions for connecting to the VPN were poor. So this ended the bare metal solution. This was fine, though. I spent too much time administrating that server because I made it available for other classes, taught by other instructors, too.</p>
+<p>Next I had us switch to using Google Cloud to create and manage Linux virtual machines. But this has been problematic, too, especially this semester. Google Cloud is complex, which makes sense because it's really designed for enterprise solutions. And for some reason a bunch of students this semester created the wrong Linux VM, and this caused problems down the line when installing other software. Also, Google offers a free trial, but once that trial is over, when we're about 75% through the semester, their VMs always broke. I've never been able to figure out why because I never had a free trial. And then this semester a student somehow racked up a $300 plus bill. I have no idea what caused that. It usually only costs about $1 to $2 per month. Anyway, there are other issues too with Google Cloud that make it over-complicated for these courses.</p>
+<p>So to fix this, I'm changing things up again. I'm switching to a different VM solution (e.g., DigitalOcean or like). I'll run a single VM for the students to share in the first half or more of the semester. This will allow them to focus more on learning the command line, file management, etc. Plus I'll be able to add lessons on shared directories and enable local email and chat for within-server communication. I will be able to configure the web server (Apache) to allow for websites from their home directories (e.g., <code>~/public_html</code> pages). And so much more. Then when we get to LAMP and like installs, I can show them how to create their own VMs and proceed with their projects. Because the cost of these VMs are set at around $6 per month, this will also prevent runaway fees.</p>
+<p>I think this is going to really augment the courses and make learning much easier. The problem for me is that it means I'm going to have to totally rewrite my textbooks, again! But that's okay. I'm excited because I think this will be a really positive change.</p>
+</article>
 <article id="20260508150002">
 <h2 id="on-oatmeal">On Oatmeal</h2>
 <h3 id="May-08-2026-00"><time datetime="2026-05-08">May 08, 2026</time></h3>
