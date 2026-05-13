@@ -1,20 +1,19 @@
 :root {
-	--background: #f4f1ea;
-	--main-text: #2b2b28;
-	--secondary-text: #5f625b;
+	--soft_white: #f4f1ea;
+	--soft_black: #2b2b28;
+	--charcoal: #5f625b;
 
-	--links: #2f6f3e;
-	--visited-links: #7a6a4f;
+	--forest_green: #2f6f3e;
+	--forest_red: #cc1011;
+	--coffee-brown: #7a6a4f;
 
-	--borders: #d7d1c7;
-	--code-blocks: #ebe6dc;
-
-	--accent-bg: #e8e1d4;
+	--light_brown: #d7d1c7;
+	--lighter_brown: #ebe6dc;
 }
 
 html {
-	background-color: var(--background);
-	color: var(--main-text);
+	background-color: var(--soft_white);
+	color: var(--soft_black);
 	box-sizing: border-box;
 	font-size: 112.5%;
 	font-family:
@@ -41,12 +40,12 @@ body {
 }
 
 header {
-	border-bottom: 1px dashed var(--borders);
+	border-bottom: 1px dashed var(--light_brown);
 }
 
 h2 {
-	color: var(--main-text);
-	border-bottom: 1px solid var(--borders);
+	color: var(--soft_black);
+	border-bottom: 1px solid var(--light_brown);
 	padding-bottom: 0.2rem;
 	background: transparent;
 	border-radius: 0;
@@ -63,6 +62,10 @@ h2, h3 {
 
 h1, h2, h3 {
 	font-family: sans-serif;
+}
+
+h3 {
+	color: var(--forest_red);
 }
 
 p {
@@ -83,8 +86,8 @@ code {
 }
 
 pre {
-	background: var(--code-blocks);
-	border-left: 3px solid var(--links);
+	background: var(--lighter_brown);
+	border-left: 3px solid var(--forest_green);
 	padding: 0.9rem 1rem;
 	margin: 1.25rem 0;
 	overflow-x: auto;
@@ -95,18 +98,18 @@ h2 code,
 p code,
 li code,
 blockquote code {
-	background: var(--accent-bg);
+	background: var(--lighter_brown);
 }
 
 code {
-	background: var(--accent-bg);
+	background: var(--lighter_brown);
 }
 
 blockquote,
 aside {
-	background: var(--accent-bg);
+	background: var(--lighter_brown);
 	border: none;
-	border-left: 3px solid var(--borders);
+	border-left: 3px solid var(--light_brown);
 	padding: .5rem;
 }
 
@@ -116,7 +119,7 @@ img {
 }
 
 a {
-	color: var(--links);
+	color: var(--forest_green);
 	text-decoration: underline;
 	text-underline-offset: 0.15em;
 	text-decoration-thickness: 1px;
@@ -124,7 +127,7 @@ a {
 }
 
 a:visited {
-	color: var(--visited-links);
+	color: var(--coffee-brown);
 }
 
 a:hover {
@@ -132,17 +135,17 @@ a:hover {
 }
 
 a:focus-visible {
-	outline: 2px solid var(--secondary-text);
+	outline: 2px solid var(--charcoal);
 	outline-offset: 2px;
 }
 
 hr {
 	border: none;
-	border-top: 1px solid var(--borders);
+	border-top: 1px solid var(--light_brown);
 }
 
 details > summary {
-	color: var(--secondary-text);
+	color: var(--charcoal);
 	cursor: pointer;
 }
 
@@ -181,7 +184,7 @@ body .outline h3::before {
 }
 
 footer {
-	border-top: 1px dashed var(--main-text);
+	border-top: 1px dashed var(--soft_black);
 	margin-top: 10px;
 }
 
@@ -204,8 +207,8 @@ footer {
 table {
 	table-layout: fixed;
 	border-collapse: collapse;
-	border-top: 1px solid var(--borders);
-	border-bottom: 1px solid var(--borders);
+	border-top: 1px solid var(--light_brown);
+	border-bottom: 1px solid var(--light_brown);
 	overflow-x: auto;
 }
 
@@ -215,7 +218,7 @@ table caption {
 }
 
 thead {
-	border-bottom: 1px solid var(--accent-bg);
+	border-bottom: 1px solid var(--lighter_brown);
 }
 
 td {
