@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/index.xml</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 May 2026 07:38:17 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2026 11:35:05 -0400</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>No Socials</title>
+          <link>https://cseanburns.github.io/csb/WWW/index.html#no-socials</link>
+          <pubDate>Wed, 13 May 2026 11:35:05 -0400</pubDate>
+          <guid>https://cseanburns.github.io/csb/WWW/index.html#no-socials</guid>
+        </item>
         <item>
           <title>Rethinking Cloud Usage</title>
           <link>https://cseanburns.github.io/csb/WWW/index.html#rethinking-cloud-usage</link>
