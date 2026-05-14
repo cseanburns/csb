@@ -47,6 +47,7 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#the-web-is-broken">The Web Is Broken</a></li>
 <li><a href="WWW/index.html#no-socials">No Socials</a></li>
 <li><a href="WWW/index.html#rethinking-cloud-usage">Rethinking Cloud Usage</a></li>
 <li><a href="WWW/index.html#on-oatmeal">On Oatmeal</a></li>
@@ -449,6 +450,22 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20260513235946">
+<h2 id="the-web-is-broken">The Web Is Broken</h2>
+<h3 id="May-13-2026-59"><time datetime="2026-05-13">May 13, 2026</time></h3>
+<p>The web is broken. Sometimes I like to stay in the terminal, but the world is working against this way of life.</p>
+<p>Case in point: I ran a web search from the command line using the following function in my <code>~/.bash_functions</code> file:</p>
+<pre><code># Search DuckDuckGo with w3m; see https://duckduckgo.com/params
+ddg() {
+  local q=&quot;$*&quot;
+  w3m &quot;https://duckduckgo.com/lite/?q=${q}&amp;kl=us-en&amp;kp=-1&amp;kz=1&amp;kaf=1&quot;
+}</code></pre>
+<p>This means I can type <code>ddg [search query]</code> from the shell, and the above function calls the <code>w3m</code> text-mode web browser with the DuckDuckGo (DDG) search URL. My search terms are inserted in the URL where the variable <code>${q}</code> is called.</p>
+<p>First, I like DDG, but I have limited choices here because <code>w3m</code>, like most text-mode browsers, doesn't support JavaScript. Since Google and Bing both require JavaScript when searching on their sites, I can't use those search engines. (Btw, there are no valid reasons for either Google or Bing to require JavaScript.)</p>
+<p>Second, as I ran a few searches (for different topics), I found that many of the returned sites all required JavaScript. Since they required JavaScript, I couldn't view them with <code>w3m</code>. Thus, it took a bit of time for each search query to find a site that showed me the results I wanted. (Btw, there are no valid reasons for web sites to require JavaScript, unless they're apps.)</p>
+<p>It seems the web has a JavaScript dependency. This is entirely unfortunate. Most websites are not apps, even if they want to pretend they are, nor do search engines need JavaScript to search.</p>
+<p>There is and never will be any stupid JavaScript on this site.</p>
+</article>
 <article id="20260513113505">
 <h2 id="no-socials">No Socials</h2>
 <h3 id="May-13-2026-35"><time datetime="2026-05-13">May 13, 2026</time></h3>
