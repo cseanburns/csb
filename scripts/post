@@ -101,31 +101,31 @@ make_rss() {
     sed -i '5 s/$/<\/guid>/' "${md_dir}"/tmp.xml
 
 # Add the opening and closing <item> XML elements for the new entry block
-ed -s "${md_dir}"/tmp.xml << EOF
-2i
-<item>
-.
-6a
-</item>
-.
-wq
-EOF
+ed -s "${md_dir}"/tmp.xml <<-EOF
+	2i
+	<item>
+	.
+	6a
+	</item>
+	.
+	wq
+	EOF
 }
 
 insert_rss() {
     cat "${md_dir}"/tmp.xml "${rss_file}" > "${md_dir}"/new.xml
-ed -s "${md_dir}"/new.xml << EOF
-1m15
-14d
-1,6m15
-8s/^/    /
-10,15s/^/        /
-11,14s/^/  /
-.
-wq
-EOF
+ed -s "${md_dir}"/new.xml <<-EOF
+	1m15
+	14d
+	1,6m15
+	8s/^/    /
+	10,15s/^/        /
+	11,14s/^/  /
+	.
+	wq
+	EOF
 
-    mv "${md_dir}"/new.xml "${rss_file}" 
+	mv "${md_dir}"/new.xml "${rss_file}" 
 }
 
 cleanup() {
