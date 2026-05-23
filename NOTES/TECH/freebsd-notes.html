@@ -29,7 +29,10 @@
 
     <h1>Some notes on using FreeBSD</h1>
 
-    <p>Login as <code>root</code> to complete most of the tasks below.</p>
+    <p>See the FreeBSD
+    <a href="https://docs.freebsd.org/en/books/accessibility/virtual-terminal/">Virtual Terminal</a> docs for more.</p>
+
+    <p>Login as <code>root</code> or install and use <code>doas</code> to complete most of the tasks below.</p>
 
     <h2>Wifi</h2>
     <p>Restart wifi:</p>
@@ -37,14 +40,12 @@
     <p>Add wifi credentials to: <code>/etc/wpa_supplicant.conf</code></p>
 
     <h2>Install security patches</h2>
-    <pre><code>
-freebsd-update fetch
+    <pre><code>freebsd-update fetch
 freebsd-update install</code></pre>
 
     <h2>Update packages</h2>
 
-    <pre><code>
-pkg update
+    <pre><code>pkg update
 pkg upgrade
 pkg autoremove
 pkg clean</code></pre>
@@ -52,8 +53,7 @@ pkg clean</code></pre>
     <h2>Update the FreeBSD version</h2>
     <p>For example, to upgrade from 14.0-RELEASE to the 14.1-RELEASE (get info on release numbers from freebsd.org):</p>
 
-    <pre><code>
-freebsd-update -r 14.1-RELEASE upgrade
+    <pre><code>freebsd-update -r 14.1-RELEASE upgrade
 freebsd-update install</code></pre>
 
     <p>Reboot:</p>
@@ -63,15 +63,72 @@ freebsd-update install</code></pre>
 
     <p>Login as <code>root</code> and run the install command again:</p>
 
-    <pre>
-<code>freebsd-update install</code></pre>
+    <pre><code>freebsd-update install</code></pre>
+
+    <h2>Virtual Terminal/Console</h2>
+
+    <p>Use the second virtual terminal (<code>alt-F2</code>) to avoid the system console.</p>
+
+    <h3>Using <code>vidcontrol</code></h3>
+
+    <p>Change color of virtual console: e.g., yellow text on blue background:</p>
+
+    <pre><code>vidcontrol yellow blue</code></pre>
+
+    <p>See other color options:</p>
+
+    <pre><code>vidcontrol show</code></pre>
+
+    <p>To make changes permanent, add the following to <code>/etc/rc.conf</code>:
+
+    <pre><code>allscreens_flags="-c yellow blue"</code></pre>
+
+    <h3>Using <code>vidfont</code></h3>
+
+    <p><code>vidcontrol</code> can be used to set fonts, but
+    <code>vidfont</code> offers a menu of options.
+    Run <code>vidfont</code> to select among the options.
+    To make a setting permanent, add to <code>/etc/rc.conf</code>:
+
+    <pre><code>allscreens_flags="-f spleen-32x64"</code></pre>
+
+    <p>See more fonts in <code>/usr/share/vt/fonts</code>.</p>
+
+    <h3>Virtual Console Mouse</h3>
+
+    <p>The mouse or trackpad can be used in the virtual terminal, but
+    sometimes I find it annoying.
+    To turn it off:
+
+    <pre><code>vidcontrol -m off</code></pre>
+
+    To make permanent:
+
+    <pre><code>allscreens_flags="-m off"</code></pre>
+
+    <h2>Laptop Sleep</h2>
+
+    <p>To see the available power management parameters:</p>
+
+    <pre><code>systl hw.acpi</code></pre>
+
+    <p>To learn what happens by default when closing the lid, see:</p>
+
+    <pre><code>systl hw.acpi.lid_switch_state</code></pre>
+
+    <p>To change it to sleep, do:</p>
+
+    <pre><code>doas systl hw.acpi.lid_switch_state=S3</code></pre>
+
+    <p>To make it permanent, edit the <code>/etc/sysctl.conf</code> file and add:</p>
+
+    <pre><code>hw.acpi.lid_switch_state=S3</code></pre>
 
     <h2>Installing the Sway window manager</h2>
     <p>After installing Wayland and Sway per the <a href="https://docs.freebsd.org/en/books/handbook/wayland/">FreeBSD Handbook</a>,
     install the graphics driver:</p>
 
-<pre><code>
-pkg install drm-kmod
+<pre><code>pkg install drm-kmod
 sysrc -f /etc/rc.conf kld_list+=i915kms</code></pre>
 
     <p>Ensure that <code>$USER</code> is in the video group and reboot.</p>
@@ -81,18 +138,13 @@ sysrc -f /etc/rc.conf kld_list+=i915kms</code></pre>
     <pre>
 <code>sway</code></pre>
 
-    <h2>Misc commands:</h2>
-
-    <p>Use <code>vidfont</code> to change console font and size.
-    Add font selection to <code>/etc/rc.conf</code> to make permanent: e.g., <code>allscreens_flags="-f spleen-8x16"</code>.</p>
-
 </main>
 
 <footer>
 		    <p>This site is my own work.
 		    The writing, ideas, and projects here are independent of any institution or affiliation.</p>
 <p>Copyright by C. Sean Burns, 2019.
-Last modified: <time datetime="2024-08-13">2024-08-13</time>.</p>
+Last modified: <time datetime="2026-05-23">2026-05-23</time>.</p>
 
 </footer>
 
