@@ -138,7 +138,7 @@ hr {
 }
 
 details > summary {
-	color: var(--white);
+	color: var(--black);
 	cursor: pointer;
 }
 
