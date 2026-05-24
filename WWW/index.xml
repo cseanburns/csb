@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/index.xml</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 May 2026 16:36:38 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 23 May 2026 16:10:48 -0400</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>On Documentation</title>
+          <link>https://cseanburns.net/WWW/index.html#on-documentation</link>
+          <pubDate>Sat, 23 May 2026 16:10:48 -0400</pubDate>
+          <guid>https://cseanburns.net/WWW/index.html#on-documentation</guid>
+        </item>
         <item>
           <title>Conundrum</title>
           <link>https://cseanburns.net/WWW/index.html#conundrum</link>
