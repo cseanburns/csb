@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/index.xml</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 May 2026 14:48:48 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2026 00:27:16 -0400</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>A Gem</title>
+          <link>https://cseanburns.net/WWW/index.html#a-gem</link>
+          <pubDate>Fri, 29 May 2026 00:27:16 -0400</pubDate>
+          <guid>https://cseanburns.net/WWW/index.html#a-gem</guid>
+        </item>
         <item>
           <title>AI Or No AI</title>
           <link>https://cseanburns.net/WWW/index.html#ai-or-no-ai</link>
