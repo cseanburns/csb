@@ -52,6 +52,7 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#sentence-line-breaks-part-2">Sentence Line Breaks, Part 2</a></li>
 <li><a href="WWW/index.html#a-gem">A Gem</a></li>
 <li><a href="WWW/index.html#ai-or-no-ai">AI Or No AI</a></li>
 <li><a href="WWW/index.html#and-to-think-i-saw-it-on">And to think I saw it on ...</a></li>
@@ -462,6 +463,35 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20260530094852">
+<h2 id="sentence-line-breaks-part-2">Sentence Line Breaks, Part 2</h2>
+<h3 id="May-30-2026-48"><time datetime="2026-05-30">May 30, 2026</time></h3>
+<p>I've written about <a href="WWW/index.html#semantic-line-breaks">semantic line breaks</a> and <a href="WWW/index.html#sentence-line-breaks">sentence line breaks</a>. These are methods of writing that originate in line-based text editors, like Ed or Vi/Vim, along with some markup language. We use semantic line breaks to <a href="https://sembr.org/"><q>add a line break after each substantial unit of thought</q></a> when writing in our editors. Sentence line breaks focus on adding a new line after each sentence. I try to write under the latter idea to focus on the mechanics instead of the substance of the text, but I admit that sometimes I mix it up.</p>
+<p>In my Sentence Line Breaks post, I wrote how this way of writing was an old convention, but I didn't cite my source. The reference comes from S.R. Bourne's <cite><a href="https://archive.org/details/unixsystem0000bour/mode/2up">The UNIX System</a></cite> (1983). Bourne writes:</p>
+<blockquote>
+<p>When preparing documents for <code>nroff</code>, individual lines should be kept reasonably short. Each sentence should begin on a new line and ending a line on each punctuation mark allows modifications to be made more easily (p. 144).</p>
+</blockquote>
+<p>A quick aside about <code>nroff</code> and also <code>troff</code>. These are closely related document processing systems in Unix. Historically, <code>nroff</code> targeted terminals and line printers, while <code>troff</code> targeted higher quality typeset output. The same source document could often be processed by either system depending on the intended output device. In Linux and other modern Unix-like systems, these capabilities are commonly unified under <code>groff</code>. The <a href="https://en.wikipedia.org/wiki/Troff">troff Wikipedia page</a> provides good examples of how the markup looks.</p>
+<p>As an example in <code>groff</code>, the following uses the <code>P</code> macro to start new paragraphs:</p>
+<pre><code>.P
+This is the first sentence of paragraph 1.
+This is the second sentence of paragraph 1.
+.P
+This is the first sentence of paragraph 2.
+This is the second sentence of paragraph 2.</code></pre>
+<p>Even though each sentence has its own line, the paragraphs render as regular flowing paragraphs when processed.</p>
+<p>The strength of this approach is in the editing process. As Bourne notes, to keep each sentence on its own line enhances how we edit our text, especially in line-oriented text editors like Ed or Vi/Vim. Since these editors are line-oriented, many commands treat lines as <strong>addresses</strong>. For example, if I want to replace the word <strong>UNIX</strong> with the word <strong>Unix</strong> in lines four through seven in a file, but not anywhere else, then I run the following command in either Ed or Vi/VIM:</p>
+<pre><code>4,7s/UNIX/Unix/g</code></pre>
+<p>Bourne was likely using one of these editors, especially since he has a chapter on both in the cited book. I'd love to see the source code he used to write <cite>The UNIX System</cite> because I'd love to see how he used line breaks when writing that book.</p>
+<p>I also wonder if this way of writing has other benefits beyond facilitating how we edit our text in these editors. When I write using this method, I can quickly see that I may need to edit my sentences if they become too long. This is because a one-sentence-per-line approach functions also as a visual tell. This leads to some questions:</p>
+<ul>
+<li>Since line-oriented editors and writing styles encourage writers to think of prose as <strong>addressable units</strong>, does writing one sentence per line keep lines shorter and verbs active?</li>
+<li>Does this encourage granularity in our text?</li>
+<li>And since writing is thinking, does that help clarify what we intend to communicate?</li>
+</ul>
+<p>I'd also like to test this more when using a version control system, like <code>git</code>. Do <code>git diff</code>s on files based on one sentence per line make it easier or more difficult to review changes? It seems like it would make it easier, because when writing code, we also tend to limit a statement to a line because this facilitates code reviews. And writing prose this way follows that style.</p>
+<p>Bourne, S. R. (1983). The UNIX system. Addison-Wesley. <a href="http://archive.org/details/unixsystem0000bour"><span>http://archive.org/details/unixsystem0000bour</span></a></p>
+</article>
 <article id="20260529002716">
 <h2 id="a-gem">A Gem</h2>
 <h3 id="May-29-2026-27"><time datetime="2026-05-29">May 29, 2026</time></h3>
