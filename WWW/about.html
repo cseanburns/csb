@@ -71,9 +71,9 @@
 			</section>
 
 			<section>
-				<h2>Work Info</h2>
+				<h2>Work Bio</h2>
 
-				<p>I currently work as an associate professor of information science at the University of Kentucky,
+				<p>I work as an associate professor of information science at the University of Kentucky,
 				where I teach in the library science (LIS) and the information, communication, and technology (ICT) programs.</p>
 
 				<p>More information about my research is available on my research
@@ -101,26 +101,29 @@
 
 				<p>This is a personal website that covers a range of personal and scholarly topics.
 				I intend this site to function as a digital garden,
-				which means I use it as a place for notes, ideas, and projects to grow over time.
-				My writings here are provisional, iterative, and
-				often motivated by curiosity or a need to express myself about something.</p>
+				which means I use it as a place for notes, ideas, and projects to grow over time.</p>
 
-				<p>Like a real garden, please feel free to wander around and take in what may interest you.</p>
+				<p>Like a real garden, please feel free to wander around and take in what may interest you.
+				Sometimes you might find weeds, too.</p>
 
-				<h3>Automating this Website</h3>
+				<h3>Colophon</h3>
 
-				<p>I wrote what might be called an eccentric <code>bash</code> script to automate site publishing and deploying posts to
-				<a href="WWW/index.html">The Text</a>,
-				which is a single page of mostly short posts on a range of topics.
-				I describe the beginnings of that script at
+				<p>I automate publishing to <a href="WWW/index.html">The Text</a> using a simple <code>bash</code> script.
+				The script is composed of shell commands and <code>sed</code> and <code>ed</code> functions.
+				It converts Markdown files/posts to HTML, inserts the HTML posts into <code>WWW/index.html</code>, and
+				updates the <code>WWW/index.xml</code> RSS feed.
+				The <code>bash</code> script is intentionally a bit eccentric.
+				I describe the evolution of that script at
 				<a href="WWW/automation.html">Site Automation w/ Scripts</a>.</p>
 
-				<h3>Site Technology</h3>
-					
+				<p>I wrote the remainder of this site either in Markdown, converted to HTML using <code>pandoc</code>, or HTML.
+				The CSS stylesheet is also handcrafted and is subject to change often.</p>
+
 				<p>This site uses only HTML and CSS and is coded in
 				<a href="https://www.vim.org/">/usr/bin/vim</a>.
 				Some posts in <a href="WWW/index.html">The Text</a> are written in
-				<a href="https://www.gnu.org/software/ed/">/usr/bin/ed</a>.</p>
+				<a href="https://www.gnu.org/software/ed/">/usr/bin/ed</a>.
+				This site uses zero JavaScript.</p>
 
 				<p>Outside of being hosted on GitHub, this site does not include any additional analytics.</p>
 
@@ -130,12 +133,11 @@
 		</main>
 
 		<footer>
-
 			<p>This site is my own work.
 			The writing, ideas, and projects here are independent of any institution or affiliation.</p>
 
 			<p>Copyright by C. Sean Burns, 2019.
-			Last modified: <time datetime="2026-05-24">2026-05-24</time>.</p>
+			Last modified: <time datetime="2026-06-06">2026-06-06</time>.</p>
 		</footer>
 	</body>
 </html>
