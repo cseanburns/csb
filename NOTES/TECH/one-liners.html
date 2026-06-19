@@ -51,7 +51,7 @@ echo "$PATH" | sed 's/:/\n/g' | grep "$HOME"
 cat &lt;(sed -n '7,10p' file1) &lt;(sed -n '1,3p' file2)
     </code></pre>
 
-    <p>Copy matching lines from a file if using Wayland. Alternatively, replace the <em>regex</em> with line numbers:</p>
+    <p>Copy to clipboard matching lines from a file if using Wayland. Alternatively, replace the <em>regex</em> with line numbers:</p>
 
     <pre><code>
 sed -n '/regex/p' file.md | wl-copy
@@ -63,11 +63,11 @@ sed -n '/regex/p' file.md | wl-copy
 cat fruit.dat
 apple apple apple apple
 
-sed 's/apple/orange 2' fruit.dat
+sed 's/apple/orange/ 2' fruit.dat
 apple orange apple apple
     </code></pre>
 
-    <p>Or, specify a specific line, like line 1:</p>
+    <p>Or, specify a specific line, like line 2:</p>
 
     <pre><code>
 cat fruit.dat
@@ -92,7 +92,7 @@ apple apple apple apple
 		    <p>This site is my own work.
 		    The writing, ideas, and projects here are independent of any institution or affiliation.</p>
 <p>Copyright by C. Sean Burns, 2019.
-Last modified: <time datetime="2024-10-07">2024-10-07</time>.</p>
+Last modified: <time datetime="2026-06-19">2026-06-19</time>.</p>
 
 </footer>
 
