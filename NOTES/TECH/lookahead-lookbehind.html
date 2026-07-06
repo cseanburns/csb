@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Lookahead and Lookbehind">
+		<title>Lookahead and Lookbehind</title>
+		<base href="https://cseanburns.net/">
+		<link rel="stylesheet" href="WWW/style.css">
+		<link rel="icon" type="image/png" sizes="16x16" href="images/f16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="images/f32.png">
+		<link rel="icon" type="image/png" sizes="72x72" href="images/f72.png">
+		<link rel="icon" type="image/png" sizes="114x114" href="images/f114.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="images/f144.png">
+<style>
+td {
+	text-align: left;
+}
+kbd, samp {
+	font-family: monospace;
+}
+</style>
+	</head>
+
+	<body>
+		<header>
+			<nav>
+				<p>
+				<a href="index.html">Home</a> &rarr;
+				<a href="NOTES/index.html">NOTES</a> &rarr;
+				<a href="NOTES/TECH/index.html">TECH</a> &rarr; Lookahead and Lookbehind 
+				</p>
+			</nav>
+		</header>
+
+		<main>
+			<section>
+<h2 id="lookahead-and-lookbehind">Lookahead and Lookbehind</h2>
+<p>Some notes on using lookahead and lookbehind when using <code>grep</code>.</p>
+<p>Basic usage:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Pattern</th>
+<th>Explanation</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(?=...)</td>
+<td>look ahead for this</td>
+<td>Lookahead</td>
+</tr>
+<tr class="even">
+<td>(?&lt;=...)</td>
+<td>look behind for this</td>
+<td>Lookbehind</td>
+</tr>
+<tr class="odd">
+<td>(?!...)</td>
+<td>look ahead and reject this</td>
+<td>Negative Lookahead</td>
+</tr>
+<tr class="even">
+<td>(?&lt;!...)</td>
+<td>look behind and reject this</td>
+<td>Negative Lookbehind</td>
+</tr>
+</tbody>
+</table>
+<p>For documentation on Linux, see <code>man 3 pcrepattern</code>.</p>
+<h2 id="example-1">Example 1</h2>
+<p>Here's our toy file, named <code>test.md</code>:</p>
+<pre><code>this is a test
+it is only a test
+the test is this
+how about this test</code></pre>
+<h3 id="lookahead">Lookahead</h3>
+<p>Reminder: <code>(?=...)</code></p>
+<p>To do a <code>grep</code> lookahead, means to match the term only if
+something comes after it. In this example, matches <strong>test</strong>
+followed by a <strong>space</strong> but does not include the
+<strong>space</strong> in the match:</p>
+<p><kbd>grep -P 'test(?=[[:space:]])' test.md</kbd><br />
+<samp>the <span style="color:red">test</span> is this</samp></p>
+<h3 id="lookbehind">Lookbehind</h3>
+<p>Reminder: <code>(?&lt;=...)</code></p>
+<p>To do a <code>grep</code> lookbehind, means to match the term only if
+something comes before it. In this example, matches
+<strong>test</strong> if preceded by <strong>this</strong> and a
+<strong>space</strong>:</p>
+<p><kbd>grep -P '(?&lt;=this[[:space:]])test' test.md</kbd><br />
+<samp>how about this <span style="color:red">test</span></samp></p>
+<h3 id="negative-lookahead">Negative Lookahead</h3>
+<p>Reminder: <code>(?!...)</code></p>
+<p>To do a <code>grep</code> negative lookahead, means to match the term
+only if something <strong>does not</strong> come after it. In this
+example, matches <strong>test</strong> if not followed by a
+<strong>space</strong> and <strong>is</strong>:</p>
+<kbd>grep -P 'test(?![[:space:]]is)' grep.txt</kbd><br />
+<samp> this is a <span style="color:red">test</span><br />
+it is only a <span style="color:red">test</span><br />
+how about this <span style="color:red">test</span><br />
+</samp>
+<h3 id="negative-lookbehind">Negative Lookbehind</h3>
+<p>Reminder: <code>(?&lt;!...)</code></p>
+<p>To do a <code>grep</code> negative lookbehind, means to match the
+term only if something <strong>does not</strong> come before it. In this
+example, matches <strong>test</strong> if not preceded by
+<strong>this</strong> and a <strong>space</strong>:</p>
+<p><kbd>grep -P '(?&lt;!this[[:space:]])test' grep.txt</kbd><br />
+<samp> this is a <span style="color:red">test</span><br />
+it is only a <span style="color:red">test</span><br />
+the <span style="color:red">test</span> is this<br />
+</samp></p>
+<h2 id="example-2">Example 2</h2>
+<p>Toy example:</p>
+<pre><code>&lt;h1&gt;Title&lt;/h1&gt;
+&lt;h2&gt;Subtitle&lt;/h2&gt;
+&lt;p&gt;This is a toy HTML file.&lt;/p&gt;
+&lt;p&gt;Here is an &lt;a href=&quot;https://example.com&quot;&gt;example link&lt;/a&gt;.&lt;/p&gt;</code></pre>
+<h3 id="lookahead-1">Lookahead</h3>
+<p>Reminder: <code>(?=...)</code></p>
+<p>The following matches <strong>file</strong> and the period if
+followed by a <strong>&lt;/p&gt;</strong>:</p>
+<p><kbd>grep -P 'file[[:punct:]](?=&lt;/p&gt;)' test.md</kbd><br />
+<samp>&lt;p&gt;This is a toy HTML <span
+style="color:red">file</span>.&lt;/p&gt;</samp></p>
+<h3 id="lookbehind-1">Lookbehind</h3>
+<p>Reminder: <code>(?&lt;=...)</code></p>
+<p>The following matches for the letter <strong>T</strong> (case
+sensitive) if preceded by a <code>&lt;p&gt;</code> tag:</p>
+<p><kbd>grep -P '(?&lt;=&lt;p&gt;)T' grep.txt</kbd><br />
+<samp>&lt;p&gt;<span style="color:red">T</span>his is a toy HTML
+file.&lt;/p&gt;</samp></p>
+<h3 id="negative-lookahead-1">Negative Lookahead</h3>
+<p>Reminder: <code>(?!...)</code></p>
+<p>The following matches the <code>&lt;p&gt;</code> tag if not followed
+by the letter <strong>T</strong> (case sensitive):</p>
+<p><kbd>grep -P '&lt;p&gt;(?!T)' grep.txt</kbd><br />
+<samp><span style="color:red">&lt;p&gt;</span>Here is an &lt;a
+href="https://example.com"&gt;example
+link&lt;/a&gt;&lt;/p&gt;</samp></p>
+<h3 id="negative-lookbehind-1">Negative Lookbehind</h3>
+<p>The following matches the term <strong>title</strong> (case
+insensitive) if not preceded by <strong>sub</strong> (case
+insensitive):</p>
+<p>Reminder: <code>(?&lt;!...)</code></p>
+<p><kbd>grep -Pi '(?&lt;!sub)title' grep.txt</kbd><br />
+<samp>&lt;h1&gt;<span
+style="color:red">Title</span>&lt;/h1&gt;</samp><br />
+<kbd>grep -Pio '(?&lt;!sub)title' grep.txt</kbd><br />
+<samp><span style="color:red">Title</span></samp></p>
+
+			</section>
+		</main>
+
+		<footer>
+			<p>This site is my own work.
+			The writing, ideas, and projects here are independent of any institution or affiliation.</p>
+			<p>Copyright by C. Sean Burns, 2019.
+			Last modified: <time datetime="2026-07-06">2026-07-06</time>.</p>
+		</footer>
+	</body>
+</html>
