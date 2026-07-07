@@ -87,13 +87,18 @@ p > code {
 	padding: 0 3px 0 3px;
 }
 
-pre, kbd, samp {
+pre {
 	background: var(--paper);
 	border-left: 3px solid var(--black);
 	padding: 0.9rem 1rem;
 	margin: 1.25rem 0;
 	overflow-x: auto;
 	line-height: 1.55;
+}
+
+kbd, samp {
+	border-left: 3px solid var(--black);
+	padding-left: .9rem;
 }
 
 blockquote,
