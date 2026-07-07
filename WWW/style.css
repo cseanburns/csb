@@ -96,11 +96,6 @@ pre {
 	line-height: 1.55;
 }
 
-kbd, samp {
-	border-left: 3px solid var(--black);
-	padding-left: .9rem;
-}
-
 blockquote,
 aside,
 .small,
