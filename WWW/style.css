@@ -1,39 +1,6 @@
 :root {
 	color-scheme: light dark;
-
-	/* Ember Dark palette */
-	--background: #0f172a;
-	--surface: #111827;
-	--surface-raised: #1e293b;
-	--foreground: #e5e7eb;
-	--foreground-bright: #f8fafc;
-	--foreground-dim: #cbd5e1;
-	--border: #64748b;
-	--selection: #38bdf8;
-	--selection-text: #082f49;
-
-	/* ANSI-inspired accents retained for existing pages */
-	--black: #0f172a;
-	--blue: #7dd3fc;
-	--cyan: #67e8f9;
-	--green: #86efac;
-	--magenta: #f0abfc;
-	--orange: #fdba74;
-	--red: #fca5a5;
-	--white: #f8fafc;
-	--yellow: #fde68a;
-
-	/* Backward-compatible names */
-	--paper: var(--background);
-	--primary_text: var(--foreground);
-	--accent1: var(--foreground-bright);
-	--accent2: var(--orange);
-	--accent3: var(--red);
-}
-
 html {
-	background-color: var(--background);
-	color: var(--foreground);
 	box-sizing: border-box;
 	font-size: 1rem;
 	font-family: sans-serif;
@@ -44,10 +11,10 @@ html {
 	box-sizing: inherit;
 }
 
-::selection {
-	background: var(--selection);
-	color: var(--selection-text);
-}
+/* ::selection { */
+/* 	background: var(--selection); */
+/* 	color: var(--selection-text); */
+/* } */
 
 body {
 	max-width: 116ch;
@@ -56,17 +23,19 @@ body {
 }
 
 header {
-	color: var(--foreground);
-	border-bottom: 1px dashed var(--border);
+	/* color: var(--foreground); */
+	/* border-bottom: 1px dashed var(--border); */
+	border-bottom: 1px dashed;
 }
 
-h1 {
-	color: var(--foreground-bright);
-}
+/* h1 { */
+/* 	color: var(--foreground-bright); */
+/* } */
 
 h2 {
-	color: var(--foreground-bright);
-	border-bottom: 1px solid var(--border);
+	/* color: var(--foreground-bright); */
+	/* border-bottom: 1px solid var(--border); */
+	border-bottom: 1px solid;
 	padding-bottom: 0.2rem;
 	background: transparent;
 	border-radius: 0;
@@ -76,9 +45,9 @@ h2 {
 	border-bottom: none;
 }
 
-h3 {
-	color: var(--foreground);
-}
+/* h3 { */
+/* 	color: var(--foreground); */
+/* } */
 
 /* Places elements just below the top of the window. */
 h2, h3 {
@@ -101,17 +70,19 @@ samp {
 p > code,
 kbd,
 samp {
-	background-color: var(--surface-raised);
-	color: var(--foreground-bright);
-	border: 1px solid var(--border);
+	/* background-color: var(--surface-raised); */
+	/* color: var(--foreground-bright); */
+	/* border: 1px solid var(--border); */
+	border: 1px solid;
 	border-radius: 0.2rem;
 	padding: 0 3px;
 }
 
 pre {
-	background: var(--surface);
-	color: var(--foreground);
-	border-left: 3px solid var(--foreground);
+	/* background: var(--surface); */
+	/* color: var(--foreground); */
+	/* border-left: 3px solid var(--foreground); */
+	border-left: 3px solid;
 	padding: 0.9rem 1rem;
 	margin: 1.25rem 0;
 	overflow-x: auto;
@@ -119,8 +90,8 @@ pre {
 }
 
 pre code {
-	background: transparent;
-	color: inherit;
+	/* background: transparent; */
+	/* color: inherit; */
 	border: 0;
 	padding: 0;
 }
@@ -130,13 +101,14 @@ aside,
 .small,
 footer,
 details {
-	color: var(--foreground-dim);
+	/* color: var(--foreground-dim); */
 }
 
 blockquote,
 aside {
 	border: none;
-	border-left: 3px solid var(--border);
+	/* border-left: 3px solid var(--border); */
+	border-left: 3px solid black;
 	padding-left: 0.5rem;
 	font-style: italic;
 }
@@ -147,7 +119,7 @@ img {
 }
 
 a {
-	color: var(--foreground-bright);
+	/* color: var(--foreground-bright); */
 	text-decoration: underline;
 	text-underline-offset: 0.15em;
 	text-decoration-thickness: 1px;
@@ -159,22 +131,24 @@ a:visited {
 }
 
 a:hover {
-	color: var(--white);
+	/* color: var(--white); */
 	text-decoration-thickness: 2px;
 }
 
 a:focus-visible {
-	outline: 2px solid var(--foreground-bright);
+	/* outline: 2px solid var(--foreground-bright); */
+	outline: 2px solid; 
 	outline-offset: 2px;
 }
 
 hr {
 	border: none;
-	border-top: 1px solid var(--border);
+	/* border-top: 1px solid var(--border); */
+	border-top: 1px solid;
 }
 
 details > summary {
-	color: var(--foreground);
+	/* color: var(--foreground); */
 	cursor: pointer;
 }
 
@@ -213,7 +187,8 @@ body .outline h3::before {
 }
 
 footer {
-	border-top: 1px dashed var(--border);
+	/* border-top: 1px dashed var(--border); */
+	border-top: 1px dashed;
 	margin-top: 10px;
 }
 
@@ -242,19 +217,20 @@ table {
 }
 
 table caption {
-	color: var(--foreground-dim);
+	/* color: var(--foreground-dim); */
 	text-align: left;
 	font-style: italic;
 }
 
 thead {
-	color: var(--foreground-bright);
-	background: var(--surface);
-	border-bottom: 1px solid var(--border);
+	/* color: var(--foreground-bright); */
+	/* background: var(--surface); */
+	/* border-bottom: 1px solid var(--border); */
+	border-bottom: 1px solid;
 }
 
 tbody tr:nth-child(even) {
-	background: var(--surface);
+	/* background: var(--surface); */
 }
 
 td {
