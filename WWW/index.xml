@@ -5,8 +5,14 @@
     <link>https://cseanburns.net/WWW/index.xml</link>
     <description>Recent posts in cseanburns.net/WWW/</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Jul 2026 20:44:17 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 23:00:19 -0400</lastBuildDate>
     <atom:link href="https://cseanburns.net/WWW/index.xml" rel="self" type="application/rss+xml"/>
+        <item>
+          <title>Interested</title>
+          <link>https://cseanburns.net/WWW/index.html#interested</link>
+          <pubDate>Sun, 02 Aug 2026 23:00:19 -0400</pubDate>
+          <guid>https://cseanburns.net/WWW/index.html#interested</guid>
+        </item>
         <item>
           <title>Road Work Ahead</title>
           <link>https://cseanburns.net/WWW/index.html#road-work-ahead</link>

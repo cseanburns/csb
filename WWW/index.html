@@ -52,6 +52,7 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#interested">Interested</a></li>
 <li><a href="WWW/index.html#road-work-ahead">Road Work Ahead</a></li>
 <li><a href="WWW/index.html#long-conversations">Long Conversations</a></li>
 <li><a href="WWW/index.html#uninterested">Uninterested</a></li>
@@ -478,6 +479,33 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20260802230019">
+<h2 id="interested">Interested</h2>
+<h3 id="August-02-2026-00"><time datetime="2026-08-02">August 02, 2026</time></h3>
+<p>Each semester I post a sign of my office hours next to my office door, and for the last five or so years, I've written my hours in some programming language. So far, I've written my office hours in R, Python, Bash, Go, BASIC, Lisp, Perl, JavaScript, and Groff. In thinking about what to use for this semester's signage, I thought I'd test if my growing disinterest in programming, which I wrote about a couple of weeks ago, was serious or if I simply needed something new to play around with.</p>
+<p>To test my interest, this semester I've written my signage in <a href="https://en.wikipedia.org/wiki/Fortran">Fortran</a>, and I'm pleased that I found it to be a fun exercise. Perhaps I just needed something new to play around with to get me excited again. However, I also chose it because, like I wrote a couple of weeks ago, I'm increasingly interested in historical aspects of computing, and Fortran is old.</p>
+<p>Here's my simple Fortran program to display my office hours:</p>
+<pre><code>program office_hours
+        implicit none
+        character (len = 3):: day
+
+        print *,&#39;C. SEAN BURNS, PHD&#39;
+        print *,&#39;ASSOCIATE PROFESSOR&#39;
+        print *,&#39;OFFICE HOURS, FALL 2026&#39;
+        print *,&#39;WED/THU: 3-4PM&#39;
+        print *,&#39;ENTER DAY OF WEEK (EX: mon, tue, etc) TO CHECK IF OFFICE HOURS ARE TODAY:&#39;
+
+        read *,day
+
+        if (day == &#39;wed&#39; .or. day == &#39;thu&#39;) then
+                print *,&#39;OFFICE HOURS ARE 3-4PM.&#39;
+        else
+                print *,&quot;NO OFFICE HOURS TODAY. EMAIL ME FOR AN APPOINTMENT.&quot;
+        end if
+end program office_hours</code></pre>
+<p>The most interesting thing I've found about Fortran is that because it's focused on numerical computing, it doesn't have the kind of text manipulation functions that I've grown used to in other languages, like those listed above but also others like Awk, Sed, etc. This means that if I were to use this seriously, I'd either have to write those functions myself, find existing code to use, or use those other languages to pre-process data. And thinking about how that workflow might play out has gotten my kind of excited again. But also, that focus on numerical computing makes sense, given the language's origins, which predate the text manipulation focused languages that arose in the 1970s.</p>
+<p>Anyway, I guess we'll see how it goes. In the meantime, the juices are flowing.</p>
+</article>
 <article id="20260730204417">
 <h2 id="road-work-ahead">Road Work Ahead</h2>
 <h3 id="July-30-2026-44"><time datetime="2026-07-30">July 30, 2026</time></h3>
