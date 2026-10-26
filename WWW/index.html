@@ -52,6 +52,7 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 <section id="toc">
 <h2>Table of Contents</h2>
 <ol reversed>
+<li><a href="WWW/index.html#mutts-limits">Mutt's Limits</a></li>
 <li><a href="WWW/index.html#on-vulnerability-part-2">On Vulnerability, Part 2</a></li>
 <li><a href="WWW/index.html#to-be-political">To Be Political</a></li>
 <li><a href="WWW/index.html#pessimism">Pessimism</a></li>
@@ -485,6 +486,23 @@ If interested, read more about this script at <a href="WWW/automation.html">Site
 
 <section id="posts">
 <h2>Posts</h2>
+<article id="20261026162446">
+<h2 id="mutts-limits">Mutt's Limits</h2>
+<h3 id="October-26-2026-24"><time datetime="2026-10-26">October 26, 2026</time></h3>
+<p>As noted throughout this page, I use the Mutt email client. Mutt is okay at general search, but for searching all my email folders, I use <a href="https://notmuchmail.org/notmuch-mutt/">Notmuch</a>, which is fabulous at search.</p>
+<p>However, sometimes Notmuch is overkill. Fortunately, Mutt has a way to filter emails within a folder based on patterns. There are all sorts of patterns available. Pressing the <code>l</code> command for limits, I can select messages based on patterns in the message body <code>~b PATTERN</code>, patterns in the message header <code>~h PATTERN</code>, or patterns in the subject field <code>~s SUBJECT PATTERN</code>. Or I can select messages that have been carbon-copied to some email address <code>~c USER PATTERN</code>, or messages directly addressed to an email address <code>~t USER PATTERN</code>. There are close to <a href="http://www.mutt.org/doc/manual/#patterns">60 patterns available</a>.</p>
+<p>I most often use these limits (or filters) in my Canvas email folder. Emails in this folder come from the Canvas course platform. They contain several types of emails: discussion posts from students, comments on student assignments, conversation emails (from Canvas's email system), announcements, and like. Each email contains the name of the course shell in the subject line; e.g.:</p>
+<pre><code>LIS617-201: Electronic Resource Management</code></pre>
+<p>If the email is from a discussion post, then it contains the name of the student and the name of discussion:</p>
+<pre><code>[Student] replied to 9: Markets and Economics</code></pre>
+<p>The full subject line might be:</p>
+<pre><code>[Student] replied to 9. Networking; DNS and Domain Names, ICT418-201: Linux Systems Administration (Fall 2026)</code></pre>
+<p>Mutt's <a href="http://www.mutt.org/doc/manual/#tab-patterns">limits</a> come in really useful in this folder because they allow me to limit email for a specific class or for a specific assignment, both, or more. For example, to limit the view of emails in this folder to a specific discussion topic, I press <code>l</code> in the Mutt folder, and then type some pattern from the subject field.</p>
+<p>Students usually post a lot (in my online, asynchronous courses) on Sunday evening, which means that I often have 120 or so emails in my Canvas email folder on Monday morning. Most of these emails are for the discussion posts for my two courses, but a small number of emails are student comments on assignments, course announcements, or Canvas email conversations. Because of the nature of those types of emails, I usually want to respond or address them before I respond to the discussion posts: e.g., I may want to grade a revision to an assignment, respond to a student's question in a comment, or check a message sent to me in Canvas conversations before I review, assess, or respond to the discussion posts. In this case, I can use limits to filter out discussion board emails so that I can view all other emails. This means I might use some operators: a logical NOT operator, which in Mutt, as it is in other search systems, is represented by the exclamation point <code>!</code>, the logical OR operator <code>|</code>, and grouping <code>()</code>. For instance, to filter out subject lines contains either the word <em>Markets</em> or <em>DNS</em>:</p>
+<pre><code>!(~s Markets|~s DNS)</code></pre>
+<p>Mutt's limit function only applies to the current folder. But one cool thing about searching with Notmuch is that results are presented in a temporary folder, and thus I can apply Mutt's limits to those results, too.</p>
+<p>Finally, because I can use Mutt to reply to students, which I've posted about before (see <a href="WWW/index.html#mutt-and-canvas">Mutt and Canvas</a>), this makes responding and interacting with students really fast, without having to use Canvas all that much. And that's a nice thing.</p>
+</article>
 <article id="20261018203604">
 <h2 id="on-vulnerability-part-2">On Vulnerability, Part 2</h2>
 <h3 id="October-18-2026-36"><time datetime="2026-10-18">October 18, 2026</time></h3>
